@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "D:\\DoAnWebTong\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\thong_so_ky_thuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\thong_so_ky_thuat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\tai_khoan_khach_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\tai_khoan_khach_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\nha_cung_cap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\nha_cung_cap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\san_pham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\san_pham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\doanwebdemo.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -23,19 +47,97 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Thong_So_Ky_Thuat.cs",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Thong_So_Ky_Thuat.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\Thong_So_Ky_Thuat.cs",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Thong_So_Ky_Thuat.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\Thong_So_Ky_Thuat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T15:12:18.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tai_Khoan_Khach_Hang.cs",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Tai_Khoan_Khach_Hang.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\Tai_Khoan_Khach_Hang.cs",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Tai_Khoan_Khach_Hang.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\Tai_Khoan_Khach_Hang.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T15:10:37.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "San_Pham.cs",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\San_Pham.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\San_Pham.cs",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\San_Pham.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\San_Pham.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA7wBgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T14:51:34.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T14:45:38.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\appsettings.json",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
+              "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-30T14:34:01.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Nha_Cung_Cap.cs",
+              "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Nha_Cung_Cap.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\Nha_Cung_Cap.cs",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\Nha_Cung_Cap.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\Nha_Cung_Cap.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwBQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T14:29:25.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\HomeController.cs",
               "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\HomeController.cs",
               "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T13:56:09.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "DoAnWEBDEMO",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
