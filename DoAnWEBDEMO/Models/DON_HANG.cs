@@ -34,5 +34,7 @@ namespace DoAnWEBDEMO.Models
         [StringLength(15, ErrorMessage = "Số điện thoại không được vượt quá 15 ký tự.")]
         [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         public string SoDienThoai { get; set; }
+
+        public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
     }
 }

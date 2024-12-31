@@ -34,5 +34,8 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Địa chỉ không được để trống.")]
         [StringLength(255, ErrorMessage = "Địa chỉ không được vượt quá 255 ký tự.")]
         public string DiaChi { get; set; }
+
+        public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+
     }
 }

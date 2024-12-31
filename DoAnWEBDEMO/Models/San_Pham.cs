@@ -33,6 +33,11 @@ namespace DoAnWEBDEMO.Models
 
         [Required(ErrorMessage = "Slug không được để trống.")]
         [StringLength(255, ErrorMessage = "Slug không được vượt quá 255 ký tự.")]
-        public string? Slug { get; set; } 
+        public string? Slug { get; set; }
+
+        public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
+        public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+
+
     }
 }
