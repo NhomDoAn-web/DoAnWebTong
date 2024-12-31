@@ -8,11 +8,11 @@ namespace DoAnWEBDEMO.Models
         [Key]
         public int MA_LH { get; set; }  
 
-        public string MA_NV { get; set; }  
+        public int MA_NVXL { get; set; }  
 
         [Required]
         [StringLength(255)]
-        public string HO_TEN { get; set; }  
+        public string HO_TEN { get; set; } 
 
         [EmailAddress]
         [StringLength(255)]
@@ -27,6 +27,8 @@ namespace DoAnWEBDEMO.Models
         [DataType(DataType.DateTime)]
         public DateTime THOI_GIAN_GUI { get; set; } 
 
-        public int TRANG_THAI { get; set; }  
+        public int TRANG_THAI { get; set; }
+
+        public virtual NhanVien? NhanVien{ get; set; }
     }
 }

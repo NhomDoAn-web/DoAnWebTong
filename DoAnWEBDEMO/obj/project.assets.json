@@ -4735,19 +4735,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\": {}
+    "C:\\Users\\lvkt0\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+      "projectUniqueName": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
       "projectName": "DoAnWEBDEMO",
-      "projectPath": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
-      "packagesPath": "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\",
-      "outputPath": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\obj\\",
+      "projectPath": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+      "packagesPath": "C:\\Users\\lvkt0\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\TRAN DUC MANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lvkt0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4771,8 +4776,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -4818,7 +4824,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
