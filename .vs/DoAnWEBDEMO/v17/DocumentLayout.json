@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\DOAN\\DoAnWEBDEMO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\models\\taikhoannhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\taikhoannhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -51,19 +55,36 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Model.cs",
+              "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\Model.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\Model.cs",
+              "ToolTip": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\Model.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\Model.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T06:00:35.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TaiKhoanNhanVien.cs",
               "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
               "ToolTip": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
+<<<<<<< HEAD
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAABGAAAA",
+=======
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABBAAAA",
+>>>>>>> 1ab465e4f672aafcd65ef180aa8004d5d3ccdc6f
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T14:16:13.531Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DanhMuc.cs",
               "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\DanhMuc.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DanhMuc.cs",
