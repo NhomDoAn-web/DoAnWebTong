@@ -43,7 +43,6 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         public string? MATKHAU { get; set; }
 
-        public virtual NhanVien? NhanVien{ get; set; }
         public virtual ICollection<DonHang>? DonHang { get; set; }
 
         public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }

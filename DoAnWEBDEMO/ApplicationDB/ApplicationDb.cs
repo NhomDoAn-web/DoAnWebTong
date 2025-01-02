@@ -60,7 +60,6 @@ namespace DoAnWEBDEMO.ApplicationDB
                 .OnDelete(DeleteBehavior.Cascade);
 
 
-            //========== Dương ============//
             // Cấu hình khóa chính composite cho bảng CHI_TIET_DON_HANG
             modelBuilder.Entity<CHI_TIET_DON_HANG>()
                 .HasKey(ctdh => new { ctdh.MA_DH, ctdh.MA_SP });

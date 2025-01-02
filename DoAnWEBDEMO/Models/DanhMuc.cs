@@ -13,7 +13,7 @@ namespace DoAnWEBDEMO.Models
 
         [Required(ErrorMessage = "Trạng thái không được để trống")]
         [StringLength(50, ErrorMessage = "Trạng thái không được vượt quá 50 ký tự")]
-        public string Trang_Thai { get; set; }
+        public int Trang_Thai { get; set; }
 
         public virtual ICollection<SanPham>? SanPham{ get; set; }
     }
