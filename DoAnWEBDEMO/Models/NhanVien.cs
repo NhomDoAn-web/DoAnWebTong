@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿`   using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
 {
@@ -19,5 +19,6 @@ namespace DoAnWEBDEMO.Models
         public string EMAIL { get; set; } 
 
         public int TRANGTHAI { get; set; }
+        public virtual TaiKhoanNhanVien? TaiKhoanNhanVien { get; set; }
     }
 }

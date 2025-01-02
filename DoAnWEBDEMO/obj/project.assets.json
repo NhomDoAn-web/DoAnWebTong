@@ -4735,19 +4735,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+      "projectUniqueName": "D:\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
       "projectName": "DoAnWEBDEMO",
-      "projectPath": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
-      "packagesPath": "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\",
-      "outputPath": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\obj\\",
+      "projectPath": "D:\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\DoAnWebTong\\DoAnWEBDEMO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\TRAN DUC MANH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4755,6 +4755,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4818,16 +4819,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
