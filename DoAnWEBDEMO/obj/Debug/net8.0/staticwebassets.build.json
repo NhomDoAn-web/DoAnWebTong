@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CmcnYvka2qOhotdQNIqEISSuAzGAGfabB8nyN8Hqs7A=",
+  "Hash": "d7Ezg7Ox8zN+l5GV5IRuDH7BM4rI/nkMO9CN0b0TdTM=",
   "Source": "DoAnWEBDEMO",
   "BasePath": "_content/DoAnWEBDEMO",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\logo.png",
+      "SourceId": "DoAnWEBDEMO",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\",
+      "BasePath": "_content/DoAnWEBDEMO",
+      "RelativePath": "image/logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\logo.png"
     },
     {
       "Identity": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",
