@@ -1,4 +1,4 @@
-﻿`   using System.ComponentModel.DataAnnotations;
+﻿ using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
 {
@@ -23,19 +23,18 @@ namespace DoAnWEBDEMO.Models
         public string TENDANGNHAP { get; set; }
 
         [StringLength(255)]
-        [RegularExpression(
-        @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
         ErrorMessage = "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.")]
         [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         public string MATKHAU { get; set; }
 
         public int TRANGTHAI { get; set; }
-<<<<<<< HEAD
+
         public virtual TaiKhoanNhanVien? TaiKhoanNhanVien { get; set; }
-=======
+
 
         public virtual ICollection<LienHe>? LienHe { get; set; }
         public virtual ICollection<DonHang>? DonHang{ get; set; }
->>>>>>> f7d9a896b8d8cf622392d662162e6230b4d36717
+
     }
 }
