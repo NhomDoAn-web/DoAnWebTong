@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\DoAnWebTong\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -16,10 +20,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doanwebtong\\doanwebdemo\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,7 +53,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -109,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ApplicationDb.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\Temp\\Zalo Temp\\88580139\\ApplicationDb.cs",
               "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\Temp\\Zalo Temp\\88580139\\ApplicationDb.cs",
@@ -119,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Program.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Program.cs",
@@ -131,19 +131,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\appsettings.json",
-              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
-              "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABMAAAAAAAAAA==",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json*",
+              "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-31T07:29:44.371Z"
+              "WhenOpened": "2024-12-31T07:29:44.371Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NhanVien.cs",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\NhanVien.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\NhanVien.cs",
@@ -192,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TaiKhoanNhanVien.cs",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",

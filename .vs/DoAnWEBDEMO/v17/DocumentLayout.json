@@ -135,9 +135,9 @@
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\appsettings.json",
-              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json*",
-              "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACgAAAAAAAAAA==",
+              "ToolTip": "D:\\DoAnWebTong\\DoAnWEBDEMO\\appsettings.json",
+              "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-31T07:29:44.371Z",
               "EditorCaption": ""
@@ -152,8 +152,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\NhanVien.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAAwBkAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T07:24:14.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T07:24:14.941Z"
             },
             {
               "$type": "Document",
