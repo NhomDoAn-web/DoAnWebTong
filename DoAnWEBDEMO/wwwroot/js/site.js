@@ -65,3 +65,32 @@ $(document).ready(function () {
         }
     });
 });
+
+
+//Khách hàng Đăng nhập
+$(document).ready(function () {
+    $('form').submit(function (e) {
+        e.preventDefault(); 
+
+        var taiKhoan = $('#text').val();  
+        var matKhau = $('#password').val(); 
+
+        $.ajax({
+            url: '/KhachHang/getKhachHangDangNhap',  
+            type: 'GET',
+            data: { taiKhoan: taiKhoan, matKhau: matKhau },  
+            success: function (response) {
+                if (response.value) {
+                    alert('Đăng nhập thành công!');
+                    
+                    window.location.href = '/home'; 
+                } else {
+                    alert('Tên người dùng hoặc mật khẩu không chính xác!');
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi đăng nhập.');
+            }
+        });
+    });
+});

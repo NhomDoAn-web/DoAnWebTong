@@ -1,5 +1,7 @@
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.Diagnostics;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -15,7 +17,20 @@ namespace DoAnWEBDEMO.Controllers
 
 
         //Khách hàng đăng nhập - Json
-
+        public JsonResult getKhachHangDangNhap(string taiKhoan, string matKhau)
+        {
+            var checkTaiKhoan = _db.KhachHang.FirstOrDefault(tk => tk.Email == taiKhoan || tk.TENNGUOIDUNG == taiKhoan);
+            Debug.WriteLine("Tài khoản: " + taiKhoan);
+            Debug.WriteLine("Mật khẩu: " + matKhau);
+            if(checkTaiKhoan != null)
+            {
+                if(checkTaiKhoan.MATKHAU == matKhau)
+                {
+                    return Json(new {value  = true});
+                }    
+            }    
+            return Json(new {value = false});
+        }
 
         public IActionResult Index()
         {
