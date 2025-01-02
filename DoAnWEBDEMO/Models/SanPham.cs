@@ -15,6 +15,9 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Mã danh mục là bắt buộc.")]
         public int MaDanhMuc { get; set; }
 
+        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
+        public string TEN_SP { get; set; }
+
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
 
