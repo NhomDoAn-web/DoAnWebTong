@@ -27,7 +27,7 @@ namespace DoAnWEBDEMO.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Số điện thoại không được để trống.")]
-        [StringLength(15, ErrorMessage = "Số điện thoại không được vượt quá 15 ký tự.")]
+        [StringLength(10, ErrorMessage = "Số điện thoại không được vượt quá 10 ký tự.")]
         [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         public string SDT { get; set; }
 
@@ -40,6 +40,9 @@ namespace DoAnWEBDEMO.Models
         public string? TENNGUOIDUNG { get; set; }
 
         [StringLength(255)]
+        [RegularExpression(
+        @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+        ErrorMessage = "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.")]
         [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         public string? MATKHAU { get; set; }
 

@@ -169,8 +169,8 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Property<string>("SDT")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("TENNGUOIDUNG")
                         .IsRequired()
@@ -375,6 +375,10 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("TEN_SP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TGianBaoHanh")
                         .HasColumnType("int");

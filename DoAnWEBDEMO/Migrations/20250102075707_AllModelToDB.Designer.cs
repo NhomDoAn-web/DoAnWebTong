@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20250102062834_AllModelToDB")]
+    [Migration("20250102075707_AllModelToDB")]
     partial class AllModelToDB
     {
         /// <inheritdoc />
@@ -172,8 +172,8 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Property<string>("SDT")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("TENNGUOIDUNG")
                         .IsRequired()
@@ -378,6 +378,10 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("TEN_SP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TGianBaoHanh")
                         .HasColumnType("int");

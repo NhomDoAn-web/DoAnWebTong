@@ -35,7 +35,7 @@ namespace DoAnWEBDEMO.Migrations
                     TenKH = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     GioiTinh = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    SDT = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     DiaChi = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     TENNGUOIDUNG = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     MATKHAU = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
@@ -86,6 +86,7 @@ namespace DoAnWEBDEMO.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaNCC = table.Column<int>(type: "int", nullable: false),
                     MaDanhMuc = table.Column<int>(type: "int", nullable: false),
+                    TEN_SP = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HinhAnhSP = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
                     MoTa = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
                     MauSP = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
