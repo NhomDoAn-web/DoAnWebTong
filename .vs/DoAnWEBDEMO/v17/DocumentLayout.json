@@ -96,7 +96,7 @@
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
               "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwBQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-02T07:34:10.596Z",
               "EditorCaption": ""
@@ -111,8 +111,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\NhanVien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:26.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:26.571Z"
             },
             {
               "$type": "Document",
@@ -124,8 +123,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\NhaCungCap.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:25.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:25.502Z"
             },
             {
               "$type": "Document",
@@ -137,8 +135,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\LienHe.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:23.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:23.624Z"
             },
             {
               "$type": "Document",
@@ -150,8 +147,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\KhachHang.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:22.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:22.677Z"
             },
             {
               "$type": "Document",
@@ -163,8 +159,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:20Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:20Z"
             },
             {
               "$type": "Document",
@@ -176,8 +171,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\DonHang.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:18.994Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:18.994Z"
             },
             {
               "$type": "Document",
@@ -189,8 +183,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\DanhMuc.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:33:13.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:33:13.744Z"
             },
             {
               "$type": "Document",
@@ -202,8 +195,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\CHI_TIET_DON_HANG.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:32:14.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:32:14.115Z"
             },
             {
               "$type": "Document",
@@ -215,8 +207,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:26:26.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:26:26.861Z"
             },
             {
               "$type": "Document",
@@ -228,8 +219,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAswAEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T07:25:36.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T07:25:36.053Z"
             },
             {
               "$type": "Document",
@@ -241,8 +231,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\CHI_TIET_BINH_LUAN.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T08:55:21.759Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T08:55:21.759Z"
             },
             {
               "$type": "Document",
@@ -254,8 +243,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-31T08:25:00.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T08:25:00.4Z"
             },
             {
               "$type": "Document",
@@ -267,8 +255,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T08:25:58.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T08:25:58.717Z"
             }
           ]
         },
