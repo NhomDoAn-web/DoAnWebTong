@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91a6e31f2c3766491b49fa5b748e1281744f9d13")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d0a96bba1b6022eab6a7717a4d24b10fffb4f6d")]
->>>>>>> thinh
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd4b9a445bb304bf50c936a055fd540f8b6e67ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
