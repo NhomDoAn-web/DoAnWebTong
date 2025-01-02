@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "D:\\DOAN\\DoAnWEBDEMO\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\danhmuc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,6 +14,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\models\\don_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\don_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\migrations\\20250102071724_addall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\migrations\\20250102071724_addall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\doan\\doanwebdemo\\doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> thinh
     }
   ],
   "DocumentGroupContainers": [
@@ -54,6 +67,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "DON_HANG.cs",
               "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\DON_HANG.cs",
@@ -75,10 +89,34 @@
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T14:16:13.531Z"
+=======
+              "DocumentIndex": 1,
+              "Title": "20250102071724_addAll.cs",
+              "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Migrations\\20250102071724_addAll.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Migrations\\20250102071724_addAll.cs",
+              "ToolTip": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Migrations\\20250102071724_addAll.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Migrations\\20250102071724_addAll.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T07:17:24.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ToolTip": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T07:15:51.514Z"
+>>>>>>> thinh
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "DanhMuc.cs",
               "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\Models\\DanhMuc.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DanhMuc.cs",
@@ -87,6 +125,16 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T14:15:16.91Z",
+=======
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ToolTip": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ViewState": "AQIAAD4BAAAAAAAAAAAkwGkBAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T07:15:29.914Z",
+>>>>>>> thinh
               "EditorCaption": ""
             }
           ]

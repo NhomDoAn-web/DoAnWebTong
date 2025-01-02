@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20241231150820_AddModels")]
-    partial class AddModels
+    [Migration("20250102071724_addAll")]
+    partial class addAll
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,10 +84,8 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("Trang_Thai")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Trang_Thai")
+                        .HasColumnType("int");
 
                     b.HasKey("Ma_DM");
 
@@ -171,13 +169,10 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("NhanVienMA_NV")
-                        .HasColumnType("int");
-
                     b.Property<string>("SDT")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("TENNGUOIDUNG")
                         .IsRequired()
@@ -190,8 +185,6 @@ namespace DoAnWEBDEMO.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MaKH");
-
-                    b.HasIndex("NhanVienMA_NV");
 
                     b.ToTable("KhachHang");
                 });
@@ -385,6 +378,10 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<string>("TEN_SP")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("TGianBaoHanh")
                         .HasColumnType("int");
 
@@ -458,15 +455,6 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired();
 
                     b.Navigation("KhachHang");
-
-                    b.Navigation("NhanVien");
-                });
-
-            modelBuilder.Entity("DoAnWEBDEMO.Models.KhachHang", b =>
-                {
-                    b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
-                        .WithMany()
-                        .HasForeignKey("NhanVienMA_NV");
 
                     b.Navigation("NhanVien");
                 });
