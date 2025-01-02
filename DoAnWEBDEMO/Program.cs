@@ -1,8 +1,9 @@
-using DoAnWEBDEMO.Access;
+using DoAnWEBDEMO.ApplicationDB;
+using DoAnWEBDEMO.SeedData;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDb>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
@@ -12,7 +13,7 @@ var app = builder.Build();
 
 
 
-// Configure the HTTP request pipeline.
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -30,5 +31,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDb>();
+SeedData.SeedingData(context);
+
 
 app.Run();

@@ -2,7 +2,7 @@
 
 namespace DoAnWEBDEMO.Models
 {
-    public class DON_HANG
+    public class DonHang
     {
         [Key]
         [Required(ErrorMessage = "Mã đơn hàng không được để trống.")]
@@ -12,14 +12,14 @@ namespace DoAnWEBDEMO.Models
         public int MaKH { get; set; }
 
         [Required(ErrorMessage = "Mã nhân viên không được để trống.")]
-        public int MaNV { get; set; }
+        public int MaNVXL { get; set; }
 
         [Required(ErrorMessage = "Ngày đặt hàng không được để trống.")]
         [StringLength(255, ErrorMessage = "Ngày đặt hàng không được vượt quá 255 ký tự.")]
         public string NgayDatHang { get; set; }
 
         [Required(ErrorMessage = "Tổng tiền không được để trống.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Tổng tiền phải là số dương.")]
+        [Range(1, double.MaxValue, ErrorMessage = "Tổng tiền phải là số dương.")]
         public decimal TongTienDonHang { get; set; }
 
         [Required(ErrorMessage = "Trạng thái đơn hàng không được để trống.")]
@@ -35,6 +35,11 @@ namespace DoAnWEBDEMO.Models
         [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Số điện thoại không hợp lệ.")]
         public string SoDienThoai { get; set; }
 
+        public virtual NhanVien? NhanVien{ get; set; }
+        public virtual KhachHang? KhachHang { get; set; }
+
         public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
+
+
     }
 }

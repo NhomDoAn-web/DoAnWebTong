@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DoAnWEBDEMO.Models
 {
@@ -19,8 +18,8 @@ namespace DoAnWEBDEMO.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "Tổng tiền từng sản phẩm phải là số dương.")]
         public decimal TONGTIENTUNGSANPHAM { get; set; }
 
-        public DON_HANG? DonHang { get; set; }
+        public DonHang? DonHang { get; set; }
 
-        public San_Pham? SanPham { get; set; }
+        public SanPham? SanPham { get; set; }
     }
 }
