@@ -22,13 +22,49 @@ body {
 }
 
 
+/*Danh mục*/
 
 
+.nav-item.dropdown .dropdown-menu {
+    min-width: 250px; 
+    padding: 10px 20px; 
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item {
+    padding: 12px 20px;
+    font-size: 18px; 
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+    color: #f36523; 
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-danhmuc {
+    color: black !important;
+    margin-left: 0;
+    transition: color 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+    font-size: 20px;    
+    font-weight: 600 !important;
+}
+
+.nav-danhmuc:hover {
+    color: #f36523 !important;
+    margin-left: 10px;
+}
+
+.nav-danhmuc:focus{
+    background-color: white !important; 
+}
 
 .btn-header {
     outline: none;
     border: none;
-    background-color:white;
+    background-color: white;
 }
 
 .bi-icon-header:hover, .nav-header:hover,.nav-footer {
@@ -114,16 +150,16 @@ body {
     align-items: center;
     border-radius: 10px;
     padding: 10px 20px;
-    background-color: #f36523; /* Màu nền thay đổi */
-    border: none; /* Loại bỏ viền */
-    color: white; /* Màu chữ trắng */
+    background-color: #f36523; 
+    border: none;
+    color: white; 
     cursor: pointer;
-    box-shadow: none; /* Loại bỏ hiệu ứng bóng khi nhấn */
+    box-shadow: none; 
     width: 400px;
 }
 
     .chat-btn:hover {
-        background-color: #ff7e42; /* Màu nền khi hover */
+        background-color: #ff7e42; 
     }
 
 .chat-box {
@@ -166,7 +202,7 @@ body {
 .question {
     padding: 8px;
     margin: 5px 0;
-    background-color: #f1f1f1;
+    background-color: rgb(247 216 200);
     border-radius: 5px;
     cursor: pointer;
 }
@@ -175,10 +211,10 @@ body {
     display: none;
     padding: 8px;
     margin: 5px 0;
-    background-color: #4c4a4a;
+    background-color: #e5e5e5;
     border-radius: 5px;
-    color: white;
-    font-size: 20px;
+    color: black;
+    font-size: 18px;
 }
 
 .chat-box-footer {

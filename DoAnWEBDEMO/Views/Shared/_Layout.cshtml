@@ -20,7 +20,15 @@
 
                     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Trang chủ</a></li>
-                        <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Sản phẩm</a></li>
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle fs-4 mx-3 text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 700;">
+                                Danh mục
+                            </a>
+                            <ul class="dropdown-menu danhmuc" aria-labelledby="navbarDropdown" id="ds-danhmuc">
+                                
+                            </ul>
+                        </li>
+
                         <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Blog</a></li>
                         <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Liên hệ</a></li>
                     </ul>
@@ -53,14 +61,14 @@
                                     <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
                                 </form>
 
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button class="btn btn-outline-danger me-2">
-                                        <i class="bi bi-google"></i> Đăng nhập với Google
-                                    </button>
-                                    <button class="btn btn-outline-primary">
-                                        <i class="bi bi-facebook"></i> Đăng nhập với Facebook
-                                    </button>
-                                </div>
+                                @* <div class="d-flex justify-content-center mt-3"> *@
+                                @*     <button class="btn btn-outline-danger me-2"> *@
+                                @*         <i class="bi bi-google"></i> Đăng nhập với Google *@
+                                @*     </button> *@
+                                @*     <button class="btn btn-outline-primary"> *@
+                                @*         <i class="bi bi-facebook"></i> Đăng nhập với Facebook *@
+                                @*     </button> *@
+                                @* </div> *@
 
                                 <p class="text-center mt-3">
                                     Chưa có tài khoản? <a href="#">Đăng ký</a>
@@ -106,19 +114,19 @@
 
 
             <div class="question" onclick="showAnswer('answer1')">
-                <p><strong>1. Làm thế nào để đặt hàng?</strong></p>
+                <p>1. Làm thế nào để đặt hàng?</p>
             </div>
             <div class="question" onclick="showAnswer('answer2')">
-                <p><strong>2. Chính sách đổi trả sản phẩm?</strong></p>
+                <p>2. Chính sách đổi trả sản phẩm?</p>
             </div>
             <div class="question" onclick="showAnswer('answer3')">
-                <p><strong>3. Thời gian giao hàng là bao lâu?</strong></p>
+                <p>3. Thời gian giao hàng là bao lâu?</p>
             </div>
             <div class="question" onclick="showAnswer('answer4')">
-                <p><strong>4. Làm sao để thanh toán?</strong></p>
+                <p>4. Làm sao để thanh toán?</p>
             </div>
             <div class="question" onclick="showAnswer('answer5')">
-                <p><strong>5. Tôi có thể liên hệ với nhân viên qua cách nào?</strong></p>
+                <p>5. Tôi có thể liên hệ với nhân viên qua cách nào?</p>
             </div>
 
             <!-- Câu trả lời -->
@@ -137,7 +145,10 @@
             <div class="answer" id="answer5">
                 <p>Bạn có thể liên hệ với chúng tôi qua các phương thức dưới đây: </p>
                 <p><b>Email: </b> techlandCSKH@gmail.com</p>
-                <p><b>Zalo: </b>098 7123 652</p>
+                <p><b>Zalo: </b>098 7123 652</p
+                <p>
+                    Chúng tôi luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào!
+                </p>
             </div>
         </div>
     </div>

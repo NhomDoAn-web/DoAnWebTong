@@ -41,3 +41,27 @@ function showAnswer(answerId) {
     const answer = document.getElementById(answerId);
     answer.style.display = 'block';
 }
+
+
+
+
+//Danh mục
+$(document).ready(function () {
+
+    $.ajax({
+        url: '/DanhMuc/getDanhMuc', 
+        type: 'GET',
+        success: function (data) {
+            
+            var dsDanhMuc = $('#ds-danhmuc');
+            dsDanhMuc.empty(); 
+
+            data.forEach(function (item) {
+                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="#">' + item + '</a></li>');
+            });
+        },
+        error: function (error) {
+            console.log("Có lỗi xảy ra khi lấy dữ liệu danh mục:", error);
+        }
+    });
+});
