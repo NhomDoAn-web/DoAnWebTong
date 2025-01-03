@@ -18,6 +18,10 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
         public string TEN_SP { get; set; }
 
+        [Required(ErrorMessage = "Giá sản phẩm là bắt buộc.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Giá sản phẩm phải là một số dương.")]
+        public decimal Gia { get; set; }
+
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
 

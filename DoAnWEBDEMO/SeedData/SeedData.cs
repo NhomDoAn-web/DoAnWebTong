@@ -53,7 +53,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 1,
                         TEN_SP = "iPhone 14",
                         HinhAnhSP = "iphone_14.jpg",
-                        MoTa = "iPhone 14 với thiết kế hiện đại và hiệu năng vượt trội.",
+                        MoTa = "iPhone 14 với thiết kế hiện đại và hiệu năng vượt trội. Sản phẩm được trang bị chip A15 Bionic mạnh mẽ, camera kép 12MP sắc nét, và thời lượng pin ổn định. Với màn hình 6.1 inch Liquid Retina, iPhone 14 mang lại trải nghiệm tuyệt vời cho người dùng yêu thích sự nhỏ gọn nhưng không kém phần sang trọng.",
                         MauSP = "Đen",
                         TGianBaoHanh = 12,
                         TrangThai = 1,
@@ -67,7 +67,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "128GB",
                         Pin = "3279mAh",
                         HeDieuHanh = "iOS 16",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 22990000
                     },
                     new SanPham
                     {
@@ -75,7 +76,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 2,
                         TEN_SP = "Samsung Galaxy S23",
                         HinhAnhSP = "samsung_s23.jpg",
-                        MoTa = "Samsung Galaxy S23 với màn hình Dynamic AMOLED 2X.",
+                        MoTa = "Samsung Galaxy S23 mang đến một thiết kế hoàn hảo với màn hình Dynamic AMOLED 2X 6.1 inch, đảm bảo độ sắc nét cao. Máy được trang bị chip Snapdragon 8 Gen 2 mạnh mẽ, hệ thống camera ấn tượng 50MP và dung lượng pin tối ưu 3900mAh, cho trải nghiệm lâu dài trong suốt cả ngày.",
                         MauSP = "Trắng",
                         TGianBaoHanh = 12,
                         TrangThai = 1,
@@ -89,7 +90,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "3900mAh",
                         HeDieuHanh = "Android 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 23990000
                     },
                     new SanPham
                     {
@@ -97,7 +99,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 3,
                         TEN_SP = "Xiaomi 13",
                         HinhAnhSP = "xiaomi_13.jpg",
-                        MoTa = "Xiaomi 13 với thiết kế thanh lịch và hiệu năng mạnh mẽ.",
+                        MoTa = "Xiaomi 13 là sự kết hợp hoàn hảo giữa thiết kế sang trọng và hiệu năng mạnh mẽ. Với chipset Snapdragon 8 Gen 2, RAM 12GB và bộ nhớ trong 256GB, sản phẩm sẵn sàng đáp ứng mọi nhu cầu từ làm việc đến giải trí. Camera Leica 50MP, màn hình AMOLED 6.36 inch và pin 4500mAh giúp người dùng tận hưởng trải nghiệm tuyệt vời.",
                         MauSP = "Xanh",
                         TGianBaoHanh = 12,
                         TrangThai = 1,
@@ -111,7 +113,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "4500mAh",
                         HeDieuHanh = "MIUI 14",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 17990000
                     },
                     new SanPham
                     {
@@ -119,7 +122,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 4,
                         TEN_SP = "Oppo Find X6",
                         HinhAnhSP = "oppo_find_x6.jpg",
-                        MoTa = "Oppo Find X6 với công nghệ camera tiên tiến.",
+                        MoTa = "Oppo Find X6 sở hữu thiết kế tinh tế với công nghệ camera đỉnh cao. Camera sau 50MP mang lại hình ảnh sống động, chip Dimensity 9200 và RAM 16GB đảm bảo hiệu năng mượt mà. Sản phẩm nổi bật với màn hình AMOLED 6.8 inch và pin 4800mAh, lý tưởng cho cả công việc và giải trí.",
                         MauSP = "Hồng",
                         TGianBaoHanh = 12,
                         TrangThai = 1,
@@ -133,7 +136,123 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "512GB",
                         Pin = "4800mAh",
                         HeDieuHanh = "ColorOS 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 32990000
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 1,
+                        MaDanhMuc = 1,
+                        TEN_SP = "iPhone 14 Pro Max",
+                        HinhAnhSP = "iphone_14_pro_max.jpg",
+                        MoTa = "iPhone 14 Pro Max là chiếc flagship hàng đầu của Apple, nổi bật với thiết kế Dynamic Island độc đáo, hiệu năng vượt trội nhờ chipset A16 Bionic, màn hình Super Retina XDR 6.7 inch sắc nét, cùng cụm camera chuyên nghiệp với độ phân giải cao lên đến 48MP. Đây là sự lựa chọn hoàn hảo cho những ai yêu thích công nghệ hiện đại.",
+                        MauSP = "Tím",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "iphone-14-pro-max",
+                        KichThuoc_ManHinh = "6.7 inch",
+                        CameraSau = "48MP + 12MP + 12MP",
+                        Camera_Truoc = "12MP",
+                        Chipset = "A16 Bionic",
+                        Gpu = "Apple GPU",
+                        Dung_Luong_Ram = "6GB",
+                        Bo_Nho_Trong = "1TB",
+                        Pin = "4323mAh",
+                        HeDieuHanh = "iOS 16",
+                        TanSoQuet = "120Hz",
+                        Gia = 33990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 2,
+                        TEN_SP = "Samsung Galaxy Z Fold4",
+                        HinhAnhSP = "samsung_z_fold4.jpg",
+                        MoTa = "Samsung Galaxy Z Fold4 là mẫu điện thoại gập tiên tiến, mang lại trải nghiệm sử dụng độc đáo với màn hình lớn 7.6 inch. Được trang bị chip Snapdragon 8+ Gen 1 mạnh mẽ, camera chất lượng cao với khả năng quay video 4K, và thiết kế gọn gàng, Z Fold4 là lựa chọn lý tưởng cho người dùng yêu thích sự đổi mới.",
+                        MauSP = "Xanh",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "samsung-galaxy-z-fold4",
+                        KichThuoc_ManHinh = "7.6 inch",
+                        CameraSau = "50MP + 12MP + 10MP",
+                        Camera_Truoc = "10MP",
+                        Chipset = "Snapdragon 8+ Gen 1",
+                        Gpu = "Adreno 730",
+                        Dung_Luong_Ram = "12GB",
+                        Bo_Nho_Trong = "512GB",
+                        Pin = "4400mAh",
+                        HeDieuHanh = "Android 13",
+                        TanSoQuet = "120Hz",
+                        Gia = 41990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 1,
+                        MaDanhMuc = 3,
+                        TEN_SP = "Xiaomi Redmi Note 12 Pro",
+                        HinhAnhSP = "xiaomi_redmi_note_12_pro.jpg",
+                        MoTa = "Xiaomi Redmi Note 12 Pro là smartphone tầm trung với nhiều tính năng cao cấp, bao gồm màn hình AMOLED 6.67 inch, cụm camera 108MP chụp ảnh sắc nét, và viên pin lớn 5000mAh hỗ trợ sạc nhanh. Đây là sản phẩm lý tưởng cho người dùng cần hiệu năng mạnh mẽ với giá cả phải chăng.",
+                        MauSP = "Xanh Dương",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "xiaomi-redmi-note-12-pro",
+                        KichThuoc_ManHinh = "6.67 inch",
+                        CameraSau = "108MP + 8MP + 2MP",
+                        Camera_Truoc = "16MP",
+                        Chipset = "Dimensity 1080",
+                        Gpu = "Mali-G68",
+                        Dung_Luong_Ram = "8GB",
+                        Bo_Nho_Trong = "256GB",
+                        Pin = "5000mAh",
+                        HeDieuHanh = "MIUI 14",
+                        TanSoQuet = "120Hz",
+                        Gia = 9990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 4,
+                        TEN_SP = "Oppo Reno 9 Pro",
+                        HinhAnhSP = "oppo_reno_9_pro.jpg",
+                        MoTa = "Oppo Reno 9 Pro là dòng sản phẩm cao cấp với thiết kế mỏng nhẹ, màu sắc sang trọng, và camera selfie 32MP chuyên nghiệp. Sản phẩm được trang bị chipset Dimensity 8100 mạnh mẽ, màn hình OLED 6.7 inch, và pin dung lượng lớn, hỗ trợ sạc nhanh 65W.",
+                        MauSP = "Vàng",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "oppo-reno-9-pro",
+                        KichThuoc_ManHinh = "6.7 inch",
+                        CameraSau = "50MP + 8MP + 2MP",
+                        Camera_Truoc = "32MP",
+                        Chipset = "Dimensity 8100",
+                        Gpu = "Mali-G610",
+                        Dung_Luong_Ram = "12GB",
+                        Bo_Nho_Trong = "512GB",
+                        Pin = "4500mAh",
+                        HeDieuHanh = "ColorOS 13",
+                        TanSoQuet = "120Hz",
+                        Gia = 17990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 1,
+                        TEN_SP = "iPhone SE (2024)",
+                        HinhAnhSP = "iphone_se_2024.jpg",
+                        MoTa = "iPhone SE (2024) mang đến hiệu năng vượt trội với chip A15 Bionic trong một thiết kế nhỏ gọn. Sản phẩm có camera sắc nét, màn hình Retina HD 4.7 inch, và hỗ trợ cập nhật phần mềm lâu dài, phù hợp với người dùng yêu thích sự tiện lợi và hiệu quả.",
+                        MauSP = "Đỏ",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "iphone-se-2024",
+                        KichThuoc_ManHinh = "4.7 inch",
+                        CameraSau = "12MP",
+                        Camera_Truoc = "7MP",
+                        Chipset = "A15 Bionic",
+                        Gpu = "Apple GPU",
+                        Dung_Luong_Ram = "4GB",
+                        Bo_Nho_Trong = "64GB",
+                        Pin = "1821mAh",
+                        HeDieuHanh = "iOS 16",
+                        TanSoQuet = "60Hz",
+                        Gia = 10990000 // Đơn giá của sản phẩm
                     }
 
                 };
@@ -141,12 +260,12 @@ namespace DoAnWEBDEMO.SeedData
                 _db.SaveChanges();
             }
 
-            //Dữ liệu Khách hàng
+            // Dữ liệu Khách hàng
             if (!_db.KhachHang.Any())
             {
                 var khachHangs = new List<KhachHang>
                 {
-                     new KhachHang
+                    new KhachHang
                     {
                         HoKH = "Trịnh",
                         TenKH = "Trần Phương Tuấn Bỏ Con",
@@ -178,6 +297,29 @@ namespace DoAnWEBDEMO.SeedData
                         DiaChi = "789 Đường LMN, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "nvanan",
                         MATKHAU = "Nvanan@123"
+                    },
+                    // Thêm khách hàng mới
+                    new KhachHang
+                    {
+                        HoKH = "Lê",
+                        TenKH = "Hồng Hoa",
+                        GioiTinh = "Nữ",
+                        Email = "lehonghoa@example.com",
+                        SDT = "0987654321",
+                        DiaChi = "321 Đường DEF, TP. Hồ Chí Minh",
+                        TENNGUOIDUNG = "lehonghoa",
+                        MATKHAU = "Lehonghoa@123"
+                    },
+                    new KhachHang
+                    {
+                        HoKH = "Phan",
+                        TenKH = "Thanh Sơn",
+                        GioiTinh = "Nam",
+                        Email = "phanthanhson@example.com",
+                        SDT = "0765432189",
+                        DiaChi = "654 Đường GHI, TP. Hồ Chí Minh",
+                        TENNGUOIDUNG = "phanthanhson",
+                        MATKHAU = "Phanthanhson@123"
                     }
                 };
 
@@ -185,33 +327,106 @@ namespace DoAnWEBDEMO.SeedData
                 _db.SaveChanges();
             }
 
-            //Dữ liệu Chi tiết bình luận
+            // Dữ liệu Chi tiết bình luận
             if (!_db.CHI_TIET_BINH_LUAN.Any())
             {
                 var chiTietBinhLuans = new List<CHI_TIET_BINH_LUAN>
                 {
+                    // Bình luận cho iPhone 14
                     new CHI_TIET_BINH_LUAN
                     {
-                        MA_SP = 1,
+                        MA_SP = 6,
                         MA_KH = 1,
                         SO_SAO = 5,
-                        NOI_DUNG = "Sản phẩm tuyệt vời, rất hài lòng!",
+                        NOI_DUNG = "Thiết kế đẹp, hiệu năng mạnh mẽ. Rất đáng tiền!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 6,
+                        MA_KH = 3,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Sản phẩm tốt nhưng thời lượng pin cần cải thiện.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Samsung Galaxy S23
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 7,
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Màn hình đẹp, camera rất sắc nét. Rất hài lòng!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 7,
+                        MA_KH = 2,
+                        SO_SAO = 3,
+                        NOI_DUNG = "Hiệu năng tốt nhưng máy hơi nóng khi chơi game.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Xiaomi 13
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 8,
+                        MA_KH = 1,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Thiết kế đẹp, giá cả hợp lý. Nhưng camera không tốt lắm.",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 8,
+                        MA_KH = 2,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Tuyệt vời! Hiệu năng rất ổn định.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Oppo Find X6
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Camera cực kỳ tốt, màn hình sáng rõ. Rất thích!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 2,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Thiết kế đẹp nhưng giá hơi cao.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho các sản phẩm mới thêm
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 3,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Hiệu năng tốt, thiết kế ổn. Rất đáng mua.",
                         NGAY = DateTime.Now
                     },
                     new CHI_TIET_BINH_LUAN
                     {
                         MA_SP = 2,
-                        MA_KH = 2,
-                        SO_SAO = 4,
-                        NOI_DUNG = "Sản phẩm tốt nhưng cần cải thiện chất lượng camera.",
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Mua tặng bạn bè, mọi người đều rất thích!",
                         NGAY = DateTime.Now
                     },
                     new CHI_TIET_BINH_LUAN
                     {
-                        MA_SP = 1,
+                        MA_SP = 8,
                         MA_KH = 3,
-                        SO_SAO = 3,
-                        NOI_DUNG = "Giá hơi cao so với tính năng.",
+                        SO_SAO = 4,
+                        NOI_DUNG = "Tính năng rất đa dạng, hiệu năng ổn định.",
                         NGAY = DateTime.Now
                     }
                 };
@@ -219,6 +434,8 @@ namespace DoAnWEBDEMO.SeedData
                 _db.CHI_TIET_BINH_LUAN.AddRange(chiTietBinhLuans);
                 _db.SaveChanges();
             }
+
+
 
             //Dữ liệu Nhân Viên
             if (!_db.NhanVien.Any())

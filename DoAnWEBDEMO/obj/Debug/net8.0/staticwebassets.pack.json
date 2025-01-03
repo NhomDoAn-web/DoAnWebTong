@@ -13,8 +13,44 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\iphone_14.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone_14.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\iphone_14_pro_max.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone_14_pro_max.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\iphone_se_2024.jpg",
+      "PackagePath": "staticwebassets\\image\\iphone_se_2024.jpg"
+    },
+    {
       "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\logo.png",
       "PackagePath": "staticwebassets\\image\\logo.png"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\oppo_find_x6.jpg",
+      "PackagePath": "staticwebassets\\image\\oppo_find_x6.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\oppo_reno_9_pro.jpg",
+      "PackagePath": "staticwebassets\\image\\oppo_reno_9_pro.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\samsung_s23.jpg",
+      "PackagePath": "staticwebassets\\image\\samsung_s23.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\samsung_z_fold4.jpg",
+      "PackagePath": "staticwebassets\\image\\samsung_z_fold4.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\xiaomi_13.jpg",
+      "PackagePath": "staticwebassets\\image\\xiaomi_13.jpg"
+    },
+    {
+      "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\xiaomi_redmi_note_12_pro.jpg",
+      "PackagePath": "staticwebassets\\image\\xiaomi_redmi_note_12_pro.jpg"
     },
     {
       "Id": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",

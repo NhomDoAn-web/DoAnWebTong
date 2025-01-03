@@ -203,3 +203,65 @@ body {
 .chat-box.show {
     display: flex;
 }
+
+
+/*---------------------- CHI TIẾT SẢN PHẨM ------------------------*/
+
+.product-detail {
+    margin-top: 20px;
+}
+
+.thumbnail-gallery img {
+    width: 60px;
+    height: 60px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+    .thumbnail-gallery img:hover {
+        border-color: #007bff;
+    }
+
+.rating .stars {
+    color: gold;
+    font-size: 1.2em;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review {
+    background-color: #f8f9fa;
+}
+
+.review-rating .fa-star {
+    color: #ffc107; /* Màu vàng cho sao */
+}
+
+.reviews-container::-webkit-scrollbar, .technical-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb, .technical-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+}
+
+.reviews-container::-webkit-scrollbar-thumb:hover, .technical-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+
+
+/*=====================================*/

@@ -332,6 +332,9 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<decimal>("Gia")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Gpu")
                         .IsRequired()
                         .HasMaxLength(255)
