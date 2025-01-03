@@ -7,24 +7,12 @@
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\lvkt0\\desktop\\zz\\doanwebtong\\doanwebdemo\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\lvkt0\\desktop\\zz\\doanwebtong\\doanwebdemo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\lvkt0\\desktop\\zz\\doanwebtong\\doanwebdemo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\lvkt0\\desktop\\zz\\doanwebtong\\doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\lvkt0\\desktop\\zz\\doanwebtong\\doanwebdemo\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,87 +22,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\js\\site.js",
-              "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js*",
-              "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\js\\site.js*",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAAAIAAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-01-02T10:25:24.943Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-01-02T10:25:24.943Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
               "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGsBAAAAAAAAAAAAAH0BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-01-02T10:16:10.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Program.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Program.cs",
-              "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Program.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T01:07:04.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DanhMucController.cs",
-              "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
-              "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T16:33:39.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "KhachHangController.cs",
-              "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\KhachHangController.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\KhachHangController.cs",
-              "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\KhachHangController.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\KhachHangController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T16:43:46.299Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADQAAABpAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAGsAAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-02T08:16:34.758Z",
               "EditorCaption": ""

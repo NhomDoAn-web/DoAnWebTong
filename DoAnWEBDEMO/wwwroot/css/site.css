@@ -48,8 +48,8 @@ body {
     color: black !important;
     margin-left: 0;
     transition: color 0.4s ease-in-out, margin-left 0.4s ease-in-out;
-    font-size: 20px;    
-    font-weight: 600 !important;
+    font-size: 18px;    
+    font-weight: 400 !important;
 }
 
 .nav-danhmuc:hover {
@@ -70,14 +70,35 @@ body {
 .btn-icon-login{
     border: 2px solid black;
     border-radius: 10px;
-    padding: 0.5rem 1rem;
+    padding: 0.2rem 1rem;
     font-weight: 700;
 }
 
 .btn-icon-login:hover {
     color: #f36523;
     border: 2px solid #f36523;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+
+.menu-link {
+    position: relative; 
+    display: inline-block; 
+}
+
+.menu-link:after {
+    content: ""; 
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; 
+    background-color: #f36523; 
+    transition: width 0.3s ease, left 0.3s ease; 
+}
+
+.menu-link:hover:after {
+    width: 100%; 
+    left: 0; 
 }
 
 .bi-icon-header:hover, .nav-header:hover,.nav-footer {
@@ -87,6 +108,35 @@ body {
 
 .shadow-top {
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    background-color: #e7e7e7;
+    padding: 5px 20px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn i {
+    font-size: 18px;
+    color: #333;
 }
 
 /*Account Header*/
@@ -161,7 +211,6 @@ body {
     font-weight: bold;
     font-size: 40px;
     letter-spacing: 18px;
-    text-transform: uppercase;
     color: #333;
     text-align: center;
     background-color: #f1f1f1;
@@ -295,7 +344,7 @@ body {
     display: none; /* Mặc định là không hiển thị */
     position: absolute;
     top: 60px;
-    right: 100px;
+    right: 250px;
     background-color: white;
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -312,3 +361,28 @@ body {
 #accountButton {
     cursor: pointer;
 }
+
+
+
+.btn-taikhoan,
+#logoutButton {
+    width: 100%;
+    background-color: white;
+    display: block;
+    height: 40px;
+    padding: 10px;
+}
+
+.btn-taikhoan:hover,
+#logoutButton:hover {
+    background-color: black;
+    color: white !important;
+}
+
+
+
+#logoutButton{
+    outline: none;
+    border: none;
+}
+

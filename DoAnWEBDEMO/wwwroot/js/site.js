@@ -3,7 +3,16 @@ const openModalBtn = document.getElementById('openLoginModal');
 const closeModalBtn = document.getElementById('closeLoginModal');
 const modal = document.getElementById('loginModal');
 
-
+const chuoiCaptcha = document.querySelector(".chuoiCaptcha");
+const nhapCaptcha = document.getElementById("nhapCaptcha");
+const thongBaoCaptcha = document.getElementById("thongBaoCaptcha");
+const taoCaptcha = document.getElementById("taoCaptcha");
+const kiemTraCaptcha = document.getElementById("kiemTraCaptcha");
+const btnLogin = document.querySelector(".btn-login");
+const btnIconLogin = document.querySelector(".btn-icon-login");
+const taiKhoanKhachHang = document.getElementById("taiKhoanKhachHang");
+const matKhauKhachHang = document.getElementById("matKhauKhachHang");
+const showPasswordCheckbox = document.getElementById("showPassword");
 
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
@@ -14,6 +23,7 @@ if (openModalBtn) {
 if (closeModalBtn) {
     closeModalBtn.addEventListener('click', () => {
         modal.classList.remove('show');
+        taiKhoanKhachHang.value = matKhauKhachHang.value = "";
     });
 }
 
@@ -64,13 +74,6 @@ $(document).ready(function () {
 
 // Captcha chuỗi ký tự ngẫu nhiên
 
-const chuoiCaptcha = document.querySelector(".chuoiCaptcha");
-const nhapCaptcha = document.getElementById("nhapCaptcha");
-const thongBaoCaptcha = document.getElementById("thongBaoCaptcha");
-const taoCaptcha = document.getElementById("taoCaptcha");
-const kiemTraCaptcha = document.getElementById("kiemTraCaptcha");
-const btnLogin = document.querySelector(".btn-login");
-const btnIconLogin = document.querySelector(".btn-icon-login");
 
 function taoChuoiNgauNhien() {
     const kyTu = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -89,12 +92,9 @@ function hienThiCaptcha() {
 
 function kiemTraChuoiCaptcha() {
     if (nhapCaptcha.value === chuoiCaptcha.textContent) {
-        thongBaoCaptcha.textContent = "Captcha chính xác!";
-        thongBaoCaptcha.style.color = "green";
-
         console.log("check")
-        const taiKhoan = document.getElementById("text").value;
-        const matKhau = document.getElementById("password").value;
+        const taiKhoan = taiKhoanKhachHang.value;
+        const matKhau = matKhauKhachHang.value;
 
         $.ajax({
             url: '/KhachHang/getKhachHangDangNhap',
@@ -130,7 +130,29 @@ if (taoCaptcha) {
 }
 
 
+document.querySelectorAll('.input-taikhoan').forEach(item => {
+    item.addEventListener("keydown", event => {
+        if (event.key === "Enter")
+        {
+            if (item.value.trim() === "") {
+                alert("Vui lòng nhập thông tin trước khi tiếp tục!");
+                return;
+            }
+            else
+            {
+                btnLogin.click();
+            }
+        }
+    })
+})
+
 btnLogin.addEventListener("click", kiemTraChuoiCaptcha);
+
+
+
+showPasswordCheckbox.addEventListener("change", () => {
+    matKhauKhachHang.type = showPasswordCheckbox.checked ? "text" : "password";
+});
 
 // Tạo captcha khi tải trang
 hienThiCaptcha();
