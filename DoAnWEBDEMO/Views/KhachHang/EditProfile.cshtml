@@ -1,0 +1,104 @@
+﻿@model DoAnWEBDEMO.Models.KhachHang
+@{
+    ViewData["Title"] = "EditProfile";
+}
+
+<div class="container mt-5">
+    <h2>Chỉnh sửa thông tin tài khoản</h2>
+
+    <form id="editProfileForm" method="post">
+        <!-- Họ -->
+        <div class="form-group">
+            <label for="hoKH">Họ</label>
+            <input type="text" class="form-control" id="hoKH" name="hoKH" value="@Model.HoKH" required />
+        </div>
+
+        <!-- Tên -->
+        <div class="form-group">
+            <label for="tenKH">Tên</label>
+            <input type="text" class="form-control" id="tenKH" name="tenKH" value="@Model.TenKH" required />
+        </div>
+
+        <!-- Giới tính -->
+        <div class="form-group">
+            <label for="gioiTinh">Giới Tính</label>
+            <select class="form-control" id="gioiTinh" name="gioiTinh">
+                @if (Model.GioiTinh == "Nam")
+                {
+                    <option value="Nam" selected>Nam</option>
+                    <option value="Nữ">Nữ</option>
+                }
+                else
+                {
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ" selected>Nữ</option>
+                }
+            </select>
+        </div>
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="@Model.Email" required />
+        </div>
+
+        <!-- Số điện thoại -->
+        <div class="form-group">
+            <label for="sdt">Số điện thoại</label>
+            <input type="text" class="form-control" id="sdt" name="sdt" value="@Model.SDT" required />
+        </div>
+
+        <!-- Địa chỉ -->
+        <div class="form-group">
+            <label for="diaChi">Địa chỉ</label>
+            <input type="text" class="form-control" id="diaChi" name="diaChi" value="@Model.DiaChi" required />
+        </div>
+
+        <!-- Tên người dùng -->
+        <div class="form-group">
+            <label for="tenNguoiDung">Tên người dùng</label>
+            <input type="text" class="form-control" id="tenNguoiDung" name="tenNguoiDung" value="@Model.TENNGUOIDUNG" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Cập nhật</button>
+    </form>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#editProfileForm').on('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn gửi form mặc định
+
+            var formData = $(this).serialize(); // Thu thập dữ liệu từ form
+
+            $.ajax({
+                url: '@Url.Action("EditProfile", "KhachHang")',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.value) {
+                        // Hiển thị thông báo thành công
+                        alert(response.message);
+                        // Chuyển hướng nếu URL tồn tại
+                        if (response.redirectUrl) {
+                            window.location.href = response.redirectUrl;
+                        } else {
+                            alert("URL chuyển hướng không tồn tại!");
+                        }
+                    } else {
+                        // Thông báo lỗi từ server
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    // Thông báo nếu xảy ra lỗi trong AJAX
+                    alert("Có lỗi xảy ra khi gửi yêu cầu!");
+                }
+            });
+        });
+    });
+</script>
+
+
+
+

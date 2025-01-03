@@ -34,6 +34,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEVkaXRQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/EditThongTinTaiKhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEVkaXRUaG9uZ1RpblRhaUtob2FuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,55 @@
+﻿@model DoAnWEBDEMO.Models.KhachHang
+@{
+    ViewData["Title"] = "Profile";
+}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Thanh điều hướng bên trái -->
+        <div class="col-md-3">
+            <div class="list-group">
+                <h4 class="text-center mb-4">Tài Khoản</h4>
+                <a href="@Url.Action("EditProfile", "KhachHang")" class="list-group-item list-group-item-action">
+                    <i class="bi bi-person-circle"></i> Hồ Sơ
+                </a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-cart-check"></i> Đơn Mua</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-bell"></i> Thông Báo</a>
+                <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-gift"></i> Kho Voucher</a>
+            </div>
+
+        </div>
+
+        <!-- Hiển thị thông tin cá nhân bên phải -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Thông Tin Tài Khoản</h2>
+                   
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Họ</th>
+                                <th>Tên</th>
+                                <th>Giới Tính</th>
+                                <th>Email</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Địa Chỉ</th>
+                                <th>Tên Người Dùng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.HoKH</td>
+                                <td>@Model.TenKH</td>
+                                <td>@Model.GioiTinh</td>
+                                <td>@Model.Email</td>
+                                <td>@Model.SDT</td>
+                                <td>@Model.DiaChi</td>
+                                <td>@Model.TENNGUOIDUNG</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
