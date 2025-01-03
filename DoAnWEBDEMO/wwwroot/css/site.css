@@ -8,6 +8,8 @@
   }
 }
 
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -23,8 +25,6 @@ body {
 
 
 /*Danh mục*/
-
-
 .nav-item.dropdown .dropdown-menu {
     min-width: 250px; 
     padding: 10px 20px; 
@@ -67,9 +67,22 @@ body {
     background-color: white;
 }
 
+.btn-icon-login{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+}
+
+.btn-icon-login:hover {
+    color: #f36523;
+    border: 2px solid #f36523;
+    transition: 0.3s ease-in-out;
+}
+
 .bi-icon-header:hover, .nav-header:hover,.nav-footer {
     color: #f36523 !important;
-    transition: 0.3s ease-in-out !important;
+    transition: 0.2s ease-in-out !important;
 }
 
 .shadow-top {
@@ -137,6 +150,41 @@ body {
 
 /*End*/
 
+/*Captcha*/
+.captcha {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.chuoiCaptcha {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 18px;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: auto;
+}
+
+
+#captchaInput {
+    width: 300px;
+}
+
+#captchaMessage {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+
+
 
 /*//Chat box*/
 .chat-box-trigger {
@@ -172,7 +220,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: none;
     flex-direction: column;
-    z-index: 9998;
+    z-index: 2; 
 }
 
 .chat-box-header {
@@ -238,4 +286,29 @@ body {
 /* Hiển thị khi nhấn vào */
 .chat-box.show {
     display: flex;
+}
+
+
+/*Box Thông tin tài khoản*/
+/* Thiết lập cho box */
+.account-box {
+    display: none; /* Mặc định là không hiển thị */
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 200px;
+    z-index: 999;
+}
+
+/* Khi di chuột vào nút, hiển thị box */
+#accountButton:focus + .account-box {
+    display: block;
+}
+
+#accountButton {
+    cursor: pointer;
 }

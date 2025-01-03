@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Diagnostics;
-
+using Microsoft.AspNetCore.Http;
 namespace DoAnWEBDEMO.Controllers
 {
     public class KhachHangController : Controller
@@ -26,10 +26,18 @@ namespace DoAnWEBDEMO.Controllers
             {
                 if(checkTaiKhoan.MATKHAU == matKhau)
                 {
+                    HttpContext.Session.SetString("user",checkTaiKhoan.TenKH);
                     return Json(new {value  = true});
                 }    
             }    
             return Json(new {value = false});
+        }
+
+        [HttpPost]
+        public JsonResult khachHangDangXuat()
+        {
+            HttpContext.Session.Clear();
+            return Json(new { value = true });
         }
 
         public IActionResult Index()

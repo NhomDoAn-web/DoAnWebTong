@@ -34,31 +34,73 @@
                     </ul>
 
                     <div class="col-md-3 text-end">
-                    <button type="button" class="me-2 btn-header"><i class="bi bi-search bi-icon-header fs-3"></i></button>
+                        <button type="button" class="me-2 btn-header"><i class="bi bi-search bi-icon-header fs-3"></i></button>
 
-                    <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-3"></i></button>
+                        <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-3"></i></button>
 
-                    <!-- Button trigger modal -->
-                    <button type="button" class="me-2 btn-header" id="openLoginModal">
-                        <i class="bi bi-person-fill bi-icon-header fs-3"></i>
-                    </button>
+                    <!-- Button popup Đăng Nhập-->
+                    
+                    @if(Context.Session.GetString("user") != null)
+                    {
+                        <button type="button" class="me-2 btn-header" id="accountButton">
+                            <i class="bi bi-person-circle fs-3 bi-icon-header"></i>
+                        </button>
+
+                        <div class="account-box dropdown-menu" id="accountBox">
+                             <p class="px-3"><b>Xin chào, </b>@Context.Session.GetString("user") </p>
+                             <hr class="dropdown-divider">
+                             <a class="btn btn-link text-dark text-decoration-none" href="#">Thông tin tài khoản</a>
+                            <button class="btn btn-link text-danger" id="logoutButton">Đăng xuất</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <button type="button" class="me-2 btn-header btn-icon-login" id="openLoginModal">
+                            Login
+                        </button>
+                    }
 
                     <!-- Custom Login Modal -->
                     <div id="loginModal" class="custom-modal">
                         <div class="modal-content" style="background-color: white;">
                             <div class="modal-header">
                                 <h5>Đăng nhập</h5>
-                                <button type="button" class="close" id="closeLoginModal">&times;</button>
+                                <button type="button" class="close" id="closeLoginModal"><i class="bi bi-x-circle"></i></button>
                             </div>
                             <div class="modal-body">
                                 <form>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="text" placeholder="Nhập tên người dùng / Email của bạn">
+                                        <input type="text" class="form-control" id="text" placeholder="Nhập tên người dùng / Email của bạn" >
                                     </div>
                                     <div class="mb-3">
-                                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" >
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+
+                                   <div>
+                                        <div class="captcha my-2">
+                                            <div class="row">
+                                                <div class="col-12 text-center">
+                                                    <p class="chuoiCaptcha fs-4"></p>
+                                                </div>
+                                                <div class="col-10">
+                                                    <input type="text" id="nhapCaptcha" class="form-control" placeholder="Nhập chuỗi hiển thị" required/>
+                                                </div>
+                                                <div class="col-2">
+                                                    <button type="button" id="taoCaptcha" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i></button>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p id="thongBaoCaptcha" class="mt-2 text-start"></p>
+                                                </div>
+                                            </div>
+                                            
+                                            
+
+                                            
+                                        </div>
+                                        
+                                    </div>
+
+                                    <button type="button" class="btn btn-primary w-100 mt-2 btn-login">Đăng nhập</button>
                                 </form>
 
                                 @* <div class="d-flex justify-content-center mt-3"> *@
@@ -191,7 +233,9 @@
             <div class="row text-center">
                 <!-- Logo -->
                 <div class="col-md-12 mb-3">
-                    <img src="/image/logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
+                    <a href="/">
+                        <img src="/image/logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
+                    </a>
                 </div>
             </div>
 

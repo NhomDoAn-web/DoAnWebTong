@@ -1,25 +1,23 @@
 ﻿
-// Lấy các phần tử cần thiết
 const openModalBtn = document.getElementById('openLoginModal');
 const closeModalBtn = document.getElementById('closeLoginModal');
 const modal = document.getElementById('loginModal');
 
-// Mở modal
-openModalBtn.addEventListener('click', () => {
-    modal.classList.add('show');
-});
 
-// Đóng modal
-closeModalBtn.addEventListener('click', () => {
-    modal.classList.remove('show');
-});
 
-// Đóng modal nếu người dùng nhấn ra ngoài
-window.addEventListener('click', (event) => {
-    if (event.target === modal) {
+if (openModalBtn) {
+    openModalBtn.addEventListener('click', () => {
+        modal.classList.add('show');
+    });
+}
+
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
         modal.classList.remove('show');
-    }
-});
+    });
+}
+
+
 
 
 
@@ -27,17 +25,14 @@ function toggleChatBox() {
     document.getElementById('chatBox').classList.toggle('show');
 }
 
-// Hiển thị chat box khi nhấn nút
 document.querySelector('.chat-btn').addEventListener('click', function () {
     toggleChatBox();
 });
 
 function showAnswer(answerId) {
-    // Ẩn tất cả câu trả lời
     const allAnswers = document.querySelectorAll('.answer');
     allAnswers.forEach(answer => answer.style.display = 'none');
 
-    // Hiển thị câu trả lời tương ứng
     const answer = document.getElementById(answerId);
     answer.style.display = 'block';
 }
@@ -67,30 +62,114 @@ $(document).ready(function () {
 });
 
 
-//Khách hàng Đăng nhập
-$(document).ready(function () {
-    $('form').submit(function (e) {
-        e.preventDefault(); 
+// Captcha chuỗi ký tự ngẫu nhiên
 
-        var taiKhoan = $('#text').val();  
-        var matKhau = $('#password').val(); 
+const chuoiCaptcha = document.querySelector(".chuoiCaptcha");
+const nhapCaptcha = document.getElementById("nhapCaptcha");
+const thongBaoCaptcha = document.getElementById("thongBaoCaptcha");
+const taoCaptcha = document.getElementById("taoCaptcha");
+const kiemTraCaptcha = document.getElementById("kiemTraCaptcha");
+const btnLogin = document.querySelector(".btn-login");
+const btnIconLogin = document.querySelector(".btn-icon-login");
+
+function taoChuoiNgauNhien() {
+    const kyTu = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let ketQua = "";
+    for (let i = 0; i < 5; i++) {
+        ketQua += kyTu.charAt(Math.floor(Math.random() * kyTu.length));
+    }
+    return ketQua;
+}
+
+function hienThiCaptcha() {
+    chuoiCaptcha.textContent = taoChuoiNgauNhien();
+    nhapCaptcha.value = "";
+    thongBaoCaptcha.textContent = "";
+}
+
+function kiemTraChuoiCaptcha() {
+    if (nhapCaptcha.value === chuoiCaptcha.textContent) {
+        thongBaoCaptcha.textContent = "Captcha chính xác!";
+        thongBaoCaptcha.style.color = "green";
+
+        console.log("check")
+        const taiKhoan = document.getElementById("text").value;
+        const matKhau = document.getElementById("password").value;
 
         $.ajax({
-            url: '/KhachHang/getKhachHangDangNhap',  
-            type: 'GET',
-            data: { taiKhoan: taiKhoan, matKhau: matKhau },  
+            url: '/KhachHang/getKhachHangDangNhap',
+            type: 'POST', 
+            data: { taiKhoan: taiKhoan, matKhau: matKhau },
             success: function (response) {
                 if (response.value) {
                     alert('Đăng nhập thành công!');
-                    
-                    window.location.href = '/home'; 
+                    window.location.href = '/home';
                 } else {
                     alert('Tên người dùng hoặc mật khẩu không chính xác!');
+                    hienThiCaptcha();
                 }
             },
             error: function () {
                 alert('Có lỗi xảy ra khi đăng nhập.');
             }
         });
-    });
+    }
+    else
+    {
+        thongBaoCaptcha.textContent = "Captcha không đúng!";
+        thongBaoCaptcha.style.color = "red";
+    }
+}
+
+if (btnIconLogin) {
+    btnIconLogin.addEventListener("click", hienThiCaptcha);
+}
+
+if (taoCaptcha) {
+    taoCaptcha.addEventListener("click", hienThiCaptcha);
+}
+
+
+btnLogin.addEventListener("click", kiemTraChuoiCaptcha);
+
+// Tạo captcha khi tải trang
+hienThiCaptcha();
+
+
+
+//Box thông tin tài khoản
+document.getElementById("accountButton").addEventListener("click", function (event) {
+    event.stopPropagation();
+    document.getElementById("accountBox").style.display = "block";
 });
+
+document.addEventListener("click", function (event) {
+    var accountBox = document.getElementById("accountBox");
+
+    if (!accountBox.contains(event.target) && event.target !== document.getElementById("accountButton")) {
+        accountBox.style.display = "none";
+    }
+});
+    
+//AJAX đăng xuât
+document.getElementById("logoutButton").addEventListener("click", function () {
+
+    var xacNhanDangXuat = confirm("Bạn muốn thoát tài khoản?");
+
+    if (xacNhanDangXuat) {
+        $.ajax({
+            url: '/KhachHang/khachHangDangXuat',
+            type: 'POST',
+            success: function (response) {
+                if (response.value) {
+                    window.location.href = '/home';
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra khi đăng xuất.');
+            }
+        });
+    }
+    
+
+})
