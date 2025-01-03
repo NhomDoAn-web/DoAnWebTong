@@ -67,7 +67,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "128GB",
                         Pin = "3279mAh",
                         HeDieuHanh = "iOS 16",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 22990000 // Đơn giá của sản phẩm
                     },
                     new SanPham
                     {
@@ -89,7 +90,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "3900mAh",
                         HeDieuHanh = "Android 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 23990000 // Đơn giá của sản phẩm
                     },
                     new SanPham
                     {
@@ -111,7 +113,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "4500mAh",
                         HeDieuHanh = "MIUI 14",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 17990000 // Đơn giá của sản phẩm
                     },
                     new SanPham
                     {
@@ -133,20 +136,135 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "512GB",
                         Pin = "4800mAh",
                         HeDieuHanh = "ColorOS 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 32990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 1,
+                        MaDanhMuc = 1,
+                        TEN_SP = "iPhone 14 Pro Max",
+                        HinhAnhSP = "iphone_14_pro_max.jpg",
+                        MoTa = "iPhone 14 Pro Max với Dynamic Island và hiệu năng vượt trội.",
+                        MauSP = "Tím",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "iphone-14-pro-max",
+                        KichThuoc_ManHinh = "6.7 inch",
+                        CameraSau = "48MP + 12MP + 12MP",
+                        Camera_Truoc = "12MP",
+                        Chipset = "A16 Bionic",
+                        Gpu = "Apple GPU",
+                        Dung_Luong_Ram = "6GB",
+                        Bo_Nho_Trong = "1TB",
+                        Pin = "4323mAh",
+                        HeDieuHanh = "iOS 16",
+                        TanSoQuet = "120Hz",
+                        Gia = 33990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 2,
+                        TEN_SP = "Samsung Galaxy Z Fold4",
+                        HinhAnhSP = "samsung_z_fold4.jpg",
+                        MoTa = "Galaxy Z Fold4 với màn hình gập tiên tiến.",
+                        MauSP = "Xanh",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "samsung-galaxy-z-fold4",
+                        KichThuoc_ManHinh = "7.6 inch",
+                        CameraSau = "50MP + 12MP + 10MP",
+                        Camera_Truoc = "10MP",
+                        Chipset = "Snapdragon 8+ Gen 1",
+                        Gpu = "Adreno 730",
+                        Dung_Luong_Ram = "12GB",
+                        Bo_Nho_Trong = "512GB",
+                        Pin = "4400mAh",
+                        HeDieuHanh = "Android 13",
+                        TanSoQuet = "120Hz",
+                        Gia = 41990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 1,
+                        MaDanhMuc = 3,
+                        TEN_SP = "Xiaomi Redmi Note 12 Pro",
+                        HinhAnhSP = "xiaomi_redmi_note_12_pro.jpg",
+                        MoTa = "Xiaomi Redmi Note 12 Pro với camera chất lượng cao.",
+                        MauSP = "Xanh Dương",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "xiaomi-redmi-note-12-pro",
+                        KichThuoc_ManHinh = "6.67 inch",
+                        CameraSau = "108MP + 8MP + 2MP",
+                        Camera_Truoc = "16MP",
+                        Chipset = "Dimensity 1080",
+                        Gpu = "Mali-G68",
+                        Dung_Luong_Ram = "8GB",
+                        Bo_Nho_Trong = "256GB",
+                        Pin = "5000mAh",
+                        HeDieuHanh = "MIUI 14",
+                        TanSoQuet = "120Hz",
+                        Gia = 9990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 4,
+                        TEN_SP = "Oppo Reno 9 Pro",
+                        HinhAnhSP = "oppo_reno_9_pro.jpg",
+                        MoTa = "Oppo Reno 9 Pro với thiết kế mỏng nhẹ và sang trọng.",
+                        MauSP = "Vàng",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "oppo-reno-9-pro",
+                        KichThuoc_ManHinh = "6.7 inch",
+                        CameraSau = "50MP + 8MP + 2MP",
+                        Camera_Truoc = "32MP",
+                        Chipset = "Dimensity 8100",
+                        Gpu = "Mali-G610",
+                        Dung_Luong_Ram = "12GB",
+                        Bo_Nho_Trong = "512GB",
+                        Pin = "4500mAh",
+                        HeDieuHanh = "ColorOS 13",
+                        TanSoQuet = "120Hz",
+                        Gia = 17990000 // Đơn giá của sản phẩm
+                    },
+                    new SanPham
+                    {
+                        MaNCC = 2,
+                        MaDanhMuc = 1,
+                        TEN_SP = "iPhone SE (2024)",
+                        HinhAnhSP = "iphone_se_2024.jpg",
+                        MoTa = "iPhone SE với thiết kế nhỏ gọn và hiệu năng cao.",
+                        MauSP = "Đỏ",
+                        TGianBaoHanh = 12,
+                        TrangThai = 1,
+                        Slug = "iphone-se-2024",
+                        KichThuoc_ManHinh = "4.7 inch",
+                        CameraSau = "12MP",
+                        Camera_Truoc = "7MP",
+                        Chipset = "A15 Bionic",
+                        Gpu = "Apple GPU",
+                        Dung_Luong_Ram = "4GB",
+                        Bo_Nho_Trong = "64GB",
+                        Pin = "1821mAh",
+                        HeDieuHanh = "iOS 16",
+                        TanSoQuet = "60Hz",
+                        Gia = 10990000 // Đơn giá của sản phẩm
                     }
-
                 };
                 _db.SanPham.AddRange(sanPhams);
                 _db.SaveChanges();
             }
 
-            //Dữ liệu Khách hàng
+            // Dữ liệu Khách hàng
             if (!_db.KhachHang.Any())
             {
                 var khachHangs = new List<KhachHang>
                 {
-                     new KhachHang
+                    new KhachHang
                     {
                         HoKH = "Trịnh",
                         TenKH = "Trần Phương Tuấn Bỏ Con",
@@ -178,6 +296,29 @@ namespace DoAnWEBDEMO.SeedData
                         DiaChi = "789 Đường LMN, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "nvanan",
                         MATKHAU = "Nvanan@123"
+                    },
+                    // Thêm khách hàng mới
+                    new KhachHang
+                    {
+                        HoKH = "Lê",
+                        TenKH = "Hồng Hoa",
+                        GioiTinh = "Nữ",
+                        Email = "lehonghoa@example.com",
+                        SDT = "0987654321",
+                        DiaChi = "321 Đường DEF, TP. Hồ Chí Minh",
+                        TENNGUOIDUNG = "lehonghoa",
+                        MATKHAU = "Lehonghoa@123"
+                    },
+                    new KhachHang
+                    {
+                        HoKH = "Phan",
+                        TenKH = "Thanh Sơn",
+                        GioiTinh = "Nam",
+                        Email = "phanthanhson@example.com",
+                        SDT = "0765432189",
+                        DiaChi = "654 Đường GHI, TP. Hồ Chí Minh",
+                        TENNGUOIDUNG = "phanthanhson",
+                        MATKHAU = "Phanthanhson@123"
                     }
                 };
 
@@ -185,33 +326,106 @@ namespace DoAnWEBDEMO.SeedData
                 _db.SaveChanges();
             }
 
-            //Dữ liệu Chi tiết bình luận
+            // Dữ liệu Chi tiết bình luận
             if (!_db.CHI_TIET_BINH_LUAN.Any())
             {
                 var chiTietBinhLuans = new List<CHI_TIET_BINH_LUAN>
                 {
+                    // Bình luận cho iPhone 14
                     new CHI_TIET_BINH_LUAN
                     {
-                        MA_SP = 1,
+                        MA_SP = 6,
                         MA_KH = 1,
                         SO_SAO = 5,
-                        NOI_DUNG = "Sản phẩm tuyệt vời, rất hài lòng!",
+                        NOI_DUNG = "Thiết kế đẹp, hiệu năng mạnh mẽ. Rất đáng tiền!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 6,
+                        MA_KH = 3,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Sản phẩm tốt nhưng thời lượng pin cần cải thiện.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Samsung Galaxy S23
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 7,
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Màn hình đẹp, camera rất sắc nét. Rất hài lòng!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 7,
+                        MA_KH = 2,
+                        SO_SAO = 3,
+                        NOI_DUNG = "Hiệu năng tốt nhưng máy hơi nóng khi chơi game.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Xiaomi 13
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 8,
+                        MA_KH = 1,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Thiết kế đẹp, giá cả hợp lý. Nhưng camera không tốt lắm.",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 8,
+                        MA_KH = 2,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Tuyệt vời! Hiệu năng rất ổn định.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho Oppo Find X6
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Camera cực kỳ tốt, màn hình sáng rõ. Rất thích!",
+                        NGAY = DateTime.Now
+                    },
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 2,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Thiết kế đẹp nhưng giá hơi cao.",
+                        NGAY = DateTime.Now
+                    },
+
+                    // Bình luận cho các sản phẩm mới thêm
+                    new CHI_TIET_BINH_LUAN
+                    {
+                        MA_SP = 9,
+                        MA_KH = 3,
+                        SO_SAO = 4,
+                        NOI_DUNG = "Hiệu năng tốt, thiết kế ổn. Rất đáng mua.",
                         NGAY = DateTime.Now
                     },
                     new CHI_TIET_BINH_LUAN
                     {
                         MA_SP = 2,
-                        MA_KH = 2,
-                        SO_SAO = 4,
-                        NOI_DUNG = "Sản phẩm tốt nhưng cần cải thiện chất lượng camera.",
+                        MA_KH = 1,
+                        SO_SAO = 5,
+                        NOI_DUNG = "Mua tặng bạn bè, mọi người đều rất thích!",
                         NGAY = DateTime.Now
                     },
                     new CHI_TIET_BINH_LUAN
                     {
-                        MA_SP = 1,
+                        MA_SP = 8,
                         MA_KH = 3,
-                        SO_SAO = 3,
-                        NOI_DUNG = "Giá hơi cao so với tính năng.",
+                        SO_SAO = 4,
+                        NOI_DUNG = "Tính năng rất đa dạng, hiệu năng ổn định.",
                         NGAY = DateTime.Now
                     }
                 };
@@ -220,6 +434,8 @@ namespace DoAnWEBDEMO.SeedData
                 _db.SaveChanges();
             }
 
+
+
             //Dữ liệu Nhân Viên
             if (!_db.NhanVien.Any())
             {
@@ -227,7 +443,7 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new NhanVien
                     {
-                        
+
                         TENNV = "Nguyen Van A",
                         SDT = "0123456789",
                         EMAIL = "nguyenvana@example.com",
@@ -237,7 +453,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
-                        
+
                         TENNV = "Tran Thi B",
                         SDT = "0123456789",
                         EMAIL = "tranthib@example.com",
@@ -247,7 +463,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
-                        
+
                         TENNV = "Le Van C",
                         SDT = "0123456789",
                         EMAIL = "levanc@example.com",
@@ -348,7 +564,7 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new LienHe
                     {
-                        MA_NVXL = 1, 
+                        MA_NVXL = 1,
                         HO_TEN = "Oggy",
                         EMAIL = "oggy@example.com",
                         SDT = "0912345678",
@@ -374,7 +590,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0933456789",
                         NOI_DUNG = "Khiếu nại về giao hàng. Lâu quá",
                         THOI_GIAN_GUI = DateTime.Now.AddDays(-1),
-                        TRANG_THAI = 1 
+                        TRANG_THAI = 1
                     }
                 };
 

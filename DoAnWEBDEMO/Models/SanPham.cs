@@ -18,6 +18,10 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
         public string TEN_SP { get; set; }
 
+        [Required(ErrorMessage = "Giá sản phẩm là bắt buộc.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Giá sản phẩm phải là một số dương.")]
+        public decimal Gia { get; set; }
+
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
 
@@ -77,12 +81,12 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Tần số quét màn hình không được để trống.")]
         [StringLength(50, ErrorMessage = "Tần số quét màn hình không được vượt quá 50 ký tự.")]
         public string? TanSoQuet { get; set; }
-
-        public virtual DanhMuc? DanhMuc{ get; set; }
-        public virtual NhaCungCap? NhaCungCap{ get; set; }
+        public virtual DanhMuc? DanhMuc { get; set; }
+        public virtual NhaCungCap? NhaCungCap { get; set; }
 
         public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
         public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
 
     }
 }
+

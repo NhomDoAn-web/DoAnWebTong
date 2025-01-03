@@ -43,7 +43,7 @@ textarea {
     margin-bottom: 15px;
 }
 
-button {
+.btn-send {
     background-color: #000;
     color: #fff;
     padding: 10px;
@@ -56,6 +56,6 @@ button {
     display: block;
 }
 
-    button:hover {
-        background-color: #333;
-    }
+.btn-send:hover {
+    background-color: #333;
+}

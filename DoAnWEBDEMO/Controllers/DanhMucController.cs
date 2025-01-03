@@ -15,11 +15,11 @@ namespace DoAnWEBDEMO.Controllers
 
 
         //Dữ liệu Danh mục
-        public JsonResult getDanhMuc()
+       /* public JsonResult getDanhMuc()
         {
             var categories = _db.DanhMuc.Select(c => c.TenDM).ToList();
             return Json(categories);
-        }
+        }*/
 
         public IActionResult Index()
         {

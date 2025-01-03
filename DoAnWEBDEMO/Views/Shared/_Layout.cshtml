@@ -4,203 +4,87 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - DoAnWEBDEMO</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/lienhe.css" />
-=======
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
->>>>>>> 40be859dd5db75c8006dd79547e3f77cb477d333
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DoAnWEBDEMO.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/lienhe.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Thêm Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<<<<<<< HEAD
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DoAnWEBDEMO</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="LienHe" asp-action="Index">Lien He</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="container-fluid border-bottom shadow" style="position:fixed; z-index: 1000; background-color: white">
+        <div class="container">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1 mb-4 ">
+                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <img src="/image/logo.png" style="width: 130px;border-radius: 100%" />
+                </a>
+
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Trang chủ</a></li>
+                    <li><a href="@Url.Action("Index", "SanPham")" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Sản phẩm</a></li>
+                    <li><a href="#" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Blog</a></li>
+                    <li><a asp-action="Index" asp-controller="LienHe" style="font-weight: 700;" class="fs-4 mx-3 nav-header text-dark nav-link px-2">Liên hệ</a></li>
+                </ul>
+
+                <div class="col-md-3 text-end">
+                    <button type="button" class="me-2 btn-header"><i class="bi bi-search bi-icon-header fs-3"></i></button>
+
+                    <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-3"></i></button>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="me-2 btn-header" id="openLoginModal">
+                        <i class="bi bi-person-fill bi-icon-header fs-3"></i>
+                    </button>
+
+                    <!-- Custom Login Modal -->
+                    <div id="loginModal" class="custom-modal">
+                        <div class="modal-content" style="background-color: white;">
+                            <div class="modal-header">
+                                <h5>Đăng nhập</h5>
+                                <button type="button" class="close" id="closeLoginModal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="text" placeholder="Nhập tên người dùng / Email của bạn">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                                </form>
+
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button class="btn btn-outline-danger me-2">
+                                        <i class="bi bi-google"></i> Đăng nhập với Google
+                                    </button>
+                                    <button class="btn btn-outline-primary">
+                                        <i class="bi bi-facebook"></i> Đăng nhập với Facebook
+                                    </button>
+                                </div>
+
+                                <p class="text-center mt-3">
+                                    Chưa có tài khoản? <a href="#">Đăng ký</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
-=======
-        <div class="container-fluid border-bottom shadow" style="position:fixed; background-color: white">
-            <div class="container">
-                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-center pt-1 mb-1 ">
-                    <div class="row">
-                        @* div Logo *@
-                        <div class="col-2 d-flex justify-content-center">
-                            <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                               <img src="/image/logo.png" style="width: 100px;border-radius: 100%" />
-                            </a>
-                        </div>
-                        @* end div Logo *@
-
-
-                        @* div menu *@
-                        <div class="col-7">
-                            <div class="row d-flex justify-content-center">
-                                <div class="search-container col-12">
-                                    <input type="text" class="search-input" placeholder="Tìm kiếm...">
-                                    <button class="search-btn">
-                                        <i class="bi bi-search"></i>
-                                    </button>
-                                </div>
-                                @* end search *@
-
-                                @* menu *@
-                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                                    <li><a href="#" style="font-weight: 400;" class="mx-3 nav-header menu-link text-dark nav-link px-2">Trang chủ</a></li>
-                                    <li class="nav-item dropdown">
-
-                                        <a class="nav-link dropdown-toggle mx-3 text-dark " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 400;">
-                                            Danh mục
-                                        </a>
-                                        <ul class="dropdown-menu danhmuc" aria-labelledby="navbarDropdown" id="ds-danhmuc">
-                                
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="#" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Giới thiệu</a></li>
-                                    <li><a href="#" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
-                                </ul>
-                            </div>
-
-                                
-                        </div>
-                        @* end div menu *@
-
-                    @* div icon *@
-                    <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
-                        <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-5"></i></button>
-
-                            <!-- Button popup Đăng Nhập-->
-                    
-                            @if(Context.Session.GetString("user") != null)
-                            {
-                                <div class="d-flex align-items-center text-center">
-                                    <button type="button" class="btn-header" id="accountButton">
-                                        <i class="bi bi-person-circle fs-3 bi-icon-header"></i>
-                                    </button>
-                                    <div class="d-flex align-items-center text-start">
-                                        <p class="d-flex align-items-center mt-3"><b>Xin chào, </b>@Context.Session.GetString("user") </p>
-                                    </div>
-                                </div>
-
-                               
-
-                                <div class="account-box dropdown-menu " id="accountBox" style="padding: 0;border:none;">
-                                    <ul class="list-unstyled" style="margin: 0;padding: 0">
-                                        <li class="border-bottom border-dark"><a class="text-dark text-decoration-none btn-taikhoan" style="outline: none;" href="#">Thông tin tài khoản</a></li>
-                                        <li class="border-bottom"><button class="text-dark text-start" id="logoutButton"> Đăng xuất</button></li>
-                                    </ul>
-                                     
-                                    
-                                </div>
-                            }
-                            else
-                            {
-                                <button type="button" class="btn-header btn-icon-login" id="openLoginModal">
-                                    Đăng nhập
-                                </button>
-                            }
-
-                            <!-- Custom Login Modal -->
-                            <div id="loginModal" class="custom-modal">
-                                <div class="modal-content" style="background-color: white;">
-                                    <div class="modal-header">
-                                        <h5>Đăng nhập</h5>
-                                        <button type="button" class="close" id="closeLoginModal"><i class="bi bi-x-circle"></i></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="mb-3">
-                                                <input type="text" class="form-control input-taikhoan" id="taiKhoanKhachHang" placeholder="Nhập tên người dùng / Email của bạn" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <input type="password" class="form-control input-taikhoan" id="matKhauKhachHang" placeholder="Nhập mật khẩu" required>
-                                                <div class="mt-2 text-start">
-                                                    <input type="checkbox" style="border: none;background-color: black;color: #ffffff;" class="form-check-input" id="showPassword">
-                                                    <label class="" for="showPassword">Hiển thị mật khẩu</label>
-                                                </div>
-                                            </div>
-
-                                            
-
-                                           <div>
-                                                <div class="captcha my-2">
-                                                    <div class="row">
-                                                        <div class="col-12 text-center">
-                                                            <p class="chuoiCaptcha fs-4"></p>
-                                                        </div>
-                                                        <div class="col-10">
-                                                            <input type="text" id="nhapCaptcha" class="form-control input-taikhoan" placeholder="Nhập chuỗi hiển thị" required/>
-                                                        </div>
-                                                        <div class="col-2">
-                                                            <button type="button" id="taoCaptcha" class="btn btn-primary"><i class="bi bi-arrow-clockwise"></i></button>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <p id="thongBaoCaptcha" class="mt-2 text-start"></p>
-                                                        </div>
-                                                    </div>
-                                            
-                                            
-
-                                            
-                                                </div>
-                                        
-                                            </div>
-
-                                            <button type="button" class="btn btn-primary w-100 mt-2 btn-login">Đăng nhập</button>
-                                        </form>
-
-                                        @* <div class="d-flex justify-content-center mt-3"> *@
-                                        @*     <button class="btn btn-outline-danger me-2"> *@
-                                        @*         <i class="bi bi-google"></i> Đăng nhập với Google *@
-                                        @*     </button> *@
-                                        @*     <button class="btn btn-outline-primary"> *@
-                                        @*         <i class="bi bi-facebook"></i> Đăng nhập với Facebook *@
-                                        @*     </button> *@
-                                        @* </div> *@
-
-                                        <p class="text-center mt-3">
-                                            Chưa có tài khoản? <a href="#">Đăng ký</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Custom Login Modal -->
-
-
-                    </div>
-                    @* div col 2 End *@
-                    </div>
-                    @* div row *@
-
-                </header>
->>>>>>> 40be859dd5db75c8006dd79547e3f77cb477d333
-            </div>
+            </header>
+        </div>
 
     </div>
-        
-        @* End Header *@
+
+    @* End Header *@
 
     <div class="container" style="padding-top: 150px">
         <main role="main" class="pb-3">
             @RenderBody()
-
         </main>
     </div>
 
@@ -218,26 +102,26 @@
             <button class="btn-close text-white" onclick="toggleChatBox()"
                     style="margin-top: -2rem;margin-right: 1rem;">
                 <i class="fs-2 bi bi-x-circle-fill"></i>
-                </button>
+            </button>
         </div>
         <div class="chat-box-body" id="chatBody">
 
 
 
             <div class="question" onclick="showAnswer('answer1')">
-                <p>1. Làm thế nào để đặt hàng?</p>
+                <p><strong>1. Làm thế nào để đặt hàng?</strong></p>
             </div>
             <div class="question" onclick="showAnswer('answer2')">
-                <p>2. Chính sách đổi trả sản phẩm?</p>
+                <p><strong>2. Chính sách đổi trả sản phẩm?</strong></p>
             </div>
             <div class="question" onclick="showAnswer('answer3')">
-                <p>3. Thời gian giao hàng là bao lâu?</p>
+                <p><strong>3. Thời gian giao hàng là bao lâu?</strong></p>
             </div>
             <div class="question" onclick="showAnswer('answer4')">
-                <p>4. Làm sao để thanh toán?</p>
+                <p><strong>4. Làm sao để thanh toán?</strong></p>
             </div>
             <div class="question" onclick="showAnswer('answer5')">
-                <p>5. Tôi có thể liên hệ với nhân viên qua cách nào?</p>
+                <p><strong>5. Tôi có thể liên hệ với nhân viên qua cách nào?</strong></p>
             </div>
 
             <!-- Câu trả lời -->
@@ -256,10 +140,7 @@
             <div class="answer" id="answer5">
                 <p>Bạn có thể liên hệ với chúng tôi qua các phương thức dưới đây: </p>
                 <p><b>Email: </b> techlandCSKH@gmail.com</p>
-                <p><b>Zalo: </b>098 7123 652</p
-                <p>
-                    Chúng tôi luôn sẵn sàng hỗ trợ bạn bất cứ lúc nào!
-                </p>
+                <p><b>Zalo: </b>098 7123 652</p>
             </div>
         </div>
     </div>
@@ -302,9 +183,7 @@
             <div class="row text-center">
                 <!-- Logo -->
                 <div class="col-md-12 mb-3">
-                    <a href="/">
-                        <img src="/image/logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
-                    </a>
+                    <img src="/image/logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
                 </div>
             </div>
 

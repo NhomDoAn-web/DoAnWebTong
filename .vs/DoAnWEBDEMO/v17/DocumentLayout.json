@@ -3,19 +3,43 @@
   "WorkspaceRootPath": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mintu\\AppData\\Local\\SourceServer\\f08f05c199de68e2934a03974f1e22b287da170dc9e115b09ac5617dd9c6bfb0\\DoAnWEBDEMO\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\lienhe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\lienhe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\danhmuccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\controllers\\lienhecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\lienhecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mintu\\AppData\\Local\\SourceServer\\f08f05c199de68e2934a03974f1e22b287da170dc9e115b09ac5617dd9c6bfb0\\DoAnWEBDEMO\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\lienhe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,11 +49,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "lienhe.css",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-03T12:35:16.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DanhMucController.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\DanhMucController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAA4wBUAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T12:31:45.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-03T12:26:23.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20250103122431_AllModelToDB.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Migrations\\20250103122431_AllModelToDB.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T12:24:31.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAmwBgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T12:22:32.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAkwIsAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T12:19:15.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\AppData\\Local\\SourceServer\\f08f05c199de68e2934a03974f1e22b287da170dc9e115b09ac5617dd9c6bfb0\\DoAnWEBDEMO\\Program.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\f08f05c199de68e2934a03974f1e22b287da170dc9e115b09ac5617dd9c6bfb0\\DoAnWEBDEMO\\Program.cs",
@@ -42,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "LienHe.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\LienHe.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\LienHe.cs",
@@ -54,19 +156,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
               "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAwwBAAAABDAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T08:28:44.042Z"
+              "WhenOpened": "2025-01-02T08:28:44.042Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "LienHeController.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\LienHeController.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\LienHeController.cs",
@@ -74,7 +177,8 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\LienHeController.cs",
               "ViewState": "AQIAABYAAAAAAAAAAAAkwCEAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T08:28:35.42Z"
+              "WhenOpened": "2025-01-02T08:28:35.42Z",
+              "EditorCaption": ""
             }
           ]
         }
