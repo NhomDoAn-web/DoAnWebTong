@@ -158,10 +158,10 @@ namespace DoAnWEBDEMO.Migrations
                 {
                     MA_LH = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MA_NVXL = table.Column<int>(type: "int", nullable: false),
+                    MA_NVXL = table.Column<int>(type: "int", nullable: true),
                     HO_TEN = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     EMAIL = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    SDT = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NOI_DUNG = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     THOI_GIAN_GUI = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TRANG_THAI = table.Column<int>(type: "int", nullable: false)

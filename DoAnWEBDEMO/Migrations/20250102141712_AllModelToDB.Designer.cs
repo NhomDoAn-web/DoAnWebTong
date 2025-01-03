@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20250102075707_AllModelToDB")]
+    [Migration("20250102141712_AllModelToDB")]
     partial class AllModelToDB
     {
         /// <inheritdoc />
@@ -208,7 +208,7 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("MA_NVXL")
+                    b.Property<int?>("MA_NVXL")
                         .HasColumnType("int");
 
                     b.Property<string>("NOI_DUNG")
@@ -218,8 +218,7 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Property<string>("SDT")
                         .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("THOI_GIAN_GUI")
                         .HasColumnType("datetime2");
@@ -465,8 +464,7 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
                         .WithMany("LienHe")
                         .HasForeignKey("MA_NVXL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("NhanVien");
                 });

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "m4HUxXb/yToCcIhfDnFDw9tjH7WXpXdMGoXrgTEKcjU=",
+  "Hash": "7SLjnuZTEN+HKi92mw5JxIgZtitXjebTeyHBlOAd4OI=",
   "Source": "DoAnWEBDEMO",
   "BasePath": "_content/DoAnWEBDEMO",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DoAnWEBDEMO.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+      "SourceId": "DoAnWEBDEMO",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\",
+      "BasePath": "_content/DoAnWEBDEMO",
+      "RelativePath": "css/lienhe.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\lienhe.css"
     },
     {
       "Identity": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",

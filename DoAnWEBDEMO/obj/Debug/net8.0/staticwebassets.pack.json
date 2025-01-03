@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DoAnWEBDEMO.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+      "PackagePath": "staticwebassets\\css\\lienhe.css"
+    },
+    {
       "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
