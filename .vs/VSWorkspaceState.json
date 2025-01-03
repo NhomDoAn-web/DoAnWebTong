@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\DoAnWEBDEMO",
+    "\\DoAnWEBDEMO\\Migrations",
     "\\DoAnWEBDEMO\\Models"
   ],
-  "SelectedNode": "\\DoAnWEBDEMO.sln",
+  "SelectedNode": "\\DoAnWEBDEMO\\Models\\KhachHang.cs",
   "PreviewInSolutionExplorer": false
 }
