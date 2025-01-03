@@ -167,3 +167,4 @@ D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO\obj\Debug\net8.0\refint\DoAnWEBDEMO.dll
 D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO\obj\Debug\net8.0\DoAnWEBDEMO.pdb
 D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO\obj\Debug\net8.0\DoAnWEBDEMO.genruntimeconfig.cache
 D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO\obj\Debug\net8.0\ref\DoAnWEBDEMO.dll
+D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO\bin\Debug\net8.0\BCrypt.Net-Next.dll

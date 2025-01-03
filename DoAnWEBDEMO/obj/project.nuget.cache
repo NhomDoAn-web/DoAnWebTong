@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "G2giSRkLq+Ztkv5txkVbQYzdycXlcm6dEyKH0OFPJc2GyetrYjCsFGDla7KWapdpdrSVb1Ns5w7uRUqDD9Rhcw==",
+  "dgSpecHash": "KadDf7KWA+WXwzt0aCK2jFFoI7r79LTFn0uKLCNyAMBpPncu2T2A1NJral0zk3/9D4D4ezzTTtLYjH79mc9Fvg==",
   "success": true,
   "projectFilePath": "D:\\DOAN\\DoAnWEBDEMO\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
