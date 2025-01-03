@@ -14,7 +14,15 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05553a4a57db7654b2fce1fa57fa195bd8b4636a")]
+=======
+<<<<<<< HEAD
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d0a96bba1b6022eab6a7717a4d24b10fffb4f6d")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c4ac43969fbc910af8e5a286ddc7632e33a01cf")]
+>>>>>>> 48d271cfe5ad3391ce3927f9df94ab488e3ebf8c
+>>>>>>> thinh
 [assembly: System.Reflection.AssemblyProductAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
