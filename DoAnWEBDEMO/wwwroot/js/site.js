@@ -14,6 +14,16 @@ const taiKhoanKhachHang = document.getElementById("taiKhoanKhachHang");
 const matKhauKhachHang = document.getElementById("matKhauKhachHang");
 const showPasswordCheckbox = document.getElementById("showPassword");
 
+
+const checkDangNhap = document.querySelector('.check-dang-nhap');
+
+if (checkDangNhap)
+{
+    checkDangNhap.addEventListener("click", () =>
+    {
+        alert("Vui lòng đăng nhập để thực hiện thao tác này!");
+    })
+}
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('show');

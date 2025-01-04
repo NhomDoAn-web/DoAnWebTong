@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/DoAnWEBDEMO.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+     @await RenderSectionAsync("CSS", required: false)
 </head>
 <body>
         <div class="container-fluid border-bottom shadow" style="position:fixed; background-color: white">
@@ -60,7 +61,7 @@
 
                     @* div icon *@
                     <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
-                        <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-5"></i></button>
+                        <a class="me-2 btn-header text-dark @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/Home")><i class="bi bi-bag-fill bi-icon-header fs-5"></i></a>
 
                             <!-- Button popup Đăng Nhập-->
                     
@@ -74,8 +75,6 @@
                                         <p class="d-flex align-items-center mt-3"><b>Xin chào, </b> @ViewData["TenKhachHang"] </p>
                                     </div>
                                 </div>
-
-                               
 
                                 <div class="account-box dropdown-menu " id="accountBox" style="padding: 0;border:none;">
                                     <ul class="list-unstyled" style="margin: 0;padding: 0">

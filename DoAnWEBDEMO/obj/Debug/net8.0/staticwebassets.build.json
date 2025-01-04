@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "336CD3lGBh9a7k4Zhxw1SsW/4OmdRPd4kbZiBF1vt30=",
+  "Hash": "JvUbhYIrWLhmyrl9iF13EtOFSJNLPBVSxl+67ti7eQo=",
   "Source": "DoAnWEBDEMO",
   "BasePath": "_content/DoAnWEBDEMO",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DoAnWEBDEMO.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\gioithieu.css",
+      "SourceId": "DoAnWEBDEMO",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\",
+      "BasePath": "_content/DoAnWEBDEMO",
+      "RelativePath": "css/gioithieu#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "d7mjr5m3pz",
+      "Integrity": "17kNnmCDR+KizZfspkV2gC6bNAMKXBeWuSQE5BerKnc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\gioithieu.css"
     },
     {
       "Identity": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
@@ -136,8 +157,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9s4rzdqo4a",
-      "Integrity": "B7iHxz8x77OYm6U+AfrIXCgTRLvm4r2WP/JqEr0/7jU=",
+      "Fingerprint": "2ddi1qvrls",
+      "Integrity": "2vKbsWg7AU+Sjox54oyefommTTJzUFbsQ+gVy0P/EWs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -1342,6 +1363,88 @@
   ],
   "Endpoints": [
     {
+      "Route": "css/gioithieu.css",
+      "AssetFile": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\gioithieu.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"17kNnmCDR+KizZfspkV2gC6bNAMKXBeWuSQE5BerKnc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 03:07:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-17kNnmCDR+KizZfspkV2gC6bNAMKXBeWuSQE5BerKnc="
+        }
+      ]
+    },
+    {
+      "Route": "css/gioithieu.d7mjr5m3pz.css",
+      "AssetFile": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\gioithieu.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"17kNnmCDR+KizZfspkV2gC6bNAMKXBeWuSQE5BerKnc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 03:07:13 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "d7mjr5m3pz"
+        },
+        {
+          "Name": "label",
+          "Value": "css/gioithieu.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-17kNnmCDR+KizZfspkV2gC6bNAMKXBeWuSQE5BerKnc="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -1752,7 +1855,7 @@
       ]
     },
     {
-      "Route": "js/site.9s4rzdqo4a.js",
+      "Route": "js/site.2ddi1qvrls.js",
       "AssetFile": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1762,7 +1865,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5599"
+          "Value": "5835"
         },
         {
           "Name": "Content-Type",
@@ -1770,11 +1873,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B7iHxz8x77OYm6U+AfrIXCgTRLvm4r2WP/JqEr0/7jU=\""
+          "Value": "\"2vKbsWg7AU+Sjox54oyefommTTJzUFbsQ+gVy0P/EWs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 06:45:43 GMT"
+          "Value": "Sat, 04 Jan 2025 05:36:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1784,7 +1887,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9s4rzdqo4a"
+          "Value": "2ddi1qvrls"
         },
         {
           "Name": "label",
@@ -1792,7 +1895,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-B7iHxz8x77OYm6U+AfrIXCgTRLvm4r2WP/JqEr0/7jU="
+          "Value": "sha256-2vKbsWg7AU+Sjox54oyefommTTJzUFbsQ+gVy0P/EWs="
         }
       ]
     },
@@ -1807,7 +1910,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5599"
+          "Value": "5835"
         },
         {
           "Name": "Content-Type",
@@ -1815,11 +1918,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B7iHxz8x77OYm6U+AfrIXCgTRLvm4r2WP/JqEr0/7jU=\""
+          "Value": "\"2vKbsWg7AU+Sjox54oyefommTTJzUFbsQ+gVy0P/EWs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 06:45:43 GMT"
+          "Value": "Sat, 04 Jan 2025 05:36:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1829,7 +1932,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-B7iHxz8x77OYm6U+AfrIXCgTRLvm4r2WP/JqEr0/7jU="
+          "Value": "sha256-2vKbsWg7AU+Sjox54oyefommTTJzUFbsQ+gVy0P/EWs="
         }
       ]
     },
