@@ -6,6 +6,7 @@
     "\\DoAnWEBDEMO\\Migrations",
     "\\DoAnWEBDEMO\\Models",
     "\\DoAnWEBDEMO\\Views",
+    "\\DoAnWEBDEMO\\Views\\DonHang",
     "\\DoAnWEBDEMO\\Views\\KhachHang",
     "\\DoAnWEBDEMO\\Views\\Shared"
   ],
