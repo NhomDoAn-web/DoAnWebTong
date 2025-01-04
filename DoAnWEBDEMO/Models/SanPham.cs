@@ -84,6 +84,9 @@ namespace DoAnWEBDEMO.Models
         [StringLength(50, ErrorMessage = "Tần số quét màn hình không được vượt quá 50 ký tự.")]
         public string? TanSoQuet { get; set; }
 
+        [Range(0, int.MaxValue, ErrorMessage = "Lượt xem phải lớn hơn hoặc bằng 0.")]
+        public int? LuotXem { get; set; }
+
         public virtual DanhMuc? DanhMuc{ get; set; }
         public virtual NhaCungCap? NhaCungCap{ get; set; }
 

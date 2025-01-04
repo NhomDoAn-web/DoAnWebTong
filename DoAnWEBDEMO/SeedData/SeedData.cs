@@ -68,7 +68,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "iOS 16",
                         TanSoQuet = "120Hz",
                         Gia = 22990000,
-                        SoLuongTon = 50 // Số lượng tồn kho
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -91,7 +91,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "Android 13",
                         TanSoQuet = "120Hz",
                         Gia = 23990000,
-                        SoLuongTon = 100 // Số lượng tồn kho
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -114,7 +114,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "MIUI 14",
                         TanSoQuet = "120Hz",
                         Gia = 17990000,
-                        SoLuongTon = 150 // Số lượng tồn kho
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -137,7 +137,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "ColorOS 13",
                         TanSoQuet = "120Hz",
                         Gia = 32990000,
-                        SoLuongTon = 200 // Số lượng tồn kho
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -160,7 +160,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "iOS 16",
                         TanSoQuet = "120Hz",
                         Gia = 33990000, // Đơn giá của sản phẩm
-                        SoLuongTon = 200
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -183,7 +183,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "Android 13",
                         TanSoQuet = "120Hz",
                         Gia = 41990000,
-                        SoLuongTon = 300
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -206,7 +206,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "MIUI 14",
                         TanSoQuet = "120Hz",
                         Gia = 9990000,
-                        SoLuongTon = 200
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -229,7 +229,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "ColorOS 13",
                         TanSoQuet = "120Hz",
                         Gia = 17990000,
-                        SoLuongTon = 150
+                        LuotXem = 0
                     },
                     new SanPham
                     {
@@ -252,7 +252,7 @@ namespace DoAnWEBDEMO.SeedData
                         HeDieuHanh = "iOS 16",
                         TanSoQuet = "60Hz",
                         Gia = 10990000,
-                        SoLuongTon = 400
+                        LuotXem = 0
                     }
 
                 };
@@ -270,7 +270,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054086797665958_ip-14-den-1.jpg",
-                        Gia = 22990000,
                         MaSP = 1,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -279,7 +278,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Trắng",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054091427671235_ip-14-trang-1.jpg",
-                        Gia = 22990000,
                         MaSP = 1,
                         TrangThai = 1
                     },
@@ -287,16 +285,14 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Tím",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054090260153672_ip-14-tim-1.jpg",
-                        Gia = 22500000,
                         MaSP = 1,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
                     },
                     new MauSac
                     {
-                        TenMauSac = "Xanh dương",
+                        TenMauSac = "Xanh",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054088819837718_ip-14-do-1.jpg",
-                        Gia = 22890000,
                         MaSP = 1,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -304,9 +300,8 @@ namespace DoAnWEBDEMO.SeedData
                     // samsung-galaxy-s23 (MASP 2)
                     new MauSac
                     {
-                        TenMauSac = "Xanh lá",
+                        TenMauSac = "Xanh",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_2_17_638122486969031761_samsung-galaxy-s23-xanh-4.jpg",
-                        Gia = 23990000,
                         MaSP = 2,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -315,7 +310,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Kem",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_2_17_638122486170765497_samsung-galaxy-s23-tim-4.jpg",
-                        Gia = 23990000,
                         MaSP = 2,
                         SoLuongTon_MS = 30,
                         TrangThai = 1
@@ -324,7 +318,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2024_5_15_638513664899586826_samsung-galaxy-s23-den-docquyen.jpg",
-                        Gia = 23990000,
                         MaSP = 2,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -333,7 +326,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Tím",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_2_17_638122486170765497_samsung-galaxy-s23-tim-4.jpg",
-                        Gia = 23990000,
                         MaSP = 2,
                         SoLuongTon_MS = 30,
                         TrangThai = 1
@@ -343,16 +335,14 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_2_20_638125113177912131_xiaomi-13-den-5.jpg",
-                        Gia = 17990000,
                         MaSP = 3,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
                     },
                     new MauSac
                     {
-                        TenMauSac = "Xanh dương",
+                        TenMauSac = "Xanh",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_2_20_638125111639884515_xiaomi-13-xanh-5.jpg",
-                        Gia = 17990000,
                         MaSP = 3,
                         SoLuongTon_MS = 20,
                         TrangThai = 1
@@ -362,7 +352,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/oppo_find_x8_space_black_1_6a9c3746b3.png",
-                        Gia = 32990000,
                         MaSP = 4,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -372,7 +361,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054218956629637_ip-14-pro-max-den-1.jpg",
-                        Gia = 33990000,
                         MaSP = 5,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -381,7 +369,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Bạc",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054217303176240_ip-14-pro-max-bac-1.jpg",
-                        Gia = 33990000,
                         MaSP = 5,
                         SoLuongTon_MS = 15,
                         TrangThai = 1
@@ -390,7 +377,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Vàng",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054222139728415_ip-14-pro-max-vang-1.jpg",
-                        Gia = 33990000,
                         MaSP = 5,
                         SoLuongTon_MS = 20,
                         TrangThai = 1
@@ -399,7 +385,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Tím",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_11_30_638054220350691584_ip-14-pro-max-tim-1.jpg",
-                        Gia = 33990000,
                         MaSP = 5,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -409,16 +394,14 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_8_10_637957713446350652_samsung-galaxy-z-fold4-den-2.jpg",
-                        Gia = 41990000,
                         MaSP = 6,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
                     },
                     new MauSac
                     {
-                        TenMauSac = "Xanh đen",
+                        TenMauSac = "Xanh",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_8_10_637957717267662603_samsung-galaxy-z-fold4-xanh-2.jpg",
-                        Gia = 41990000,
                         MaSP = 6,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -427,7 +410,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đỏ",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_4_10_638167221773487338_samsung-galaxy-z-fold4-do-2.jpg",
-                        Gia = 41990000,
                         MaSP = 6,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -437,7 +419,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_3_22_638151013110509349_xiaomi-redmi-note-12-pro-trang-xam-5.jpg",
-                        Gia = 9990000,
                         MaSP = 7,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -446,7 +427,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Trắng",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2023_3_22_638151007412242456_xiaomi-redmi-note-12-pro-trang-5.jpg",
-                        Gia = 9990000,
                         MaSP = 7,
                         SoLuongTon_MS = 70,
                         TrangThai = 1
@@ -456,7 +436,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Bạc",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/oppo_reno_12_trang_d776379731.jpg",
-                        Gia = 17990000,
                         MaSP = 8,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -465,7 +444,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Nâu",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/oppo_reno_12_den_f4fa1cfa2a.jpg",
-                        Gia = 17990000,
                         MaSP = 8,
                         SoLuongTon_MS = 40,
                         TrangThai = 1
@@ -475,7 +453,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Đen",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/2022_3_9_637823948840474346_iphone-se-2022-den-1.jpg",
-                        Gia = 10990000,
                         MaSP = 9,
                         SoLuongTon_MS = 50,
                         TrangThai = 1
@@ -484,7 +461,6 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         TenMauSac = "Bạc",
                         HinhAnhSP_MauSac = "https://cdn2.fptshop.com.vn/unsafe/384x0/filters:quality(100)/oppo_reno_12_trang_d776379731.jpg",
-                        Gia = 10990000,
                         MaSP = 9,
                         SoLuongTon_MS = 50,
                         TrangThai = 1

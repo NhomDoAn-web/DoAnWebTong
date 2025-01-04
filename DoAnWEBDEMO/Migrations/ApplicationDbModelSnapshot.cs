@@ -238,9 +238,6 @@ namespace DoAnWEBDEMO.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_MauSac"));
 
-                    b.Property<decimal>("Gia")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("HinhAnhSP_MauSac")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -389,6 +386,9 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("LuotXem")
+                        .HasColumnType("int");
 
                     b.Property<int>("MaDanhMuc")
                         .HasColumnType("int");

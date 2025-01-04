@@ -15,10 +15,6 @@ namespace DoAnWEBDEMO.Models
         [Url(ErrorMessage = "URL hình ảnh không hợp lệ.")]
         public string HinhAnhSP_MauSac { get; set; }
 
-        [Required(ErrorMessage = "Giá không được để trống.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Giá phải lớn hơn hoặc bằng 0.")]
-        public decimal Gia { get; set; }
-
         // Khóa ngoại
         [Required(ErrorMessage = "Mã sản phẩm không được để trống.")]
         public int MaSP { get; set; }

@@ -55,6 +55,13 @@ namespace DoAnWEBDEMO.Controllers
 
             ViewBag.AnhDauTien = anhDauTien;
 
+            // Tăng lượt xem sản phẩm
+            sanPham.LuotXem += 1;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            _context.Update(sanPham);
+            _context.SaveChanges();
+
             return View(sanPham);
         }
 

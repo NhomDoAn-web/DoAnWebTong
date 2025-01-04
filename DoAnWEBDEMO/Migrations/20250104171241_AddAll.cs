@@ -103,7 +103,8 @@ namespace DoAnWEBDEMO.Migrations
                     Bo_Nho_Trong = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Pin = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     HeDieuHanh = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    TanSoQuet = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    TanSoQuet = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LuotXem = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -213,7 +214,6 @@ namespace DoAnWEBDEMO.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenMauSac = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     HinhAnhSP_MauSac = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     MaSP = table.Column<int>(type: "int", nullable: false),
                     SoLuongTon_MS = table.Column<int>(type: "int", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false)

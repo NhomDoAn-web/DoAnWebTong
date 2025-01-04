@@ -267,4 +267,17 @@ body {
     /*font-weight: 600;*/
 }
 
+.color-option {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa hình ảnh và nội dung */
+}
+
+.color-name {
+    font-size: 0.8rem; /* Kích thước chữ */
+    color: #333; /* Màu chữ */
+    white-space: nowrap; /* Không xuống dòng */
+}
+
+
 /*=====================================*/
