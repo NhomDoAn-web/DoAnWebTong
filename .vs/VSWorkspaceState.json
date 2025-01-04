@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\DoAnWEBDEMO",
-    "\\DoAnWEBDEMO\\Models"
+    "\\DoAnWEBDEMO\\Models",
+    "\\DoAnWEBDEMO\\Views",
+    "\\DoAnWEBDEMO\\Views\\TrangChu"
   ],
-  "SelectedNode": "\\DoAnWEBDEMO\\Models\\TaiKhoanNhanVien.cs",
+  "SelectedNode": "\\DoAnWEBDEMO.sln",
   "PreviewInSolutionExplorer": false
 }
