@@ -87,7 +87,6 @@ namespace DoAnWEBDEMO.Models
         public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
         public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
         public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
-
-
+        public virtual ICollection<KhuyenMai>? KhuyenMais { get; set; }
     }
 }

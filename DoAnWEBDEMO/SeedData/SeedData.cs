@@ -385,6 +385,22 @@ namespace DoAnWEBDEMO.SeedData
                 _db.LienHe.AddRange(lienHes);
                 _db.SaveChanges();
             }
+            if (!_db.KhuyenMai.Any())
+            {
+                var KhuyenMais = new List<KhuyenMai>
+                {
+                    new KhuyenMai
+                    {
+                      SanPhamKhuyenMaiId = 1,
+                      MucGiamGia = 30,
+                      NgayBatDau = new DateTime(2025, 1, 1),
+                      NgayKetThuc = DateTime.Now,
+                    }
+                };
+
+                _db.KhuyenMai.AddRange(KhuyenMais);
+                _db.SaveChanges();
+            }
 
         }
     }

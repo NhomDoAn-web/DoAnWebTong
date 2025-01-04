@@ -7,49 +7,107 @@
 <div class="container my-4">
     <h2 class="text-center mb-4">Kết quả tìm kiếm</h2>
 
-    <!-- Form tìm kiếm -->
     <div class="search-criteria mb-4">
-        <div class="row">
-            <!-- Tìm kiếm theo tên -->
-            <div class="col-md-4 mb-3">
-                <label for="searchTerm" class="form-label">Tên sản phẩm</label>
-                <input type="text"
-                       id="searchTerm"
-                       class="form-control"
-                       placeholder="Nhập tên sản phẩm...">
-            </div>
-
-            <!-- Lọc theo danh mục -->
-            <div class="col-md-4 mb-3">
-                <label for="category" class="form-label">Danh mục</label>
-                <select id="category" class="form-select">
-                    <option value="">Tất cả danh mục</option>
-                    <option value="1">Điện thoại</option>
-                    <option value="2">Máy tính bảng</option>
-                    <option value="3">Phụ kiện</option>
-                </select>
-            </div>
-
-            <!-- Lọc theo khoảng giá -->
-            <div class="col-md-4 mb-3">
-                <label class="form-label">Khoảng giá</label>
-                <div class="input-group">
-                    <input type="number"
-                           id="priceMin"
-                           class="form-control"
-                           placeholder="Giá thấp nhất (VNĐ)">
-                    <span class="input-group-text">-</span>
-                    <input type="number"
-                           id="priceMax"
-                           class="form-control"
-                           placeholder="Giá cao nhất (VNĐ)">
+        <form method="get" action="@Url.Action("TimKiemSanPham", "TrangChu")">
+            <div class="row d-flex align-items-center">
+                <!-- Lọc theo danh mục -->
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Danh mục</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucAll"
+                                   name="DanhMucId"
+                                   value=""
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == null ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucAll">Tất cả</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucIphone"
+                                   name="DanhMucId"
+                                   value="1"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 1 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucIphone">Iphone</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucSamsung"
+                                   name="DanhMucId"
+                                   value="2"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 2 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucSamsung">Samsung</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucOppo"
+                                   name="DanhMucId"
+                                   value="3"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 3 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucOppo">Oppo</label>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Lọc theo khoảng giá -->
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Khoảng giá</label>
+                    <div class="input-group">
+                        <!-- Giá thấp nhất -->
+                        <input type="text"
+                               id="priceMin"
+                               name="GiaMin"
+                               class="form-control form-control-sm"
+                               placeholder="Giá thấp nhất"
+                               value="@ViewBag.CurrentPriceMin"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               onchange="this.form.submit()"
+                               style="max-width: 150px;">
+
+                        <span class="input-group-text">-</span>
+
+                        <!-- Giá cao nhất -->
+                        <input type="text"
+                               id="priceMax"
+                               name="GiaMax"
+                               class="form-control form-control-sm"
+                               placeholder="Giá cao nhất"
+                               value="@ViewBag.CurrentPriceMax"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               onchange="this.form.submit()"
+                               style="max-width: 150px;">
+                    </div>
+                </div>
+
+                <!-- Sắp xếp theo giá -->
+                <div class="col-md-3 mb-3">
+                    <label> </label>
+                    <div class="d-flex flex-wrap gap-2 justify-content-between">
+                        <button type="submit" name="SortOrder" value="desc" class="btn btn-outline-primary btn-SapXep"
+                        @(ViewBag.CurrentSortOrder == "desc" ? "disabled" : "")>
+                            <i class="bi bi-sort-down"></i> Giá cao
+                        </button>
+                        <button type="submit" name="SortOrder" value="asc" class="btn btn-outline-primary btn-SapXep"
+                        @(ViewBag.CurrentSortOrder == "asc" ? "disabled" : "")>
+                            <i class="bi bi-sort-up"></i> Giá thấp
+                        </button>                  
+                    </div>
+                </div>
+                <!-- Thêm trường ẩn cho tên tìm kiếm -->
+                <input type="hidden" name="TenTimKiem" value="@ViewBag.CurrentSearchTerm" />
             </div>
-        </div>
-        <div class="text-end">
-            <button type="button" class="btn btn-primary">Tìm kiếm</button>
-        </div>
+        </form>
     </div>
+
+
 
     <!-- Danh sách sản phẩm -->
     <div class="row">
@@ -142,4 +200,5 @@
         });
     }
 </script>
+
 

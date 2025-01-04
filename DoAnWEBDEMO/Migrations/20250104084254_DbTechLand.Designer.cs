@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20250103142857_DbTechLand")]
+    [Migration("20250104084254_DbTechLand")]
     partial class DbTechLand
     {
         /// <inheritdoc />
@@ -187,6 +187,33 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasKey("MaKH");
 
                     b.ToTable("KhachHang");
+                });
+
+            modelBuilder.Entity("DoAnWEBDEMO.Models.KhuyenMai", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MucGiamGia")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("NgayBatDau")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayKetThuc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SanPhamKhuyenMaiId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SanPhamKhuyenMaiId");
+
+                    b.ToTable("KhuyenMai");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.LienHe", b =>
@@ -483,6 +510,17 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("NhanVien");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.KhuyenMai", b =>
+                {
+                    b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
+                        .WithMany("KhuyenMais")
+                        .HasForeignKey("SanPhamKhuyenMaiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SanPham");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.LienHe", b =>
                 {
                     b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
@@ -568,6 +606,8 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("ChiTietBinhLuans");
 
                     b.Navigation("ChiTietDonHangs");
+
+                    b.Navigation("KhuyenMais");
 
                     b.Navigation("SanPhamYeuThichs");
                 });

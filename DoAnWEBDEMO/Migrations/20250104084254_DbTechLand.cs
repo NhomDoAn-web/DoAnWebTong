@@ -206,6 +206,28 @@ namespace DoAnWEBDEMO.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "KhuyenMai",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SanPhamKhuyenMaiId = table.Column<int>(type: "int", nullable: false),
+                    MucGiamGia = table.Column<int>(type: "int", nullable: false),
+                    NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KhuyenMai", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_KhuyenMai_SanPham_SanPhamKhuyenMaiId",
+                        column: x => x.SanPhamKhuyenMaiId,
+                        principalTable: "SanPham",
+                        principalColumn: "MaSP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SanPhamYeuThich",
                 columns: table => new
                 {
@@ -278,6 +300,11 @@ namespace DoAnWEBDEMO.Migrations
                 column: "MaNVXL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_KhuyenMai_SanPhamKhuyenMaiId",
+                table: "KhuyenMai",
+                column: "SanPhamKhuyenMaiId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_LienHe_MA_NVXL",
                 table: "LienHe",
                 column: "MA_NVXL");
@@ -311,6 +338,9 @@ namespace DoAnWEBDEMO.Migrations
 
             migrationBuilder.DropTable(
                 name: "CHI_TIET_DON_HANG");
+
+            migrationBuilder.DropTable(
+                name: "KhuyenMai");
 
             migrationBuilder.DropTable(
                 name: "LienHe");

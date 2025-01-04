@@ -14,19 +14,60 @@ namespace DoAnWEBDEMO.Controllers
         {
             _context = context ;
         }
-        public IActionResult TimKiemSanPham(string? TenTimKiem, int page = 1, int pageSize = 2)
+        public IActionResult TimKiemSanPham(string? TenTimKiem, int? DanhMucId, decimal? GiaMin, decimal? GiaMax, string? SortOrder, int page = 1, int pageSize = 2)
         {
-
             var query = _context.SanPham.AsQueryable();
 
+            // Lọc theo tên sản phẩm
             if (!string.IsNullOrEmpty(TenTimKiem))
             {
                 query = query.Where(sp => sp.TEN_SP.Contains(TenTimKiem));
             }
-            var pagedList = query.OrderBy(sp => sp.TEN_SP).ToPagedList(page, pageSize);
+
+            // Lọc theo danh mục
+            if (DanhMucId.HasValue && DanhMucId > 0)
+            {
+                query = query.Where(sp => sp.MaDanhMuc == DanhMucId);
+            }
+
+            // Lọc theo khoảng giá
+            if (GiaMin.HasValue)
+            {
+                query = query.Where(sp => sp.Gia >= GiaMin);
+            }
+            if (GiaMax.HasValue)
+            {
+                query = query.Where(sp => sp.Gia <= GiaMax);
+            }
+
+            // Sắp xếp theo giá
+            if (SortOrder == "asc")
+            {
+                query = query.OrderBy(sp => sp.Gia); // Tăng dần
+            }
+            else if (SortOrder == "desc")
+            {
+                query = query.OrderByDescending(sp => sp.Gia); // Giảm dần
+            }
+            else
+            {
+                query = query.OrderBy(sp => sp.TEN_SP); // Sắp xếp theo tên nếu không chọn sắp xếp giá
+            }
+
+            var pagedList = query.ToPagedList(page, pageSize);
+
+            // Đặt lại ViewBag để duy trì các giá trị hiện tại
             ViewBag.CurrentSearchTerm = TenTimKiem;
+            ViewBag.CurrentCategory = DanhMucId;
+            ViewBag.CurrentPriceMin = GiaMin;
+            ViewBag.CurrentPriceMax = GiaMax;
+            ViewBag.CurrentSortOrder = SortOrder;
+
             return View(pagedList);
         }
+
+
+
         [HttpPost]
         public IActionResult ThemSanPhamYeuThich(int productId)
         {

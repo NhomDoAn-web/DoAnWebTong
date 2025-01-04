@@ -386,3 +386,17 @@ body {
     border: none;
 }
 
+.btn-SapXep {
+    border: 2px solid black !important;
+    color: black !important;
+    background-color: transparent !important;
+}
+
+    .btn-SapXep:hover {
+        border-color: #0056b3 !important;
+        color: #0056b3 !important;
+        background-color: rgba(0, 86, 179, 0.1) !important;
+    }
+
+
+

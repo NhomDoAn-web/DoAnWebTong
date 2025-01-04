@@ -18,6 +18,7 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<SanPhamYeuThich> SanPhamYeuThich { get; set; }
         public DbSet<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
         public DbSet<CHI_TIET_BINH_LUAN> CHI_TIET_BINH_LUAN { get; set; }
+        public DbSet<KhuyenMai> KhuyenMai { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,18 +34,28 @@ namespace DoAnWEBDEMO.ApplicationDB
             modelBuilder.Entity<SanPham>()
                 .Property(s => s.Gia)
                 .HasColumnType("decimal(18,2)");
+
+            //Quan hệ: khách hàng x khuyến mãi
+            modelBuilder.Entity<KhuyenMai>()
+            .HasOne(d => d.SanPham)
+            .WithMany(k => k.KhuyenMais)
+            .HasForeignKey(d => d.SanPhamKhuyenMaiId)
+            .OnDelete(DeleteBehavior.Cascade);
+
             //Quan hệ: khách hàng x Sản phẩm yêu thích 
             modelBuilder.Entity<SanPhamYeuThich>()
             .HasOne(d => d.KhachHang)
             .WithMany(k => k.SanPhamYeuThichs)
             .HasForeignKey(d => d.KhachHangId)
             .OnDelete(DeleteBehavior.Cascade);
+
             //Quan hệ: sản phẩm x Sản phẩm yêu thích 
             modelBuilder.Entity<SanPhamYeuThich>()
             .HasOne(d => d.SanPham)
             .WithMany(k => k.SanPhamYeuThichs)
             .HasForeignKey(d => d.SanPhamId)
             .OnDelete(DeleteBehavior.Cascade);
+
             //Quan hệ: Sản phẩm x Danh Mục
             modelBuilder.Entity<SanPham>()
                 .HasOne(sp => sp.DanhMuc)
