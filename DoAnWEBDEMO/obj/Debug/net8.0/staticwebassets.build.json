@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NfRGrO9ylSO8E34SH8BmyQgSVhxKo1OxxGQ+eZ5UMTI=",
+  "Hash": "336CD3lGBh9a7k4Zhxw1SsW/4OmdRPd4kbZiBF1vt30=",
   "Source": "DoAnWEBDEMO",
   "BasePath": "_content/DoAnWEBDEMO",
   "Mode": "Default",
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fgmnth1m3p",
-      "Integrity": "kX3jZmBf2pHeTNXssVuYJa06M9XbBjC9LQITrHrH2ws=",
+      "Fingerprint": "heiy58s62f",
+      "Integrity": "qRZnfzni9kUbC3WZoa8RQt+OVysjI+630Ey/lhg8V5o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1360,11 +1360,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kX3jZmBf2pHeTNXssVuYJa06M9XbBjC9LQITrHrH2ws=\""
+          "Value": "\"qRZnfzni9kUbC3WZoa8RQt+OVysjI+630Ey/lhg8V5o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 06:10:14 GMT"
+          "Value": "Fri, 03 Jan 2025 06:57:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1374,12 +1374,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kX3jZmBf2pHeTNXssVuYJa06M9XbBjC9LQITrHrH2ws="
+          "Value": "sha256-qRZnfzni9kUbC3WZoa8RQt+OVysjI+630Ey/lhg8V5o="
         }
       ]
     },
     {
-      "Route": "css/site.fgmnth1m3p.css",
+      "Route": "css/site.heiy58s62f.css",
       "AssetFile": "C:\\Users\\lvkt0\\Desktop\\zz\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1397,11 +1397,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kX3jZmBf2pHeTNXssVuYJa06M9XbBjC9LQITrHrH2ws=\""
+          "Value": "\"qRZnfzni9kUbC3WZoa8RQt+OVysjI+630Ey/lhg8V5o=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 03 Jan 2025 06:10:14 GMT"
+          "Value": "Fri, 03 Jan 2025 06:57:19 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1411,7 +1411,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fgmnth1m3p"
+          "Value": "heiy58s62f"
         },
         {
           "Name": "label",
@@ -1419,7 +1419,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-kX3jZmBf2pHeTNXssVuYJa06M9XbBjC9LQITrHrH2ws="
+          "Value": "sha256-qRZnfzni9kUbC3WZoa8RQt+OVysjI+630Ey/lhg8V5o="
         }
       ]
     },
