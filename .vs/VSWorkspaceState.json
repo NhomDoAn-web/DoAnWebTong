@@ -4,7 +4,10 @@
     "\\DoAnWEBDEMO",
     "\\DoAnWEBDEMO\\Controllers",
     "\\DoAnWEBDEMO\\Migrations",
-    "\\DoAnWEBDEMO\\Models"
+    "\\DoAnWEBDEMO\\Models",
+    "\\DoAnWEBDEMO\\Views",
+    "\\DoAnWEBDEMO\\Views\\KhachHang",
+    "\\DoAnWEBDEMO\\Views\\Shared"
   ],
   "SelectedNode": "\\DoAnWEBDEMO.sln",
   "PreviewInSolutionExplorer": false

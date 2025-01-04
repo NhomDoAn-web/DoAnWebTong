@@ -7,19 +7,19 @@
     <h2>Chỉnh sửa thông tin tài khoản</h2>
 
     <form id="editProfileForm" method="post">
-        <!-- Họ -->
+    
         <div class="form-group">
             <label for="hoKH">Họ</label>
             <input type="text" class="form-control" id="hoKH" name="hoKH" value="@Model.HoKH" required />
         </div>
 
-        <!-- Tên -->
+ 
         <div class="form-group">
             <label for="tenKH">Tên</label>
             <input type="text" class="form-control" id="tenKH" name="tenKH" value="@Model.TenKH" required />
         </div>
 
-        <!-- Giới tính -->
+     
         <div class="form-group">
             <label for="gioiTinh">Giới Tính</label>
             <select class="form-control" id="gioiTinh" name="gioiTinh">
@@ -35,25 +35,25 @@
                 }
             </select>
         </div>
-        <!-- Email -->
+      
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" name="email" value="@Model.Email" required />
         </div>
 
-        <!-- Số điện thoại -->
+     
         <div class="form-group">
             <label for="sdt">Số điện thoại</label>
             <input type="text" class="form-control" id="sdt" name="sdt" value="@Model.SDT" required />
         </div>
 
-        <!-- Địa chỉ -->
+   
         <div class="form-group">
             <label for="diaChi">Địa chỉ</label>
             <input type="text" class="form-control" id="diaChi" name="diaChi" value="@Model.DiaChi" required />
         </div>
 
-        <!-- Tên người dùng -->
+       
         <div class="form-group">
             <label for="tenNguoiDung">Tên người dùng</label>
             <input type="text" class="form-control" id="tenNguoiDung" name="tenNguoiDung" value="@Model.TENNGUOIDUNG" required />
@@ -66,39 +66,31 @@
 
 <script>
     $(document).ready(function () {
-        $('#editProfileForm').on('submit', function (e) {
-            e.preventDefault(); // Ngăn chặn gửi form mặc định
+        $('#editProfileForm').submit(function (e) {
+            e.preventDefault();
 
-            var formData = $(this).serialize(); // Thu thập dữ liệu từ form
+            const data = $(this).serialize(); // lấy dữ liệu từ form
 
             $.ajax({
-                url: '@Url.Action("EditProfile", "KhachHang")',
+                url: '/KhachHang/EditProfile',
                 type: 'POST',
-                data: formData,
+                data: data,
                 success: function (response) {
                     if (response.value) {
-                        // Hiển thị thông báo thành công
-                        alert(response.message);
-                        // Chuyển hướng nếu URL tồn tại
-                        if (response.redirectUrl) {
-                            window.location.href = response.redirectUrl;
-                        } else {
-                            alert("URL chuyển hướng không tồn tại!");
-                        }
+                        alert(response.message); 
+                        window.location.href = '/KhachHang/Profile'; 
                     } else {
-                        // Thông báo lỗi từ server
-                        alert(response.message);
+                        alert(response.message); 
                     }
                 },
-                error: function () {
-                    // Thông báo nếu xảy ra lỗi trong AJAX
-                    alert("Có lỗi xảy ra khi gửi yêu cầu!");
+                error: function (err) {
+                    console.error(err);
+                    alert('Có lỗi xảy ra, vui lòng thử lại.');
                 }
             });
         });
+
     });
 </script>
-
-
 
 

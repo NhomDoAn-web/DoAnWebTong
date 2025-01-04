@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\DOAN\DoAnWEBDEMO\DoAnWEBDEMO
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/DonHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9uSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,10 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEVkaXRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/EditThongTinTaiKhoan.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXEVkaXRUaG9uZ1RpblRhaUtob2FuLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/KhachHang/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hhY2hIYW5nXFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,6 +52,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/Shared/_LayoutProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/DOAN/DoAnWEBDEMO/DoAnWEBDEMO/Views/Shared/_ValidationScriptsPartial.cshtml]

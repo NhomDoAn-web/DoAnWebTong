@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using DoAnWEBDEMO.Models;
 using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -35,11 +36,8 @@ namespace DoAnWEBDEMO.Controllers
                     return Json(new { value = false, message = "Email hoặc tên người dùng đã tồn tại." });
                 }
 
-                // Mã hóa mật khẩu trước khi lưu
-                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(matKhau);
-
-                // Tạo đối tượng KhachHang mới
-                var newCustomer = new KhachHang
+                // Kiểm tra tính hợp lệ của các trường đầu vào
+                var khachHang = new KhachHang
                 {
                     HoKH = hoKH,
                     TenKH = tenKH,
@@ -48,11 +46,24 @@ namespace DoAnWEBDEMO.Controllers
                     SDT = sdt,
                     DiaChi = diaChi,
                     TENNGUOIDUNG = tenNguoiDung,
-                    MATKHAU = hashedPassword
+                    MATKHAU = matKhau
                 };
 
+                // Sử dụng DataAnnotations để kiểm tra validation
+                var validationResults = new List<ValidationResult>();
+                var validationContext = new ValidationContext(khachHang, null, null);
+                if (!Validator.TryValidateObject(khachHang, validationContext, validationResults, true))
+                {
+                    string errorMessage = string.Join("; ", validationResults.Select(vr => vr.ErrorMessage));
+                    return Json(new { value = false, message = "Dữ liệu không hợp lệ: " + errorMessage });
+                }
+
+                // Mã hóa mật khẩu trước khi lưu
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(matKhau);
+                khachHang.MATKHAU = hashedPassword;
+
                 // Thêm vào cơ sở dữ liệu và lưu thay đổi
-                _db.KhachHang.Add(newCustomer);
+                _db.KhachHang.Add(khachHang);
                 _db.SaveChanges();
 
                 return Json(new { value = true, message = "Đăng ký thành công!" });
@@ -63,7 +74,6 @@ namespace DoAnWEBDEMO.Controllers
                 return Json(new { value = false, message = "Có lỗi xảy ra: " + ex.Message });
             }
         }
-
 
 
         //Khách hàng đăng nhập - Json
@@ -117,7 +127,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if (string.IsNullOrEmpty(userName))
             {
-                // Nếu không có thông tin đăng nhập, yêu cầu mở modal đăng nhập
+               
                 return Json(new { showLoginModal = true });
             }
 
@@ -125,7 +135,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if (customer == null)
             {
-                // Nếu không tìm thấy thông tin khách hàng, yêu cầu mở modal đăng nhập
+               
                 return Json(new { showLoginModal = true });
             }
 
@@ -134,7 +144,7 @@ namespace DoAnWEBDEMO.Controllers
         }
         // Phương thức POST để cập nhật thông tin tài khoản
         [HttpPost]
-        public JsonResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
+        public IActionResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
         {
             try
             {
@@ -142,21 +152,21 @@ namespace DoAnWEBDEMO.Controllers
 
                 if (string.IsNullOrEmpty(userName))
                 {
-                    return Json(new { value = false, message = "Vui lòng đăng nhập để chỉnh sửa thông tin." });
+                    return RedirectToAction("Login", "Account"); // Nếu không có session, chuyển hướng đến trang đăng nhập
                 }
 
                 var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
 
                 if (customer == null)
                 {
-                    return Json(new { value = false, message = "Không tìm thấy thông tin người dùng." });
+                    return RedirectToAction("Login", "Account");
                 }
 
-                // Kiểm tra xem email hoặc tên người dùng đã tồn tại chưa
                 var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.TenKH != userName);
                 if (existingAccount != null)
                 {
-                    return Json(new { value = false, message = "Email hoặc tên người dùng đã tồn tại." });
+                    TempData["ErrorMessage"] = "Email hoặc tên người dùng đã tồn tại.";
+                    return RedirectToAction("EditProfile");
                 }
 
                 // Cập nhật thông tin khách hàng
@@ -171,15 +181,68 @@ namespace DoAnWEBDEMO.Controllers
                 _db.KhachHang.Update(customer);
                 _db.SaveChanges();
 
-                // Trả về JSON thông báo thành công và URL trang Profile
-                return Json(new { value = true, message = "Cập nhật thông tin thành công!", redirectUrl = Url.Action("Profile", "KhachHang") });
+                // Cập nhật session với thông tin mới
+                HttpContext.Session.SetString("user", customer.TenKH);
+
+                TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
+                return RedirectToAction("Profile"); // Chuyển hướng tới trang Profile sau khi cập nhật
             }
             catch (Exception ex)
             {
-                return Json(new { value = false, message = "Có lỗi xảy ra: " + ex.Message });
+                TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
+                return RedirectToAction("EditProfile");
             }
         }
-        //đang sai chuyển hướng khi cập nhật thành công 
+
+        //[HttpPost]
+        //public JsonResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
+        //{
+        //    try
+        //    {
+        //        var userName = HttpContext.Session.GetString("user");
+        //        Debug.WriteLine("Tên đăng nhập: " + userName);
+
+        //        if (string.IsNullOrEmpty(userName))
+        //        {
+        //            return Json(new { value = false, message = "Vui lòng đăng nhập để chỉnh sửa thông tin." });
+        //        }
+
+        //        var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
+        //        if (customer == null)
+        //        {
+        //            return Json(new { value = false, message = "Không tìm thấy thông tin người dùng." });
+        //        }
+
+        //        // Kiểm tra email hoặc tên người dùng trùng lặp
+        //        var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.TenKH != userName);
+        //        if (existingAccount != null)
+        //        {
+        //            return Json(new { value = false, message = "Email hoặc tên người dùng đã tồn tại." });
+        //        }
+
+        //        // Cập nhật thông tin
+        //        customer.HoKH = hoKH;
+        //        customer.TenKH = tenKH;
+        //        customer.GioiTinh = gioiTinh;
+        //        customer.Email = email;
+        //        customer.SDT = sdt;
+        //        customer.DiaChi = diaChi;
+        //        customer.TENNGUOIDUNG = tenNguoiDung;
+
+        //        _db.KhachHang.Update(customer);
+        //        _db.SaveChanges();
+
+        //        Debug.WriteLine("Cập nhật thành công!");
+
+        //        return Json(new { value = true, message = "Cập nhật thông tin thành công!" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine("Lỗi: " + ex.Message);
+        //        return Json(new { value = false, message = "Có lỗi xảy ra: " + ex.Message });
+        //    }
+        //}
+
 
 
         //
