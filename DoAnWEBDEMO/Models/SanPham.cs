@@ -15,8 +15,11 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Mã danh mục là bắt buộc.")]
         public int MaDanhMuc { get; set; }
 
+        [Required(ErrorMessage = "Giá tiền không được để trống.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Giá tiền phải lớn hơn hoặc bằng 0.")]
+        public decimal Gia { get; set; }
         [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
-        public string TEN_SP { get; set; }
+        public string? TEN_SP { get; set; }
 
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
@@ -83,6 +86,8 @@ namespace DoAnWEBDEMO.Models
 
         public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
         public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+        public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
+
 
     }
 }
