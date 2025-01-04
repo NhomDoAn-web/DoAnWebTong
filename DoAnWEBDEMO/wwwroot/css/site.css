@@ -18,12 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
-
-
-
-
 
 .btn-header {
     outline: none;
@@ -261,7 +257,14 @@ body {
     background-color: #555;
 }
 
-
-
+.selected-color {
+    border: 1px solid #DC143C; /* Viền màu xanh khi chọn */
+    padding: 5px 10px;
+    margin: 0 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    /*background-color: #EEEEEE;*/ /* Nền sáng khi chọn */
+    /*font-weight: 600;*/
+}
 
 /*=====================================*/

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
+using System.Drawing;
 namespace DoAnWEBDEMO.ApplicationDB
 {
     public class ApplicationDb : DbContext
@@ -8,16 +9,15 @@ namespace DoAnWEBDEMO.ApplicationDB
         public ApplicationDb(DbContextOptions<ApplicationDb> options) : base(options) { }
 
         public DbSet<DanhMuc> DanhMuc { get; set; }
-
         public DbSet<DonHang> DonHang { get; set; }
         public DbSet<KhachHang> KhachHang{ get; set; }
         public DbSet<LienHe> LienHe{ get; set; }
         public DbSet<NhaCungCap> NhaCungCap{ get; set; }
         public DbSet<NhanVien> NhanVien{ get; set; }
         public DbSet<SanPham> SanPham{ get; set; }
-
         public DbSet<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
         public DbSet<CHI_TIET_BINH_LUAN> CHI_TIET_BINH_LUAN { get; set; }
+        public DbSet<MauSac> MauSac { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -88,14 +88,19 @@ namespace DoAnWEBDEMO.ApplicationDB
                 .WithMany(dh => dh.ChiTietBinhLuans)
                 .HasForeignKey(ctdh => ctdh.MA_SP);
 
-            // Thiết lập quan hệ 1-N giữa KhachHang và ChiTietDonHang
+            // Thiết lập quan hệ 1-N giữa KhachHang và ChiTietBinhLuan
             modelBuilder.Entity<CHI_TIET_BINH_LUAN>()
                 .HasOne(ctdh => ctdh.KhachHang)
                 .WithMany(sp => sp.ChiTietBinhLuans)
                 .HasForeignKey(ctdh => ctdh.MA_KH);
 
-        }
+            // Thiết lập quan hệ 1-N giữa SanPham và MauSac
+            modelBuilder.Entity<MauSac>()
+            .HasOne(c => c.SanPham)              // Mỗi màu thuộc 1 sản phẩm
+            .WithMany(p => p.MauSacs)             // Mỗi sản phẩm có nhiều màu
+            .HasForeignKey(c => c.MaSP);    // Khóa ngoại là MaSP
 
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace DoAnWEBDEMO.Models
 {
@@ -28,8 +29,6 @@ namespace DoAnWEBDEMO.Models
         [StringLength(int.MaxValue)]
         public string? MoTa { get; set; }
 
-        [StringLength(50, ErrorMessage = "Màu sản phẩm không được vượt quá 50 ký tự.")]
-        public string? MauSP { get; set; }
         [Required(ErrorMessage = "Thời gian bảo hành là bắt buộc.")]
         [Range(0, int.MaxValue, ErrorMessage = "Thời gian bảo hành phải lớn hơn hoặc bằng 0.")]
         public int TGianBaoHanh { get; set; }
@@ -41,6 +40,9 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Slug không được để trống.")]
         [StringLength(255, ErrorMessage = "Slug không được vượt quá 255 ký tự.")]
         public string? Slug { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn kho phải lớn hơn hoặc bằng 0.")]
+        public int SoLuongTon { get; set; } // Số lượng tồn kho
 
         [Required(ErrorMessage = "Kích thước màn hình không được để trống.")]
         [StringLength(50, ErrorMessage = "Kích thước màn hình không được vượt quá 50 ký tự.")]
@@ -87,6 +89,7 @@ namespace DoAnWEBDEMO.Models
 
         public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
         public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+        public ICollection<MauSac>? MauSacs { get; set; }
 
     }
 }
