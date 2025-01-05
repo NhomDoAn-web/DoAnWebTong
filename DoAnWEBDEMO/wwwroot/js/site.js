@@ -1,4 +1,43 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+// Lấy các phần tử cần thiết
+const openModalBtn = document.getElementById('openLoginModal');
+const closeModalBtn = document.getElementById('closeLoginModal');
+const modal = document.getElementById('loginModal');
 
-// Write your JavaScript code.
+// Mở modal
+openModalBtn.addEventListener('click', () => {
+    modal.classList.add('show');
+});
+
+// Đóng modal
+closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+});
+
+// Đóng modal nếu người dùng nhấn ra ngoài
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.classList.remove('show');
+    }
+});
+
+
+
+function toggleChatBox() {
+    document.getElementById('chatBox').classList.toggle('show');
+}
+
+// Hiển thị chat box khi nhấn nút
+document.querySelector('.chat-btn').addEventListener('click', function () {
+    toggleChatBox();
+});
+
+function showAnswer(answerId) {
+    // Ẩn tất cả câu trả lời
+    const allAnswers = document.querySelectorAll('.answer');
+    allAnswers.forEach(answer => answer.style.display = 'none');
+
+    // Hiển thị câu trả lời tương ứng
+    const answer = document.getElementById(answerId);
+    answer.style.display = 'block';
+}

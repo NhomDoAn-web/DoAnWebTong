@@ -3,15 +3,28 @@
   "WorkspaceRootPath": "D:\\ASP.NET CORE\\DoAnWebTong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\models\\don_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\don_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\models\\khach_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\khach_hang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\nguye\\Documents\\Zalo Received Files\\NhanVien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\views\\sanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,8 +34,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SanPhamController.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwDAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T14:54:59.347Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAiwEoAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T17:01:19.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAlwP4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T17:00:49.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAPQAAAAAAAAAAAAAAAkBAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-04T16:51:38.192Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -46,37 +112,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DON_HANG.cs",
-              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DON_HANG.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DON_HANG.cs",
-              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DON_HANG.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Models\\DON_HANG.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T14:12:57.245Z",
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml*",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml*",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAQwKIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T15:30:44.268Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NhanVien.cs",
-              "DocumentMoniker": "C:\\Users\\nguye\\Documents\\Zalo Received Files\\NhanVien.cs",
-              "ToolTip": "C:\\Users\\nguye\\Documents\\Zalo Received Files\\NhanVien.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T14:07:15.892Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "KHACH_HANG.cs",
-              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\KHACH_HANG.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\KHACH_HANG.cs",
-              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Models\\KHACH_HANG.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Models\\KHACH_HANG.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T14:05:13.724Z"
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T14:58:01.31Z",
+              "EditorCaption": ""
             }
           ]
         },

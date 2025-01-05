@@ -1,0 +1,306 @@
+﻿@model DoAnWEBDEMO.Models.SanPham
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container product-detail">
+    <div class="row">
+        <!-- Phần ảnh sản phẩm -->
+        <div class="col-md-6">
+            <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Phần hiển thị ảnh sản phẩm -->
+                    <div class="carousel-item active">
+                        <img id="product-image" src="@Url.Content(ViewBag.AnhDauTien)" class="w-100" alt="Product Image" style="max-height: 400px; object-fit: contain;">
+                    </div>
+                    <!-- Nếu có nhiều ảnh, sử dụng vòng lặp để hiển thị -->
+                    @* 
+                    @foreach (var image in Model.HinhAnhSP)
+                    {
+                        <div class="carousel-item">
+                            <img src="@Url.Content("~/image/" + image)" class="d-block w-100 img-fluid" alt="Product Image" style="max-height: 400px; object-fit: cover;">
+                        </div>
+                    }
+                    *@
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+
+@*             <div class="thumbnail-gallery mt-3">
+                @foreach (var image in Model.HinhAnhSP)
+                {
+                    <img src="@Url.Content("~/image/" + image)" class="img-thumbnail" alt="Thumbnail">
+                }
+            </div> *@
+
+            <!-- Phần đánh giá -->
+            <div class="reviews mt-5">
+                <h3 class="text-center mb-4">ĐÁNH GIÁ SẢN PHẨM</h3>
+                <div class="reviews-container" style="max-height: 450px; overflow-y: auto;">
+                    @foreach (var review in Model.ChiTietBinhLuans)
+                    {
+                        <div class="review mb-3 p-3 border rounded shadow-sm">
+                            <div class="review-header d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <!-- Sử dụng icon đại diện cho khách hàng -->
+                                    <i class="fas fa-user-circle review-avatar me-3" style="font-size: 25px; color: #6c757d;"></i>
+                                    <span class="reviewer-name font-weight-bold"><strong>@review.KhachHang.TenKH</strong></span>
+                                </div>
+                                <div class="d-flex flex-column align-items-end">
+                                    <!-- Hiển thị ngày đánh giá -->
+                                    <span class="review-date text-muted" style="font-size: 0.7rem;">(@review.NGAY.ToString("dd/MM/yyyy"))</span>
+                                    <div class="review-rating text-warning mt-1">
+                                        @Html.Raw(new string('★', review.SO_SAO))
+                                        @Html.Raw(new string('☆', 5 - review.SO_SAO)) <!-- Hiển thị sao trống cho số sao chưa đánh giá -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p>@review.NOI_DUNG</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần thông tin sản phẩm -->
+        <div class="col-md-6">
+            <h1>@Model.TEN_SP</h1>
+            <p>@Model.MoTa</p>
+            <p>
+                <strong>Giá: </strong>
+                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">@Model.Gia.ToString("N0") đ</span>
+            </p>
+            <div class="rating">
+                <!-- Hiển thị số sao theo giá trị trung bình -->
+                <span class="stars">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @if (i <= (ViewBag.TrungBinhSoSao ?? 0))
+                        {
+                            <span class="bi bi-star-fill" style="color: gold;"></span> <!-- Sao đầy -->
+                        }
+                        else
+                        {
+                            <span class="bi bi-star" style="color: gray;"></span> <!-- Sao rỗng -->
+                        }
+                    }
+                </span>
+
+                <!-- Hiển thị giá trị trung bình số sao -->
+                <span id="average-rating">
+                    @if (ViewBag.TrungBinhSoSao != null)
+                    {
+                        var trungBinh = Convert.ToDecimal(ViewBag.TrungBinhSoSao);
+                        @trungBinh.ToString()
+                    }
+                    else
+                    {
+                        <span>Chưa có đánh giá</span>
+                    }
+                </span>
+            </div>
+            <div class="actions mt-4">
+                <!-- Điều chỉnh số lượng -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="quantity" style="font-weight: 600;" class="me-2">Số lượng:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1"
+                           class="form-control form-control-sm text-center w-auto" style="max-width: 80px;">
+                </div>
+
+                <!-- Chọn màu sản phẩm -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="color" style="font-weight: 600;" class="me-2">Chọn màu:</label>
+                    <div id="color-selection" class="d-flex flex-wrap">
+                        @foreach (var color in Model.MauSacs)
+                        {
+                            <div class="color-option d-flex align-items-center"
+                                 data-color="@color.TenMauSac"
+                                 data-image="@color.HinhAnhSP_MauSac"
+                                 style="padding: 5px 10px; margin: 0 10px; cursor: pointer; border-radius: 4px;"
+                                 onclick="selectColor(this)">
+                                <!-- Hình ảnh màu -->
+                                <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px; margin-right: 10px;">
+                                <!-- Tên màu và số lượng trên cùng một dòng -->
+                                <span class="color-name" style="white-space: nowrap;">
+                                    @color.TenMauSac (@color.SoLuongTon_MS)
+                                </span>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+                <script>
+                    // Hàm thay đổi hình ảnh sản phẩm khi người dùng chọn màu
+                    function selectColor(element) {
+
+                        // Lấy URL hình ảnh từ thuộc tính data-image
+                        var imageUrl = element.getAttribute('data-image');
+
+                        // Thay đổi hình ảnh sản phẩm
+                        document.getElementById('product-image').src = imageUrl;
+
+                        // Loại bỏ lớp 'selected-color' từ tất cả các màu sắc
+                        var allColorOptions = document.querySelectorAll('.color-option');
+                        allColorOptions.forEach(function (option) {
+                            option.classList.remove('selected-color');
+                        });
+
+                        // Thêm lớp 'selected-color' vào màu được chọn
+                        element.classList.add('selected-color');
+                    }
+                </script>
+
+                <pre class="d-flex align-items-center" style="font-weight:600;">
+                <i class="bi bi-eye me-2"></i>Lượt xem: <span class="fw-bold">@Model.LuotXem </span>
+            </pre>
+
+                <button class="btn btn-outline-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
+                    <i class="fas fa-cart-plus me-2"></i>
+                </button>
+                <button class="btn btn-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
+                    Mua ngay
+                </button>
+                <button class="btn btn-dark btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
+                    <i class="fas fa-heart me-2"></i> Thêm yêu thích
+                </button>                
+            </div>
+
+            <!-- Bảng thông số kỹ thuật -->
+            <div class="technical-details mt-5">
+                <h3 class="text-center mb-4">Thông Số Kỹ Thuật</h3>
+                <div class="technical-container" style="max-height: 450px; overflow-y: auto;">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center">Thông Tin</th>
+                                <th class="text-center">Chi Tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <td>@Model.TEN_SP</td>
+                            </tr>
+                            <tr>
+                                <th>Kích thước màn hình</th>
+                                <td>@Model.KichThuoc_ManHinh</td>
+                            </tr>
+                            <tr>
+                                <th>Camera sau</th>
+                                <td>@Model.CameraSau</td>
+                            </tr>
+                            <tr>
+                                <th>Camera trước</th>
+                                <td>@Model.Camera_Truoc</td>
+                            </tr>
+                            <tr>
+                                <th>Chipset</th>
+                                <td>@Model.Chipset</td>
+                            </tr>
+                            <tr>
+                                <th>GPU</th>
+                                <td>@Model.Gpu</td>
+                            </tr>
+                            <tr>
+                                <th>RAM</th>
+                                <td>@Model.Dung_Luong_Ram</td>
+                            </tr>
+                            <tr>
+                                <th>Bộ nhớ trong</th>
+                                <td>@Model.Bo_Nho_Trong</td>
+                            </tr>
+                            <tr>
+                                <th>Dung lượng pin</th>
+                                <td>@Model.Pin</td>
+                            </tr>
+                            <tr>
+                                <th>Hệ điều hành</th>
+                                <td>@Model.HeDieuHanh</td>
+                            </tr>
+                            <tr>
+                                <th>Tần số quét</th>
+                                <td>@Model.TanSoQuet</td>
+                            </tr>
+                            <tr>
+                                <th>Bảo hành</th>
+                                <td>@Model.TGianBaoHanh tháng</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                
+            </div>
+
+        </div>
+
+        <!-- Các sản phẩm nổi bật -->
+        <div class="featured-products mt-5 mb-5">
+            <h3 class="mb-3">SẢN PHẨM LIÊN QUAN</h3>
+            <div class="row">
+                @if (ViewBag.SanPhamNoiBat != null)
+                {
+                    foreach (var product in ViewBag.SanPhamNoiBat)
+                    {
+                        <div class="col-md-3">
+                            <div class="card">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                                    <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                                </a>
+                                <div class="card-body d-flex flex-column justify-content-between">
+                                    <h5 class="card-title">
+                                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                            @product.TEN_SP
+                                        </a>
+                                    </h5>
+                                    <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                        @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                        {
+                                            @(@product.MoTa.Substring(0, 110) + "...");
+                                            <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" 
+                                            style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                        }
+                                        else
+                                        {
+                                            @product.MoTa
+                                        }
+                                    </p>
+                                    <p class="card-text"><strong>Giá: </strong>
+                                        <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                            @product.Gia.ToString("N0") đ
+                                        </span>
+                                    </p>         
+                                    <!-- Nút căn giữa -->
+                                    <div class="text-center mt-auto d-flex justify-content-center">
+                                        <!-- Nút Thêm vào giỏ hàng -->
+                                        <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
+                                            <i class="fas fa-cart-plus me-2"></i>
+                                        </button>
+
+                                        <!-- Nút Thêm yêu thích -->
+                                        <button class="btn btn-dark px-4 py-2 rounded-3 shadow-sm hover-effect">
+                                            <i class="fas fa-heart me-2"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+                else
+                {
+                    <p>Không có sản phẩm nổi bật để hiển thị.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
