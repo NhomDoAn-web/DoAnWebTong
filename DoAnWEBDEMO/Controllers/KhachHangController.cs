@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
@@ -50,16 +51,22 @@ namespace DoAnWEBDEMO.Controllers
     }
 }
 =======
+=======
+>>>>>>> MinhTu
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
+<<<<<<< HEAD
 using DoAnWEBDEMO.Models;
 using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
+=======
+using System.Text.Json;
+>>>>>>> MinhTu
 namespace DoAnWEBDEMO.Controllers
 {
     public class KhachHangController : Controller
@@ -71,6 +78,7 @@ namespace DoAnWEBDEMO.Controllers
         {
             _db = db;
         }
+<<<<<<< HEAD
         //khách hàng đăng ký
         public IActionResult Register()
         {
@@ -126,6 +134,8 @@ namespace DoAnWEBDEMO.Controllers
                 return Json(new { value = false, message = "Có lỗi xảy ra: " + ex.Message });
             }
         }
+=======
+>>>>>>> MinhTu
 
 
         //Khách hàng đăng nhập - Json
@@ -134,6 +144,7 @@ namespace DoAnWEBDEMO.Controllers
             var checkTaiKhoan = _db.KhachHang.FirstOrDefault(tk => tk.Email == taiKhoan || tk.TENNGUOIDUNG == taiKhoan);
             Debug.WriteLine("Tài khoản: " + taiKhoan);
             Debug.WriteLine("Mật khẩu: " + matKhau);
+<<<<<<< HEAD
 
             if (checkTaiKhoan != null)
             {
@@ -298,6 +309,18 @@ namespace DoAnWEBDEMO.Controllers
 
 
         //
+=======
+            if(checkTaiKhoan != null)
+            {
+                if(checkTaiKhoan.MATKHAU == matKhau)
+                {
+                    HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
+                    return Json(new {value  = true});
+                }    
+            }    
+            return Json(new {value = false});
+        }
+>>>>>>> MinhTu
 
         [HttpPost]
         public JsonResult khachHangDangXuat()
@@ -305,6 +328,7 @@ namespace DoAnWEBDEMO.Controllers
             HttpContext.Session.Clear();
             return Json(new { value = true });
         }
+<<<<<<< HEAD
         public int? GetLoggedInKhachHangId()
         {
             var userName = HttpContext.Session.GetString("user");
@@ -385,6 +409,8 @@ namespace DoAnWEBDEMO.Controllers
 
 
 
+=======
+>>>>>>> MinhTu
 
         public IActionResult Index()
         {
@@ -392,4 +418,7 @@ namespace DoAnWEBDEMO.Controllers
         }
     }
 }
+<<<<<<< HEAD
 >>>>>>> manh
+=======
+>>>>>>> MinhTu

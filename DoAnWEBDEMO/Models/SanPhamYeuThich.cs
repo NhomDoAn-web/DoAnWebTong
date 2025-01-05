@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿namespace DoAnWEBDEMO.Models
 {
     public class SanPhamYeuThich
@@ -13,6 +14,8 @@
     }
 }
 =======
+=======
+>>>>>>> MinhTu
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -29,4 +32,7 @@ namespace DoAnWEBDEMO.Models
         public SanPham? SanPham { get; set; }
     }
 }
+<<<<<<< HEAD
 >>>>>>> manh
+=======
+>>>>>>> MinhTu

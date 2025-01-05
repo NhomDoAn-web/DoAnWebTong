@@ -17,6 +17,7 @@ var accountButton = document.getElementById("accountButton");
 var logoutButton = document.getElementById("logoutButton");
 const checkDangNhap = document.querySelector('.check-dang-nhap');
 
+<<<<<<< HEAD
 if (checkDangNhap)
 {
     checkDangNhap.addEventListener("click", () =>
@@ -24,6 +25,16 @@ if (checkDangNhap)
         alert("Vui lòng đăng nhập để thực hiện thao tác này!");
     })
 }
+=======
+const checkDangNhap = document.querySelector('.check-dang-nhap');
+
+if (checkDangNhap) {
+    checkDangNhap.addEventListener("click", () => {
+        alert("Vui lòng đăng nhập để thực hiện thao tác này!");
+    })
+}
+
+>>>>>>> MinhTu
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('show');

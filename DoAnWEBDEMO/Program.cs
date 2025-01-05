@@ -34,6 +34,13 @@ builder.Services.AddSession(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+<<<<<<< HEAD
+=======
+builder.Services.AddDbContext<ApplicationDb>(options =>options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+>>>>>>> MinhTu
 var app = builder.Build();
 
 app.UseSession();

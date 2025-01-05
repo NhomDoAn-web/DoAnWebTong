@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using Microsoft.EntityFrameworkCore;
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
@@ -148,6 +149,8 @@ namespace DoAnWEBDEMO.ApplicationDB
     }
 }
 =======
+=======
+>>>>>>> MinhTu
 ﻿using Microsoft.EntityFrameworkCore;
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
@@ -166,8 +169,11 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<NhanVien> NhanVien{ get; set; }
         public DbSet<SanPham> SanPham{ get; set; }
         public DbSet<SanPhamYeuThich> SanPhamYeuThich { get; set; }
+<<<<<<< HEAD
        
 
+=======
+>>>>>>> MinhTu
         public DbSet<ChiTietGioHang> ChiTietGioHang { get; set; }
 
         public DbSet<MauSac> MauSac { get; set; }
@@ -303,9 +309,15 @@ namespace DoAnWEBDEMO.ApplicationDB
             .HasOne(c => c.SanPham)              // Mỗi màu thuộc 1 sản phẩm
             .WithMany(p => p.MauSacs)             // Mỗi sản phẩm có nhiều màu
             .HasForeignKey(c => c.MaSP);    // Khóa ngoại là MaSP
+<<<<<<< HEAD
                                             // Cấu hình khóa chính composite cho bảng SanPhamChamDiem
            
         }
     }
 }
 >>>>>>> manh
+=======
+        }
+    }
+}
+>>>>>>> MinhTu

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿ using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -37,6 +38,8 @@ namespace DoAnWEBDEMO.Models
     }
 }
 =======
+=======
+>>>>>>> MinhTu
 ﻿ using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -74,4 +77,7 @@ namespace DoAnWEBDEMO.Models
 
     }
 }
+<<<<<<< HEAD
 >>>>>>> manh
+=======
+>>>>>>> MinhTu

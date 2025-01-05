@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
 using Microsoft.EntityFrameworkCore;
@@ -1044,6 +1045,8 @@ namespace DoAnWEBDEMO.SeedData
         }
     }
 =======
+=======
+>>>>>>> MinhTu
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
 using Microsoft.EntityFrameworkCore;
@@ -1392,7 +1395,11 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new NhanVien
                     {
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> MinhTu
                         TENNV = "Nguyen Van A",
                         SDT = "0123456789",
                         EMAIL = "nguyenvana@example.com",
@@ -1402,7 +1409,11 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> MinhTu
                         TENNV = "Tran Thi B",
                         SDT = "0123456789",
                         EMAIL = "tranthib@example.com",
@@ -1412,7 +1423,11 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
+<<<<<<< HEAD
                         
+=======
+
+>>>>>>> MinhTu
                         TENNV = "Le Van C",
                         SDT = "0123456789",
                         EMAIL = "levanc@example.com",
@@ -1723,7 +1738,11 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new LienHe
                     {
+<<<<<<< HEAD
                         MA_NVXL = 1, 
+=======
+                        MA_NVXL = 1,
+>>>>>>> MinhTu
                         HO_TEN = "Oggy",
                         EMAIL = "oggy@example.com",
                         SDT = "0912345678",
@@ -1749,7 +1768,11 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0933456789",
                         NOI_DUNG = "Khiếu nại về giao hàng. Lâu quá",
                         THOI_GIAN_GUI = DateTime.Now.AddDays(-1),
+<<<<<<< HEAD
                         TRANG_THAI = 1 
+=======
+                        TRANG_THAI = 1
+>>>>>>> MinhTu
                     }
                 };
 
@@ -1772,8 +1795,33 @@ namespace DoAnWEBDEMO.SeedData
                 _db.KhuyenMai.AddRange(KhuyenMais);
                 _db.SaveChanges();
             }
+<<<<<<< HEAD
 
         }
     }
 >>>>>>> manh
+=======
+            if (!_db.ChiTietGioHang.Any())
+            {
+                var gioHang = new List<ChiTietGioHang>
+                {
+                new ChiTietGioHang { MaKH = 1, MaSP = 1, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 2, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 3, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 4, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 5, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 6, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 7, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 8, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 9, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 5, Soluong = 1 }
+                };
+                _db.ChiTietGioHang.AddRange(gioHang);
+                _db.SaveChanges();
+
+            }
+
+        }
+    }
+>>>>>>> MinhTu
 }

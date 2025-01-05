@@ -75,7 +75,11 @@
             <p>@Model.MoTa</p>
             <p>
                 <strong>Giá: </strong>
+<<<<<<< HEAD
                 <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">@Model.Gia.ToString("N0") đ</span>
+=======
+                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">@Model.Gia.ToString("N0")</span> VNĐ
+>>>>>>> MinhTu
             </p>
             <div class="rating">
                 <!-- Hiển thị số sao theo giá trị trung bình -->
@@ -106,6 +110,7 @@
                     }
                 </span>
             </div>
+<<<<<<< HEAD
             <div class="actions mt-4">
                 <!-- Điều chỉnh số lượng -->
                 <div class="d-flex align-items-center mb-3">
@@ -131,16 +136,46 @@
                                 <span class="color-name" style="white-space: nowrap;">
                                     @color.TenMauSac (@color.SoLuongTon_MS)
                                 </span>
+=======
+
+            <div class="actions mt-4">
+                <!-- Điều chỉnh số lượng -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="quantity" class="me-2">Số lượng:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="form-control w-25">
+                </div>
+                <!-- Chọn màu sản phẩm -->
+                <div class="d-flex align-items-center mb-3">
+                    <label for="color" class="me-2">Chọn màu:</label>
+                    <div id="color-selection" class="d-flex">
+                        @foreach (var color in Model.MauSacs)
+                        {
+                            <div class="color-option" data-color="@color.TenMauSac"
+                                 data-image="@color.HinhAnhSP_MauSac"
+                                 style="padding: 5px 10px; margin: 0 20px; cursor: pointer; border-radius: 4px;"
+                                 onclick="selectColor(this)">
+                                <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px;">
+                                <span class="color-name">@color.TenMauSac</span>
+>>>>>>> MinhTu
                             </div>
                         }
                     </div>
                 </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> MinhTu
                 <script>
                     // Hàm thay đổi hình ảnh sản phẩm khi người dùng chọn màu
                     function selectColor(element) {
 
+<<<<<<< HEAD
+=======
+                        // Lấy giá tiền từ thuộc tính data-price của màu sắc đã chọn
+                        const selectedPrice = element.getAttribute('data-price');
+
+>>>>>>> MinhTu
                         // Lấy URL hình ảnh từ thuộc tính data-image
                         var imageUrl = element.getAttribute('data-image');
 
@@ -149,12 +184,17 @@
 
                         // Loại bỏ lớp 'selected-color' từ tất cả các màu sắc
                         var allColorOptions = document.querySelectorAll('.color-option');
+<<<<<<< HEAD
                         allColorOptions.forEach(function (option) {
+=======
+                        allColorOptions.forEach(function(option) {
+>>>>>>> MinhTu
                             option.classList.remove('selected-color');
                         });
 
                         // Thêm lớp 'selected-color' vào màu được chọn
                         element.classList.add('selected-color');
+<<<<<<< HEAD
                     }
                 </script>
 
@@ -163,6 +203,20 @@
             </pre>
 
                 <button class="btn btn-outline-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
+=======
+
+                        // Cập nhật giá tiền trong giao diện
+                        const priceElement = document.getElementById('product-price');
+                        if (selectedPrice && !isNaN(selectedPrice)) {
+                            priceElement.innerText = parseInt(selectedPrice).toLocaleString('vi-VN'); // Định dạng giá theo kiểu VNĐ
+                        } else {
+                            priceElement.innerText = "Không có giá";
+                        }
+                    }
+                </script>
+
+                <button onclick="ThemVaoGioHang(@Model.MaSP)" class="btn btn-outline-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
+>>>>>>> MinhTu
                     <i class="fas fa-cart-plus me-2"></i>
                 </button>
                 <button class="btn btn-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
@@ -170,7 +224,11 @@
                 </button>
                 <button class="btn btn-dark btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
                     <i class="fas fa-heart me-2"></i> Thêm yêu thích
+<<<<<<< HEAD
                 </button>                
+=======
+                </button>
+>>>>>>> MinhTu
             </div>
 
             <!-- Bảng thông số kỹ thuật -->
@@ -233,6 +291,13 @@
                                 <th>Bảo hành</th>
                                 <td>@Model.TGianBaoHanh tháng</td>
                             </tr>
+<<<<<<< HEAD
+=======
+                            <tr>
+                                <th>Màu sắc</th>
+                                @* <td>@Model.MauSP</td> *@
+                            </tr>
+>>>>>>> MinhTu
                         </tbody>
                     </table>
                 </div>                
@@ -242,7 +307,11 @@
 
         <!-- Các sản phẩm nổi bật -->
         <div class="featured-products mt-5 mb-5">
+<<<<<<< HEAD
             <h3 class="mb-3">SẢN PHẨM LIÊN QUAN</h3>
+=======
+            <h3 class="mb-3">SẢN PHẨM NỔI BẬT</h3>
+>>>>>>> MinhTu
             <div class="row">
                 @if (ViewBag.SanPhamNoiBat != null)
                 {
@@ -250,6 +319,7 @@
                     {
                         <div class="col-md-3">
                             <div class="card">
+<<<<<<< HEAD
                                 <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
                                     <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
                                 </a>
@@ -293,6 +363,16 @@
                             </div>
                         </div>
 
+=======
+                                <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                                <div class="card-body">
+                                    <h5 class="card-title">@product.TEN_SP</h5>
+                                    <p class="card-text"><strong>Giá: </strong>@product.Gia.ToString("N0") VNĐ</p>
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" class="btn btn-outline-dark">Xem chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+>>>>>>> MinhTu
                     }
                 }
                 else
@@ -304,3 +384,26 @@
     </div>
 
 </div>
+<<<<<<< HEAD
+=======
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function ThemVaoGioHang(maSP) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ThemVaoGioHang", "GioHang")',
+            data: { maSP: maSP },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);í
+                } else {
+                    alert(response.message); 
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    }
+</script>
+>>>>>>> MinhTu

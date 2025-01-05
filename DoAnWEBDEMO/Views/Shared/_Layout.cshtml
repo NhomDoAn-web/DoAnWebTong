@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - DoAnWEBDEMO</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@  
     <link rel="stylesheet" href="~/DoAnWEBDEMO.styles.css" asp-append-version="true" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <<<<<<< HEAD
@@ -25,6 +27,7 @@
 </head>
 <body>
         <div class="container-fluid border-bottom shadow" style="position:fixed; z-index: 1000; background-color: white">
+<<<<<<< HEAD
 =======
     <!-- Thêm Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -32,6 +35,8 @@
 <body>
     <div class="container-fluid border-bottom shadow" style="position:fixed; z-index: 1000; background-color: white">
 >>>>>>> VietDuong
+=======
+>>>>>>> MinhTu
             <div class="container">
                 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-center pt-1 mb-1 ">
                     <div class="row">
@@ -58,6 +63,7 @@
                             <div class="row d-flex justify-content-center">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                              <div class="search-container col-12">
                                     <form asp-action="TimKiemSanPham" asp-controller="TrangChu" method="get" class="col-12">
                                      <input type="text"
@@ -75,6 +81,21 @@
                                      </button>
                                  </form>
                               </div>
+=======
+                                <div >
+                                    <form asp-action="TimKiemSanPham" asp-controller="TrangChu" method="get" class=" d-flex align-items-center">
+                                    <input type="text"
+                                           name="TenTimKiem"
+                                           class="form-control me-2"
+                                           placeholder="Nhập tên sản phẩm..."
+                                           value="@ViewBag.CurrentSearchTerm" />
+                                    <button type="submit" class="btn-header">
+                                        <i class="bi bi-search bi-icon-header fs-3"></i>
+                                    </button>
+                                </form>
+                                </div>
+                                
+>>>>>>> MinhTu
 
                                 @* end search *@
 
@@ -91,7 +112,7 @@
                                     </li>
 
                                     <li><a href="#" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Giới thiệu</a></li>
-                                    <li><a href="#" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
+                                    <li><a asp-action="Index" asp-controller="LienHe" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
                                 </ul>
                             </div>
 
@@ -101,8 +122,9 @@
 
                     @* div icon *@
                     <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
-                        <button type="button" class="me-2 btn-header"><i class="bi bi-bag-fill bi-icon-header fs-5"></i></button>
-
+                            
+                            <a class="me-2 btn-header text-dark @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/Home")><i class="bi bi-bag-fill bi-icon-header fs-5"></i></a>
+                            
                             <!-- Button popup Đăng Nhập-->
                     
                             @if(Context.Session.GetString("user") != null)
@@ -118,7 +140,7 @@
 >>>>>>> thinh
                                     </button>
                                     <div class="d-flex align-items-center text-start">
-                                        <p class="d-flex align-items-center mt-3"><b>Xin chào, </b>@Context.Session.GetString("user") </p>
+                                        <p class="d-flex align-items-center mt-3"><b>Xin chào, </b>@ViewData["TenKhachHang"] </p>
                                     </div>
 =======
 

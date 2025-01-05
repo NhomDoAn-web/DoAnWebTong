@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -55,6 +56,8 @@ namespace DoAnWEBDEMO.Models
     }
 }
 =======
+=======
+>>>>>>> MinhTu
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -107,9 +110,15 @@ namespace DoAnWEBDEMO.Models
 
         public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
         public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
+<<<<<<< HEAD
         
+=======
+>>>>>>> MinhTu
         public ICollection<ChiTietGioHang> GioHang { get; set; }
 
     }
 }
+<<<<<<< HEAD
 >>>>>>> manh
+=======
+>>>>>>> MinhTu
