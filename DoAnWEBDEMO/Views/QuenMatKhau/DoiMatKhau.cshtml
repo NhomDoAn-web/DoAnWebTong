@@ -1,0 +1,12 @@
+﻿@if (TempData["DoiMatKhau"] != null)
+{
+    <div class="container d-flex justify-content-center align-items-center" style="">
+        <div class="alert alert-success text-center" role="alert">
+            Đổi mật khẩu thành công!
+        </div>
+        
+    </div>
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="Home">Quay về trang chủ!</a>
+    </div>
+}

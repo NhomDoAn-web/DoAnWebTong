@@ -232,9 +232,6 @@ body {
     font-weight: bold;
 }
 
-
-
-
 /*//Chat box*/
 .chat-box-trigger {
     position: fixed;
@@ -252,7 +249,7 @@ body {
     color: white; 
     cursor: pointer;
     box-shadow: none; 
-    width: 400px;
+    width: 250px;
 }
 
     .chat-btn:hover {

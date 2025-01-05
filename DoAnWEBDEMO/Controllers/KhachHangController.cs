@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 namespace DoAnWEBDEMO.Controllers
 {
     public class KhachHangController : Controller
@@ -24,11 +26,11 @@ namespace DoAnWEBDEMO.Controllers
             Debug.WriteLine("Mật khẩu: " + matKhau);
             if(checkTaiKhoan != null)
             {
-                if(checkTaiKhoan.MATKHAU == matKhau)
+                if (BCrypt.Net.BCrypt.Verify(matKhau, checkTaiKhoan.MATKHAU))
                 {
-                    HttpContext.Session.SetString("user",checkTaiKhoan.TenKH);
-                    return Json(new {value  = true});
-                }    
+                    HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
+                    return Json(new { value = true });
+                }
             }    
             return Json(new {value = false});
         }

@@ -1,10 +1,11 @@
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.SeedData;
+using DoAnWEBDEMO.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddScoped<EmailService>();
 
 <<<<<<< HEAD
 // ??ng k� d?ch v? Session
@@ -17,7 +18,11 @@ builder.Services.AddSession(options =>
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
+<<<<<<< HEAD
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn session
+>>>>>>> thinh
+=======
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
 >>>>>>> thinh
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;

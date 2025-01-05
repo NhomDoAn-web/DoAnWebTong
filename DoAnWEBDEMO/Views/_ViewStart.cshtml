@@ -1,3 +1,19 @@
-﻿@{
+﻿@using Newtonsoft.Json
+@{
     Layout = "_Layout";
 }
+
+@{
+    var userJson = Context.Session.GetString("user");
+    string tenKhachHang = "";
+
+    if (!string.IsNullOrEmpty(userJson))
+    {
+        var checkTaiKhoan = JsonConvert.DeserializeObject<KhachHang>(userJson);
+        tenKhachHang = checkTaiKhoan?.TenKH ?? "";
+    }
+}
+
+@{
+    ViewData["TenKhachHang"] = tenKhachHang;
+} 

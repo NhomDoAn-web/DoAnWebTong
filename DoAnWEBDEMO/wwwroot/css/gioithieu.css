@@ -1,0 +1,9 @@
+﻿
+:root {
+    --main-color: #f36523;
+}
+
+.tieu-de {
+    border-bottom: 3px solid var(--main-color);
+    margin: 10px 0 10px 0;
+}

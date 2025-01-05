@@ -1,0 +1,33 @@
+﻿
+
+<div class="d-flex justify-content-center align-items-center" style="margin: 4rem 0">
+    <div class="" style="width: 900px;">
+        <div class="">
+            <h5 class="text-center">Lấy lại mật khẩu</h5>
+            <form method="POST" asp-action="LayLaiMatKhau" id="formLayLaiMatKhau">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Nhập email của bạn" required>
+                </div>
+                <button type="button" class="btn btn-primary w-100" id="layMatKhau">Gửi yêu cầu</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("layMatKhau").addEventListener("click", function () {
+            var form = document.getElementById("formLayLaiMatKhau");
+            var submitButton = this;
+
+            
+            if (!submitButton.disabled) {
+                submitButton.disabled = true;
+                submitButton.textContent = "Đang gửi...";
+                form.submit();
+            }
+        });
+    </script>
+}
