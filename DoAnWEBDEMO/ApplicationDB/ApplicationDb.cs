@@ -15,14 +15,46 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<NhaCungCap> NhaCungCap{ get; set; }
         public DbSet<NhanVien> NhanVien{ get; set; }
         public DbSet<SanPham> SanPham{ get; set; }
-
+        public DbSet<SanPhamYeuThich> SanPhamYeuThich { get; set; }
         public DbSet<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
         public DbSet<CHI_TIET_BINH_LUAN> CHI_TIET_BINH_LUAN { get; set; }
+        public DbSet<KhuyenMai> KhuyenMai { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CHI_TIET_DON_HANG>()
+                .Property(c => c.TONGTIENTUNGSANPHAM)
+                .HasColumnType("decimal(18,2)");  
 
+            modelBuilder.Entity<DonHang>()
+                .Property(d => d.TongTienDonHang)
+                .HasColumnType("decimal(18,2)");  
+
+            modelBuilder.Entity<SanPham>()
+                .Property(s => s.Gia)
+                .HasColumnType("decimal(18,2)");
+
+            //Quan hệ: khách hàng x khuyến mãi
+            modelBuilder.Entity<KhuyenMai>()
+            .HasOne(d => d.SanPham)
+            .WithMany(k => k.KhuyenMais)
+            .HasForeignKey(d => d.SanPhamKhuyenMaiId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Quan hệ: khách hàng x Sản phẩm yêu thích 
+            modelBuilder.Entity<SanPhamYeuThich>()
+            .HasOne(d => d.KhachHang)
+            .WithMany(k => k.SanPhamYeuThichs)
+            .HasForeignKey(d => d.KhachHangId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+            //Quan hệ: sản phẩm x Sản phẩm yêu thích 
+            modelBuilder.Entity<SanPhamYeuThich>()
+            .HasOne(d => d.SanPham)
+            .WithMany(k => k.SanPhamYeuThichs)
+            .HasForeignKey(d => d.SanPhamId)
+            .OnDelete(DeleteBehavior.Cascade);
 
             //Quan hệ: Sản phẩm x Danh Mục
             modelBuilder.Entity<SanPham>()
@@ -93,9 +125,6 @@ namespace DoAnWEBDEMO.ApplicationDB
                 .HasOne(ctdh => ctdh.KhachHang)
                 .WithMany(sp => sp.ChiTietBinhLuans)
                 .HasForeignKey(ctdh => ctdh.MA_KH);
-
         }
-
-
     }
 }

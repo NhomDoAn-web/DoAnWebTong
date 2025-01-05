@@ -1,0 +1,204 @@
+﻿@model X.PagedList.IPagedList<DoAnWEBDEMO.Models.SanPham>
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "TimKiemSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Kết quả tìm kiếm</h2>
+
+    <div class="search-criteria mb-4">
+        <form method="get" action="@Url.Action("TimKiemSanPham", "TrangChu")">
+            <div class="row d-flex align-items-center">
+                <!-- Lọc theo danh mục -->
+                <div class="col-md-3 mb-3">
+                    <label class="form-label">Danh mục</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucAll"
+                                   name="DanhMucId"
+                                   value=""
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == null ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucAll">Tất cả</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucIphone"
+                                   name="DanhMucId"
+                                   value="1"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 1 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucIphone">Iphone</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucSamsung"
+                                   name="DanhMucId"
+                                   value="2"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 2 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucSamsung">Samsung</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio"
+                                   id="DanhMucOppo"
+                                   name="DanhMucId"
+                                   value="3"
+                                   class="form-check-input"
+                                   onchange="this.form.submit()"
+                            @(ViewBag.CurrentCategory == 3 ? "checked" : "")>
+                            <label class="form-check-label" for="DanhMucOppo">Oppo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lọc theo khoảng giá -->
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Khoảng giá</label>
+                    <div class="input-group">
+                        <!-- Giá thấp nhất -->
+                        <input type="text"
+                               id="priceMin"
+                               name="GiaMin"
+                               class="form-control form-control-sm"
+                               placeholder="Giá thấp nhất"
+                               value="@ViewBag.CurrentPriceMin"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               onchange="this.form.submit()"
+                               style="max-width: 150px;">
+
+                        <span class="input-group-text">-</span>
+
+                        <!-- Giá cao nhất -->
+                        <input type="text"
+                               id="priceMax"
+                               name="GiaMax"
+                               class="form-control form-control-sm"
+                               placeholder="Giá cao nhất"
+                               value="@ViewBag.CurrentPriceMax"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               onchange="this.form.submit()"
+                               style="max-width: 150px;">
+                    </div>
+                </div>
+
+                <!-- Sắp xếp theo giá -->
+                <div class="col-md-3 mb-3">
+                    <label> </label>
+                    <div class="d-flex flex-wrap gap-2 justify-content-between">
+                        <button type="submit" name="SortOrder" value="desc" class="btn btn-outline-primary btn-SapXep"
+                        @(ViewBag.CurrentSortOrder == "desc" ? "disabled" : "")>
+                            <i class="bi bi-sort-down"></i> Giá cao
+                        </button>
+                        <button type="submit" name="SortOrder" value="asc" class="btn btn-outline-primary btn-SapXep"
+                        @(ViewBag.CurrentSortOrder == "asc" ? "disabled" : "")>
+                            <i class="bi bi-sort-up"></i> Giá thấp
+                        </button>                  
+                    </div>
+                </div>
+                <!-- Thêm trường ẩn cho tên tìm kiếm -->
+                <input type="hidden" name="TenTimKiem" value="@ViewBag.CurrentSearchTerm" />
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row">
+        @if (!Model.Any())
+        {
+            <div class="col-12">
+                <p class="text-center text-muted">Không tìm thấy sản phẩm nào.</p>
+            </div>
+        }
+        else
+        {
+            foreach (var sp in Model)
+            {
+                <div class="col-md-2 mb-4">
+                    <div class="card h-100">
+                        <img src="@Url.Content($"~/image/products/{sp.HinhAnhSP}")"
+                             class="card-img-top img-fluid"
+                             alt="@sp.TEN_SP"
+                             style="object-fit: contain; height: 200px; width: 200px;">
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">@sp.TEN_SP</h6>
+                            <p class="card-text text-danger fw-bold">
+                                @(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", sp.Gia))
+                            </p>
+                            <!-- Nút Yêu thích -->
+                            <button class="btn btn-outline-danger"
+                                    onclick="addToWishlist(@sp.MaSP)">
+                                <i class="fa fa-heart"></i> Yêu thích
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            <!-- Nút trang trước -->
+            @if (Model.PageCount > 1)
+            {
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = Model.PageNumber - 1 })" aria-label="Previous">
+                            &laquo;
+                        </a>
+                    </li>
+                }
+
+                <!-- Các trang -->
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = i })">@i</a>
+                    </li>
+                }
+
+                <!-- Nút trang sau -->
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = Model.PageNumber + 1 })" aria-label="Next">
+                            &raquo;
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+<script>
+    function addToWishlist(productId) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")', 
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message); // Thông báo thành công
+                } else {
+                    alert(response.message); // Thông báo lỗi
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        });
+    }
+</script>
+
+

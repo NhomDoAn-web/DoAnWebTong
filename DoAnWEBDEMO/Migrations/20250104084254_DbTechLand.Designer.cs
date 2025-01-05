@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20250102071724_addAll")]
-    partial class addAll
+    [Migration("20250104084254_DbTechLand")]
+    partial class DbTechLand
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -189,6 +189,33 @@ namespace DoAnWEBDEMO.Migrations
                     b.ToTable("KhachHang");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.KhuyenMai", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MucGiamGia")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("NgayBatDau")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("NgayKetThuc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SanPhamKhuyenMaiId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SanPhamKhuyenMaiId");
+
+                    b.ToTable("KhuyenMai");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.LienHe", b =>
                 {
                     b.Property<int>("MA_LH")
@@ -270,7 +297,6 @@ namespace DoAnWEBDEMO.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MA_NV"));
 
                     b.Property<string>("EMAIL")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -280,7 +306,6 @@ namespace DoAnWEBDEMO.Migrations
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("SDT")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
@@ -334,6 +359,9 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<decimal>("Gia")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Gpu")
                         .IsRequired()
@@ -402,6 +430,29 @@ namespace DoAnWEBDEMO.Migrations
                     b.ToTable("SanPham");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.SanPhamYeuThich", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("KhachHangId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SanPhamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KhachHangId");
+
+                    b.HasIndex("SanPhamId");
+
+                    b.ToTable("SanPhamYeuThich");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.CHI_TIET_BINH_LUAN", b =>
                 {
                     b.HasOne("DoAnWEBDEMO.Models.KhachHang", "KhachHang")
@@ -459,6 +510,17 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("NhanVien");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.KhuyenMai", b =>
+                {
+                    b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
+                        .WithMany("KhuyenMais")
+                        .HasForeignKey("SanPhamKhuyenMaiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SanPham");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.LienHe", b =>
                 {
                     b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
@@ -489,6 +551,25 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("NhaCungCap");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.SanPhamYeuThich", b =>
+                {
+                    b.HasOne("DoAnWEBDEMO.Models.KhachHang", "KhachHang")
+                        .WithMany("SanPhamYeuThichs")
+                        .HasForeignKey("KhachHangId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
+                        .WithMany("SanPhamYeuThichs")
+                        .HasForeignKey("SanPhamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("KhachHang");
+
+                    b.Navigation("SanPham");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.DanhMuc", b =>
                 {
                     b.Navigation("SanPham");
@@ -504,6 +585,8 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("ChiTietBinhLuans");
 
                     b.Navigation("DonHang");
+
+                    b.Navigation("SanPhamYeuThichs");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.NhaCungCap", b =>
@@ -523,6 +606,10 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("ChiTietBinhLuans");
 
                     b.Navigation("ChiTietDonHangs");
+
+                    b.Navigation("KhuyenMais");
+
+                    b.Navigation("SanPhamYeuThichs");
                 });
 #pragma warning restore 612, 618
         }

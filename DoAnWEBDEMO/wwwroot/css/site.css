@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -7,6 +7,8 @@ html {
     font-size: 16px;
   }
 }
+
+
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -20,3 +22,381 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+/*Danh mục*/
+.nav-item.dropdown .dropdown-menu {
+    min-width: 250px; 
+    padding: 10px 20px; 
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item {
+    padding: 12px 20px;
+    font-size: 18px; 
+}
+
+.nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+    color: #f36523; 
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-danhmuc {
+    color: black !important;
+    margin-left: 0;
+    transition: color 0.4s ease-in-out, margin-left 0.4s ease-in-out;
+    font-size: 18px;    
+    font-weight: 400 !important;
+}
+
+.nav-danhmuc:hover {
+    color: #f36523 !important;
+    margin-left: 10px;
+}
+
+.nav-danhmuc:focus{
+    background-color: white !important; 
+}
+
+.btn-header {
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+.btn-icon-login{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.2rem 1rem;
+    font-weight: 700;
+}
+
+.btn-icon-login:hover {
+    color: #f36523;
+    border: 2px solid #f36523;
+    transition: 0.1s ease-in-out;
+}
+
+.menu-link {
+    position: relative; 
+    display: inline-block; 
+}
+
+.menu-link:after {
+    content: ""; 
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px; 
+    background-color: #f36523; 
+    transition: width 0.3s ease, left 0.3s ease; 
+}
+
+.menu-link:hover:after {
+    width: 100%; 
+    left: 0; 
+}
+
+.bi-icon-header:hover, .nav-header:hover,.nav-footer {
+    color: #f36523 !important;
+    transition: 0.2s ease-in-out !important;
+}
+
+.shadow-top {
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    background-color: #e7e7e7;
+    padding: 5px 20px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-btn i {
+    font-size: 18px;
+    color: #333;
+}
+
+/*Account Header*/
+/* Custom Modal Styles */
+.custom-modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền mờ */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 30%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: white !important;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+    .modal-header h5 {
+        margin: 0;
+    }
+
+.close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.close:focus{
+    outline:none;
+    border: none;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+/* Khi modal hiển thị */
+.custom-modal.show {
+    display: flex;
+}
+
+
+/*End*/
+
+/*Captcha*/
+.captcha {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.chuoiCaptcha {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 18px;
+    color: #333;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: auto;
+}
+
+
+#captchaInput {
+    width: 300px;
+}
+
+#captchaMessage {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
+/*//Chat box*/
+.chat-box-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.chat-btn {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #f36523; 
+    border: none;
+    color: white; 
+    cursor: pointer;
+    box-shadow: none; 
+    width: 400px;
+}
+
+    .chat-btn:hover {
+        background-color: #ff7e42; 
+    }
+
+.chat-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 2; 
+}
+
+.chat-box-header {
+    padding: 10px;
+    background-color: #f36523;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+    .chat-box-header button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+.chat-box-body {
+    padding: 10px;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.question {
+    padding: 8px;
+    margin: 5px 0;
+    background-color: rgb(247 216 200);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.answer {
+    display: none;
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    color: black;
+    font-size: 18px;
+}
+
+.chat-box-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .chat-box-footer input {
+        width: 80%;
+        border-radius: 20px;
+    }
+
+    .chat-box-footer button {
+        border-radius: 20px;
+        background-color: #007bff;
+        color: white;
+    }
+
+/* Hiển thị khi nhấn vào */
+.chat-box.show {
+    display: flex;
+}
+
+
+/*Box Thông tin tài khoản*/
+/* Thiết lập cho box */
+.account-box {
+    display: none; /* Mặc định là không hiển thị */
+    position: absolute;
+    top: 60px;
+    right: 340px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 200px;
+    z-index: 999;
+}
+
+/* Khi di chuột vào nút, hiển thị box */
+#accountButton:focus + .account-box {
+    display: block;
+}
+
+#accountButton {
+    cursor: pointer;
+}
+
+
+
+.btn-taikhoan,
+#logoutButton {
+    width: 100%;
+    background-color: white;
+    display: block;
+    height: 40px;
+    padding: 10px;
+}
+
+.btn-taikhoan:hover,
+#logoutButton:hover {
+    background-color: black;
+    color: white !important;
+}
+
+
+
+#logoutButton{
+    outline: none;
+    border: none;
+}
+
+.btn-SapXep {
+    border: 2px solid black !important;
+    color: black !important;
+    background-color: transparent !important;
+}
+
+    .btn-SapXep:hover {
+        border-color: #0056b3 !important;
+        color: #0056b3 !important;
+        background-color: rgba(0, 86, 179, 0.1) !important;
+    }
+
+
+

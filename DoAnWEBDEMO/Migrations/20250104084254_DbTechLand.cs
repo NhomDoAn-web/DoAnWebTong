@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoAnWEBDEMO.Migrations
 {
     /// <inheritdoc />
-    public partial class addAll : Migration
+    public partial class DbTechLand : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -67,8 +67,8 @@ namespace DoAnWEBDEMO.Migrations
                     MA_NV = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TENNV = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    SDT = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    EMAIL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    SDT = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    EMAIL = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     TENDANGNHAP = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     MATKHAU = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     TRANGTHAI = table.Column<int>(type: "int", nullable: false)
@@ -86,6 +86,7 @@ namespace DoAnWEBDEMO.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaNCC = table.Column<int>(type: "int", nullable: false),
                     MaDanhMuc = table.Column<int>(type: "int", nullable: false),
+                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TEN_SP = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HinhAnhSP = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
                     MoTa = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
@@ -205,6 +206,54 @@ namespace DoAnWEBDEMO.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "KhuyenMai",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SanPhamKhuyenMaiId = table.Column<int>(type: "int", nullable: false),
+                    MucGiamGia = table.Column<int>(type: "int", nullable: false),
+                    NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KhuyenMai", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_KhuyenMai_SanPham_SanPhamKhuyenMaiId",
+                        column: x => x.SanPhamKhuyenMaiId,
+                        principalTable: "SanPham",
+                        principalColumn: "MaSP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SanPhamYeuThich",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KhachHangId = table.Column<int>(type: "int", nullable: false),
+                    SanPhamId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SanPhamYeuThich", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SanPhamYeuThich_KhachHang_KhachHangId",
+                        column: x => x.KhachHangId,
+                        principalTable: "KhachHang",
+                        principalColumn: "MaKH",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SanPhamYeuThich_SanPham_SanPhamId",
+                        column: x => x.SanPhamId,
+                        principalTable: "SanPham",
+                        principalColumn: "MaSP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CHI_TIET_DON_HANG",
                 columns: table => new
                 {
@@ -251,6 +300,11 @@ namespace DoAnWEBDEMO.Migrations
                 column: "MaNVXL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_KhuyenMai_SanPhamKhuyenMaiId",
+                table: "KhuyenMai",
+                column: "SanPhamKhuyenMaiId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_LienHe_MA_NVXL",
                 table: "LienHe",
                 column: "MA_NVXL");
@@ -264,6 +318,16 @@ namespace DoAnWEBDEMO.Migrations
                 name: "IX_SanPham_MaNCC",
                 table: "SanPham",
                 column: "MaNCC");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SanPhamYeuThich_KhachHangId",
+                table: "SanPhamYeuThich",
+                column: "KhachHangId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SanPhamYeuThich_SanPhamId",
+                table: "SanPhamYeuThich",
+                column: "SanPhamId");
         }
 
         /// <inheritdoc />
@@ -276,7 +340,13 @@ namespace DoAnWEBDEMO.Migrations
                 name: "CHI_TIET_DON_HANG");
 
             migrationBuilder.DropTable(
+                name: "KhuyenMai");
+
+            migrationBuilder.DropTable(
                 name: "LienHe");
+
+            migrationBuilder.DropTable(
+                name: "SanPhamYeuThich");
 
             migrationBuilder.DropTable(
                 name: "DonHang");

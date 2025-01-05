@@ -67,7 +67,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "128GB",
                         Pin = "3279mAh",
                         HeDieuHanh = "iOS 16",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 22990000 
                     },
                     new SanPham
                     {
@@ -89,7 +90,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "3900mAh",
                         HeDieuHanh = "Android 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 23990000 
                     },
                     new SanPham
                     {
@@ -111,7 +113,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "256GB",
                         Pin = "4500mAh",
                         HeDieuHanh = "MIUI 14",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 17990000 
                     },
                     new SanPham
                     {
@@ -133,7 +136,8 @@ namespace DoAnWEBDEMO.SeedData
                         Bo_Nho_Trong = "512GB",
                         Pin = "4800mAh",
                         HeDieuHanh = "ColorOS 13",
-                        TanSoQuet = "120Hz"
+                        TanSoQuet = "120Hz",
+                        Gia = 32990000 
                     }
 
                 };
@@ -379,6 +383,22 @@ namespace DoAnWEBDEMO.SeedData
                 };
 
                 _db.LienHe.AddRange(lienHes);
+                _db.SaveChanges();
+            }
+            if (!_db.KhuyenMai.Any())
+            {
+                var KhuyenMais = new List<KhuyenMai>
+                {
+                    new KhuyenMai
+                    {
+                      SanPhamKhuyenMaiId = 1,
+                      MucGiamGia = 30,
+                      NgayBatDau = new DateTime(2025, 1, 1),
+                      NgayKetThuc = DateTime.Now,
+                    }
+                };
+
+                _db.KhuyenMai.AddRange(KhuyenMais);
                 _db.SaveChanges();
             }
 

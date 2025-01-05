@@ -4,6 +4,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+// ??ng ký d?ch v? Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Th?i h?n c?a session
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -13,7 +25,7 @@ builder.Services.AddDbContext<ApplicationDb>(options =>
 
 var app = builder.Build();
 
-
+app.UseSession();
 
 
 // Configure the HTTP request pipeline.
