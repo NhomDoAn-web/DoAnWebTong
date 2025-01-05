@@ -1,6 +1,4 @@
-
-
-﻿using DoAnWEBDEMO.ApplicationDB;
+using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -69,12 +67,8 @@ namespace DoAnWEBDEMO.SeedData
                         Pin = "3279mAh",
                         HeDieuHanh = "iOS 16",
                         TanSoQuet = "120Hz",
-
-                        Gia = 22990000 
-
                         Gia = 22990000,
                         LuotXem = 0
-
                     },
                     new SanPham
                     {
@@ -96,12 +90,8 @@ namespace DoAnWEBDEMO.SeedData
                         Pin = "3900mAh",
                         HeDieuHanh = "Android 13",
                         TanSoQuet = "120Hz",
-
-                        Gia = 23990000 
-
                         Gia = 23990000,
                         LuotXem = 0
-
                     },
                     new SanPham
                     {
@@ -123,12 +113,8 @@ namespace DoAnWEBDEMO.SeedData
                         Pin = "4500mAh",
                         HeDieuHanh = "MIUI 14",
                         TanSoQuet = "120Hz",
-
-                        Gia = 17990000 
-
                         Gia = 17990000,
                         LuotXem = 0
-
                     },
                     new SanPham
                     {
@@ -150,9 +136,6 @@ namespace DoAnWEBDEMO.SeedData
                         Pin = "4800mAh",
                         HeDieuHanh = "ColorOS 13",
                         TanSoQuet = "120Hz",
-
-                        Gia = 32990000 
-
                         Gia = 32990000,
                         LuotXem = 0
                     },
@@ -270,7 +253,6 @@ namespace DoAnWEBDEMO.SeedData
                         TanSoQuet = "60Hz",
                         Gia = 10990000,
                         LuotXem = 0
-
                     }
 
                 };
@@ -612,12 +594,12 @@ namespace DoAnWEBDEMO.SeedData
             }
 
             // Dữ liệu Chi tiết bình luận
-            if (!_db.CHI_TIET_BINH_LUAN.Any())
+            if (!_db.ChiTietBinhLuan.Any())
             {
-                var chiTietBinhLuans = new List<CHI_TIET_BINH_LUAN>
+                var chiTietBinhLuans = new List<ChiTietBinhLuan>
                 {
                     // Bình luận cho iPhone 14
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 6,
                         MA_KH = 1,
@@ -625,7 +607,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Thiết kế đẹp, hiệu năng mạnh mẽ. Rất đáng tiền!",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 6,
                         MA_KH = 3,
@@ -635,7 +617,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Samsung Galaxy S23
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 7,
                         MA_KH = 1,
@@ -643,7 +625,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Màn hình đẹp, camera rất sắc nét. Rất hài lòng!",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 7,
                         MA_KH = 2,
@@ -653,7 +635,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Xiaomi 13
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 8,
                         MA_KH = 1,
@@ -661,7 +643,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Thiết kế đẹp, giá cả hợp lý. Nhưng camera không tốt lắm.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 8,
                         MA_KH = 2,
@@ -671,7 +653,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Oppo Find X6
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 9,
                         MA_KH = 1,
@@ -679,7 +661,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Camera cực kỳ tốt, màn hình sáng rõ. Rất thích!",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 9,
                         MA_KH = 2,
@@ -689,7 +671,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho các sản phẩm mới thêm
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 9,
                         MA_KH = 3,
@@ -697,7 +679,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng tốt, thiết kế ổn. Rất đáng mua.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 2,
                         MA_KH = 1,
@@ -705,7 +687,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Mua tặng bạn bè, mọi người đều rất thích!",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 8,
                         MA_KH = 3,
@@ -714,7 +696,7 @@ namespace DoAnWEBDEMO.SeedData
                         NGAY = DateTime.Now
                     },
 
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 1,
                         MA_KH = 4,
@@ -722,7 +704,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Thiết kế gọn nhẹ, hiệu năng tốt.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 1,
                         MA_KH = 5,
@@ -732,7 +714,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Samsung Galaxy S22
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 2,
                         MA_KH = 3,
@@ -740,7 +722,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng tuyệt vời, thiết kế sang trọng.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 2,
                         MA_KH = 4,
@@ -750,7 +732,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Xiaomi Redmi Note 11
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 3,
                         MA_KH = 2,
@@ -758,7 +740,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Giá cả hợp lý, pin rất tốt.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 3,
                         MA_KH = 5,
@@ -768,7 +750,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Oppo Reno 8
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 4,
                         MA_KH = 3,
@@ -776,7 +758,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Camera sắc nét, thiết kế đẹp.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 4,
                         MA_KH = 1,
@@ -786,7 +768,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
 
                     // Bình luận cho Vivo X80////////////////////////
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 5,
                         MA_KH = 2,
@@ -794,7 +776,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Màn hình đẹp, thiết kế cao cấp.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 5,
                         MA_KH = 4,
@@ -802,15 +784,15 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 5,
                         MA_KH = 8,
                         SO_SAO = 5,
                         NOI_DUNG = "Hiệu năng ổn định, mượt mà, màn hình sáng.",
                         NGAY = DateTime.Now
-                    }, 
-                    new CHI_TIET_BINH_LUAN
+                    },
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 5,
                         MA_KH = 9,
@@ -818,7 +800,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt, máy mạnh, chơi game rất mượt, âm thanh lớn đánh giá 5 sao.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 2,
                         MA_KH = 9,
@@ -826,7 +808,7 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt, máy mạnh, chơi game rất mượt, âm thanh lớn đánh giá 5 sao.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 3,
                         MA_KH = 9,
@@ -834,23 +816,23 @@ namespace DoAnWEBDEMO.SeedData
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt, máy mạnh, chơi game rất mượt, âm thanh lớn đánh giá 5 sao.",
                         NGAY = DateTime.Now
                     },
-                    new CHI_TIET_BINH_LUAN
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 3,
                         MA_KH = 10,
                         SO_SAO = 4,
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt, máy mạnh, chơi game rất mượt, âm thanh lớn đánh giá 5 sao.",
                         NGAY = DateTime.Now
-                    },                    
-                    new CHI_TIET_BINH_LUAN
+                    },
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 1,
                         MA_KH = 10,
                         SO_SAO = 4,
                         NOI_DUNG = "Hiệu năng ổn định, camera rất tốt, máy mạnh, chơi game rất mượt, âm thanh lớn đánh giá 5 sao.",
                         NGAY = DateTime.Now
-                    },                    
-                    new CHI_TIET_BINH_LUAN
+                    },
+                    new ChiTietBinhLuan
                     {
                         MA_SP = 1,
                         MA_KH = 7,
@@ -860,7 +842,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
                 };
 
-                _db.CHI_TIET_BINH_LUAN.AddRange(chiTietBinhLuans);
+                _db.ChiTietBinhLuan.AddRange(chiTietBinhLuans);
                 _db.SaveChanges();
             }
 
@@ -871,7 +853,7 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new NhanVien
                     {
-                        
+
                         TENNV = "Nguyen Van A",
                         SDT = "0123456789",
                         EMAIL = "nguyenvana@example.com",
@@ -881,7 +863,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
-                        
+
                         TENNV = "Tran Thi B",
                         SDT = "0123456789",
                         EMAIL = "tranthib@example.com",
@@ -891,7 +873,7 @@ namespace DoAnWEBDEMO.SeedData
                     },
                     new NhanVien
                     {
-                        
+
                         TENNV = "Le Van C",
                         SDT = "0123456789",
                         EMAIL = "levanc@example.com",
@@ -947,32 +929,32 @@ namespace DoAnWEBDEMO.SeedData
             }
 
             //Dữ liệu Chi Tiết Đơn hàng
-            if (!_db.CHI_TIET_DON_HANG.Any())
+            if (!_db.ChiTietDonHang.Any())
             {
-                var chiTietDonHangs = new List<CHI_TIET_DON_HANG>
+                var chiTietDonHangs = new List<ChiTietDonHang>
                 {
-                    new CHI_TIET_DON_HANG
+                    new ChiTietDonHang
                     {
                         MA_DH = 1, // Phải khớp với `MaDH` trong bảng DonHang
                         MA_SP = 1, // Phải khớp với `MaSP` trong bảng SanPham
                         SOLUONG = 2,
                         TONGTIENTUNGSANPHAM = 2000000 // Giá 1 sản phẩm là 1.000.000
                     },
-                    new CHI_TIET_DON_HANG
+                    new ChiTietDonHang
                     {
                         MA_DH = 1,
                         MA_SP = 2,
                         SOLUONG = 1,
                         TONGTIENTUNGSANPHAM = 3000000 // Giá 1 sản phẩm là 3.000.000
                     },
-                    new CHI_TIET_DON_HANG
+                    new ChiTietDonHang
                     {
                         MA_DH = 2,
                         MA_SP = 3,
                         SOLUONG = 3,
                         TONGTIENTUNGSANPHAM = 4500000 // Giá 1 sản phẩm là 1.500.000
                     },
-                    new CHI_TIET_DON_HANG
+                    new ChiTietDonHang
                     {
                         MA_DH = 3,
                         MA_SP = 4,
@@ -981,7 +963,7 @@ namespace DoAnWEBDEMO.SeedData
                     }
                 };
 
-                _db.CHI_TIET_DON_HANG.AddRange(chiTietDonHangs);
+                _db.ChiTietDonHang.AddRange(chiTietDonHangs);
                 _db.SaveChanges();
             }
 
@@ -992,7 +974,7 @@ namespace DoAnWEBDEMO.SeedData
                 {
                     new LienHe
                     {
-                        MA_NVXL = 1, 
+                        MA_NVXL = 1,
                         HO_TEN = "Oggy",
                         EMAIL = "oggy@example.com",
                         SDT = "0912345678",
@@ -1018,13 +1000,15 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0933456789",
                         NOI_DUNG = "Khiếu nại về giao hàng. Lâu quá",
                         THOI_GIAN_GUI = DateTime.Now.AddDays(-1),
-                        TRANG_THAI = 1 
+                        TRANG_THAI = 1
                     }
                 };
 
                 _db.LienHe.AddRange(lienHes);
                 _db.SaveChanges();
             }
+
+            //
             if (!_db.KhuyenMai.Any())
             {
                 var KhuyenMais = new List<KhuyenMai>
@@ -1041,6 +1025,26 @@ namespace DoAnWEBDEMO.SeedData
                 _db.KhuyenMai.AddRange(KhuyenMais);
                 _db.SaveChanges();
             }
+            // 
+            if (!_db.ChiTietGioHang.Any())
+            {
+                var gioHang = new List<ChiTietGioHang>
+                {
+                new ChiTietGioHang { MaKH = 1, MaSP = 1, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 2, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 3, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 4, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 5, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 6, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 7, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 8, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 9, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 5, Soluong = 1 }
+                };
+                _db.ChiTietGioHang.AddRange(gioHang);
+                _db.SaveChanges();
 
+            }
         }
     }
+}

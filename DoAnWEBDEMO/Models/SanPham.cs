@@ -1,5 +1,4 @@
-
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -84,13 +83,15 @@ namespace DoAnWEBDEMO.Models
 
         [Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn kho phải lớn hơn hoặc bằng 0.")]
         public int SoLuongTon { get; set; } // Số lượng tồn kho
-        public virtual DanhMuc? DanhMuc{ get; set; }
-        public virtual NhaCungCap? NhaCungCap{ get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Lượt xem phải lớn hơn hoặc bằng 0.")]
+        public int? LuotXem { get; set; }
+        public virtual DanhMuc? DanhMuc { get; set; }
+        public virtual NhaCungCap? NhaCungCap { get; set; }
 
         public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }
         public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
         public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
-
         public virtual ICollection<KhuyenMai>? KhuyenMais { get; set; }
 
         public ICollection<MauSac>? MauSacs { get; set; }
@@ -98,4 +99,3 @@ namespace DoAnWEBDEMO.Models
         public ICollection<ChiTietGioHang> GioHang { get; set; }
     }
 }
-

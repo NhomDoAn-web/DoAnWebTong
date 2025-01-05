@@ -252,16 +252,8 @@ namespace DoAnWEBDEMO.Controllers
 
         //
 
-            if(checkTaiKhoan != null)
-            {
-                if(checkTaiKhoan.MATKHAU == matKhau)
-                {
-                    HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
-                    return Json(new {value  = true});
-                }    
-            }    
-            return Json(new {value = false});
-        }
+           
+       
 
         public int? GetLoggedInKhachHangId()
         {

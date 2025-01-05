@@ -9,11 +9,8 @@
 
     if (!string.IsNullOrEmpty(userJson))
     {
-<<<<<<< HEAD
-        var checkTaiKhoan = JsonConvert.DeserializeObject<KhachHang>(userJson);
-=======
+
         var checkTaiKhoan = System.Text.Json.JsonSerializer.Deserialize<KhachHang>(userJson);
->>>>>>> MinhTu
         tenKhachHang = checkTaiKhoan?.TenKH ?? "";
     }
 }
