@@ -1,0 +1,46 @@
+﻿@model IEnumerable<DoAnWEBDEMO.Models.SanPhamYeuThich>
+
+@{
+    ViewData["Title"] = "Danh Sách Sản Phẩm Yêu Thích";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên Khách Hàng</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int index = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@item.KhachHang?.TenKH</td> <!-- Tên khách hàng -->
+                    <td>@item.SanPham?.TEN_SP</td> <!-- Tên sản phẩm -->
+                    <td>
+                        <!-- Xem chi tiết -->
+                        <a href="@Url.Action("Details", "SanPham", new { id = item.SanPhamId })" class="btn btn-info btn-sm">Xem Chi Tiết</a>
+
+                        <!-- Xóa -->
+                        <a href="@Url.Action("Remove", "SanPhamYeuThich", new { khachHangId = item.KhachHangId, sanPhamId = item.SanPhamId })" class="btn btn-danger btn-sm">Xóa</a>
+                    </td>
+                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">Không có sản phẩm yêu thích nào.</td>
+            </tr>
+        }
+    </tbody>
+</table>

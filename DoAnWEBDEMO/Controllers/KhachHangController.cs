@@ -253,6 +253,86 @@ namespace DoAnWEBDEMO.Controllers
             HttpContext.Session.Clear();
             return Json(new { value = true });
         }
+        public int? GetLoggedInKhachHangId()
+        {
+            var userName = HttpContext.Session.GetString("user");
+
+            if (string.IsNullOrEmpty(userName))
+            {
+                return null;
+            }
+            var customer = _db.KhachHang.FirstOrDefault(kh => kh.TenKH == userName);
+
+            if (customer == null)
+            {
+                return null;
+            }
+
+            return customer.MaKH;
+        }
+        public async Task<IActionResult> SanPhamYeuThich()
+        {
+            // Lấy ID khách hàng từ session
+            var maKH = GetLoggedInKhachHangId();
+
+            // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
+            if (!maKH.HasValue)
+            {
+                ViewBag.Message = "Vui lòng đăng nhập để xem sản phẩm yêu thích.";
+                return View(); // Trả về view hiện tại mà không chuyển hướng
+            }
+
+            // Lấy danh sách sản phẩm yêu thích của khách hàng
+            var sanPhamYeuThich = await _db.SanPhamYeuThich
+                .Include(d => d.KhachHang)  // Liên kết với bảng KhachHang
+                .Include(d => d.SanPham)    // Liên kết với bảng SanPham
+                .Where(d => d.KhachHangId == maKH.Value)  // Lọc theo KhachHangId
+                .ToListAsync();
+
+            // Trả về View và gửi thông báo nếu không có dữ liệu
+            if (sanPhamYeuThich == null || !sanPhamYeuThich.Any())
+            {
+                ViewBag.Message = "Không có sản phẩm yêu thích.";
+            }
+
+            return View(sanPhamYeuThich); // Trả về view và danh sách sản phẩm yêu thích
+        }
+
+
+
+        //
+        public async Task<IActionResult> SanPhamChamDiem()
+        {
+            // Lấy ID khách hàng từ session
+            var maKH = GetLoggedInKhachHangId();
+
+            // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
+            if (!maKH.HasValue)
+            {
+                ViewBag.Message = "Vui lòng đăng nhập để xem sản phẩm chấm điểm.";
+                return View(); // Trả về view hiện tại mà không chuyển hướng
+            }
+
+            // Lấy danh sách sản phẩm đã được khách hàng chấm điểm
+            var sanPhamChamDiem = await _db.ChiTietBinhLuan
+                .Include(d => d.KhachHang)  // Liên kết với bảng KhachHang
+                .Include(d => d.SanPham)    // Liên kết với bảng SanPham
+                .Where(d => d.MA_KH == maKH.Value)  // Lọc theo MaKH
+                .ToListAsync();
+
+            // Trả về View và gửi thông báo nếu không có dữ liệu
+            if (sanPhamChamDiem == null || !sanPhamChamDiem.Any())
+            {
+                ViewBag.Message = "Không có sản phẩm chấm điểm.";
+            }
+
+            return View(sanPhamChamDiem); // Trả về view và danh sách sản phẩm đã chấm điểm
+        }
+
+
+
+
+
 
         public IActionResult Index()
         {

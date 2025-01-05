@@ -38,8 +38,7 @@ namespace DoAnWEBDEMO.Models
         public virtual NhanVien? NhanVien{ get; set; }
         public virtual KhachHang? KhachHang { get; set; }
 
-        public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
-
+        public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }
 
     }
 }

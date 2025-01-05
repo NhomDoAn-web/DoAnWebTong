@@ -39,16 +39,19 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Tên người dùng không được để trống.")]
         public string? TENNGUOIDUNG { get; set; }
 
-            [StringLength(255)]
-            [RegularExpression(
-            @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
-            ErrorMessage = "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.")]
-            [Required(ErrorMessage = "Mật khẩu không được để trống.")]
-            public string? MATKHAU { get; set; }
+        [StringLength(255)]
+        [RegularExpression(
+        @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
+        ErrorMessage = "Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.")]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
+        public string? MATKHAU { get; set; }
 
         public virtual ICollection<DonHang>? DonHang { get; set; }
 
-        public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+        public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
+        public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
+        
+        public ICollection<ChiTietGioHang> GioHang { get; set; }
 
     }
 }
