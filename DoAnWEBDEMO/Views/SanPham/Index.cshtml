@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<DoAnWEBDEMO.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Danh sách sản phẩm</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Nhà cung cấp</th>
+            <th>Giá</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.HinhAnhSP" alt="@item.TEN_SP" style="width: 100px; height: auto;" /></td>
+            <td><a href="@Url.Action("Details", "SanPham", new { maSP = item.MaSP })">@item.TEN_SP</a></td>
+                <td>@item.DanhMuc?.TenDM</td>
+                <td>@item.NhaCungCap?.TenNCC</td>
+                <td>299.000 VNĐ</td>
+                <td>@(item.TrangThai == 1 ? "Hoạt động" : "Không hoạt động")</td>
+                    
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

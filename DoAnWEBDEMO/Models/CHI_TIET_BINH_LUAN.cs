@@ -4,7 +4,7 @@ namespace DoAnWEBDEMO.Models
 {
     public class CHI_TIET_BINH_LUAN
     {
-        
+
         [Key] // Đảm bảo trường này không được để trống
         public int MA_SP { get; set; } // Khóa ngoại tới bảng Sản phẩm
 

@@ -17,7 +17,7 @@ namespace DoAnWEBDEMO.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -257,6 +257,39 @@ namespace DoAnWEBDEMO.Migrations
                     b.ToTable("LienHe");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.MauSac", b =>
+                {
+                    b.Property<int>("ID_MauSac")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID_MauSac"));
+
+                    b.Property<string>("HinhAnhSP_MauSac")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaSP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongTon_MS")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenMauSac")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID_MauSac");
+
+                    b.HasIndex("MaSP");
+
+                    b.ToTable("MauSac");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.NhaCungCap", b =>
                 {
                     b.Property<int>("MaNCC")
@@ -379,15 +412,14 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("LuotXem")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaDanhMuc")
                         .HasColumnType("int");
 
                     b.Property<int>("MaNCC")
                         .HasColumnType("int");
-
-                    b.Property<string>("MauSP")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("MoTa")
                         .HasMaxLength(2147483647)
@@ -402,6 +434,9 @@ namespace DoAnWEBDEMO.Migrations
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("SoLuongTon")
+                        .HasColumnType("int");
 
                     b.Property<string>("TEN_SP")
                         .IsRequired()
@@ -529,6 +564,17 @@ namespace DoAnWEBDEMO.Migrations
                     b.Navigation("NhanVien");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.MauSac", b =>
+                {
+                    b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
+                        .WithMany("MauSacs")
+                        .HasForeignKey("MaSP")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SanPham");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.SanPham", b =>
                 {
                     b.HasOne("DoAnWEBDEMO.Models.DanhMuc", "DanhMuc")
@@ -604,9 +650,13 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Navigation("ChiTietDonHangs");
 
+<<<<<<< HEAD
                     b.Navigation("KhuyenMais");
 
                     b.Navigation("SanPhamYeuThichs");
+=======
+                    b.Navigation("MauSacs");
+>>>>>>> VietDuong
                 });
 #pragma warning restore 612, 618
         }
