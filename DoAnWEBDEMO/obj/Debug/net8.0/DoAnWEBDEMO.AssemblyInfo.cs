@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2399ac1bed94c8e757e35d27b52d58a1ee5805dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7ea6de72535e0641a5a4ddffb59a89628cbc9d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoAnWEBDEMO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

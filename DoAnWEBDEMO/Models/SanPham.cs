@@ -15,12 +15,11 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Mã danh mục là bắt buộc.")]
         public int MaDanhMuc { get; set; }
 
-        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
-        public string TEN_SP { get; set; }
-
-        [Required(ErrorMessage = "Giá sản phẩm là bắt buộc.")]
-        [Range(0, int.MaxValue, ErrorMessage = "Giá sản phẩm phải là một số dương.")]
+        [Required(ErrorMessage = "Giá tiền không được để trống.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Giá tiền phải lớn hơn hoặc bằng 0.")]
         public decimal Gia { get; set; }
+        [Required(ErrorMessage = "Tên sản phẩm là bắt buộc.")]
+        public string? TEN_SP { get; set; }
 
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
@@ -81,12 +80,19 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Tần số quét màn hình không được để trống.")]
         [StringLength(50, ErrorMessage = "Tần số quét màn hình không được vượt quá 50 ký tự.")]
         public string? TanSoQuet { get; set; }
-        public virtual DanhMuc? DanhMuc { get; set; }
-        public virtual NhaCungCap? NhaCungCap { get; set; }
 
-        public ICollection<CHI_TIET_DON_HANG>? ChiTietDonHangs { get; set; }
-        public ICollection<CHI_TIET_BINH_LUAN>? ChiTietBinhLuans { get; set; }
+        [Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn kho phải lớn hơn hoặc bằng 0.")]
+        public int SoLuongTon { get; set; } // Số lượng tồn kho
+        public virtual DanhMuc? DanhMuc{ get; set; }
+        public virtual NhaCungCap? NhaCungCap{ get; set; }
 
+        public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }
+        public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
+        public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
+        public virtual ICollection<KhuyenMai>? KhuyenMais { get; set; }
+
+        public ICollection<MauSac>? MauSacs { get; set; }
+
+        public ICollection<ChiTietGioHang> GioHang { get; set; }
     }
 }
-

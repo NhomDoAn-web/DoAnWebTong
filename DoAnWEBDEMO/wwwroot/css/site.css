@@ -386,3 +386,23 @@ body {
     border: none;
 }
 
+.thong-bao {
+    position: fixed;
+    top: 10%;
+    right: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    z-index: 1000;
+    border-radius: 5px;
+    opacity: 0.9;
+    display: none;
+}
+
+    .thong-bao.success {
+        background-color: #4caf50; /* Màu xanh lá */
+    }
+
+    .thong-bao.error {
+        background-color: #f44336; /* Màu đỏ */
+    }

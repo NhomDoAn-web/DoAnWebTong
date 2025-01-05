@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DoAnWEBDEMO.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\giohang.css",
+      "PackagePath": "staticwebassets\\css\\giohang.css"
+    },
+    {
       "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
       "PackagePath": "staticwebassets\\css\\lienhe.css"
     },
@@ -15,6 +19,14 @@
     {
       "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\backgroundcart.jpg",
+      "PackagePath": "staticwebassets\\image\\backgroundcart.jpg"
+    },
+    {
+      "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\emptycart.png",
+      "PackagePath": "staticwebassets\\image\\emptycart.png"
     },
     {
       "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\iphone_14.jpg",

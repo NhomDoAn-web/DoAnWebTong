@@ -26,6 +26,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mintu\OneDrive\Máy tính\DoAnTu\DoAnWebTong\DoAnWEBDEMO
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/GioHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lvSGFuZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -36,6 +40,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/LienHe/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGllbkhlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/SanPham/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/SanPham/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FuUGhhbVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mintu/OneDrive/Máy tính/DoAnTu/DoAnWebTong/DoAnWEBDEMO/Views/Shared/Error.cshtml]
