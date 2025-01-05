@@ -21,10 +21,6 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\backgroundcart.jpg",
-      "PackagePath": "staticwebassets\\image\\backgroundcart.jpg"
-    },
-    {
       "Id": "C:\\Users\\mintu\\OneDrive\\Máy tính\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\image\\emptycart.png",
       "PackagePath": "staticwebassets\\image\\emptycart.png"
     },

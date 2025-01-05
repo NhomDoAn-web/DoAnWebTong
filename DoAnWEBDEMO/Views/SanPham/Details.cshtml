@@ -277,18 +277,18 @@
 <script>
     function ThemVaoGioHang(maSP) {
         $.ajax({
-            url: '/GioHang/ThemVaoGioHang',
-            type: 'POST',
+            type: "POST",
+            url: '@Url.Action("ThemVaoGioHang", "GioHang")',
             data: { maSP: maSP },
             success: function (response) {
                 if (response.success) {
-                    alert('Thêm sản phẩm vào giỏ hàng thành công!');
+                    alert(response.message);í
                 } else {
-                    alert('Không thể thêm sản phẩm vào giỏ hàng.');
+                    alert(response.message); 
                 }
             },
-            error: function () {
-                alert('Có lỗi xảy ra. Vui lòng thử lại.');
+            error: function (xhr, status, error) {
+                alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
             }
         });
     }

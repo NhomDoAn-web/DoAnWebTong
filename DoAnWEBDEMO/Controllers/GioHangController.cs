@@ -70,6 +70,24 @@ namespace DoAnWEBDEMO.Controllers
             }
             return View();
         }
+        public int? GetLoggedInKhachHangId()
+        {
+            var userName = HttpContext.Session.GetString("user");
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(userName);
+
+            if (thongTinkhachHang.MaKH==null)
+            {
+                return null;
+            }
+            var customer = _db.KhachHang.FirstOrDefault(kh => kh.MaKH==thongTinkhachHang.MaKH);
+
+            if (customer == null)
+            {
+                return null;
+            }
+
+            return customer.MaKH;
+        }
         [HttpPost]
         public IActionResult TangSoLuong(int maSP)
         {
@@ -121,33 +139,31 @@ namespace DoAnWEBDEMO.Controllers
         [HttpPost]
         public IActionResult ThemVaoGioHang(int maSP)
         {
-            var sanPham = _db.SanPham.FirstOrDefault(p => p.MaSP == maSP);
-            if (sanPham != null)
+            var userId = GetLoggedInKhachHangId(); // Hàm lấy ID của khách hàng đăng nhập
+            if (userId == null)
             {
-                var KH_JSON = HttpContext.Session.GetString("user");
-                var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(KH_JSON);
-                var sanpham = _db.ChiTietGioHang.FirstOrDefault(p => p.MaSP == maSP && p.MaKH == thongTinkhachHang.MaKH);
-
-                if (sanpham == null)
-                {
-                    Debug.WriteLine("San pham da duoc them vao gio");
-/*
-                    sanpham = new ChiTietGioHang
-                    {
-                        MaSP = maSP,
-                        MaKH = thongTinkhachHang.MaKH,
-                        Soluong = 1
-                    };
-                    _db.ChiTietGioHang.Add(sanpham);*/
-                }
-               
-
-               // _db.SaveChanges();
-
-                return Json(new { success = true});
+                return Json(new { success = false, message = "Bạn cần đăng nhập!" });
             }
 
-            return Json(new { success = false });
+            var existingItem = _db.SanPhamYeuThich.FirstOrDefault(x => x.KhachHangId == userId && x.SanPhamId == maSP);
+
+            if (existingItem != null)
+            {
+                return Json(new { success = false, message = "Sản phẩm đã có trong giỏ hàng của bạn." });
+            }
+
+            var newWishlistItem = new ChiTietGioHang
+            {
+                MaKH = userId.Value,
+                MaSP = maSP,
+                Soluong = 1
+                
+            };
+
+            _db.ChiTietGioHang.Add(newWishlistItem);
+            _db.SaveChanges();
+
+            return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng!" });
         }
         [HttpPost]
         public IActionResult XoaToanBoGioHang()
