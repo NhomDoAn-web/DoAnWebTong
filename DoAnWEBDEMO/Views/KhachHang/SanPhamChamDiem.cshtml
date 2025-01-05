@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DoAnWEBDEMO.Models.ChiTietBinhLuan>
+
+@{
+    ViewData["Title"] = "Danh Sách Sản Phẩm Chấm Điểm";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Điểm Đánh Giá</th>
+            <th>Nội Dung Đánh Giá</th>
+            <th>Ngày Đánh Giá</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            int index = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@index</td>
+                    <td>@item.SanPham?.TEN_SP</td> <!-- Tên sản phẩm -->
+                    <td>@item.SO_SAO</td> <!-- Điểm đánh giá -->
+                    <td>@item.NOI_DUNG</td> <!-- Nội dung đánh giá -->
+                    <td>@item.NGAY.ToString("dd/MM/yyyy")</td> <!-- Ngày đánh giá -->
+                    <td>
+                        <!-- Xem chi tiết -->
+                        <a href="@Url.Action("Details", "SanPham", new { id = item.MA_SP })" class="btn btn-info btn-sm">Xem Chi Tiết</a>
+
+                        <!-- Chỉnh sửa đánh giá -->
+                        <a href="@Url.Action("Edit", "SanPhamChamDiem", new { khachHangId = item.MA_KH, sanPhamId = item.MA_SP })" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                    </td>
+                </tr>
+                index++;
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">Không có sản phẩm nào được đánh giá.</td>
+            </tr>
+        }
+    </tbody>
+</table>

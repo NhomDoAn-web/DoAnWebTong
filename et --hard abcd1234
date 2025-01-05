@@ -1,0 +1,282 @@
+[33mcommit 28d0eb17dd05e952b4815a02735fe1682217df97[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmanh[m[33m, [m[1;31morigin/manh[m[33m)[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:59:00 2025 +0700
+
+    Fix errors related to migrations
+
+[33mcommit b3a64fa040abc23c140ba8feb1a806ed8da37089[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:39:43 2025 +0700
+
+    vs
+
+[33mcommit 5ba607ec352a877808a0fe59fc4f1b6c55abcaac[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:29:45 2025 +0700
+
+    .vs
+
+[33mcommit 16177f459b486b2834bdd67ff1eaa961be6a45b9[m
+Merge: a2846f3 cff51c7
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:23:26 2025 +0700
+
+    .vs
+
+[33mcommit cff51c79cdb0f679bc1797fe535d758dd259c808[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:20:41 2025 +0700
+
+    vs
+
+[33mcommit a2846f3b9a13ce176a68e1829e0ef2e0565db0e4[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Sat Jan 4 22:08:43 2025 +0700
+
+    code moi trang ca nhan
+
+[33mcommit a0233e9b57da0eca551f12e175e467f3bfad7b1a[m
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Sat Jan 4 22:04:34 2025 +0700
+
+    cập nhật lại tính năng tìm kiếm và thêm sản phẩm vào danh sách yêu thích
+
+[33mcommit dbf116d2aa6e4f4670ce22ccad7c319995dea8bd[m
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Sat Jan 4 22:03:12 2025 +0700
+
+    cập nhật lại tính năng tìm kiếm và thêm sản phẩm vào danh sách yêu thích
+
+[33mcommit 08d98d5c8be9504ddef15fa1f83c6379bffc8e86[m
+Merge: b84db58 2797866
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Sat Jan 4 13:04:26 2025 +0700
+
+    Chuc nang tim kiem va them san pham yeu thich
+
+[33mcommit 78c024094452d81a141dd85dfee3ebad7cc106c5[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Fri Jan 3 21:34:08 2025 +0700
+
+    Trang Profile
+
+[33mcommit 9530ae4136cb4a13803842460ae39579a416b2d6[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Fri Jan 3 16:41:00 2025 +0700
+
+    register
+
+[33mcommit 3d15ce70a36e7507298c4a3f7af3df4a770c39fe[m
+Merge: 0b22fe4 40be859
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Fri Jan 3 14:55:57 2025 +0700
+
+    vc
+
+[33mcommit 40be859dd5db75c8006dd79547e3f77cb477d333[m[33m ([m[1;32mthinh[m[33m)[m
+Merge: 83b6c34 48d271c
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Fri Jan 3 14:53:43 2025 +0700
+
+    .vss
+
+[33mcommit 0b22fe48c7304056d25274a728d7498b3c04f7fc[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Fri Jan 3 14:48:42 2025 +0700
+
+    .vs
+
+[33mcommit 48d271cfe5ad3391ce3927f9df94ab488e3ebf8c[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 13:57:53 2025 +0700
+
+    Cap nhat Layout
+
+[33mcommit 82f963219a0f6e595c5ba7affa89b4d99ba556f0[m
+Merge: 40be168 80de510
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 13:52:58 2025 +0700
+
+    Merge branch 'thinh' of https://github.com/NhomDoAn-web/DoAnWebTong into thinh
+
+[33mcommit 40be168ea4f9c65b7eacc04c38ad175b81d09638[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 13:52:01 2025 +0700
+
+    Cap nhat Layout, box Dang Nhap
+
+[33mcommit 2c4ac43969fbc910af8e5a286ddc7632e33a01cf[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 13:47:10 2025 +0700
+
+    Cap nhat View Layout + Box Dang nhap
+
+[33mcommit 80de510e918bc82658a7d4c549ca95dbfbae67ab[m
+Author: lvkt0177 <164190465+lvkt0177@users.noreply.github.com>
+Date:   Fri Jan 3 10:46:38 2025 +0700
+
+    Update site.css
+
+[33mcommit a7de1c6dbcd947e57007fcedb95cd106964b57dd[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 10:42:23 2025 +0700
+
+    Đăng nhập Captcha + Đăng xuất AJAX + Cập nhật file CSS (Thinh)
+
+[33mcommit f6d682209251013e1ca36fc9d6e31acc5d9cd547[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Fri Jan 3 00:02:52 2025 +0700
+
+    Khách hàng Đăng nhập - Ajax + KhachHangController
+
+[33mcommit 93a3298b89d20b0be2d200a29db96accbf72b26c[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Thu Jan 2 23:46:00 2025 +0700
+
+    Cap nhat view Layout - Danh muc (Data)
+
+[33mcommit 2797866c2bdd130ccfe8b0ab1c0c2be4c9c1e0b7[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Thu Jan 2 17:48:10 2025 +0700
+
+    View Layout - Khách hàng
+
+[33mcommit b84db5854d1160059bf9310d78e4f9eae04e1c57[m
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Thu Jan 2 14:58:38 2025 +0700
+
+    Lay du lieu
+
+[33mcommit 920cab1904412fc13761c919369c65f1cb665cef[m
+Merge: d28c52f 05553a4
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Thu Jan 2 14:56:47 2025 +0700
+
+    Lay du lieu ve
+
+[33mcommit d28c52f86ff7fa20e20a336091e688ed1bb4bc21[m
+Merge: a9bf4e3 f7d9a89
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Thu Jan 2 14:49:20 2025 +0700
+
+    luu thay doi
+
+[33mcommit f7d9a896b8d8cf622392d662162e6230b4d36717[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Thu Jan 2 14:46:27 2025 +0700
+
+    Cap nhat Model SanPham + SeedData
+
+[33mcommit 05553a4a57db7654b2fce1fa57fa195bd8b4636a[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Thu Jan 2 14:39:25 2025 +0700
+
+    thay doi model
+
+[33mcommit a9bf4e3321336df1999483d96d08b81bb11128b4[m
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Thu Jan 2 14:38:20 2025 +0700
+
+    Lưu thay đổi cục bộ
+
+[33mcommit fd4b9a445bb304bf50c936a055fd540f8b6e67ec[m
+Merge: db9290e 83b6c34
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Thu Jan 2 14:32:49 2025 +0700
+
+    vsd
+
+[33mcommit 83b6c34ca75668c33d035973a12fb9db0a60bffb[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Thu Jan 2 14:30:12 2025 +0700
+
+    vs
+
+[33mcommit 4d0a96bba1b6022eab6a7717a4d24b10fffb4f6d[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Thu Jan 2 14:20:43 2025 +0700
+
+    Du lieu SeedData
+
+[33mcommit db9290e50c42439f7b0ed711e2b2c105f09d4013[m
+Merge: 91a6e31 739fc5f
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Wed Jan 1 20:45:33 2025 +0700
+
+    codem
+
+[33mcommit 91a6e31f2c3766491b49fa5b748e1281744f9d13[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Wed Jan 1 20:38:21 2025 +0700
+
+    moi
+
+[33mcommit 739fc5f50ffc20fd59b4dc7446b001cbd9a72fd3[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Tue Dec 31 22:10:23 2024 +0700
+
+    Tổng hợp Model + Khóa Ngoại (Thinh)
+
+[33mcommit 80a0cbfce00734ac9c70ef3a4af987611d530f89[m
+Merge: b11a723 1ab465e
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:55:16 2024 +0700
+
+    Đã giải quyết xung đột và hoàn tất merge
+
+[33mcommit b11a723c36069629ce157aba651834d34f7b11f1[m
+Merge: 9e3b755 51ec517
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:50:23 2024 +0700
+
+    moit
+
+[33mcommit 51ec517d5dfcf702e33af6aed8760235758941c3[m[33m ([m[1;32mVietDuong[m[33m)[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:41:25 2024 +0700
+
+    moi
+
+[33mcommit 9e3b755657af3ee288057db438474268d05aece0[m
+Merge: b18a424 f859f9c
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:39:20 2024 +0700
+
+    tesst
+
+[33mcommit b18a4242cbaad3d12442e5acc1f196ed06fca92e[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:32:38 2024 +0700
+
+    Lưu tạm thay đổi cục bộ trước khi chuyển nhánh
+
+[33mcommit 1ab465e4f672aafcd65ef180aa8004d5d3ccdc6f[m
+Merge: 7ac6694 4e7008b
+Author: NhomDoAn-web <testqmk@gmail.com>
+Date:   Tue Dec 31 13:14:11 2024 +0700
+
+    Merge pull request #2 from NhomDoAn-web/Manh
+    
+    Nhanh moi
+
+[33mcommit 4e7008bd0eb93db564b9bd53ef42c56f280cb39e[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Tue Dec 31 13:01:47 2024 +0700
+
+    Nhanh moi
+
+[33mcommit 3e4ef1c17487f622fe261f753b547c4169b10f65[m
+Author: lvkt0177 <lvkt0177@gmail.com>
+Date:   Mon Dec 30 23:11:45 2024 +0700
+
+    Dự án ASP.NET (Cập nhật Model) - Thinh
+
+[33mcommit 7ac669498cb8fa29e78db724e46b1923c2cdc0b8[m
+Author: ducmanh13112004 <tmanh5417@gmail.com>
+Date:   Mon Dec 30 22:48:48 2024 +0700
+
+    model danhmuc and taikhoannhanvien
+
+[33mcommit f859f9cd4c0e2282b717164b2179ce07e46d2974[m
+Author: Giao Su Nhut <nhut20004@gmail.com>
+Date:   Mon Dec 30 22:37:38 2024 +0700
