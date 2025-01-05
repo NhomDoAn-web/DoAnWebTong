@@ -6,11 +6,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
+<<<<<<< HEAD
 // ??ng k� d?ch v? Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Th?i h?n c?a session
+=======
+// Đăng ký dịch vụ Session
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn session
+>>>>>>> thinh
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
