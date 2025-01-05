@@ -2,13 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\DoAnWEBDEMO",
-    "\\DoAnWEBDEMO\\ApplicationDB",
-    "\\DoAnWEBDEMO\\Migrations",
-    "\\DoAnWEBDEMO\\Models",
-    "\\DoAnWEBDEMO\\SeedData",
+    "\\DoAnWEBDEMO\\Services",
     "\\DoAnWEBDEMO\\Views",
     "\\DoAnWEBDEMO\\Views\\DonHang",
-    "\\DoAnWEBDEMO\\Views\\KhachHang"
+    "\\DoAnWEBDEMO\\Views\\GioHang",
+    "\\DoAnWEBDEMO\\Views\\KhachHang",
+    "\\DoAnWEBDEMO\\Views\\QuenMatKhau",
+    "\\DoAnWEBDEMO\\Views\\SanPham",
+    "\\DoAnWEBDEMO\\Views\\Shared"
   ],
   "SelectedNode": "\\DoAnWEBDEMO.sln",
   "PreviewInSolutionExplorer": false

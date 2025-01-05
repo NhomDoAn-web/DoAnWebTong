@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Mvc;
 
-namespace DoAnWEBDEMO.Controllers
-{
-    public class GioHangController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
-    }
-}
-=======
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -198,4 +185,4 @@ namespace DoAnWEBDEMO.Controllers
         }
     }
 }
->>>>>>> MinhTu
+
