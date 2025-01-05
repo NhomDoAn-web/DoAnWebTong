@@ -26,13 +26,11 @@ namespace DoAnWEBDEMO.Controllers
             Debug.WriteLine("Mật khẩu: " + matKhau);
             if(checkTaiKhoan != null)
             {
-                if(checkTaiKhoan.MATKHAU == matKhau)
+                if (BCrypt.Net.BCrypt.Verify(matKhau, checkTaiKhoan.MATKHAU))
                 {
-                    
                     HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
-
-                    return Json(new {value  = true});
-                }    
+                    return Json(new { value = true });
+                }
             }    
             return Json(new {value = false});
         }

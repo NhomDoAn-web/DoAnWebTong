@@ -1,16 +1,17 @@
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.SeedData;
+using DoAnWEBDEMO.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddScoped<EmailService>();
 
 // Đăng ký dịch vụ Session
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian hết hạn session
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
