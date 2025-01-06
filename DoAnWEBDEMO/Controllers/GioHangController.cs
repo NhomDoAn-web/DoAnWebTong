@@ -33,7 +33,7 @@ namespace DoAnWEBDEMO.Controllers
                                  MaSP = sp.MaSP,
                                  TenSP = sp.TEN_SP,
                                  Gia = sp.Gia,
-                                 HinhAnh = sp.HinhAnhSP,
+                                 HinhAnh = m.HinhAnhSP_MauSac,
                                  SoLuong = ctgh.Soluong,
                                  Mau = m.TenMauSac,
                                  TongTien = sp.Gia * ctgh.Soluong
@@ -157,7 +157,6 @@ namespace DoAnWEBDEMO.Controllers
 
             if (existingItem != null)
             {
-                // Nếu sản phẩm đã tồn tại, thông báo rằng sản phẩm đã có trong giỏ hàng
                 return Json(new { success = false, message = "Sản phẩm đã có trong giỏ hàng!" });
             }
             else
@@ -194,7 +193,91 @@ namespace DoAnWEBDEMO.Controllers
 
             return Json(new { success = false, message = "Không thể xóa giỏ hàng." });
         }
+        [HttpPost]
+        public IActionResult XacNhanTT()
+        {
+            var KH_JSON = HttpContext.Session.GetString("user");
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(KH_JSON);
+            if (thongTinkhachHang.MaKH != null)
+            {
+                Debug.WriteLine(thongTinkhachHang);
+                var result = from ctgh in _db.ChiTietGioHang
+                             join sp in _db.SanPham on ctgh.MaSP equals sp.MaSP
+                             join m in _db.MauSac on ctgh.MaMau equals m.ID_MauSac
+                             where ctgh.MaKH == Convert.ToInt32(thongTinkhachHang.MaKH)
+                             select new
+                             {
+                                 MaSP = sp.MaSP,
+                                 TenSP = sp.TEN_SP,
+                                 Gia = sp.Gia,
+                                 HinhAnh = m.HinhAnhSP_MauSac,
+                                 SoLuong = ctgh.Soluong,
+                                 Mau = m.TenMauSac,
+                                 TongTien = sp.Gia * ctgh.Soluong,
+                                 SoLuongTon = sp.SoLuongTon,
+                             };
 
+                foreach (var item in result)
+                {
+                    if (item.SoLuong > item.SoLuongTon)
+                    {
+                        TempData["ErrorMessage"] = $"Sản phẩm {item.TenSP} không đủ số lượng tồn.";
+                        return RedirectToAction("GioHang");
+                    }
+                }
+                var hoaDon = new DonHang
+                {
+                    MaKH = thongTinkhachHang.MaKH,
+                    NgayDatHang = DateTime.Now,
+                    TongTienDonHang = (decimal)result.Sum(e => e.TongTien),
+                    DiaChiNhanHang = thongTinkhachHang.DiaChi,
+                    SoDienThoai= thongTinkhachHang.SDT,
+                    TrangThai = 1
+                /* 
+                1.Đang xử lý
+                2.Đang giao
+                3.Giao hàng thành công
+                4.Giao hàng thất bại
+                */
+
+                };
+                _db.DonHang.Add(hoaDon);
+                _db.SaveChanges();
+
+                // Thêm chi tiết hóa đơn
+                foreach (var item in result)
+                {
+                    var chiTietHoaDon = new ChiTietDonHang
+                    {
+                        MA_DH = hoaDon.MaDH,
+                        MA_SP = item.MaSP,
+                        SOLUONG = (int)item.SoLuong,
+                        TONGTIENTUNGSANPHAM = (decimal)item.TongTien,
+                        
+                    };
+
+                    // Giảm số lượng tồn
+                    var sanPham = _db.SanPham.FirstOrDefault(sp => sp.MaSP == item.MaSP);
+                    if (sanPham != null)
+                    {
+                        sanPham.SoLuongTon -= (int)item.SoLuong;
+                    }
+
+                    _db.ChiTietDonHang.Add(chiTietHoaDon);
+                }
+
+                // Xóa giỏ hàng
+                var chiTietGioHangs = _db.ChiTietGioHang.Where(ct => ct.MaKH == thongTinkhachHang.MaKH);
+                _db.ChiTietGioHang.RemoveRange(chiTietGioHangs);
+
+                // Lưu thay đổi
+                _db.SaveChanges();
+
+                TempData["SuccessMessage"] = "Thanh toán thành công!";
+                return RedirectToAction("TrangChu");
+            }
+
+        }
 
     }
 }

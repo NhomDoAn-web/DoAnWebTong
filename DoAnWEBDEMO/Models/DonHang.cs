@@ -14,9 +14,8 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Mã nhân viên không được để trống.")]
         public int MaNVXL { get; set; }
 
-        [Required(ErrorMessage = "Ngày đặt hàng không được để trống.")]
-        [StringLength(255, ErrorMessage = "Ngày đặt hàng không được vượt quá 255 ký tự.")]
-        public string NgayDatHang { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime? NgayDatHang { get; set; }
 
         [Required(ErrorMessage = "Tổng tiền không được để trống.")]
         [Range(1, double.MaxValue, ErrorMessage = "Tổng tiền phải là số dương.")]

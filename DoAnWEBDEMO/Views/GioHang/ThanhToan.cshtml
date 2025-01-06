@@ -5,6 +5,19 @@
     <link rel="stylesheet" href="~/css/giohang.css" asp-append-version="true" />
 
 }
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+<div style="">
+        <a asp-action="Index" class="btn btn-outline-info border-0"><i class="bi bi-caret-left"></i>Back</a>
+    </div>
 <div  class="d-flex justify-content-center " >
     
     <div>
@@ -31,7 +44,7 @@
                             {
                                 <tr class="item">
                                     <td class="info">
-                                        <img style="width:210px;" src="/image/@item.HinhAnh" alt="Wireless Headset">
+                                        <img style="width:210px;" src="@item.HinhAnh" alt="Wireless Headset">
                                         <span>@item.TenSP</span>
                                         <span>@item.Mau</span>
                                     </td>
@@ -79,7 +92,10 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-end">
-                    <a href="#" class="btn btn-dark">Xác nhận hoàn thành thanh toán</a>
+                    <form asp-action="XacNhanThanhToan" method="post">
+                        <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+                    </form>
+
                 </div>
             </div>
         </div>
