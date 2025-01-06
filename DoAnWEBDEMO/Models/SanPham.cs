@@ -94,6 +94,6 @@ namespace DoAnWEBDEMO.Models
 
         public ICollection<MauSac>? MauSacs { get; set; }
 
-        public ICollection<ChiTietGioHang> GioHang { get; set; }
+        public ICollection<ChiTietGioHang> ChiTietGioHangs { get; set; }
     }
 }

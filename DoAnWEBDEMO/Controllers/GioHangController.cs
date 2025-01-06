@@ -67,7 +67,7 @@ namespace DoAnWEBDEMO.Controllers
                                  MaSP = sp.MaSP,
                                  TenSP = sp.TEN_SP,
                                  Gia = sp.Gia,
-                                 HinhAnh = sp.HinhAnhSP,
+                                 HinhAnh = m.HinhAnhSP_MauSac,
                                  SoLuong = ctgh.Soluong,
                                  Mau = m.TenMauSac,
                                  TongTien = sp.Gia * ctgh.Soluong
@@ -152,8 +152,8 @@ namespace DoAnWEBDEMO.Controllers
                 return Json(new { success = false, message = "Bạn cần đăng nhập!" });
             }
 
-            // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-            var existingItem = _db.ChiTietGioHang.FirstOrDefault(x => x.MaKH == userId && x.MaSP == maSP);
+            // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng với cùng mã sản phẩm và mã màu
+            var existingItem = _db.ChiTietGioHang.FirstOrDefault(x => x.MaKH == userId && x.MaSP == maSP && x.MaMau == mau);
 
             if (existingItem != null)
             {
@@ -162,26 +162,21 @@ namespace DoAnWEBDEMO.Controllers
             }
             else
             {
-                // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm mới
+                // Nếu sản phẩm chưa tồn tại với màu này, thêm sản phẩm mới
                 var newWishlistItem = new ChiTietGioHang
                 {
                     MaKH = userId.Value,
                     MaSP = maSP,
                     MaMau = mau,
                     Soluong = soluong
-
-                    
                 };
+
                 _db.ChiTietGioHang.Add(newWishlistItem);
+                _db.SaveChanges();
+
+                return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng!" });
             }
-
-            // Lưu thay đổi vào cơ sở dữ liệu
-            _db.SaveChanges();
-
-            return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng!" });
         }
-
-
         [HttpPost]
         public IActionResult XoaToanBoGioHang()
         {
