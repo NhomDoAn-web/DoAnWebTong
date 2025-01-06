@@ -16,12 +16,12 @@
                         <img id="product-image" src="@Url.Content(ViewBag.AnhDauTien)" class="w-100" alt="Product Image" style="max-height: 400px; object-fit: contain;">
                     </div>
                     <!-- Nếu có nhiều ảnh, sử dụng vòng lặp để hiển thị -->
-                    @* 
+                    @*
                     @foreach (var image in Model.HinhAnhSP)
                     {
-                        <div class="carousel-item">
-                            <img src="@Url.Content("~/image/" + image)" class="d-block w-100 img-fluid" alt="Product Image" style="max-height: 400px; object-fit: cover;">
-                        </div>
+                    <div class="carousel-item">
+                    <img src="@Url.Content("~/image/" + image)" class="d-block w-100 img-fluid" alt="Product Image" style="max-height: 400px; object-fit: cover;">
+                    </div>
                     }
                     *@
                 </div>
@@ -33,11 +33,11 @@
                 </button>
             </div>
 
-@*             <div class="thumbnail-gallery mt-3">
-                @foreach (var image in Model.HinhAnhSP)
-                {
-                    <img src="@Url.Content("~/image/" + image)" class="img-thumbnail" alt="Thumbnail">
-                }
+            @*             <div class="thumbnail-gallery mt-3">
+            @foreach (var image in Model.HinhAnhSP)
+            {
+            <img src="@Url.Content("~/image/" + image)" class="img-thumbnail" alt="Thumbnail">
+            }
             </div> *@
 
             <!-- Phần đánh giá -->
@@ -123,6 +123,7 @@
                                  data-image="@color.HinhAnhSP_MauSac"
                                  style="padding: 5px 10px; margin: 0 20px; cursor: pointer; border-radius: 4px;"
                                  onclick="selectColor(this)">
+                                <input type="number" id="mau" name="mau" value="@color.ID_MauSac" style="display:none;">
                                 <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px;">
                                 <span class="color-name">@color.TenMauSac</span>
                             </div>
@@ -145,7 +146,7 @@
 
                         // Loại bỏ lớp 'selected-color' từ tất cả các màu sắc
                         var allColorOptions = document.querySelectorAll('.color-option');
-                        allColorOptions.forEach(function(option) {
+                        allColorOptions.forEach(function (option) {
                             option.classList.remove('selected-color');
                         });
 
@@ -163,7 +164,7 @@
                 </script>
 
                 <button onclick="ThemVaoGioHang(@Model.MaSP)" class="btn btn-outline-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
-                    <i class="bi bi-cart me-2"></i>
+                    <i class="bi bi-cart-plus"></i>
                 </button>
                 <button class="btn btn-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
                     Mua ngay
@@ -239,7 +240,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>                
+                </div>
             </div>
 
         </div>
@@ -276,15 +277,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function ThemVaoGioHang(maSP) {
+        // Lấy giá trị số lượng từ ô nhập
+        const soLuong = document.getElementById('quantity').value;
+        const mau = document.getElementById('mau').value;
         $.ajax({
             type: "POST",
             url: '@Url.Action("ThemVaoGioHang", "GioHang")',
-            data: { maSP: maSP },
+            data: { maSP: maSP, soluong: soLuong, mau: mau },
             success: function (response) {
                 if (response.success) {
-                    alert(response.message);í
+                    console.log(mau)
+                    alert(response.message);
                 } else {
-                    alert(response.message); 
+                    alert(response.message);
                 }
             },
             error: function (xhr, status, error) {
@@ -292,4 +297,5 @@
             }
         });
     }
+
 </script>

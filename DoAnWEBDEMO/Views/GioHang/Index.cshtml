@@ -1,149 +1,1 @@
-﻿@{
-    ViewData["Title"] = "Giỏ hàng - TechLand";
-}
-
-﻿<head>
-    <link rel="stylesheet" href="~/css/giohang.css" asp-append-version="true" />
-</head>
-
-<div class="container">
-    
-    <h2 class="title">Giỏ hàng của bạn</h2>
-    @if (ViewBag.ChiTietGioHang!=null)
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Tên Sản Phẩm</th>
-                    <th>Thành Tiền</th>
-                    <th>Số lượng</th>
-                    <th>Tổng Tiền</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in ViewBag.ChiTietGioHang)
-                {
-                    <tr>
-                        <td class="product-info">
-                            <img src="/image/@item.Image" alt="Wireless Headset">
-                            <span>@item.ProductName</span>
-                        </td>
-                        <td class="price">@item.Price.ToString("N0")</td>
-                        <td>
-                            <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="giamSoLuong(@item.MaSP)">-</button>
-                                <span class="quantity">@item.Quantity</span>
-                                <button class="quantity-btn" onclick="tangSoLuong(@item.MaSP)">+</button>
-                            </div>
-                        </td>
-                        <td class="price">@((item.Price * item.Quantity).ToString("N0"))</td>
-                        <td class="price"><button class="delete-btn" onclick="XoaKhoiGioHang(@item.MaSP)">×</button></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="action-buttons">
-            <button onclick="XoaToanBoGioHang()" class="action-btn">Làm mới giỏ hàng</button>
-            <a asp-action="Index" asp-controller="SanPham" class="btn btn-dark action-btn">Tiếp tục mua sắm</a>
-        </div>
-        <div class="row d-flex justify-content-end">
-            <div class="col-md-6" style="background:#f9fafe;">
-                <div class="">
-                    <h2 class="border-bottom">Tổng Tiền</h2>
-                    <table class="shop-table border-bottom">
-                        <tbody>
-                            <tr class="cart-subtotal">
-                                <th class="fs-3">Tổng cộng </th>
-                                <td style="padding-left: 15rem;">
-                                    <span class=" fs-3 ">@ViewBag.Total.ToString("N0") VNĐ</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-end">
-                        <a href="#" class="btn btn-dark">Thanh Toán</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        <img style="width:100%;height:100%;" src="/image/emptycart.png" />
-        <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem" asp-controller="SanPham" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>
-        
-    }
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    function tangSoLuong(maSP) {
-        $.ajax({
-            url: '/GioHang/TangSoLuong',
-            type: 'POST',
-            data: { maSP: maSP },
-            success: function (response) {
-                if (response.success) {
-                    location.reload();
-                } else {
-                    alert('Lỗi khi tăng số lượng!');
-                }
-            }
-        });
-    }
-
-    function giamSoLuong(maSP) {
-        $.ajax({
-            url: '/GioHang/GiamSoLuong',
-            type: 'POST',
-            data: { maSP: maSP },
-            success: function (response) {
-               
-                if (response.success) {
-                    location.reload();
-                } else {
-                    alert('Lỗi khi giảm số lượng!');
-                }
-            }
-        });
-    }
-    function XoaKhoiGioHang(maSP) {
-        $.ajax({
-            url: '/GioHang/XoaKhoiGioHang',
-            type: 'POST',
-            data: { maSP: maSP },
-            success: function (response) {
-
-                if (response.success) {
-                    console.log("Xóa sản phẩm với ID:", maSP);
-                    location.reload();
-                } else {
-                    alert('Lỗi khi giảm số lượng!');
-                }
-            }
-        });
-        
-    }
-    function XoaToanBoGioHang() {
-            if (confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm trong giỏ hàng?')) {
-                $.ajax({
-                    url: '/GioHang/XoaToanBoGioHang',
-                    type: 'POST',
-                    success: function (response) {
-                        if (response.success) {
-                            alert(response.message); 
-                            location.reload(); 
-                        } else {
-                            alert(response.message); 
-                        }
-                    },
-                    error: function () {
-                        alert('Có lỗi xảy ra. Vui lòng thử lại.');
-                    }
-                });
-            }
-     
-    }
-
-</script>
->>>>>>> MinhTu
+﻿@{     ViewData["Title"] = "Giỏ hàng - TechLand"; }  ﻿<head>     <link rel="stylesheet" href="~/css/giohang.css" asp-append-version="true" /> </head>  <div class="container">          <h2 class="title">Giỏ hàng của bạn</h2>     @if (ViewBag.ChiTietGioHang!=null)     {         <table class="table">             <thead>                 <tr>                     <th>Tên Sản Phẩm</th>                     <th>Thành Tiền</th>                     <th>Số lượng</th>                     <th>Tổng Tiền</th>                     <th></th>                 </tr>             </thead>             <tbody>                 @foreach (var item in ViewBag.ChiTietGioHang)                 {                     <tr class="item">                         <td class="info">                             <img style="width:210px;" src="/image/@item.HinhAnh" alt="Wireless Headset">                             <span>@item.TenSP</span>                            <span>@item.Mau</span>                         </td>                         <td class="price">@item.Gia.ToString("N0")</td>                         <td>                             <div class="quantity-controls">                                 <button class="quantity-btn" onclick="giamSoLuong(@item.MaSP)">-</button>                                 <span class="quantity">@item.SoLuong</span>                                 <button class="quantity-btn" onclick="tangSoLuong(@item.MaSP)">+</button>                             </div>                         </td>                         <td class="price">@((item.Gia * item.SoLuong).ToString("N0"))</td>                         <td class="price"><button class="delete-btn" onclick="XoaKhoiGioHang(@item.MaSP)">×</button></td>                     </tr>                 }             </tbody>         </table>         <div class="action-buttons">             <button onclick="XoaToanBoGioHang()" class="action-btn">Làm mới giỏ hàng</button>             <a asp-action="Index" asp-controller="SanPham" class="btn btn-dark action-btn">Tiếp tục mua sắm</a>         </div>         <div class="row d-flex justify-content-end">             <div class="col-md-6" style="background:#f9fafe;">                 <div class="">                     <h2 class="border-bottom">Tổng Tiền</h2>                     <table class="shop-table border-bottom">                         <tbody>                             <tr class="cart-subtotal">                                 <th class="fs-3">Tổng cộng </th>                                 <td style="padding-left: 15rem;">                                         <span class=" fs-3 ">@ViewBag.TongTien.ToString("N0") VNĐ</span>                                 </td>                             </tr>                         </tbody>                     </table>                     <div class="d-flex justify-content-end">                         <a asp-action="ThanhToan" class="btn btn-dark">Thanh Toán</a>                     </div>                 </div>             </div>         </div>     }     else     {         <img style="width:50%;height:50%;" src="/image/emptycart.png" />         <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem" asp-controller="SanPham" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>              } </div> <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script>     function tangSoLuong(maSP) {         $.ajax({             url: '/GioHang/TangSoLuong',             type: 'POST',             data: { maSP: maSP },             success: function (response) {                 if (response.success) {                     location.reload();                 } else {                     alert('Lỗi khi tăng số lượng!');                 }             }         });     }      function giamSoLuong(maSP) {         $.ajax({             url: '/GioHang/GiamSoLuong',             type: 'POST',             data: { maSP: maSP },             success: function (response) {                                 if (response.success) {                     location.reload();                 } else {                     alert('Lỗi khi giảm số lượng!');                 }             }         });     }     function XoaKhoiGioHang(maSP) {         $.ajax({             url: '/GioHang/XoaKhoiGioHang',             type: 'POST',             data: { maSP: maSP },             success: function (response) {                  if (response.success) {                     console.log("Xóa sản phẩm với ID:", maSP);                     location.reload();                 } else {                     alert('Lỗi khi giảm số lượng!');                 }             }         });              }     function XoaToanBoGioHang() {             if (confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm trong giỏ hàng?')) {                 $.ajax({                     url: '/GioHang/XoaToanBoGioHang',                     type: 'POST',                     success: function (response) {                         if (response.success) {                             alert(response.message);                              location.reload();                          } else {                             alert(response.message);                          }                     },                     error: function () {                         alert('Có lỗi xảy ra. Vui lòng thử lại.');                     }                 });             }           }  </script>  

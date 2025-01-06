@@ -1042,16 +1042,16 @@ namespace DoAnWEBDEMO.SeedData
             {
                 var gioHang = new List<ChiTietGioHang>
                 {
-                new ChiTietGioHang { MaKH = 1, MaSP = 1, Soluong = 1 },
-                new ChiTietGioHang { MaKH = 1, MaSP = 2, Soluong = 2 },
-                new ChiTietGioHang { MaKH = 1, MaSP = 3, Soluong = 1 },
-                new ChiTietGioHang { MaKH = 1, MaSP = 4, Soluong = 3 },
-                new ChiTietGioHang { MaKH = 1, MaSP = 5, Soluong = 2 },
-                new ChiTietGioHang { MaKH = 2, MaSP = 6, Soluong = 2 },
-                new ChiTietGioHang { MaKH = 2, MaSP = 7, Soluong = 1 },
-                new ChiTietGioHang { MaKH = 2, MaSP = 8, Soluong = 3 },
-                new ChiTietGioHang { MaKH = 2, MaSP = 9, Soluong = 2 },
-                new ChiTietGioHang { MaKH = 2, MaSP = 5, Soluong = 1 }
+                new ChiTietGioHang { MaKH = 1, MaSP = 1,MaMau = 1, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 2,MaMau = 1, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 3,MaMau = 1, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 4,MaMau = 1, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 1, MaSP = 5,MaMau = 1, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 6,MaMau = 1, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 7,MaMau = 1, Soluong = 1 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 8,MaMau = 1, Soluong = 3 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 9,MaMau = 1, Soluong = 2 },
+                new ChiTietGioHang { MaKH = 2, MaSP = 5,MaMau = 1, Soluong = 1 }
                 };
                 _db.ChiTietGioHang.AddRange(gioHang);
                 _db.SaveChanges();

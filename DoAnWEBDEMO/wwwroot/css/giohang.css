@@ -17,18 +17,15 @@ thead {
     padding-bottom: 22px;
     text-align:center;
 }
-img {
-    width: 139px;
-    height: 135px;
-}
-.product-info {
+
+.info {
     text-transform: uppercase;
     letter-spacing: 1.4px;
     color: inherit;
     padding-left: 30px;
     display: inline-block;
 }
-tr {
+tr.item {
 
     border-bottom: 1px solid #ebebeb;
 }
@@ -71,3 +68,12 @@ tr {
     padding: 1rem 1rem;
     border: 0px;
 }
+#paymentImage {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    #paymentImage img {
+        max-width: 300px; /* Tùy chỉnh kích thước hình ảnh */
+        height: auto;
+    }
