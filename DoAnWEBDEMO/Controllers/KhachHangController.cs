@@ -32,14 +32,12 @@ namespace DoAnWEBDEMO.Controllers
         {
             try
             {
-                // Kiểm tra xem tài khoản đã tồn tại hay chưa
                 var existingAccount = _db.KhachHang.FirstOrDefault(kh => kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung);
                 if (existingAccount != null)
                 {
                     return Json(new { value = false, message = "Email hoặc tên người dùng đã tồn tại." });
                 }
 
-                // Kiểm tra tính hợp lệ của các trường đầu vào
                 var khachHang = new KhachHang
                 {
                     HoKH = hoKH,
@@ -52,7 +50,6 @@ namespace DoAnWEBDEMO.Controllers
                     MATKHAU = matKhau
                 };
 
-                // Sử dụng DataAnnotations để kiểm tra validation
                 var validationResults = new List<ValidationResult>();
                 var validationContext = new ValidationContext(khachHang, null, null);
                 if (!Validator.TryValidateObject(khachHang, validationContext, validationResults, true))
@@ -86,66 +83,78 @@ namespace DoAnWEBDEMO.Controllers
             var checkTaiKhoan = _db.KhachHang.FirstOrDefault(tk => tk.Email == taiKhoan || tk.TENNGUOIDUNG == taiKhoan);
             Debug.WriteLine("Tài khoản: " + taiKhoan);
             Debug.WriteLine("Mật khẩu: " + matKhau);
-
-
             if (checkTaiKhoan != null)
             {
-                // Sử dụng BCrypt để xác minh mật khẩu
                 if (BCrypt.Net.BCrypt.Verify(matKhau, checkTaiKhoan.MATKHAU))
                 {
-                    HttpContext.Session.SetString("user", checkTaiKhoan.TenKH);
+                    HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
+                    //TenKH
+                    //String - JSON
                     return Json(new { value = true });
                 }
             }
-
             return Json(new { value = false });
         }
+
+
+        [HttpPost]
+        public JsonResult khachHangDangXuat()
+        {
+            HttpContext.Session.Clear();
+            return Json(new { value = true });
+        }
+
         //Thông tin tài khoản khách hàng
         public IActionResult Profile()
         {
-            var userName = HttpContext.Session.GetString("user");
+            var khachHangJson = HttpContext.Session.GetString("user");
 
-            if (string.IsNullOrEmpty(userName))
+            if (string.IsNullOrEmpty(khachHangJson))
             {
-                // Nếu không có thông tin đăng nhập, trả về thông tin yêu cầu mở modal đăng nhập
                 return Json(new { showLoginModal = true });
             }
 
-            var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
 
-            if (customer == null)
+            if (thongTinkhachHang != null)
             {
-                // Nếu không tìm thấy thông tin khách hàng, trả về yêu cầu mở modal đăng nhập
-                return Json(new { showLoginModal = true });
+                var customer = _db.KhachHang.FirstOrDefault(c => c.MaKH == thongTinkhachHang.MaKH);
+                Debug.WriteLine("========: " + customer);
+
+                if (customer != null)
+                {
+                    return View(customer);
+                }
             }
 
-            // Nếu tìm thấy khách hàng, trả về thông tin khách hàng
-            return View(customer);
+            return View();
         }
 
         // Sửa thông tin tài khoản 
-        
+
         public IActionResult EditProfile()
         {
-            // Phương thức GET để hiển thị thông tin tài khoản
-            var userName = HttpContext.Session.GetString("user");
+            var khachHangJson = HttpContext.Session.GetString("user");
 
-            if (string.IsNullOrEmpty(userName))
+            if (string.IsNullOrEmpty(khachHangJson))
             {
-               
                 return Json(new { showLoginModal = true });
             }
 
-            var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
 
-            if (customer == null)
+            if(thongTinkhachHang != null)
             {
-               
-                return Json(new { showLoginModal = true });
-            }
+                var customer = _db.KhachHang.FirstOrDefault(c => c.MaKH == thongTinkhachHang.MaKH);
 
-            // Trả về view với thông tin khách hàng
-            return View(customer);
+                if(customer != null)
+                {
+                    return View(customer);
+                }    
+            }    
+
+
+            return View();
         }
         // Phương thức POST để cập nhật thông tin tài khoản
         [HttpPost]
@@ -153,51 +162,53 @@ namespace DoAnWEBDEMO.Controllers
         {
             try
             {
-                var userName = HttpContext.Session.GetString("user");
+                var khachHangJson = HttpContext.Session.GetString("user");
 
-                if (string.IsNullOrEmpty(userName))
-                {
-                    return RedirectToAction("Login", "Account"); // Nếu không có session, chuyển hướng đến trang đăng nhập
-                }
-
-                var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
-
-                if (customer == null)
+                if (string.IsNullOrEmpty(khachHangJson))
                 {
                     return RedirectToAction("Login", "Account");
                 }
 
-                var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.TenKH != userName);
-                if (existingAccount != null)
+                var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
+
+                if (thongTinkhachHang != null)
                 {
-                    TempData["ErrorMessage"] = "Email hoặc tên người dùng đã tồn tại.";
-                    return RedirectToAction("EditProfile");
+                    var customer = _db.KhachHang.FirstOrDefault(c => c.MaKH == thongTinkhachHang.MaKH);
+
+                    if (customer != null)
+                    {
+                        var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.MaKH != thongTinkhachHang.MaKH);
+                        if (existingAccount != null)
+                        {
+                            TempData["ErrorMessage"] = "Email hoặc tên người dùng đã tồn tại.";
+                            return RedirectToAction("EditProfile");
+                        }
+
+                        // Cập nhật thông tin khách hàng
+                        customer.HoKH = hoKH;
+                        customer.TenKH = tenKH;
+                        customer.GioiTinh = gioiTinh;
+                        customer.Email = email;
+                        customer.SDT = sdt;
+                        customer.DiaChi = diaChi;
+                        customer.TENNGUOIDUNG = tenNguoiDung;
+
+                        _db.KhachHang.Update(customer);
+                        _db.SaveChanges();
+
+                        TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
+                        return RedirectToAction("Profile");
+                    }
                 }
-
-                // Cập nhật thông tin khách hàng
-                customer.HoKH = hoKH;
-                customer.TenKH = tenKH;
-                customer.GioiTinh = gioiTinh;
-                customer.Email = email;
-                customer.SDT = sdt;
-                customer.DiaChi = diaChi;
-                customer.TENNGUOIDUNG = tenNguoiDung;
-
-                _db.KhachHang.Update(customer);
-                _db.SaveChanges();
-
-                // Cập nhật session với thông tin mới
-                HttpContext.Session.SetString("user", customer.TenKH);
-
-                TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
-                return RedirectToAction("Profile"); // Chuyển hướng tới trang Profile sau khi cập nhật
             }
             catch (Exception ex)
             {
                 TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
                 return RedirectToAction("EditProfile");
             }
+            return View();
         }
+        
 
         //[HttpPost]
         //public JsonResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
@@ -257,20 +268,26 @@ namespace DoAnWEBDEMO.Controllers
 
         public int? GetLoggedInKhachHangId()
         {
-            var userName = HttpContext.Session.GetString("user");
+            var khachHangJson = HttpContext.Session.GetString("user");
 
-            if (string.IsNullOrEmpty(userName))
-            {
-                return null;
-            }
-            var customer = _db.KhachHang.FirstOrDefault(kh => kh.TenKH == userName);
-
-            if (customer == null)
+            if (string.IsNullOrEmpty(khachHangJson))
             {
                 return null;
             }
 
-            return customer.MaKH;
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
+
+            if (thongTinkhachHang != null)
+            {
+                var customer = _db.KhachHang.FirstOrDefault(kh => kh.MaKH == thongTinkhachHang.MaKH);
+
+                if (customer != null)
+                {
+                    return customer.MaKH;
+                }
+            }
+
+            return null;
         }
         public async Task<IActionResult> SanPhamYeuThich()
         {

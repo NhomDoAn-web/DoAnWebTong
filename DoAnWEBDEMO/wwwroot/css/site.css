@@ -1,44 +1,43 @@
 ﻿html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
 }
 
-<<<<<<< HEAD
 
 /*Danh mục*/
 .nav-item.dropdown .dropdown-menu {
-    min-width: 250px; 
-    padding: 10px 20px; 
+    min-width: 250px;
+    padding: 10px 20px;
 }
 
-.nav-item.dropdown .dropdown-menu .dropdown-item {
-    padding: 12px 20px;
-    font-size: 18px; 
-}
+    .nav-item.dropdown .dropdown-menu .dropdown-item {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
 
-.nav-item.dropdown .dropdown-menu .dropdown-item:hover {
-    color: #f36523; 
-}
+        .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+            color: #f36523;
+        }
 
 .nav-item.dropdown:hover .dropdown-menu {
     display: block;
@@ -49,62 +48,60 @@ body {
     color: black !important;
     margin-left: 0;
     transition: color 0.4s ease-in-out, margin-left 0.4s ease-in-out;
-    font-size: 18px;    
+    font-size: 18px;
     font-weight: 400 !important;
 }
 
-.nav-danhmuc:hover {
-    color: #f36523 !important;
-    margin-left: 10px;
-}
+    .nav-danhmuc:hover {
+        color: #f36523 !important;
+        margin-left: 10px;
+    }
 
-.nav-danhmuc:focus{
-    background-color: white !important; 
-}
+    .nav-danhmuc:focus {
+        background-color: white !important;
+    }
 
-=======
->>>>>>> VietDuong
 .btn-header {
     outline: none;
     border: none;
     background-color: white;
 }
 
-.btn-icon-login{
+.btn-icon-login {
     border: 2px solid black;
     border-radius: 10px;
     padding: 0.2rem 1rem;
     font-weight: 700;
 }
 
-.btn-icon-login:hover {
-    color: #f36523;
-    border: 2px solid #f36523;
-    transition: 0.1s ease-in-out;
-}
+    .btn-icon-login:hover {
+        color: #f36523;
+        border: 2px solid #f36523;
+        transition: 0.1s ease-in-out;
+    }
 
 .menu-link {
-    position: relative; 
-    display: inline-block; 
+    position: relative;
+    display: inline-block;
 }
 
-.menu-link:after {
-    content: ""; 
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px; 
-    background-color: #f36523; 
-    transition: width 0.3s ease, left 0.3s ease; 
-}
+    .menu-link:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #f36523;
+        transition: width 0.3s ease, left 0.3s ease;
+    }
 
-.menu-link:hover:after {
-    width: 100%; 
-    left: 0; 
-}
+    .menu-link:hover:after {
+        width: 100%;
+        left: 0;
+    }
 
-.bi-icon-header:hover, .nav-header:hover,.nav-footer {
+.bi-icon-header:hover, .nav-header:hover, .nav-footer {
     color: #f36523 !important;
     transition: 0.2s ease-in-out !important;
 }
@@ -174,9 +171,9 @@ body {
     padding-bottom: 10px;
 }
 
-    .modal-header h5 {
-        margin: 0;
-    }
+.modal-header h5 {
+    margin: 0;
+}
 
 .close {
     font-size: 1.5rem;
@@ -186,10 +183,10 @@ body {
     background-color: white;
 }
 
-.close:focus{
-    outline:none;
-    border: none;
-}
+    .close:focus {
+        outline: none;
+        border: none;
+    }
 
 .modal-body {
     padding: 20px 0;
@@ -247,17 +244,17 @@ body {
     align-items: center;
     border-radius: 10px;
     padding: 10px 20px;
-    background-color: #f36523; 
+    background-color: #f36523;
     border: none;
-    color: white; 
+    color: white;
     cursor: pointer;
-    box-shadow: none; 
+    box-shadow: none;
     width: 250px;
 }
 
-    .chat-btn:hover {
-        background-color: #ff7e42; 
-    }
+.chat-btn:hover {
+    background-color: #ff7e42;
+}
 
 .chat-box {
     position: fixed;
@@ -269,7 +266,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: none;
     flex-direction: column;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .chat-box-header {
@@ -282,13 +279,13 @@ body {
     border-radius: 10px 10px 0 0;
 }
 
-    .chat-box-header button {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-    }
+.chat-box-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .chat-box-body {
     padding: 10px;
@@ -321,16 +318,16 @@ body {
     align-items: center;
 }
 
-    .chat-box-footer input {
-        width: 80%;
-        border-radius: 20px;
-    }
+.chat-box-footer input {
+    width: 80%;
+    border-radius: 20px;
+}
 
-    .chat-box-footer button {
-        border-radius: 20px;
-        background-color: #007bff;
-        color: white;
-    }
+.chat-box-footer button {
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+}
 
 /* Hiển thị khi nhấn vào */
 .chat-box.show {
@@ -338,7 +335,6 @@ body {
 }
 
 
-<<<<<<< HEAD
 /*Box Thông tin tài khoản*/
 /* Thiết lập cho box */
 .account-box {
@@ -382,30 +378,12 @@ body {
 
 
 
-#logoutButton{
+#logoutButton {
     outline: none;
     border: none;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-.btn-SapXep {
-    border: 2px solid black !important;
-    color: black !important;
-    background-color: transparent !important;
-}
 
-    .btn-SapXep:hover {
-        border-color: #0056b3 !important;
-        color: #0056b3 !important;
-        background-color: rgba(0, 86, 179, 0.1) !important;
-    }
-
-
-
-=======
->>>>>>> thinh
-=======
 /*---------------------- CHI TIẾT SẢN PHẨM ------------------------*/
 
 .product-detail {

@@ -41,7 +41,6 @@ namespace DoAnWEBDEMO.Controllers
             // Cập nhật trạng thái đơn hàng thành "Đã hủy" (Trạng thái 3)
             donHang.TrangThai = 3;
 
-            // Lưu thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
 
             // Trả về thông tin trạng thái của đơn hàng (có thể hiển thị thêm thông báo hoặc icon "Mua lại")

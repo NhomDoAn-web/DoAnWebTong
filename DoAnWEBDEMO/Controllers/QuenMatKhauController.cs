@@ -55,7 +55,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if(user != null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "TrangChu");
             }    
             else
                 return View();
@@ -98,7 +98,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if (user == null)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "TrangChu");
             }
             else
                 return View();

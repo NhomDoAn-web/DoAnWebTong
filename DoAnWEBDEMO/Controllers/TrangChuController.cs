@@ -5,6 +5,7 @@ using DoAnWEBDEMO.ApplicationDB;
 using X.PagedList;
 using X.PagedList.Extensions;
 using DoAnWEBDEMO.Models;
+using System.Text.Json;
 namespace DoAnWEBDEMO.Controllers
 {
     public class TrangChuController : Controller
@@ -15,6 +16,36 @@ namespace DoAnWEBDEMO.Controllers
         {
             _context = context ;
         }
+
+
+        public IActionResult Index()
+        {
+            var sanPhamKhuyenMai = _context.SanPham
+                            .Where(s => s.TrangThai == 1)
+                            .OrderByDescending(s => s.Gia)
+                            .Take(4)
+                            .ToList();
+
+            var sanPhamNoiBat = _context.SanPham
+                            .Where(s => s.TrangThai == 1)
+                            .OrderByDescending(s => s.Gia)
+                            .Take(4)
+                            .ToList();
+
+            var sanPham = _context.SanPham
+                            .Where(s => s.TrangThai == 1)
+                            .OrderByDescending(s => s.Gia)
+                            .Take(8)
+                            .ToList();
+
+            ViewBag.SanPhamKhuyenMai = sanPhamKhuyenMai;
+            ViewBag.SanPhamNoiBat = sanPhamNoiBat;
+            ViewBag.SanPham = sanPham;
+
+            return View();
+        }
+
+
         public IActionResult TimKiemSanPham(string? TenTimKiem, int? DanhMucId, decimal? GiaMin, decimal? GiaMax, string? SortOrder, int page = 1, int pageSize = 2)
         {
             var query = _context.SanPham.AsQueryable();
@@ -72,7 +103,8 @@ namespace DoAnWEBDEMO.Controllers
         [HttpPost]
         public IActionResult ThemSanPhamYeuThich(int productId)
         {
-            var userId = GetLoggedInKhachHangId(); // Hàm lấy ID của khách hàng đăng nhập
+            var userId = GetLoggedInKhachHangId();
+
             if (userId == null)
             {
                 return Json(new { success = false, message = "Bạn cần đăng nhập để thêm vào danh sách yêu thích." });
@@ -99,20 +131,27 @@ namespace DoAnWEBDEMO.Controllers
 
         public int? GetLoggedInKhachHangId()
         {
-            var userName = HttpContext.Session.GetString("user");
+            var khachHangJson = HttpContext.Session.GetString("user");
 
-            if (string.IsNullOrEmpty(userName))
+            if (string.IsNullOrEmpty(khachHangJson))
             {
                 return null;
             }
-            var customer = _context.KhachHang.FirstOrDefault(kh => kh.TenKH == userName);
 
-            if (customer == null)
+            var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson); //*
+
+            if(thongTinkhachHang != null)
             {
-                return null; 
-            }
+                var customer = _context.KhachHang.FirstOrDefault(kh => kh.MaKH == thongTinkhachHang.MaKH);
 
-            return customer.MaKH; 
+                if(customer != null)
+                {
+                    return customer.MaKH;
+                }    
+            }    
+
+
+            return null; 
         }
 
 

@@ -3,179 +3,81 @@
     ViewData["Title"] = "Profile";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+@section CSS
+{
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+}
+@* End Header *@
 
-    <style>
-        body {
-            background-color: #f5f5f5;
-        }
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            @Html.Partial("~/Views/Shared/PartialsViews/_SlidebarProfile.cshtml")
+        </div>
 
-        .profile-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+        <!-- Main content -->
+        <div class="col-md-9">
 
-        .sidebar {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-            .sidebar a {
-                text-decoration: none;
-                color: #333;
-                display: block;
-                padding: 10px 0;
-            }
-
-                .sidebar a.active {
-                    color: #ff5722;
-                }
-
-                .sidebar a:hover {
-                    color: #ff5722;
-                }
-
-        .profile-header {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .profile-subheader {
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .form-label {
-            font-weight: bold;
-        }
-
-        .form-control {
-            margin-bottom: 10px;
-        }
-
-        .btn-save {
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-        }
-
-            .btn-save:hover {
-                background-color: #e64a19;
-            }
-
-        .profile-image {
-            text-align: center;
-        }
-
-            .profile-image img {
-                border-radius: 50%;
-                width: 100px;
-                height: 100px;
-            }
-
-            .profile-image button {
-                margin-top: 10px;
-            }
-
-            .profile-image p {
-                color: #888;
-                font-size: 12px;
-            }
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="d-flex align-items-center mb-3">
-                        <h2>@Model.TENNGUOIDUNG</h2>
-                    </div>
-                    <a class="active" href="#"><i class="fas fa-user me-2"></i> Hồ Sơ</a>
-                    <a href="@Url.Action("Index", "DonHang")"><i class=" bi bi-cart"></i> Đơn Hàng</a>
-                    <a href="@Url.Action("SanPhamYeuThich", "KhachHang")">
-                        <i class="bi bi-heart"></i> Sản phẩm yêu thích
-                    </a>
-
-                    <a href="@Url.Action("SanPhamChamDiem", "KhachHang")">
-                        <i class="bi bi-star"></i> Sản phẩm chấm điểm
-                    </a>
-
-                    <a href="#"><i class="fas fa-bell me-2"></i> Thông Báo</a>
-                    <a href="#"><i class="fas fa-gift me-2"></i> Kho Voucher</a>
-                </div>
-            </div>
-
-            <!-- Profile Content -->
-            <div class="col-md-9">
-                <div class="profile-container">
-                    <div class="profile-header">Hồ Sơ Của Tôi</div>
-                    <div class="profile-subheader">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
-                    <form method="post" action="@Url.Action("EditProfile", "KhachHang")">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="mb-3">
-                                    <label for="ho" class="form-label">Họ</label>
-                                    <p id="ho" class="form-control-static">@Model.HoKH</p>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="ten" class="form-label">Tên</label>
-                                    <p id="ten" class="form-control-static">@Model.TenKH</p>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <p id="email" class="form-control-static">@Model.Email</p>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="sdt" class="form-label">Số Điện Thoại</label>
-                                    <p id="sdt" class="form-control-static">@Model.SDT</p>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="diachi" class="form-label">Địa Chỉ</label>
-                                    <p id="diachi" class="form-control-static">@Model.DiaChi</p>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Giới Tính</label>
-                                    <p class="form-control-static">
-                                        @if (Model.GioiTinh == "Nam")
-                                        {
-                                            <span>Nam</span>
-                                        }
-                                        else if (Model.GioiTinh == "Nữ")
-                                        {
-                                            <span>Nữ</span>
-                                        }
-                                        else
-                                        {
-                                            <span>Khác</span>
-                                        }
-                                    </p>
-                                </div>
-                                <button type="submit" class="btn btn-save">Cập Nhật</button>
+            <div class="profile-container">
+                <div class="profile-header">Hồ Sơ Của Tôi</div>
+                <div class="profile-subheader">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
+                <form method="post" action="@Url.Action("EditProfile", "KhachHang")">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label for="ho" class="form-label">Họ</label>
+                                <p id="ho" class="form-control-static">@Model.HoKH</p>
                             </div>
-
-                            <!-- Profile Image Section -->
-                            <div class="col-md-4 profile-image">
-                                <button type="button" class="btn btn-outline-secondary">Chọn Ảnh</button>
-                                <p>Dụng lượng file tối đa 1 MB<br />Định dạng: .JPEG, .PNG</p>
+                            <div class="mb-3">
+                                <label for="ten" class="form-label">Tên</label>
+                                <p id="ten" class="form-control-static">@Model.TenKH</p>
                             </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <p id="email" class="form-control-static">@Model.Email</p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sdt" class="form-label">Số Điện Thoại</label>
+                                <p id="sdt" class="form-control-static">@Model.SDT</p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="diachi" class="form-label">Địa Chỉ</label>
+                                <p id="diachi" class="form-control-static">@Model.DiaChi</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Giới Tính</label>
+                                <p class="form-control-static">
+                                    @if (Model.GioiTinh == "Nam")
+                                    {
+                                        <span>Nam</span>
+                                    }
+                                    else if (Model.GioiTinh == "Nữ")
+                                    {
+                                        <span>Nữ</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Khác</span>
+                                    }
+                                </p>
+                            </div>
+                            <button type="submit" class="btn btn-save">Cập Nhật</button>
                         </div>
-                    </form>
-                </div>
+
+                        <!-- Profile Image Section -->
+                        <div class="col-md-4 profile-image">
+                            <button type="button" class="btn btn-outline-secondary">Chọn Ảnh</button>
+                            <p>Dụng lượng file tối đa 1 MB<br />Định dạng: .JPEG, .PNG</p>
+                        </div>
+                    </div>
+                </form>
             </div>
+
         </div>
     </div>
-</body>
-</html>
+</div>
+
+
+
+    

@@ -1,0 +1,311 @@
+﻿@section CSS
+{
+    <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick-theme.css" asp-append-version="true" />
+}
+
+@section Slide
+{
+
+    <div class="slider one-time px-0">
+        <div>
+            <div class="slide">
+                <a href="">
+                    <img src="/image/slide_2.jpg" style="width: 100%;height: 750px" />
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <div class="slide">
+                <a href="">
+                    <img src="/image/slide_3.jpg" style="width: 100%;height: 750px" />
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <div class="slide">
+                <a href="">
+                    <img src="/image/slide_4.jpg" style="width: 100%;height: 750px" />
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <div class="slide">
+                <a href="">
+                    <img src="/image/slide_5.jpg" style="width: 100%;height: 750px" />
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+
+
+<div class="mt-5 mb-5">
+    <h3 class="mb-3">Khuyến mãi hôm nay</h3>
+    <div class="row">
+        @if (ViewBag.SanPhamKhuyenMai != null)
+        {
+            foreach (var product in ViewBag.SanPhamKhuyenMai)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                    @product.Gia.ToString("N0") đ
+                                </span>
+                            </p>
+                            <!-- Nút căn giữa -->
+                            <div class="mt-auto d-flex justify-content-between">
+                                <!-- Nút Thêm vào giỏ hàng -->
+                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
+                                    <i class="bi bi-cart"></i>
+                                </button>
+
+                                <!-- Nút Thêm yêu thích -->
+                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
+                                    <i class="bi bi-bag-heart-fill"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+</div>
+
+
+<div class="mt-5 mb-5">
+    <h3 class="mb-3">Các sản phẩm nổi bật</h3>
+    <div class="row">
+        @if (ViewBag.SanPhamKhuyenMai != null)
+        {
+            foreach (var product in ViewBag.SanPhamKhuyenMai)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                    @product.Gia.ToString("N0") đ
+                                </span>
+                            </p>
+                            <!-- Nút căn giữa -->
+                            <div class="mt-auto d-flex justify-content-between">
+                                <!-- Nút Thêm vào giỏ hàng -->
+                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
+                                    <i class="bi bi-cart"></i>
+                                </button>
+
+                                <!-- Nút Thêm yêu thích -->
+                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
+                                    <i class="bi bi-suit-heart fw-bold"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+</div>
+
+
+<div class="my-5 row">
+    <div class="col-6">
+        <img src="/image/banner_1.jpg" style="border-radius: 0.5rem;" />
+    </div>
+
+    <div class="col-6">
+        <img src="/image//banner_2.jpg" style="border-radius: 0.5rem;" />
+    </div>
+</div>
+
+
+
+<div class="mt-5 mb-5">
+    <h3 class="mb-3">Khám phá các sản phẩm tại cửa hàng </h3>
+    <div class="row">
+        @if (ViewBag.SanPham != null)
+        {
+            foreach (var product in ViewBag.SanPham)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                    @product.Gia.ToString("N0") đ
+                                </span>
+                            </p>
+                            <!-- Nút căn giữa -->
+                            <div class="mt-auto d-flex justify-content-between">
+                                <!-- Nút Thêm vào giỏ hàng -->
+                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
+                                    <i class="bi bi-cart"></i>
+                                </button>
+
+                                <!-- Nút Thêm yêu thích -->
+                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
+                                    <i class="bi bi-suit-heart fw-bold"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+
+    <div class="text-center my-5">
+        <a class="" asp-controller="" asp-action="" style="font-size: 20px;font-weight: 300;text-decoration: none;color: white;padding: 0.7rem 6rem;background-color: #f36523;">Xem tất cả</a>
+    </div>
+</div>
+
+
+<div class="dich-vu-van-chuyen">
+    <h3 class="mb-3">Các dịch vụ vận chuyển tại cửa hàng </h3>
+
+    <div class="d-flex justify-content-center" style="flex-direction: column">
+        <div class="slider multiple-items">
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_1.jpg" style="width: 100%;height: 180px" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_2.jpg" style="width: 100%;height: 180px" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_3.jpg" style="width: 100%;height: 180px" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_4.jpg" style="width: 100%;height: 180px" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_5.jpg" style="width: 100%;height: 180px" />
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/lib/slick-1.8.1/slick/slick.min.js" asp-append-version="true"></script>
+
+    <script>
+         $('.one-time').slick({
+              dots: true,
+              infinite: true,
+              speed: 300,
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              autoplay: true
+        });
+
+        $('.multiple-items').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3
+        });
+    </script>
+
+
+}

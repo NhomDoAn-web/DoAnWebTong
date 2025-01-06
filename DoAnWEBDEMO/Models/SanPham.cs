@@ -27,8 +27,6 @@ namespace DoAnWEBDEMO.Models
         [StringLength(int.MaxValue)]
         public string? MoTa { get; set; }
 
-        [StringLength(50, ErrorMessage = "Màu sản phẩm không được vượt quá 50 ký tự.")]
-        public string? MauSP { get; set; }
         [Required(ErrorMessage = "Thời gian bảo hành là bắt buộc.")]
         [Range(0, int.MaxValue, ErrorMessage = "Thời gian bảo hành phải lớn hơn hoặc bằng 0.")]
         public int TGianBaoHanh { get; set; }

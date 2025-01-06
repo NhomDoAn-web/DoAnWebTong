@@ -143,17 +143,20 @@ namespace DoAnWEBDEMO.ApplicationDB
             modelBuilder.Entity<ChiTietGioHang>()
                 .HasOne(g => g.SanPham)
                 .WithMany(kh => kh.GioHang)
-                .HasForeignKey(p => p.MaSP) //Khóa ngoại...
+                .HasForeignKey(p => p.MaSP) 
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Thiết lập quan hệ 1-N giữa SanPham và MauSac
             modelBuilder.Entity<MauSac>()
-            .HasOne(c => c.SanPham)              // Mỗi màu thuộc 1 sản phẩm
-            .WithMany(p => p.MauSacs)             // Mỗi sản phẩm có nhiều màu
-            .HasForeignKey(c => c.MaSP);    // Khóa ngoại là MaSP
+            .HasOne(c => c.SanPham)              
+            .WithMany(p => p.MauSacs)          
+            .HasForeignKey(c => c.MaSP);  
 
-                                            // Cấu hình khóa chính composite cho bảng SanPhamChamDiem
-           
+            // Thiết lập quan hệ 1-N giữa ChiTietGioHang và MauSac
+            modelBuilder.Entity<ChiTietGioHang>()
+            .HasOne(c => c.MauSac) 
+            .WithMany(m => m.ChiTietGioHangs) 
+            .HasForeignKey(c => c.MaMau);
         }
     }
 }

@@ -484,7 +484,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0123456789",
                         DiaChi = "123 Đường ABC, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "ttptuan",
-                        MATKHAU = "Ttptuan@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -495,7 +495,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0123456789",
                         DiaChi = "456 Đường XYZ, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "truongmylan",
-                        MATKHAU = "Truongmylan@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -506,7 +506,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0123456789",
                         DiaChi = "789 Đường LMN, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "nvanan",
-                        MATKHAU = "Nvanan@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     // Thêm khách hàng mới
                     new KhachHang
@@ -518,7 +518,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0987654321",
                         DiaChi = "321 Đường DEF, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "lehonghoa",
-                        MATKHAU = "Lehonghoa@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -529,7 +529,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0765432189",
                         DiaChi = "654 Đường GHI, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "phanthanhson",
-                        MATKHAU = "Phanthanhson@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     // Dữ liệu khách hàng mới thêm
                     new KhachHang
@@ -541,7 +541,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0901122334",
                         DiaChi = "987 Đường JKL, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "vuminhhoang",
-                        MATKHAU = "Vuminhhoang@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -552,7 +552,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0912233445",
                         DiaChi = "654 Đường MNO, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "dangngocbich",
-                        MATKHAU = "Dangngocbich@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -563,7 +563,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0933445566",
                         DiaChi = "321 Đường PQR, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "lytruonggiang",
-                        MATKHAU = "Lytruonggiang@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -574,7 +574,7 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0944556677",
                         DiaChi = "789 Đường STU, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "phamthuha",
-                        MATKHAU = "Phamthuha@123"
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
                     },
                     new KhachHang
                     {
@@ -585,8 +585,20 @@ namespace DoAnWEBDEMO.SeedData
                         SDT = "0955667788",
                         DiaChi = "456 Đường VWX, TP. Hồ Chí Minh",
                         TENNGUOIDUNG = "hoanganhtuan",
-                        MATKHAU = "Hoanganhtuan@123"
-                    }
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("Ttptuan@123")
+                    },
+                    new KhachHang
+                    {
+                        HoKH = "Le",
+                        TenKH = "Thinh",
+                        GioiTinh = "Nam",
+                        Email = "aspnetcore9@gmail.com",
+                        SDT = "0955667788",
+                        DiaChi = "456 Đường VWX, TP. Hồ Chí Minh",
+                        TENNGUOIDUNG = "zz",
+                        MATKHAU = BCrypt.Net.BCrypt.HashPassword("1")
+                    },
+
                 };
 
                 _db.KhachHang.AddRange(khachHangs);

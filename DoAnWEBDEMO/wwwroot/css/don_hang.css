@@ -1,0 +1,16 @@
+﻿.btn-repurchase {
+    background-color: #4CAF50; /* Màu xanh */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .btn-repurchase:hover {
+        background-color: #45a049; /* Màu xanh đậm khi hover */
+    }
+
+    .btn-repurchase i {
+        margin-right: 5px;
+    }

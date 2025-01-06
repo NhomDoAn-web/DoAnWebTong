@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="~/DoAnWEBDEMO.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
      @await RenderSectionAsync("CSS", required: false)
 </head>
 <body>
-        <div class="container-fluid border-bottom shadow" style="position:fixed; background-color: white">
+        <div class="container-fluid border-bottom shadow" style="position:fixed; background-color: white;z-index: 9999;">
             <div class="container">
                 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-center pt-1 mb-1 ">
                     <div class="row">
@@ -49,7 +50,7 @@
 
                                 @* menu *@
                                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                                    <li><a asp-controller="Home" asp-action="Index" style="font-weight: 400;" class="mx-3 nav-header menu-link text-dark nav-link px-2">Trang chủ</a></li>
+                                    <li><a asp-controller="TrangChu" asp-action="Index" style="font-weight: 400;" class="mx-3 nav-header menu-link text-dark nav-link px-2">Trang chủ</a></li>
 
                                     <li class="nav-item dropdown">
 
@@ -62,7 +63,7 @@
                                     </li>
 
                                     <li><a asp-controller="GioiThieu" asp-action="Index" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Giới thiệu</a></li>
-                                    <li><a href="#" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
+                                    <li><a asp-controller="LienHe" asp-action="Index" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
                                 </ul>
                             </div>
 
@@ -72,7 +73,7 @@
 
                     @* div icon *@
                     <div class="col-md-3 text-center d-flex align-items-center justify-content-center">
-                        <a class="me-2 btn-header text-dark @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/Home")><i class="bi bi-bag-fill bi-icon-header fs-5"></i></a>
+                        <a class="me-2 btn-header text-dark @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/TrangChu/Index")><i class="bi bi-bag-fill bi-icon-header fs-5"></i></a>
 
                             <!-- Button popup Đăng Nhập-->
                     
@@ -89,14 +90,14 @@
 
                                 <div class="account-box dropdown-menu " id="accountBox" style="padding: 0;border:none;">
                                     <ul class="list-unstyled" style="margin: 0;padding: 0">
-                                        <li class="border-bottom border-dark"><a class="text-dark text-decoration-none btn-taikhoan" style="outline: none;" href="#">Thông tin tài khoản</a></li>
+                                        <li class="border-bottom border-dark"><a class="text-dark text-decoration-none btn-taikhoan" style="outline: none;" href="@Url.Action("Profile", "KhachHang")">Thông tin tài khoản</a></li>
                                         <li class="border-bottom"><button class="text-dark text-start" id="logoutButton"> Đăng xuất</button></li>
                                     </ul>
                                 </div>
                             }
                             else
                             {
-                                <button type="button" class="btn-header btn-icon-login" id="openLoginModal">
+                                <button type="button" class="btn-header btn-icon-login" id="openLoginModal">    
                                     Đăng nhập
                                 </button>
                             }
@@ -156,8 +157,8 @@
 
                                         @* Chưa có tài khoản *@
                                         <p class="text-center mt-3">
-                                        Chưa có tài khoản? <a href="@Url.Action("Register", "KhachHang")">Đăng ký</a>
-                                    </p>
+                                            Chưa có tài khoản? <a asp-controller="KhachHang" asp-action="Register">Đăng ký</a>
+                                        </p>
                                         @* End chưa có tài khoản *@
                                     </div>
                                 </div>
@@ -176,11 +177,13 @@
     </div>
         
         @* End Header *@
+    <div class="container-fluid" style="padding-top: 80px">
+        @await RenderSectionAsync("Slide", required: false)
+    </div>
 
-    <div class="container" style="padding-top: 150px">
+    <div class="container" style="padding-top: 10px">
         <main role="main" class="pb-3">
             @RenderBody()
-
         </main>
     </div>
 
@@ -297,10 +300,10 @@
 
 
 
-    @await RenderSectionAsync("Scripts", required: false)
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -15,7 +15,14 @@ namespace DoAnWEBDEMO.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var user = HttpContext.Session.GetString("user");
+
+            if (user != null)
+            {
+                return RedirectToAction("Index", "TrangChu");
+            }
+            else
+                return View();
         }
 
         public IActionResult Privacy()

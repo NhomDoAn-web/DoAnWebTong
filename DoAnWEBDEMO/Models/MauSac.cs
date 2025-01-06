@@ -29,5 +29,6 @@ namespace DoAnWEBDEMO.Models
         public int TrangThai { get; set; }
 
         public SanPham? SanPham { get; set; }
+        public ICollection<ChiTietGioHang>? ChiTietGioHangs { get; set; }
     }
 }
