@@ -1,5 +1,5 @@
 ﻿﻿@{
-    ViewData["Title"] = "Thanh Toán - TechLand";
+    ViewData["Title"] = "Thanh Toán";
 }
 @section CSS {
     <link rel="stylesheet" href="~/css/giohang.css" asp-append-version="true" />
@@ -42,16 +42,16 @@
                         <tbody>
                             @foreach (var item in ViewBag.ThanhToan)
                             {
-                                <tr class="item">
+                                <tr class="item" style="width:100px;">
                                     <td class="info">
-                                        <img style="width:210px;" src="@item.HinhAnh" alt="Wireless Headset">
+                                        <img style="width:100px;" src="@item.HinhAnh" alt="Wireless Headset">
                                         <span>@item.TenSP</span>
                                         <span>@item.Mau</span>
                                     </td>
                                     <td class="price">@item.Gia.ToString("N0")</td>
-                                    <td>
-                                        <div style="margin-top: 5rem;" class="quantity-controls">
-                                        <span  class="quantity ">@item.SoLuong</span
+                                    <td style=" text-align: center; vertical-align: middle;">
+                                        <div>
+                                        <span class="quantity">@item.SoLuong</span
                                         </div>
                                     </td>
                                     <td class="price">@((item.Gia * item.SoLuong).ToString("N0"))</td>
@@ -92,7 +92,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-end">
-                    <form asp-action="XacNhanThanhToan" method="post">
+                    <form asp-action="XacNhanTT" method="post">
                         <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
                     </form>
 

@@ -45,7 +45,12 @@
 }
 
 
-
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <div class="mt-5 mb-5">
     <h3 class="mb-3">Khuyến mãi hôm nay</h3>

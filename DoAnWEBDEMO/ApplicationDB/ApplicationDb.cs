@@ -100,7 +100,13 @@ namespace DoAnWEBDEMO.ApplicationDB
             //========== Dương ============//
             // Cấu hình khóa chính composite cho bảng CHI_TIET_DON_HANG
             modelBuilder.Entity<ChiTietDonHang>()
-                .HasKey(ctdh => new { ctdh.MA_DH, ctdh.MA_SP });
+                 .HasKey(c => new { c.MA_DH, c.MA_SP, c.MA_MAU }); // Thiết lập khóa chính
+
+            modelBuilder.Entity<ChiTietDonHang>()
+                .HasOne(c => c.MauSac)
+                .WithMany(m => m.ChiTietDonHangs)
+                .HasForeignKey(c => c.MA_MAU) // Thiết lập khóa ngoại
+                .OnDelete(DeleteBehavior.Restrict); // Không xóa liên kết khi xóa màu sắc
 
             // Thiết lập quan hệ 1-N giữa DonHang và ChiTietDonHang
             modelBuilder.Entity<ChiTietDonHang>()

@@ -10,9 +10,7 @@ namespace DoAnWEBDEMO.Models
 
         [Required(ErrorMessage = "Mã khách hàng không được để trống.")]
         public int MaKH { get; set; }
-
-        [Required(ErrorMessage = "Mã nhân viên không được để trống.")]
-        public int MaNVXL { get; set; }
+        public int? MaNVXL { get; set; }
 
         [DataType(DataType.DateTime)]
         public DateTime? NgayDatHang { get; set; }

@@ -908,7 +908,7 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         MaKH = 1,
                         MaNVXL = 1,
-                        NgayDatHang = "2025-01-01",
+                        NgayDatHang = DateTime.Now.AddDays(-1),
                         TongTienDonHang = 5000000,
                         TrangThai = 1,
                         DiaChiNhanHang = "123 Đường ABC, Quận 1, TP.HCM",
@@ -918,7 +918,7 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         MaKH = 2,
                         MaNVXL = 2,
-                        NgayDatHang = "2025-01-02",
+                        NgayDatHang = DateTime.Now.AddDays(-1),
                         TongTienDonHang = 1500000,
                         TrangThai = 2,
                         DiaChiNhanHang = "456 Đường DEF, Quận 3, TP.HCM",
@@ -928,7 +928,7 @@ namespace DoAnWEBDEMO.SeedData
                     {
                         MaKH = 3,
                         MaNVXL = 1,
-                        NgayDatHang = "2025-01-03",
+                        NgayDatHang = DateTime.Now.AddDays(-1),
                         TongTienDonHang = 2000000,
                         TrangThai = 3,
                         DiaChiNhanHang = "789 Đường GHI, Quận 7, TP.HCM",
@@ -950,29 +950,10 @@ namespace DoAnWEBDEMO.SeedData
                         MA_DH = 1, // Phải khớp với `MaDH` trong bảng DonHang
                         MA_SP = 1, // Phải khớp với `MaSP` trong bảng SanPham
                         SOLUONG = 2,
+                        MA_MAU = 2,
                         TONGTIENTUNGSANPHAM = 2000000 // Giá 1 sản phẩm là 1.000.000
                     },
-                    new ChiTietDonHang
-                    {
-                        MA_DH = 1,
-                        MA_SP = 2,
-                        SOLUONG = 1,
-                        TONGTIENTUNGSANPHAM = 3000000 // Giá 1 sản phẩm là 3.000.000
-                    },
-                    new ChiTietDonHang
-                    {
-                        MA_DH = 2,
-                        MA_SP = 3,
-                        SOLUONG = 3,
-                        TONGTIENTUNGSANPHAM = 4500000 // Giá 1 sản phẩm là 1.500.000
-                    },
-                    new ChiTietDonHang
-                    {
-                        MA_DH = 3,
-                        MA_SP = 4,
-                        SOLUONG = 1,
-                        TONGTIENTUNGSANPHAM = 2000000 // Giá 1 sản phẩm là 2.000.000
-                    }
+                    
                 };
 
                 _db.ChiTietDonHang.AddRange(chiTietDonHangs);

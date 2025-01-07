@@ -3,32 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\giohangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\giohang\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\giohang\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\applicationdb\\applicationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\applicationdb\\applicationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\mausac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\mausac.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\sanpham.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\lienhe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\lienhe\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\giohang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\giohang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\giohang\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\giohang\\thanhtoan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\views\\trangchu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\trangchu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,98 +66,183 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChiTietDonHang.cs",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T16:19:55.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DonHang.cs",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DonHang.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DonHang.cs",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DonHang.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Models\\DonHang.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T16:14:44.716Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ThanhToan.cshtml",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
-              "RelativeToolTip": "DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAAGEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-06T15:54:33.501Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
-              "RelativeToolTip": "DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAABwAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-06T15:54:18.328Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SanPhamController.cs",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAUwHIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T15:33:09.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GioHangController.cs",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\GioHangController.cs",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\GioHangController.cs",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\GioHangController.cs",
-              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\GioHangController.cs",
-              "ViewState": "AQIAAN8AAAAAAAAAAAAAAO4AAAAmAAAA",
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
+              "ViewState": "AQIAAK0DAAAAAAAAAAAIwLsDAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T15:13:43.749Z",
+              "WhenOpened": "2025-01-07T11:15:00.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDb.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAxwGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T11:11:18.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "ViewState": "AQIAANcAAAAAAAAAAADwv98AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-06T14:54:56.626Z",
+              "Title": "MauSac.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\MauSac.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\MauSac.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\MauSac.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\MauSac.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAABCwCAAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T11:10:45.929Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DonHangController.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DonHangController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\DonHangController.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DonHangController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\DonHangController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T11:08:20.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SanPham.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAQwGIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T08:57:15.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DonHang.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DonHang.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DonHang.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DonHang.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\DonHang.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAwCkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T08:57:04.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ChiTietDonHang.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAkwBoAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T08:56:54.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T08:17:24.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ThanhToan.cshtml",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T05:26:58.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "lienhe.css",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-07T02:59:05.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GioHangController.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\GioHangController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\GioHangController.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\GioHangController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\GioHangController.cs",
+              "ViewState": "AQIAACUBAAAAAAAAAAAywC4BAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T02:52:27.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20250107111434_all.cs",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T11:14:34.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T02:54:01.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
+              "ToolTip": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-07T02:52:24.305Z"
             }
           ]
         }

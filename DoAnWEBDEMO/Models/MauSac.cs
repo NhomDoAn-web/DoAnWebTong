@@ -30,5 +30,6 @@ namespace DoAnWEBDEMO.Models
 
         public SanPham? SanPham { get; set; }
         public ICollection<ChiTietGioHang>? ChiTietGioHangs { get; set; }
+        public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }
     }
 }
