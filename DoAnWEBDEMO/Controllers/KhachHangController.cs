@@ -166,7 +166,7 @@ namespace DoAnWEBDEMO.Controllers
 
                 if (string.IsNullOrEmpty(khachHangJson))
                 {
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Index", "TrangChu");
                 }
 
                 var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
@@ -208,63 +208,7 @@ namespace DoAnWEBDEMO.Controllers
             }
             return View();
         }
-        
-
-        //[HttpPost]
-        //public JsonResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
-        //{
-        //    try
-        //    {
-        //        var userName = HttpContext.Session.GetString("user");
-        //        Debug.WriteLine("Tên đăng nhập: " + userName);
-
-        //        if (string.IsNullOrEmpty(userName))
-        //        {
-        //            return Json(new { value = false, message = "Vui lòng đăng nhập để chỉnh sửa thông tin." });
-        //        }
-
-        //        var customer = _db.KhachHang.FirstOrDefault(c => c.TenKH == userName);
-        //        if (customer == null)
-        //        {
-        //            return Json(new { value = false, message = "Không tìm thấy thông tin người dùng." });
-        //        }
-
-        //        // Kiểm tra email hoặc tên người dùng trùng lặp
-        //        var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.TenKH != userName);
-        //        if (existingAccount != null)
-        //        {
-        //            return Json(new { value = false, message = "Email hoặc tên người dùng đã tồn tại." });
-        //        }
-
-        //        // Cập nhật thông tin
-        //        customer.HoKH = hoKH;
-        //        customer.TenKH = tenKH;
-        //        customer.GioiTinh = gioiTinh;
-        //        customer.Email = email;
-        //        customer.SDT = sdt;
-        //        customer.DiaChi = diaChi;
-        //        customer.TENNGUOIDUNG = tenNguoiDung;
-
-        //        _db.KhachHang.Update(customer);
-        //        _db.SaveChanges();
-
-        //        Debug.WriteLine("Cập nhật thành công!");
-
-        //        return Json(new { value = true, message = "Cập nhật thông tin thành công!" });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine("Lỗi: " + ex.Message);
-        //        return Json(new { value = false, message = "Có lỗi xảy ra: " + ex.Message });
-        //    }
-        //}
-
-
-
-        //
-
-           
-       
+          
 
         public int? GetLoggedInKhachHangId()
         {
@@ -316,8 +260,39 @@ namespace DoAnWEBDEMO.Controllers
 
             return View(sanPhamYeuThich); // Trả về view và danh sách sản phẩm yêu thích
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken] // Bảo vệ chống CSRF
+        public async Task<IActionResult> XoaSanPhamYeuThich(int sanPhamId)
+        {
+            // Lấy ID khách hàng từ session
+            var maKH = GetLoggedInKhachHangId();
 
+            // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
+            if (!maKH.HasValue)
+            {
+                ViewBag.Message = "Vui lòng đăng nhập để thực hiện thao tác này.";
+                return RedirectToAction("Index", "TrangChu"); // Điều hướng đến trang chủ nếu người dùng chưa đăng nhập
+            }
 
+            // Tìm sản phẩm yêu thích của khách hàng với ID sản phẩm và Khách hàng ID
+            var sanPhamYeuThich = await _db.SanPhamYeuThich
+                .FirstOrDefaultAsync(sp => sp.KhachHangId == maKH.Value && sp.SanPhamId == sanPhamId);
+
+            // Kiểm tra xem sản phẩm có trong danh sách yêu thích của khách hàng hay không
+            if (sanPhamYeuThich == null)
+            {
+                ViewBag.Message = "Sản phẩm không có trong danh sách yêu thích.";
+                return RedirectToAction("SanPhamYeuThich"); // Điều hướng lại đến danh sách sản phẩm yêu thích
+            }
+
+            // Xóa sản phẩm yêu thích khỏi danh sách
+            _db.SanPhamYeuThich.Remove(sanPhamYeuThich);
+            await _db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+
+            // Trả về thông báo thành công và điều hướng lại đến danh sách sản phẩm yêu thích
+            ViewBag.Message = "Đã xóa sản phẩm khỏi danh sách yêu thích.";
+            return RedirectToAction("SanPhamYeuThich");
+        }
 
         //
         public async Task<IActionResult> SanPhamChamDiem()
@@ -347,6 +322,57 @@ namespace DoAnWEBDEMO.Controllers
 
             return View(sanPhamChamDiem); // Trả về view và danh sách sản phẩm đã chấm điểm
         }
+        //sửa chấm điểm 
+        public async Task<IActionResult> SuaChamDiem(int sanPhamId)
+        {
+            var maKH = GetLoggedInKhachHangId();
+
+            // Kiểm tra nếu khách hàng chưa đăng nhập
+            if (!maKH.HasValue)
+            {
+                TempData["Message"] = "Vui lòng đăng nhập để sửa chấm điểm.";
+                return RedirectToAction("Index", "TrangChu");
+            }
+
+            // Lấy chi tiết bình luận/chấm điểm của sản phẩm từ khách hàng đã đăng nhập
+            var chiTietBinhLuan = await _db.ChiTietBinhLuan
+                .FirstOrDefaultAsync(c => c.MA_KH == maKH.Value && c.MA_SP == sanPhamId);
+            // Trả về view và truyền chi tiết bình luận/chấm điểm của sản phẩm
+            return View(chiTietBinhLuan);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SuaChamDiem(int sanPhamId, int rating, string comment)
+        {
+            var maKH = GetLoggedInKhachHangId();
+
+            // Kiểm tra nếu khách hàng chưa đăng nhập
+            if (!maKH.HasValue)
+            {
+                TempData["Message"] = "Vui lòng đăng nhập để sửa chấm điểm.";
+                return RedirectToAction("Index", "TrangChu");
+            }
+
+            // Lấy chi tiết bình luận/chấm điểm của sản phẩm từ khách hàng đã đăng nhập
+            var chiTietBinhLuan = await _db.ChiTietBinhLuan
+                .FirstOrDefaultAsync(c => c.MA_KH == maKH.Value && c.MA_SP == sanPhamId);
+            // Cập nhật chấm điểm và bình luận
+            chiTietBinhLuan.SO_SAO = rating; // Cập nhật điểm đánh giá
+            chiTietBinhLuan.NOI_DUNG = comment; // Cập nhật bình luận
+
+            // Cập nhật vào cơ sở dữ liệu
+            _db.ChiTietBinhLuan.Update(chiTietBinhLuan);
+            await _db.SaveChangesAsync();
+
+            // Cập nhật thông báo thành công
+            TempData["Message"] = "Cập nhật chấm điểm thành công!";
+
+            // Trả về cùng trang hiện tại để hiển thị thông báo
+            return View(chiTietBinhLuan);
+        }
+
+
         public IActionResult Index()
         {
             return View();

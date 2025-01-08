@@ -1,0 +1,85 @@
+﻿@model DonHang
+
+@{
+    ViewData["Title"] = "Chi tiết Đơn Hàng";
+}
+@section CSS
+{
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+}
+<h2>@ViewData["Title"]</h2>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            @Html.Partial("~/Views/Shared/PartialsViews/_SlidebarProfile.cshtml")
+        </div>
+
+        <!-- Chi tiết đơn hàng -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <strong>Thông tin Đơn Hàng #@Model.MaDH</strong>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <strong>Ngày Đặt Hàng:</strong>
+                        @if (DateTime.TryParse(Model.NgayDatHang?.ToString(), out DateTime date))
+                        {
+                            @date.ToString("dd/MM/yyyy")
+                        }
+                        else
+                        {
+                            @:N/A
+                        }
+                    </p>
+                    <p><strong>Số lượng:</strong> @Model.ChiTietDonHangs.Sum(c => c.SOLUONG)</p>
+
+                    <p><strong>Tổng Tiền:</strong> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", Model.TongTienDonHang)</p>
+                    <p>
+                        <strong>Trạng Thái:</strong>
+                        @switch (Model.TrangThai)
+                        {
+                            case 1:
+                                <span class="badge bg-warning text-dark">Đang xử lý</span>
+                                break;
+                            case 2:
+                                <span class="badge bg-success">Đã giao</span>
+                                break;
+                            case 3:
+                                <span class="badge bg-danger">Đã hủy</span>
+                                break;
+                            case 4:
+                                <span class="badge bg-info text-dark">Đang giao</span>
+                                break;
+                            case 5:
+                                <span class="badge bg-secondary">Giao hàng thất bại</span>
+                                break;
+                            default:
+                                <span class="badge bg-dark">Không xác định</span>
+                                break;
+                        }
+                    </p>
+                    <p><strong>Địa Chỉ Nhận Hàng:</strong> @Model.DiaChiNhanHang</p>
+                    <p><strong>Số Điện Thoại:</strong> @Model.SoDienThoai</p>
+                   @*  <p><strong>Nhân Viên Xử Lý:</strong> @Model.NhanVien?.TENNV</p> *@
+                    <div class="d-flex justify-content-start">
+                        @if (Model.TrangThai != 3) // Chỉ hiển thị nút hủy nếu trạng thái không phải "Đã hủy"
+                        {
+                            <a href="/DonHang/CancelOrder/@Model.MaDH" class="btn btn-danger btn-sm me-2">
+                                <i class="bi bi-trash"></i> Hủy
+                            </a>
+                        }
+
+                        @if (Model.TrangThai == 3) // Hiển thị nút "Mua lại" nếu trạng thái là "Đã hủy"
+                        {
+                            <a href="/DonHang/RepurchaseOrder/@Model.MaDH" class="btn btn-success btn-sm">
+                                <i class="bi bi-arrow-clockwise"></i> Mua lại
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

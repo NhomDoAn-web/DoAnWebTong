@@ -1,0 +1,48 @@
+﻿@model DoAnWEBDEMO.Models.ChiTietBinhLuan
+
+@{
+    ViewBag.Title = "Chỉnh sửa chấm điểm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div id="message" class="alert alert-info">
+        @TempData["Message"]
+    </div>
+
+    
+}
+
+<form method="post">
+    <div class="form-group">
+        <label for="rating">Chấm điểm:</label>
+        <select class="form-control" id="rating" name="rating" required>
+            <option value="1" selected="@(Model.SO_SAO == 1)">1 Sao</option>
+            <option value="2" selected="@(Model.SO_SAO == 2)">2 Sao</option>
+            <option value="3" selected="@(Model.SO_SAO == 3)">3 Sao</option>
+            <option value="4" selected="@(Model.SO_SAO == 4)">4 Sao</option>
+            <option value="5" selected="@(Model.SO_SAO == 5)">5 Sao</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Bình luận:</label>
+        <textarea class="form-control" id="comment" name="comment" rows="4" required>@Model.NOI_DUNG</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cập nhật</button>
+</form>
+
+<br />
+<a href="@Url.Action("SanPhamChamDiem", "KhachHang")" class="btn btn-secondary">Quay lại danh sách chấm điểm</a>
+<script>
+   
+    setTimeout(function () {
+        var messageElement = document.getElementById("message");
+        if (messageElement) {
+            messageElement.style.display = "none";
+        }
+    }, 5000); 
+</script>
