@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\seeddata\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\applicationdb\\applicationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\applicationdb\\applicationdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -57,6 +53,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|c:\\users\\mintu\\onedrive\\m\u00E1y t\u00EDnh\\doantu\\doanwebtong\\doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\lienhe.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:DoAnWEBDEMO\\Migrations\\20250107111434_all.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,12 +78,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\SeedData\\SeedData.cs",
               "ViewState": "AQIAAK0DAAAAAAAAAAAIwLsDAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T11:15:00.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T11:15:00.753Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ApplicationDb.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
@@ -91,12 +90,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\ApplicationDB\\ApplicationDb.cs",
               "ViewState": "AQIAAF0AAAAAAAAAAAAxwGcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T11:11:18.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T11:11:18.597Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MauSac.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\MauSac.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\MauSac.cs",
@@ -104,12 +102,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\MauSac.cs",
               "ViewState": "AQIAAA8AAAAAAAAAAABCwCAAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T11:10:45.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T11:10:45.929Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "DonHangController.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\DonHangController.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\DonHangController.cs",
@@ -117,12 +114,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\DonHangController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T11:08:20.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T11:08:20.77Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "SanPham.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\SanPham.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\SanPham.cs",
@@ -130,12 +126,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\SanPham.cs",
               "ViewState": "AQIAAE4AAAAAAAAAAAAQwGIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T08:57:15.298Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T08:57:15.298Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "DonHang.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\DonHang.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\DonHang.cs",
@@ -147,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ChiTietDonHang.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
@@ -155,12 +150,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Models\\ChiTietDonHang.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAkwBoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T08:56:54.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T08:56:54.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\LienHe\\Index.cshtml",
@@ -172,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "ThanhToan.cshtml",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\ThanhToan.cshtml",
@@ -184,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "lienhe.css",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\lienhe.css",
@@ -209,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 13,
               "Title": "20250107111434_all.cs",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
@@ -217,12 +211,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Migrations\\20250107111434_all.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T11:14:34.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T11:14:34.789Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
@@ -234,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\mintu\\OneDrive\\M\u00E1y t\u00EDnh\\DoAnTu\\DoAnWebTong\\DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\GioHang\\Index.cshtml",
