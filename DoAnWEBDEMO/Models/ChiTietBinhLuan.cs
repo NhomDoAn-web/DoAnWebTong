@@ -1,10 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DoAnWEBDEMO.Models
 {
     public class ChiTietBinhLuan
     {
-        
+
+        [Key] // Khóa chính tự tăng
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id_BinhLuan { get; set; }
         [Key] // Đảm bảo trường này không được để trống
         public int MA_SP { get; set; } // Khóa ngoại tới bảng Sản phẩm
 

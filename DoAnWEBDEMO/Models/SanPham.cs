@@ -23,6 +23,9 @@ namespace DoAnWEBDEMO.Models
 
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
+        
+        [StringLength(int.MaxValue)]
+        public string? SlideShow { get; set; }
 
         [StringLength(int.MaxValue)]
         public string? MoTa { get; set; }
@@ -30,6 +33,9 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Thời gian bảo hành là bắt buộc.")]
         [Range(0, int.MaxValue, ErrorMessage = "Thời gian bảo hành phải lớn hơn hoặc bằng 0.")]
         public int TGianBaoHanh { get; set; }
+
+        [Required]
+        public DateTime? NgayRaMat { get; set; }
 
         [Required(ErrorMessage = "Trạng thái là bắt buộc.")]
         [Range(0, 1, ErrorMessage = "Trạng thái phải là 0 (Không hoạt động) hoặc 1 (Hoạt động).")]
@@ -94,7 +100,6 @@ namespace DoAnWEBDEMO.Models
 
         public ICollection<MauSac>? MauSacs { get; set; }
 
-        public ICollection<ChiTietGioHang> GioHang { get; set; }
-        
+        public ICollection<ChiTietGioHang> ChiTietGioHangs { get; set; }
     }
 }

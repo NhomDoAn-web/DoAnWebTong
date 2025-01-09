@@ -1,5 +1,4 @@
-
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
 {
@@ -52,8 +51,7 @@ namespace DoAnWEBDEMO.Models
         public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
         public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
 
-        public ICollection<ChiTietGioHang> GioHang { get; set; }
+        public ICollection<ChiTietGioHang> ChiTietGioHangs { get; set; }
 
     }
 }
-

@@ -9,6 +9,7 @@ using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
+using MimeKit.Encodings;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -22,7 +23,9 @@ namespace DoAnWEBDEMO.Controllers
             _db = db;
         }
 
+        
         //khách hàng đăng ký
+
         public IActionResult Register()
         {
             return View(); // trả về view đăng ký
@@ -76,6 +79,47 @@ namespace DoAnWEBDEMO.Controllers
         }
 
 
+        //Thông tin Giỏ hàng của Khách hàng
+        public void getThongTinGioHang()
+        {
+            var khachHangJson = HttpContext.Session.GetString("user");
+
+            if(khachHangJson != null)
+            {
+                var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
+
+                if(thongTinkhachHang != null)
+                {
+                    var result = _db.ChiTietGioHang
+                        .Where(ctgh => ctgh.MaKH == 1)
+                        .Join(_db.SanPham, ctgh => ctgh.MaSP, sp => sp.MaSP, (ctgh, sp) => new { ctgh, sp })
+                        .Join(_db.ChiTietDonHang, temp => temp.ctgh.MaSP, ctdh => ctdh.MA_SP, (temp, ctdh) => new { temp.ctgh, temp.sp })
+                        .GroupBy(x => x.ctgh.MaKH)
+                        .Select(g => new
+                        {
+                            MaKH = g.Key,
+                            TongTien = g.Sum(x => x.sp.Gia * x.ctgh.Soluong),
+                            SoLuong = g.Sum(x => x.ctgh.Soluong)
+                        })
+                        .FirstOrDefault();
+
+                    if (result != null)
+                    {
+                        Debug.WriteLine("Tong tien =========: "+result.TongTien);
+                        Debug.WriteLine("Số lượng =========: "+ result.SoLuong);
+                        HttpContext.Session.SetInt32("tongTien", (int)result.TongTien);
+                        HttpContext.Session.SetInt32("soLuong", (int)result.SoLuong);
+                    }    
+                    else
+                    {
+                        HttpContext.Session.SetInt32("tongTien", 0);
+                        HttpContext.Session.SetInt32("soLuong", 0);
+
+                    }
+
+                }    
+            }    
+        }
 
         //Khách hàng đăng nhập - Json
         public JsonResult getKhachHangDangNhap(string taiKhoan, string matKhau)
@@ -90,6 +134,7 @@ namespace DoAnWEBDEMO.Controllers
                     HttpContext.Session.SetString("user", JsonSerializer.Serialize(checkTaiKhoan));
                     //TenKH
                     //String - JSON
+                    getThongTinGioHang();
                     return Json(new { value = true });
                 }
             }
@@ -111,7 +156,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if (string.IsNullOrEmpty(khachHangJson))
             {
-                return Json(new { showLoginModal = true });
+                return RedirectToAction("Index", "TrangChu");
             }
 
             var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
@@ -130,6 +175,7 @@ namespace DoAnWEBDEMO.Controllers
             return View();
         }
 
+
         // Sửa thông tin tài khoản 
 
         public IActionResult EditProfile()
@@ -138,7 +184,7 @@ namespace DoAnWEBDEMO.Controllers
 
             if (string.IsNullOrEmpty(khachHangJson))
             {
-                return Json(new { showLoginModal = true });
+                return RedirectToAction("Index", "TrangChu");
             }
 
             var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
@@ -156,9 +202,11 @@ namespace DoAnWEBDEMO.Controllers
 
             return View();
         }
+
+        // Sửa thông tin tài khoản 
         // Phương thức POST để cập nhật thông tin tài khoản
         [HttpPost]
-        public IActionResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi, string tenNguoiDung)
+        public IActionResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi)
         {
             try
             {
@@ -177,25 +225,25 @@ namespace DoAnWEBDEMO.Controllers
 
                     if (customer != null)
                     {
-                        var existingAccount = _db.KhachHang.FirstOrDefault(kh => (kh.Email == email || kh.TENNGUOIDUNG == tenNguoiDung) && kh.MaKH != thongTinkhachHang.MaKH);
+                        // Kiểm tra email hoặc tên người dùng đã tồn tại
+                        var existingAccount = _db.KhachHang.FirstOrDefault(kh => kh.Email == email && kh.MaKH != thongTinkhachHang.MaKH);
                         if (existingAccount != null)
                         {
-                            TempData["ErrorMessage"] = "Email hoặc tên người dùng đã tồn tại.";
+                            TempData["ErrorMessage"] = "Email đã tồn tại.";
                             return RedirectToAction("EditProfile");
                         }
 
-                        // Cập nhật thông tin khách hàng
+                        // Cập nhật thông tin khách hàng (Không thay đổi tên người dùng)
                         customer.HoKH = hoKH;
                         customer.TenKH = tenKH;
                         customer.GioiTinh = gioiTinh;
                         customer.Email = email;
                         customer.SDT = sdt;
                         customer.DiaChi = diaChi;
-                        customer.TENNGUOIDUNG = tenNguoiDung;
 
                         _db.KhachHang.Update(customer);
                         _db.SaveChanges();
-
+                        HttpContext.Session.SetString("user", JsonSerializer.Serialize(customer));
                         TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
                         return RedirectToAction("Profile");
                     }
@@ -206,9 +254,10 @@ namespace DoAnWEBDEMO.Controllers
                 TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
                 return RedirectToAction("EditProfile");
             }
+
             return View();
         }
-          
+
 
         public int? GetLoggedInKhachHangId()
         {
@@ -377,6 +426,8 @@ namespace DoAnWEBDEMO.Controllers
         {
             return View();
         }
+
+
     }
 }
 

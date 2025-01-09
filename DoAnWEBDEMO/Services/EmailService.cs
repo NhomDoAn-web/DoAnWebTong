@@ -20,10 +20,10 @@ namespace DoAnWEBDEMO.Services
             }
 
             var email = new MimeMessage();
-            email.From.Add(new MailboxAddress("Quản trị", _cauHinh["EmailSettings:SenderEmail"]));
+            email.From.Add(new MailboxAddress("Chăm sóc khách hàng", _cauHinh["EmailSettings:SenderEmail"]));
             email.To.Add(new MailboxAddress("Người nhận", email_KH));
             email.Subject = "TechLand - Lấy lại mật khẩu";
-            email.Body = new TextPart("plain") { Text = $"Mã OTP của bạn là: {otp}" };
+            email.Body = new TextPart("plain") { Text = $"Xin chào,\n\nMã OTP để xác minh của bạn là: {otp}. Vui lòng không chia sẻ mã này với bất kỳ ai.\n\nTrân trọng!" };
 
             using var smtp = new SmtpClient();
             await smtp.ConnectAsync(_cauHinh["EmailSettings:SmtpServer"], int.Parse(_cauHinh["EmailSettings:Port"]), MailKit.Security.SecureSocketOptions.StartTls);

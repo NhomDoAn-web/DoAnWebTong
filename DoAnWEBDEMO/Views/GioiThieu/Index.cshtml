@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Giới thiệu - TechLand";
+    ViewData["Title"] = "Giới thiệu";
 }
 
 @section CSS
@@ -12,30 +12,53 @@
         <div class="col-12">
 
             <div class="tieu-de mb-3">
-                <h4>Giới thiệu về TechLand</h4>
+                <div class="content">
+                    @Html.Raw(ViewBag.GioiThieu.NoiDung)
+                </div>
             </div>
 
             <div class="noi-dung-gioi-thieu text-center px-5 fw-lighter fs-5">
-                <p>
-                    Được thành lập vào năm 2024, TecHLand đã khẳng định vị thế là một thương hiệu uy tín và đáng tin cậy trong lĩnh vực thiết bị điện tử kỹ thuật số cao cấp. Chúng tôi tự hào là nhà phân phối hàng đầu các sản phẩm công nghệ hiện đại, mang lại trải nghiệm mua sắm chất lượng cho khách hàng.
-                </p>
-
-                <p>
-                    Trong bối cảnh công nghệ số phát triển mạnh mẽ, nhu cầu mua sắm trực tuyến các thiết bị như điện thoại, máy tính bảng và phụ kiện ngày càng gia tăng. Khách hàng ngày nay ưu tiên sự thuận tiện khi mua sắm online, từ việc dễ dàng so sánh giá, tìm kiếm sản phẩm phù hợp, cho đến quy trình thanh toán nhanh gọn. Hiểu được xu hướng này, nhóm chúng em đã phát triển website thương mại điện tử TecHLand, nhằm mang đến một nền tảng mua sắm hiện đại, đáp ứng tối đa nhu cầu của người tiêu dùng.
-                </p>
-
-                <p>
-                    TecHLand không ngừng nỗ lực để mang đến những sản phẩm chất lượng cao, hợp tác với các thương hiệu nổi tiếng trên thế giới. Chúng tôi cam kết đưa đến tay khách hàng những sản phẩm công nghệ tiên tiến nhất, đi kèm dịch vụ tư vấn và chăm sóc tận tâm từ đội ngũ nhân viên chuyên nghiệp, năng động và giàu kinh nghiệm. Với sứ mệnh đặt khách hàng làm trọng tâm, TecHLand tự tin trở thành sự lựa chọn hàng đầu của người tiêu dùng yêu công nghệ.
-                </p>
             </div>
         </div>
 
         <div class="col-12">
-            <div class="tieu-de mb-3">
-                <h4>Nổi bật nhất</h4>
+            <div class="back">
+                <div class="container custom">
+                    <div class="header">
+                        <h2>
+                            Các bài viết khác
+                        </h2>
+                        <div class="tabs">
+                            <div class="tab active">
+                                TechLand
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-container">
+                        @foreach (var ds in ViewBag.DanhSachBaiViet)
+                        {
+                            <div class="news-item">
+                                <a href="/BaiViet/ChiTietBaiViet/@ds.MaBV">
+                                    <img src="/image/baiviet/@ds.HinhAnh" style="width: 300px; height: 200px; object-fit: contain;" />
+                                    <h6 class="news-title">
+                                        @ds.TieuDe
+                                    </h6>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <a class="more-link" asp-controller="BaiViet" asp-action="DanhSachBaiViet">
+                        Xem Thêm bài viết
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-
-
         </div>
+
+
     </div>
 </div>
+</div>
+
+
+

@@ -1,10 +1,11 @@
 ﻿.title {
     padding-top: 5rem;
-    width:100%;
+    width: 100%;
     vertical-align: middle;
     height: 200px;
     background: #ecf3ff;
 }
+
 thead {
     font-size: 16px;
     line-height: 28px;
@@ -15,31 +16,31 @@ thead {
     text-transform: uppercase;
     border-bottom: 1px solid #ebebeb;
     padding-bottom: 22px;
-    text-align:center;
+    text-align: center;
 }
-img {
-    width: 139px;
-    height: 135px;
-}
-.product-info {
+
+.info {
     text-transform: uppercase;
     letter-spacing: 1.4px;
     color: inherit;
     padding-left: 30px;
     display: inline-block;
 }
-tr {
 
+tr.item {
     border-bottom: 1px solid #ebebeb;
 }
+
 .price {
-    text-align: center; 
+    text-align: center;
     vertical-align: middle;
     color: inherit;
 }
+
 .quantity-controls {
     margin: 53px 0px 53px 90px;
 }
+
 .delete-btn {
     position: relative;
     box-shadow: 0px 0px 30px 10px rgba(150, 176, 203, 0.31);
@@ -48,12 +49,13 @@ tr {
     padding: 6px 16px;
     font-size: 1.5rem;
     background-color: white;
-    
 }
-.quantity-btn{
-    padding:1rem 1rem;
-    border:0px;
+
+.quantity-btn {
+    padding: 1rem 1rem;
+    border: 0px;
 }
+
 .quantity {
     border: none;
     color: #000000;
@@ -67,7 +69,18 @@ tr {
     text-align: center;
     z-index: -1;
 }
+
 .action-btn {
     padding: 1rem 1rem;
     border: 0px;
 }
+
+#paymentImage {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    #paymentImage img {
+        max-width: 300px; /* Tùy chỉnh kích thước hình ảnh */
+        height: auto;
+    }

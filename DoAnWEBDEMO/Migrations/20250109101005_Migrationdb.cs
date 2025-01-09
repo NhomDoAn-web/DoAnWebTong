@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DoAnWEBDEMO.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationDB : Migration
+    public partial class Migrationdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "BaiViet",
+                columns: table => new
+                {
+                    MaBV = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TieuDe = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    HinhAnh = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NoiDung = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NgayDang = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BaiViet", x => x.MaBV);
+                });
+
             migrationBuilder.CreateTable(
                 name: "DanhMuc",
                 columns: table => new
@@ -79,14 +95,61 @@ namespace DoAnWEBDEMO.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SanPham",
+                columns: table => new
+                {
+                    MaSP = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MaNCC = table.Column<int>(type: "int", nullable: false),
+                    MaDanhMuc = table.Column<int>(type: "int", nullable: false),
+                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TEN_SP = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HinhAnhSP = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
+                    SlideShow = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
+                    MoTa = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
+                    TGianBaoHanh = table.Column<int>(type: "int", nullable: false),
+                    NgayRaMat = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TrangThai = table.Column<int>(type: "int", nullable: false),
+                    Slug = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    KichThuoc_ManHinh = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CameraSau = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Camera_Truoc = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Chipset = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Gpu = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Dung_Luong_Ram = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Bo_Nho_Trong = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Pin = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    HeDieuHanh = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    TanSoQuet = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    SoLuongTon = table.Column<int>(type: "int", nullable: false),
+                    LuotXem = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SanPham", x => x.MaSP);
+                    table.ForeignKey(
+                        name: "FK_SanPham_DanhMuc_MaDanhMuc",
+                        column: x => x.MaDanhMuc,
+                        principalTable: "DanhMuc",
+                        principalColumn: "Ma_DM",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SanPham_NhaCungCap_MaNCC",
+                        column: x => x.MaNCC,
+                        principalTable: "NhaCungCap",
+                        principalColumn: "MaNCC",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DonHang",
                 columns: table => new
                 {
                     MaDH = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaKH = table.Column<int>(type: "int", nullable: false),
-                    MaNVXL = table.Column<int>(type: "int", nullable: false),
-                    NgayDatHang = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    MaNVXL = table.Column<int>(type: "int", nullable: true),
+                    NgayDatHang = table.Column<DateTime>(type: "datetime2", nullable: true),
                     TongTienDonHang = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false),
                     DiaChiNhanHang = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
@@ -135,60 +198,11 @@ namespace DoAnWEBDEMO.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SanPham",
-                columns: table => new
-                {
-                    MaSP = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MaNCC = table.Column<int>(type: "int", nullable: false),
-                    MaDanhMuc = table.Column<int>(type: "int", nullable: false),
-                    Gia = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TEN_SP = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HinhAnhSP = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
-                    MoTa = table.Column<string>(type: "nvarchar(max)", maxLength: 2147483647, nullable: true),
-                    TGianBaoHanh = table.Column<int>(type: "int", nullable: false),
-                    TrangThai = table.Column<int>(type: "int", nullable: false),
-                    Slug = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    KichThuoc_ManHinh = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CameraSau = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Camera_Truoc = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Chipset = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Gpu = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Dung_Luong_Ram = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Bo_Nho_Trong = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Pin = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    HeDieuHanh = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    TanSoQuet = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    SoLuongTon = table.Column<int>(type: "int", nullable: false),
-                    LuotXem = table.Column<int>(type: "int", nullable: true),
-                    DonHangMaDH = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SanPham", x => x.MaSP);
-                    table.ForeignKey(
-                        name: "FK_SanPham_DanhMuc_MaDanhMuc",
-                        column: x => x.MaDanhMuc,
-                        principalTable: "DanhMuc",
-                        principalColumn: "Ma_DM",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SanPham_DonHang_DonHangMaDH",
-                        column: x => x.DonHangMaDH,
-                        principalTable: "DonHang",
-                        principalColumn: "MaDH");
-                    table.ForeignKey(
-                        name: "FK_SanPham_NhaCungCap_MaNCC",
-                        column: x => x.MaNCC,
-                        principalTable: "NhaCungCap",
-                        principalColumn: "MaNCC",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ChiTietBinhLuan",
                 columns: table => new
                 {
+                    Id_BinhLuan = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MA_SP = table.Column<int>(type: "int", nullable: false),
                     MA_KH = table.Column<int>(type: "int", nullable: false),
                     SO_SAO = table.Column<int>(type: "int", nullable: false),
@@ -197,7 +211,7 @@ namespace DoAnWEBDEMO.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietBinhLuan", x => new { x.MA_KH, x.MA_SP });
+                    table.PrimaryKey("PK_ChiTietBinhLuan", x => new { x.MA_KH, x.MA_SP, x.Id_BinhLuan });
                     table.ForeignKey(
                         name: "FK_ChiTietBinhLuan_KhachHang_MA_KH",
                         column: x => x.MA_KH,
@@ -206,32 +220,6 @@ namespace DoAnWEBDEMO.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ChiTietBinhLuan_SanPham_MA_SP",
-                        column: x => x.MA_SP,
-                        principalTable: "SanPham",
-                        principalColumn: "MaSP",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChiTietDonHang",
-                columns: table => new
-                {
-                    MA_DH = table.Column<int>(type: "int", nullable: false),
-                    MA_SP = table.Column<int>(type: "int", nullable: false),
-                    SOLUONG = table.Column<int>(type: "int", nullable: false),
-                    TONGTIENTUNGSANPHAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChiTietDonHang", x => new { x.MA_DH, x.MA_SP });
-                    table.ForeignKey(
-                        name: "FK_ChiTietDonHang_DonHang_MA_DH",
-                        column: x => x.MA_DH,
-                        principalTable: "DonHang",
-                        principalColumn: "MaDH",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChiTietDonHang_SanPham_MA_SP",
                         column: x => x.MA_SP,
                         principalTable: "SanPham",
                         principalColumn: "MaSP",
@@ -308,17 +296,50 @@ namespace DoAnWEBDEMO.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ChiTietDonHang",
+                columns: table => new
+                {
+                    MA_DH = table.Column<int>(type: "int", nullable: false),
+                    MA_SP = table.Column<int>(type: "int", nullable: false),
+                    MA_MAU = table.Column<int>(type: "int", nullable: false),
+                    SOLUONG = table.Column<int>(type: "int", nullable: false),
+                    TONGTIENTUNGSANPHAM = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChiTietDonHang", x => new { x.MA_DH, x.MA_SP, x.MA_MAU });
+                    table.ForeignKey(
+                        name: "FK_ChiTietDonHang_DonHang_MA_DH",
+                        column: x => x.MA_DH,
+                        principalTable: "DonHang",
+                        principalColumn: "MaDH",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChiTietDonHang_MauSac_MA_MAU",
+                        column: x => x.MA_MAU,
+                        principalTable: "MauSac",
+                        principalColumn: "ID_MauSac",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ChiTietDonHang_SanPham_MA_SP",
+                        column: x => x.MA_SP,
+                        principalTable: "SanPham",
+                        principalColumn: "MaSP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ChiTietGioHang",
                 columns: table => new
                 {
                     MaKH = table.Column<int>(type: "int", nullable: false),
                     MaSP = table.Column<int>(type: "int", nullable: false),
-                    MaMau = table.Column<int>(type: "int", nullable: true),
+                    MaMau = table.Column<int>(type: "int", nullable: false),
                     Soluong = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietGioHang", x => new { x.MaKH, x.MaSP });
+                    table.PrimaryKey("PK_ChiTietGioHang", x => new { x.MaKH, x.MaSP, x.MaMau });
                     table.ForeignKey(
                         name: "FK_ChiTietGioHang_KhachHang_MaKH",
                         column: x => x.MaKH,
@@ -329,7 +350,8 @@ namespace DoAnWEBDEMO.Migrations
                         name: "FK_ChiTietGioHang_MauSac_MaMau",
                         column: x => x.MaMau,
                         principalTable: "MauSac",
-                        principalColumn: "ID_MauSac");
+                        principalColumn: "ID_MauSac",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ChiTietGioHang_SanPham_MaSP",
                         column: x => x.MaSP,
@@ -342,6 +364,11 @@ namespace DoAnWEBDEMO.Migrations
                 name: "IX_ChiTietBinhLuan_MA_SP",
                 table: "ChiTietBinhLuan",
                 column: "MA_SP");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ChiTietDonHang_MA_MAU",
+                table: "ChiTietDonHang",
+                column: "MA_MAU");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChiTietDonHang_MA_SP",
@@ -384,11 +411,6 @@ namespace DoAnWEBDEMO.Migrations
                 column: "MaSP");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SanPham_DonHangMaDH",
-                table: "SanPham",
-                column: "DonHangMaDH");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_SanPham_MaDanhMuc",
                 table: "SanPham",
                 column: "MaDanhMuc");
@@ -408,6 +430,9 @@ namespace DoAnWEBDEMO.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "BaiViet");
+
+            migrationBuilder.DropTable(
                 name: "ChiTietBinhLuan");
 
             migrationBuilder.DropTable(
@@ -426,7 +451,16 @@ namespace DoAnWEBDEMO.Migrations
                 name: "SanPhamYeuThich");
 
             migrationBuilder.DropTable(
+                name: "DonHang");
+
+            migrationBuilder.DropTable(
                 name: "MauSac");
+
+            migrationBuilder.DropTable(
+                name: "KhachHang");
+
+            migrationBuilder.DropTable(
+                name: "NhanVien");
 
             migrationBuilder.DropTable(
                 name: "SanPham");
@@ -435,16 +469,7 @@ namespace DoAnWEBDEMO.Migrations
                 name: "DanhMuc");
 
             migrationBuilder.DropTable(
-                name: "DonHang");
-
-            migrationBuilder.DropTable(
                 name: "NhaCungCap");
-
-            migrationBuilder.DropTable(
-                name: "KhachHang");
-
-            migrationBuilder.DropTable(
-                name: "NhanVien");
         }
     }
 }

@@ -59,17 +59,17 @@
     text-align: center;
 }
 
-.profile-image img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
+    .profile-image img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
 
-.profile-image button {
-    margin-top: 10px;
-}
+    .profile-image button {
+        margin-top: 10px;
+    }
 
-.profile-image p {
-    color: #888;
-    font-size: 12px;
-}
+    .profile-image p {
+        color: #888;
+        font-size: 12px;
+    }

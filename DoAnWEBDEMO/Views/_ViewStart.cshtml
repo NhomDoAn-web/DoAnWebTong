@@ -1,10 +1,14 @@
-﻿@using Newtonsoft.Json
+﻿@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
 @{
     Layout = "_Layout";
 }
 
 @{
     var userJson = Context.Session.GetString("user");
+    var tongTien = Context.Session.GetInt32("tongTien");
+    var soLuong = Context.Session.GetInt32("soLuong");
+
     string tenKhachHang = "";
 
     if (!string.IsNullOrEmpty(userJson))
@@ -17,4 +21,6 @@
 
 @{
     ViewData["TenKhachHang"] = tenKhachHang;
+    ViewData["tongTien"] = tongTien;
+    ViewData["soLuong"] = soLuong;
 } 

@@ -23,53 +23,49 @@
                 <div class="profile-header">Hồ Sơ Của Tôi</div>
                 <div class="profile-subheader">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
                 <form method="post" action="@Url.Action("EditProfile", "KhachHang")">
+                    @Html.AntiForgeryToken()
                     <div class="row">
                         <div class="col-md-8">
                             <div class="mb-3">
                                 <label for="ho" class="form-label">Họ</label>
-                                <p id="ho" class="form-control-static">@Model.HoKH</p>
+                                <input type="text" id="ho" name="HoKH" class="form-control" value="@Model.HoKH" />
                             </div>
                             <div class="mb-3">
                                 <label for="ten" class="form-label">Tên</label>
-                                <p id="ten" class="form-control-static">@Model.TenKH</p>
+                                <input type="text" id="ten" name="TenKH" class="form-control" value="@Model.TenKH" />
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <p id="email" class="form-control-static">@Model.Email</p>
+                                <input type="email" id="email" name="Email" class="form-control" value="@Model.Email" />
                             </div>
                             <div class="mb-3">
                                 <label for="sdt" class="form-label">Số Điện Thoại</label>
-                                <p id="sdt" class="form-control-static">@Model.SDT</p>
+                                <input type="text" id="sdt" name="SDT" class="form-control" value="@Model.SDT" />
                             </div>
                             <div class="mb-3">
                                 <label for="diachi" class="form-label">Địa Chỉ</label>
-                                <p id="diachi" class="form-control-static">@Model.DiaChi</p>
+                                <input type="text" id="diachi" name="DiaChi" class="form-control" value="@Model.DiaChi" />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Giới Tính</label>
-                                <p class="form-control-static">
+                                <select class="form-control" id="gioiTinh" name="gioiTinh">
                                     @if (Model.GioiTinh == "Nam")
                                     {
-                                        <span>Nam</span>
-                                    }
-                                    else if (Model.GioiTinh == "Nữ")
-                                    {
-                                        <span>Nữ</span>
+                                        <option value="Nam" selected>Nam</option>
+                                        <option value="Nữ">Nữ</option>
                                     }
                                     else
                                     {
-                                        <span>Khác</span>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ" selected>Nữ</option>
                                     }
-                                </p>
+                                </select>
                             </div>
+
                             <button type="submit" class="btn btn-save">Cập Nhật</button>
                         </div>
 
-                        <!-- Profile Image Section -->
-                        <div class="col-md-4 profile-image">
-                            <button type="button" class="btn btn-outline-secondary">Chọn Ảnh</button>
-                            <p>Dụng lượng file tối đa 1 MB<br />Định dạng: .JPEG, .PNG</p>
-                        </div>
+
                     </div>
                 </form>
             </div>
@@ -79,5 +75,9 @@
 </div>
 
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
 
     

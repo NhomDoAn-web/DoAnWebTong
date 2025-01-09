@@ -3,9 +3,8 @@ using DoAnWEBDEMO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Text.Json;
-
+using System.Threading.Tasks;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -41,6 +40,7 @@ namespace DoAnWEBDEMO.Controllers
             return null;
         }
 
+
         // Hiển thị danh sách đơn hàng
         public async Task<IActionResult> Index()
         {
@@ -65,34 +65,31 @@ namespace DoAnWEBDEMO.Controllers
             return View(donHangs);
         }
 
-
         //hiển thị chi tiết đơn hàng
         public async Task<IActionResult> DetailsDonHang(int id)
         {
-            // Lấy ID của khách hàng đã đăng nhập
             var khachHangId = GetLoggedInKhachHangId();
 
-            // Nếu khách hàng chưa đăng nhập, chuyển hướng đến trang đăng nhập hoặc hiển thị thông báo
             if (!khachHangId.HasValue)
             {
-                return RedirectToAction("Login", "Account"); // Hoặc bạn có thể hiển thị thông báo
+                return RedirectToAction("Login", "Account");
             }
 
-            // Tìm kiếm đơn hàng theo id và khách hàng hiện tại
             var donHang = await _context.DonHang
                 .Include(d => d.KhachHang)
                 .Include(d => d.NhanVien)
-                .Include (d => d.ChiTietDonHangs)
+                .Include(d => d.ChiTietDonHangs) // Bao gồm chi tiết đơn hàng
+                .ThenInclude(ct => ct.SanPham) // Bao gồm sản phẩm của chi tiết đơn hàng
                 .FirstOrDefaultAsync(d => d.MaDH == id && d.MaKH == khachHangId.Value);
 
-            // Kiểm tra xem đơn hàng có tồn tại không
             if (donHang == null)
             {
-                return NotFound(); // Trả về lỗi 404 nếu không tìm thấy đơn hàng
+                return NotFound();
             }
 
-            return View(donHang); // Trả về view hiển thị chi tiết đơn hàng
+            return View(donHang);
         }
+
 
         // Hủy đơn hàng
         public async Task<IActionResult> CancelOrder(int id)
@@ -135,6 +132,7 @@ namespace DoAnWEBDEMO.Controllers
         }
 
 
-        
+
+
     }
 }

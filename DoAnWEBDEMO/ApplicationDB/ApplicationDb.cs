@@ -22,7 +22,7 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<ChiTietDonHang> ChiTietDonHang { get; set; }
         public DbSet<ChiTietBinhLuan> ChiTietBinhLuan { get; set; }
         public DbSet<KhuyenMai> KhuyenMai { get; set; }
-
+        public DbSet<BaiViet> BaiViet { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -100,7 +100,13 @@ namespace DoAnWEBDEMO.ApplicationDB
             //========== Dương ============//
             // Cấu hình khóa chính composite cho bảng CHI_TIET_DON_HANG
             modelBuilder.Entity<ChiTietDonHang>()
-                .HasKey(ctdh => new { ctdh.MA_DH, ctdh.MA_SP });
+                 .HasKey(c => new { c.MA_DH, c.MA_SP, c.MA_MAU }); // Thiết lập khóa chính
+
+            modelBuilder.Entity<ChiTietDonHang>()
+                .HasOne(c => c.MauSac)
+                .WithMany(m => m.ChiTietDonHangs)
+                .HasForeignKey(c => c.MA_MAU) // Thiết lập khóa ngoại
+                .OnDelete(DeleteBehavior.Restrict); // Không xóa liên kết khi xóa màu sắc
 
             // Thiết lập quan hệ 1-N giữa DonHang và ChiTietDonHang
             modelBuilder.Entity<ChiTietDonHang>()
@@ -117,7 +123,7 @@ namespace DoAnWEBDEMO.ApplicationDB
 
             // Cấu hình khóa chính composite cho bảng CHI_TIET_BINH_LUAN
             modelBuilder.Entity<ChiTietBinhLuan>()
-                .HasKey(ctbl => new { ctbl.MA_KH, ctbl.MA_SP });
+                .HasKey(ctbl => new { ctbl.MA_KH, ctbl.MA_SP, ctbl.Id_BinhLuan });
 
             // Thiết lập quan hệ 1-N giữa SanPham và ChiTietBinhLuan
             modelBuilder.Entity<ChiTietBinhLuan>()
@@ -130,33 +136,38 @@ namespace DoAnWEBDEMO.ApplicationDB
                 .HasOne(ctdh => ctdh.KhachHang)
                 .WithMany(sp => sp.ChiTietBinhLuans)
                 .HasForeignKey(ctdh => ctdh.MA_KH);
-            // Cấu hình khóa chính composite cho bảng chi tiết giỏ hàng
+
+            // Cấu hình khóa chính composite cho bảng ChiTietGioHang
             modelBuilder.Entity<ChiTietGioHang>()
-                .HasKey(ctgh => new { ctgh.MaKH, ctgh.MaSP });
-            //Quan hệ: Giỏ hàng x Khách hàng
+                .HasKey(ctgh => new { ctgh.MaKH, ctgh.MaSP, ctgh.MaMau }); // Gồm cả MaMau nếu cần thiết
+
+            // Quan hệ: ChiTietGioHang x KhachHang (1-N)
             modelBuilder.Entity<ChiTietGioHang>()
-                .HasOne(g => g.KhachHang)
-                .WithMany(kh => kh.GioHang)
-                .HasForeignKey(p => p.MaKH) //Khóa ngoại...
-                .OnDelete(DeleteBehavior.Cascade);
-            //Quan hệ: Giỏ hàng x Sản phẩm
+                .HasOne(ctgh => ctgh.KhachHang)
+                .WithMany(kh => kh.ChiTietGioHangs)
+                .HasForeignKey(ctgh => ctgh.MaKH)
+                .OnDelete(DeleteBehavior.Cascade); // Xóa khách hàng sẽ xóa giỏ hàng liên quan
+
+            // Quan hệ: ChiTietGioHang x SanPham (1-N)
             modelBuilder.Entity<ChiTietGioHang>()
-                .HasOne(g => g.SanPham)
-                .WithMany(kh => kh.GioHang)
-                .HasForeignKey(p => p.MaSP) 
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasOne(ctgh => ctgh.SanPham)
+                .WithMany(sp => sp.ChiTietGioHangs)
+                .HasForeignKey(ctgh => ctgh.MaSP)
+                .OnDelete(DeleteBehavior.Cascade); // Xóa sản phẩm sẽ xóa giỏ hàng liên quan
+
+            // Quan hệ: ChiTietGioHang x MauSac (1-N)
+            modelBuilder.Entity<ChiTietGioHang>()
+                .HasOne(ctgh => ctgh.MauSac)
+                .WithMany(ms => ms.ChiTietGioHangs)
+                .HasForeignKey(ctgh => ctgh.MaMau)
+                .OnDelete(DeleteBehavior.Restrict); // Không cho phép xóa màu nếu có giỏ hàng tham chiếu
 
             // Thiết lập quan hệ 1-N giữa SanPham và MauSac
             modelBuilder.Entity<MauSac>()
-            .HasOne(c => c.SanPham)              
-            .WithMany(p => p.MauSacs)          
-            .HasForeignKey(c => c.MaSP);  
+            .HasOne(c => c.SanPham)
+            .WithMany(p => p.MauSacs)
+            .HasForeignKey(c => c.MaSP);
 
-            // Thiết lập quan hệ 1-N giữa ChiTietGioHang và MauSac
-            modelBuilder.Entity<ChiTietGioHang>()
-            .HasOne(c => c.MauSac) 
-            .WithMany(m => m.ChiTietGioHangs) 
-            .HasForeignKey(c => c.MaMau);
         }
     }
 }

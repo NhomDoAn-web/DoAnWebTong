@@ -1,4 +1,8 @@
-﻿@if (TempData["ThanhCong"] != null)
+﻿@{
+    ViewData["Title"] = "Đổi mật khẩu";
+}
+
+@if (TempData["ThanhCong"] != null)
 {
     <div class="container d-flex justify-content-center align-items-center" style="">
         <div class="text-center" style="color: green;font-size:18px">
@@ -12,8 +16,12 @@
             <input type="text" class="form-control" id="OTP" name="OTP" placeholder="Nhập mã OTP" required>
         </div>
         <div class="mb-3">
-            <label for="newPassword" class="form-label">Mật khẩu mới</label>
-            <input type="password" class="form-control" id="matKhauMoi" name="matKhau" placeholder="Nhập mật khẩu mới" required>
+            <label for="matKhau" class="form-label">Mật khẩu mới</label>
+            <input type="password" class="form-control" id="matKhauMoi" name="matKhau" placeholder="Nhập mật khẩu mới" 
+               required
+               minlength="8"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@@$!%*?&])[A-Za-z\d@@$!%*?&]{8,}$" 
+               title="Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.">
         </div>
         <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" id="hienMatKhau">

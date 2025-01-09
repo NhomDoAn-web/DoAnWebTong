@@ -1,5 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Giỏ hàng - TechLand";
+﻿@using X.PagedList
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    var pagedList = ViewBag.ChiTietGioHang as IPagedList<dynamic>;
+    var totalPages = ViewBag.TotalPages ?? 0;
+    var pageNumber = ViewBag.PageNumber ?? 1;
+    var tongTien = ViewBag.TongTien ?? 0;
 }
 
 ﻿<head>
@@ -8,10 +13,24 @@
 
 <div class="container">
     
-    <h2 class="title">Giỏ hàng của bạn</h2>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
     @if (ViewBag.ChiTietGioHang!=null)
     {
-        <table class="table">
+        <div>
+            <table class="table">
             <thead>
                 <tr>
                     <th>Tên Sản Phẩm</th>
@@ -24,28 +43,36 @@
             <tbody>
                 @foreach (var item in ViewBag.ChiTietGioHang)
                 {
-                    <tr>
-                        <td class="product-info">
-                            <img src="/image/@item.Image" alt="Wireless Headset">
-                            <span>@item.ProductName</span>
+                    <tr class="item">
+                        <td class="info">
+                            <img style="width:210px;" src="@item.HinhAnh" alt="Wireless Headset">
+                            <span>@item.TenSP</span>
+                           <span>@item.Mau</span>
                         </td>
-                        <td class="price">@item.Price.ToString("N0")</td>
+                        <td class="price">@item.Gia.ToString("N0")</td>
                         <td>
                             <div class="quantity-controls">
-                                <button class="quantity-btn" onclick="giamSoLuong(@item.MaSP)">-</button>
-                                <span class="quantity">@item.Quantity</span>
-                                <button class="quantity-btn" onclick="tangSoLuong(@item.MaSP)">+</button>
+                                <button class="quantity-btn" onclick="giamSoLuong(@item.MaSP,@item.MaMau)">-</button>
+                                <span class="quantity">@item.SoLuong</span>
+                                 <button class="quantity-btn" onclick="tangSoLuong(@item.MaSP,@item.MaMau)">+</button>
                             </div>
                         </td>
-                        <td class="price">@((item.Price * item.Quantity).ToString("N0"))</td>
+                        <td class="price">@((item.Gia * item.SoLuong).ToString("N0"))</td>
                         <td class="price"><button class="delete-btn" onclick="XoaKhoiGioHang(@item.MaSP)">×</button></td>
                     </tr>
                 }
             </tbody>
         </table>
-        <div class="action-buttons">
-            <button onclick="XoaToanBoGioHang()" class="action-btn">Làm mới giỏ hàng</button>
-            <a asp-action="Index" asp-controller="SanPham" class="btn btn-dark action-btn">Tiếp tục mua sắm</a>
+            <div class="pagination">
+                @for (int i = 1; i <= totalPages; i++)
+                {
+                    <a class="btn btn-outline-dark" href="@Url.Action("Index", new { page = i })" class="@(i == pageNumber ? "current" : "")">@i</a>
+                }
+            </div>
+        </div>
+        <div class="action-buttons mt-4">
+            <button onclick="XoaToanBoGioHang()" class="action-btn">Xóa tất cả</button>
+            <a asp-action="TimKiemSanPham" asp-controller="TrangChu" class="btn btn-dark action-btn">Tiếp tục mua sắm</a>
         </div>
         <div class="row d-flex justify-content-end">
             <div class="col-md-6" style="background:#f9fafe;">
@@ -56,13 +83,13 @@
                             <tr class="cart-subtotal">
                                 <th class="fs-3">Tổng cộng </th>
                                 <td style="padding-left: 15rem;">
-                                    <span class=" fs-3 ">@ViewBag.Total.ToString("N0") VNĐ</span>
+                                        <span class=" fs-3 ">@ViewBag.TongTien.ToString("N0") VNĐ</span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end">
-                        <a href="#" class="btn btn-dark">Thanh Toán</a>
+                    <div class="d-flex justify-content-end mt-4">
+                        <a asp-action="ThanhToan" class="btn btn-dark">Thanh Toán</a>
                     </div>
                 </div>
             </div>
@@ -70,18 +97,18 @@
     }
     else
     {
-        <img style="width:100%;height:100%;" src="/image/emptycart.png" />
-        <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem" asp-controller="SanPham" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>
+        <img style="width:50%;height:50%;" src="/image/emptycart.png" />
+        <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem" asp-controller="TrangChu" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>
         
     }
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    function tangSoLuong(maSP) {
+    function tangSoLuong(maSP,maMau) {
         $.ajax({
             url: '/GioHang/TangSoLuong',
             type: 'POST',
-            data: { maSP: maSP },
+            data: { maSP: maSP,maMau },
             success: function (response) {
                 if (response.success) {
                     location.reload();
@@ -92,11 +119,11 @@
         });
     }
 
-    function giamSoLuong(maSP) {
+    function giamSoLuong(maSP, maMau) {
         $.ajax({
             url: '/GioHang/GiamSoLuong',
             type: 'POST',
-            data: { maSP: maSP },
+            data: { maSP: maSP, maMau },
             success: function (response) {
                
                 if (response.success) {
@@ -146,4 +173,4 @@
     }
 
 </script>
->>>>>>> MinhTu
+
