@@ -1,0 +1,95 @@
+﻿@model IEnumerable<DoAnWEBDEMO.Models.DonHang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Quản lý đơn hàng</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Khách hàng</th>
+            <th>Ngày đặt</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donHang in Model)
+        {
+            <tr>
+                <td>@donHang.MaDH</td>
+                <td>@donHang.KhachHang.HoKH @donHang.KhachHang.TenKH</td>
+                <td>@donHang.NgayDatHang</td>
+                <td>
+                    <select id="status-@donHang.MaDH" class="form-select form-select-sm" aria-label=".form-select-sm example" 
+                    onchange="updateStatus(@donHang.MaDH, this.value)">
+                        <option value="1" @(donHang.TrangThai == 1 ? "selected" : "")>Đang xử lý</option>
+                        <option value="2" @(donHang.TrangThai == 2 ? "selected" : "")>Đang giao</option>
+                        <option value="3" @(donHang.TrangThai == 3 ? "selected" : "")>Hủy đơn hàng</option>
+                        <option value="4" @(donHang.TrangThai == 4 ? "selected" : "")>Giao hàng thành công</option>
+                        <option value="5" @(donHang.TrangThai == 5 ? "selected" : "")>Giao hàng thất bại</option>
+                    </select>
+                </td>
+                <td>
+                    <button class="btn btn-outline-dark btn-sm" onclick="capNhatDonHang(@donHang.MaDH, $('#status-@donHang.MaDH').val())">
+                        <i class="bi bi-save"></i> Lưu
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteOrder(@donHang.MaDH)">
+                        <i class="bi bi-trash"></i> Xóa
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Index", "DonHang", new { area = "" })" class="btn btn-primary">
+    <i class="bi bi-arrow-left"></i> Quay lại trang Đơn hàng
+</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function capNhatDonHang(maDH) {
+        // Lấy giá trị trạng thái từ dropdown
+        var trangThai = $("#status-" + maDH).val();
+
+        // Gửi AJAX request
+        $.ajax({
+            url: '/Admin/DonHang/CapNhatDonHang',
+            type: 'POST',
+            data: {
+                maDH: maDH,
+                trangThai: trangThai
+            },
+            success: function (response) {
+                if (response.success) {
+                    alert("Cập nhật trạng thái thành công!");
+                    location.reload(); // Reload lại trang để cập nhật
+                } else {
+                    alert("Cập nhật thất bại: " + response.message);
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Có lỗi xảy ra: " + error);
+            }
+        });
+    }
+</script>
+
+
+

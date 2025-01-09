@@ -286,66 +286,66 @@ namespace DoAnWEBDEMO.Controllers
 
             return null;
         }
-        public async Task<IActionResult> SanPhamYeuThich()
-        {
-            // Lấy ID khách hàng từ session
-            var maKH = GetLoggedInKhachHangId();
+        //public async Task<IActionResult> SanPhamYeuThich()
+        //{
+        //    // Lấy ID khách hàng từ session
+        //    var maKH = GetLoggedInKhachHangId();
 
-            // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
-            if (!maKH.HasValue)
-            {
-                ViewBag.Message = "Vui lòng đăng nhập để xem sản phẩm yêu thích.";
-                return View(); // Trả về view hiện tại mà không chuyển hướng
-            }
+        //    // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
+        //    if (!maKH.HasValue)
+        //    {
+        //        ViewBag.Message = "Vui lòng đăng nhập để xem sản phẩm yêu thích.";
+        //        return View(); // Trả về view hiện tại mà không chuyển hướng
+        //    }
 
-            // Lấy danh sách sản phẩm yêu thích của khách hàng
-            var sanPhamYeuThich = await _db.SanPhamYeuThich
-                .Include(d => d.KhachHang)  // Liên kết với bảng KhachHang
-                .Include(d => d.SanPham)    // Liên kết với bảng SanPham
-                .Where(d => d.KhachHangId == maKH.Value)  // Lọc theo KhachHangId
-                .ToListAsync();
+        //    // Lấy danh sách sản phẩm yêu thích của khách hàng
+        //    var sanPhamYeuThich = await _db.SanPhamYeuThich
+        //        .Include(d => d.KhachHang)  // Liên kết với bảng KhachHang
+        //        .Include(d => d.SanPham)    // Liên kết với bảng SanPham
+        //        .Where(d => d.KhachHangId == maKH.Value)  // Lọc theo KhachHangId
+        //        .ToListAsync();
 
-            // Trả về View và gửi thông báo nếu không có dữ liệu
-            if (sanPhamYeuThich == null || !sanPhamYeuThich.Any())
-            {
-                ViewBag.Message = "Không có sản phẩm yêu thích.";
-            }
+        //    // Trả về View và gửi thông báo nếu không có dữ liệu
+        //    if (sanPhamYeuThich == null || !sanPhamYeuThich.Any())
+        //    {
+        //        ViewBag.Message = "Không có sản phẩm yêu thích.";
+        //    }
 
-            return View(sanPhamYeuThich); // Trả về view và danh sách sản phẩm yêu thích
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken] // Bảo vệ chống CSRF
-        public async Task<IActionResult> XoaSanPhamYeuThich(int sanPhamId)
-        {
-            // Lấy ID khách hàng từ session
-            var maKH = GetLoggedInKhachHangId();
+        //    return View(sanPhamYeuThich); // Trả về view và danh sách sản phẩm yêu thích
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken] // Bảo vệ chống CSRF
+        //public async Task<IActionResult> XoaSanPhamYeuThich(int sanPhamId)
+        //{
+        //    // Lấy ID khách hàng từ session
+        //    var maKH = GetLoggedInKhachHangId();
 
-            // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
-            if (!maKH.HasValue)
-            {
-                ViewBag.Message = "Vui lòng đăng nhập để thực hiện thao tác này.";
-                return RedirectToAction("Index", "TrangChu"); // Điều hướng đến trang chủ nếu người dùng chưa đăng nhập
-            }
+        //    // Kiểm tra nếu maKH là null, có nghĩa là người dùng chưa đăng nhập
+        //    if (!maKH.HasValue)
+        //    {
+        //        ViewBag.Message = "Vui lòng đăng nhập để thực hiện thao tác này.";
+        //        return RedirectToAction("Index", "TrangChu"); // Điều hướng đến trang chủ nếu người dùng chưa đăng nhập
+        //    }
 
-            // Tìm sản phẩm yêu thích của khách hàng với ID sản phẩm và Khách hàng ID
-            var sanPhamYeuThich = await _db.SanPhamYeuThich
-                .FirstOrDefaultAsync(sp => sp.KhachHangId == maKH.Value && sp.SanPhamId == sanPhamId);
+        //    // Tìm sản phẩm yêu thích của khách hàng với ID sản phẩm và Khách hàng ID
+        //    var sanPhamYeuThich = await _db.SanPhamYeuThich
+        //        .FirstOrDefaultAsync(sp => sp.KhachHangId == maKH.Value && sp.SanPhamId == sanPhamId);
 
-            // Kiểm tra xem sản phẩm có trong danh sách yêu thích của khách hàng hay không
-            if (sanPhamYeuThich == null)
-            {
-                ViewBag.Message = "Sản phẩm không có trong danh sách yêu thích.";
-                return RedirectToAction("SanPhamYeuThich"); // Điều hướng lại đến danh sách sản phẩm yêu thích
-            }
+        //    // Kiểm tra xem sản phẩm có trong danh sách yêu thích của khách hàng hay không
+        //    if (sanPhamYeuThich == null)
+        //    {
+        //        ViewBag.Message = "Sản phẩm không có trong danh sách yêu thích.";
+        //        return RedirectToAction("SanPhamYeuThich"); // Điều hướng lại đến danh sách sản phẩm yêu thích
+        //    }
 
-            // Xóa sản phẩm yêu thích khỏi danh sách
-            _db.SanPhamYeuThich.Remove(sanPhamYeuThich);
-            await _db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+        //    // Xóa sản phẩm yêu thích khỏi danh sách
+        //    _db.SanPhamYeuThich.Remove(sanPhamYeuThich);
+        //    await _db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
 
-            // Trả về thông báo thành công và điều hướng lại đến danh sách sản phẩm yêu thích
-            ViewBag.Message = "Đã xóa sản phẩm khỏi danh sách yêu thích.";
-            return RedirectToAction("SanPhamYeuThich");
-        }
+        //    // Trả về thông báo thành công và điều hướng lại đến danh sách sản phẩm yêu thích
+        //    ViewBag.Message = "Đã xóa sản phẩm khỏi danh sách yêu thích.";
+        //    return RedirectToAction("SanPhamYeuThich");
+        //}
 
         //
         public async Task<IActionResult> SanPhamChamDiem()

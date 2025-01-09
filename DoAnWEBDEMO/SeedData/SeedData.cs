@@ -966,6 +966,14 @@ namespace DoAnWEBDEMO.SeedData
                          MA_MAU = 2,
                          TONGTIENTUNGSANPHAM = 2000000 
                      },
+                     new ChiTietDonHang
+                     {
+                         MA_DH = 3,
+                         MA_SP = 1,
+                         SOLUONG = 2,
+                         MA_MAU = 2,
+                         TONGTIENTUNGSANPHAM = 2000000
+                     },
 
                  };
 
