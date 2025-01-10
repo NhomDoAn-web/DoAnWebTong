@@ -82,43 +82,47 @@ namespace DoAnWEBDEMO.Controllers
         //Thông tin Giỏ hàng của Khách hàng
         public void getThongTinGioHang()
         {
+            HttpContext.Session.Remove("tongTien");
+            HttpContext.Session.Remove("soLuong");
             var khachHangJson = HttpContext.Session.GetString("user");
-
+            
             if(khachHangJson != null)
             {
                 var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(khachHangJson);
-
+            
                 if(thongTinkhachHang != null)
                 {
-                    var result = _db.ChiTietGioHang
-                        .Where(ctgh => ctgh.MaKH == 1)
-                        .Join(_db.SanPham, ctgh => ctgh.MaSP, sp => sp.MaSP, (ctgh, sp) => new { ctgh, sp })
-                        .Join(_db.ChiTietDonHang, temp => temp.ctgh.MaSP, ctdh => ctdh.MA_SP, (temp, ctdh) => new { temp.ctgh, temp.sp })
-                        .GroupBy(x => x.ctgh.MaKH)
-                        .Select(g => new
-                        {
-                            MaKH = g.Key,
-                            TongTien = g.Sum(x => x.sp.Gia * x.ctgh.Soluong),
-                            SoLuong = g.Sum(x => x.ctgh.Soluong)
-                        })
-                        .FirstOrDefault();
-
+                    var result = (from ctgh in _db.ChiTietGioHang
+                                  join sp in _db.SanPham on ctgh.MaSP equals sp.MaSP
+                                  select new
+                                  {
+                                      TongTien = ctgh.Soluong * sp.Gia,
+                                      SoLuong = ctgh.Soluong
+                                  });
+            
                     if (result != null)
                     {
-                        Debug.WriteLine("Tong tien =========: "+result.TongTien);
-                        Debug.WriteLine("Số lượng =========: "+ result.SoLuong);
-                        HttpContext.Session.SetInt32("tongTien", (int)result.TongTien);
-                        HttpContext.Session.SetInt32("soLuong", (int)result.SoLuong);
+                        var duLieu = new
+                        {
+                            TongTien = result.Sum(x => x.TongTien),
+                            SoLuong = result.Sum(e => e.SoLuong)
+                        };
+                        if(duLieu != null)
+                        {
+                            HttpContext.Session.SetInt32("tongTien", (int)duLieu.TongTien);
+                            HttpContext.Session.SetInt32("soLuong", (int)duLieu.SoLuong);
+                        }    
                     }    
                     else
                     {
                         HttpContext.Session.SetInt32("tongTien", 0);
                         HttpContext.Session.SetInt32("soLuong", 0);
-
+            
                     }
-
+            
                 }    
             }    
+            
         }
 
         //Khách hàng đăng nhập - Json
