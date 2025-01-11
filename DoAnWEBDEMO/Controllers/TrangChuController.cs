@@ -25,9 +25,9 @@ namespace DoAnWEBDEMO.Controllers
         {
 
             var sanPham_SlideShow = _context.SanPham
-                                    .Where(sp => sp.SlideShow != null)
-                                    .Take(4)
-                                    .ToList();
+                                     .Where(sp => sp.SlideShow != null)
+                                     .Take(4)
+                                     .ToList();
 
             var sanPhamKhuyenMai = from sp in _context.SanPham
                                    join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId
@@ -48,32 +48,43 @@ namespace DoAnWEBDEMO.Controllers
                                 where sp.TrangThai == 1 && (km == null || (DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc))
                                 select new
                                 {
-                                   MaSP = sp.MaSP,
-                                   HinhAnhSP = sp.HinhAnhSP,
-                                   MoTa = sp.MoTa,
-                                   TEN_SP = sp.TEN_SP,
-                                   Gia = sp.Gia,
-                                   GiaSauKhiGiam = km != null ? sp.Gia - km.MucGiamGia : sp.Gia, 
-                                   LuotXem = sp.LuotXem
+                                    MaSP = sp.MaSP,
+                                    HinhAnhSP = sp.HinhAnhSP,
+                                    MoTa = sp.MoTa,
+                                    TEN_SP = sp.TEN_SP,
+                                    Gia = sp.Gia,
+                                    GiaSauKhiGiam = km != null ? sp.Gia - km.MucGiamGia : sp.Gia,
+                                    LuotXem = sp.LuotXem
                                 };
-            
-                var sanPhamMoi =    _context.SanPham
-                                    .Where(s => s.TrangThai == 1)
-                                    .OrderByDescending(s => s.Gia)
-                                    .Take(4)
-                                    .ToList();
 
+            var sanPhamMoi = _context.SanPham
+                                .Where(s => s.TrangThai == 1)
+                                .OrderByDescending(s => s.Gia)
+                                .Take(4)
+                                .ToList();
+            var sanPhamYeuThich = _context.SanPhamYeuThich.ToList();
+            // Kiểm tra trạng thái đăng nhập
+            var userId = GetLoggedInKhachHangId();
+            bool trangThaiDangNhap = userId != null;
+
+            ViewBag.TrangThaiDangNhap = trangThaiDangNhap;
 
             ViewBag.SanPhamKhuyenMai = sanPhamKhuyenMai;
             ViewBag.SanPhamNoiBat = sanPhamNoiBat.OrderByDescending(sp => sp.LuotXem).Take(4).ToList();
             ViewBag.SanPham = sanPhamNoiBat.Take(8).ToList();
             ViewBag.SanPham_SlideShow = sanPham_SlideShow;
+            ViewBag.SanPhamYeuThich = sanPhamYeuThich;
+
             return View();
         }
 
 
         public IActionResult TimKiemSanPham(string? TenTimKiem, int? DanhMucId, decimal? GiaMin, decimal? GiaMax, string? SortOrder, int page = 1, int pageSize = 8)
         {
+            var userId = GetLoggedInKhachHangId();
+            bool trangThaiDangNhap = userId != null;
+            ViewBag.TrangThaiDangNhap = trangThaiDangNhap;
+
             var query = from sp in _context.SanPham
                         join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId into kmGroup
                         from km in kmGroup.DefaultIfEmpty()
@@ -142,7 +153,9 @@ namespace DoAnWEBDEMO.Controllers
             ViewBag.CurrentPriceMin = GiaMin;
             ViewBag.CurrentPriceMax = GiaMax;
             ViewBag.CurrentSortOrder = SortOrder;
-        
+            var sanPhamYeuThich = _context.SanPhamYeuThich.ToList();
+            ViewBag.SanPhamYeuThich = sanPhamYeuThich;
+
             return View(pagedList);
         }
 
