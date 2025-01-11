@@ -1,4 +1,4 @@
-﻿@model X.PagedList.IPagedList<DoAnWEBDEMO.Models.SanPham>
+@model X.PagedList.IPagedList<DoAnWEBDEMO.Models.SanPhamKhuyenMai>
 @using X.PagedList.Mvc.Core
 @{
     ViewData["Title"] = "Danh sách sản phẩm";
@@ -165,9 +165,21 @@
                             </p>
                             <p class="card-text">
                                 <strong>Giá: </strong>
-                                <span class="badge bg-danger text-white fs-7 p-2 rounded-3">
-                                    @(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:C}", sp.Gia))
-                                </span>
+                                @if (sp.GiaSauKhiGiam > 0 && sp.GiaSauKhiGiam < sp.Gia)
+                                {
+                                    <span class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        @(sp.GiaSauKhiGiam.ToString("N0")) đ
+                                    </span>
+                                    <span class="text-decoration-line-through fw-bold">
+                                        @sp.Gia.ToString("N0") đ
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        @(sp.Gia.ToString("N0")) đ
+                                    </span>
+                                }
                             </p>
                             <!-- Nút căn giữa -->
                             <div class="mt-auto d-flex justify-content-between">
