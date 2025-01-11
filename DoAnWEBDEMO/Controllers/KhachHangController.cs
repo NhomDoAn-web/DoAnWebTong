@@ -69,7 +69,7 @@ namespace DoAnWEBDEMO.Controllers
                 _db.KhachHang.Add(khachHang);
                 _db.SaveChanges();
 
-                return Json(new { value = true, message = "Đăng ký thành công!" });
+                return Json(new { value = true, message = "Đăng ký thành công , vui lòng đăng nhập !" });
             }
             catch (Exception ex)
             {
@@ -208,7 +208,7 @@ namespace DoAnWEBDEMO.Controllers
         }
 
         // Sửa thông tin tài khoản 
-        // Phương thức POST để cập nhật thông tin tài khoản
+      
         [HttpPost]
         public IActionResult EditProfile(string hoKH, string tenKH, string gioiTinh, string email, string sdt, string diaChi)
         {
@@ -218,6 +218,7 @@ namespace DoAnWEBDEMO.Controllers
 
                 if (string.IsNullOrEmpty(khachHangJson))
                 {
+                    TempData["ErrorMessage"] = "Vui lòng đăng nhập lại.";
                     return RedirectToAction("Index", "TrangChu");
                 }
 
@@ -229,7 +230,7 @@ namespace DoAnWEBDEMO.Controllers
 
                     if (customer != null)
                     {
-                        // Kiểm tra email hoặc tên người dùng đã tồn tại
+                        // Kiểm tra email đã tồn tại
                         var existingAccount = _db.KhachHang.FirstOrDefault(kh => kh.Email == email && kh.MaKH != thongTinkhachHang.MaKH);
                         if (existingAccount != null)
                         {
@@ -237,7 +238,7 @@ namespace DoAnWEBDEMO.Controllers
                             return RedirectToAction("EditProfile");
                         }
 
-                        // Cập nhật thông tin khách hàng (Không thay đổi tên người dùng)
+                        // Cập nhật thông tin
                         customer.HoKH = hoKH;
                         customer.TenKH = tenKH;
                         customer.GioiTinh = gioiTinh;
@@ -247,19 +248,23 @@ namespace DoAnWEBDEMO.Controllers
 
                         _db.KhachHang.Update(customer);
                         _db.SaveChanges();
+
+                        // Lưu thông tin mới vào Session
                         HttpContext.Session.SetString("user", JsonSerializer.Serialize(customer));
+
                         TempData["SuccessMessage"] = "Cập nhật thông tin thành công!";
                         return RedirectToAction("Profile");
                     }
                 }
+
+                TempData["ErrorMessage"] = "Không tìm thấy thông tin khách hàng.";
+                return RedirectToAction("EditProfile");
             }
             catch (Exception ex)
             {
                 TempData["ErrorMessage"] = "Có lỗi xảy ra: " + ex.Message;
                 return RedirectToAction("EditProfile");
             }
-
-            return View();
         }
 
 

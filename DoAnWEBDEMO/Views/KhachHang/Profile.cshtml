@@ -7,6 +7,11 @@
 {
     <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
 }
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success fade-message" id="success-message">@TempData["SuccessMessage"]</div>
+}
+
 @* End Header *@
 
 <div class="container mt-5">
@@ -77,7 +82,30 @@
 
 @if (TempData["Message"] != null)
 {
-    <div class="alert alert-info">@TempData["Message"]</div>
+    <div class="alert alert-info fade-message" id="info-message">@TempData["Message"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger fade-message" id="error-message">@TempData["ErrorMessage"]</div>
 }
 
-    
+@section Scripts
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy tất cả các thông báo
+            const messages = document.querySelectorAll('.fade-message');
+            messages.forEach(function (message) {
+                // Sau 5 giây, thêm lớp để ẩn thông báo
+                setTimeout(() => {
+                    message.style.transition = "opacity 1s ease";
+                    message.style.opacity = "0"; // Giảm độ trong suốt
+                    setTimeout(() => {
+                        message.style.display = "none"; // Ẩn hoàn toàn sau khi hiệu ứng kết thúc
+                    }, 1000); // 1 giây sau khi mờ đi
+                }, 5000); // Sau 5 giây bắt đầu mờ dần
+            });
+        });
+    </script>
+}
+

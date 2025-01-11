@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="~/css/don_hang.css" asp-append-version="true" />
 }
 
-<h2 class="text-center my-4">
-    <i class="bi bi-card-list"></i> @ViewData["Title"]
-</h2>
-
 <div class="container mt-5">
     <div class="row">
         <!-- Sidebar -->
@@ -23,64 +19,74 @@
 
         <!-- Main content -->
         <div class="col-md-9">
-            <div class="row">
-                @foreach (var donHang in Model.Select((value, index) => new { value, index }))
-                {
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <strong>Đơn Hàng @(donHang.index + 1)</strong>
-                        </div>
-                        <div class="card-body">
-                            <p>
-                                <strong>Sản phẩm:</strong>
-                                @foreach (var chiTiet in donHang.value.ChiTietDonHangs)
-                                {
-                                    @if (chiTiet.SanPham != null)
+            @if (Model == null || !Model.Any())
+            {
+                <div class="alert alert-info text-center">
+                    <p>Bạn chưa có đơn hàng nào.</p>
+                    <a href="@Url.Action("Index", "GioHang")" class="btn btn-primary">
+                        <i class="bi bi-cart"></i> Đến trang giỏ hàng
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var donHang in Model.Select((value, index) => new { value, index }))
+                    {
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <strong>Đơn Hàng @(donHang.index + 1)</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                    <strong>Sản phẩm:</strong>
+                                    @foreach (var chiTiet in donHang.value.ChiTietDonHangs)
                                     {
-                                        
-                                        <span>@chiTiet.SanPham.TEN_SP <b>-</b> </span> 
+                                        @if (chiTiet.SanPham != null)
+                                        {
+                                            <span>@chiTiet.SanPham.TEN_SP <b>-</b> </span>
+                                        }
+                                        else
+                                        {
+                                            <span>Không có sản phẩm</span>
+                                        }
                                     }
-                                    else
+                                </p>
+                                <p><strong>Tổng Tiền:</strong> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", donHang.value.TongTienDonHang)</p>
+                                <p>
+                                    <strong>Trạng Thái:</strong>
+                                    @switch (donHang.value.TrangThai)
                                     {
-                                        <span>Không có sản phẩm</span>
+                                        case 1:
+                                            <span class="badge bg-warning text-dark">Đang xử lý</span>
+                                            break;
+                                        case 2:
+                                            <span class="badge bg-success">Đã giao</span>
+                                            break;
+                                        case 3:
+                                            <span class="badge bg-danger">Đã hủy</span>
+                                            break;
+                                        case 4:
+                                            <span class="badge bg-info text-dark">Đang giao</span>
+                                            break;
+                                        case 5:
+                                            <span class="badge bg-secondary">Giao hàng thất bại</span>
+                                            break;
+                                        default:
+                                            <span class="badge bg-dark">Không xác định</span>
+                                            break;
                                     }
-                                }
-                            </p>
-                            <p><strong>Tổng Tiền:</strong> @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", donHang.value.TongTienDonHang)</p>
-                            <p>
-                                <strong>Trạng Thái:</strong>
-                                @switch (donHang.value.TrangThai)
-                                {
-                                    case 1:
-                                        <span class="badge bg-warning text-dark">Đang xử lý</span>
-                                        break;
-                                    case 2:
-                                        <span class="badge bg-success">Đã giao</span>
-                                        break;
-                                    case 3:
-                                        <span class="badge bg-danger">Đã hủy</span>
-                                        break;
-                                    case 4:
-                                        <span class="badge bg-info text-dark">Đang giao</span>
-                                        break;
-                                    case 5:
-                                        <span class="badge bg-secondary">Giao hàng thất bại</span>
-                                        break;
-                                    default:
-                                        <span class="badge bg-dark">Không xác định</span>
-                                        break;
-                                }
-                            </p>
-                            <div class="d-flex justify-content-start">
-                                <a href="@Url.Action("DetailsDonHang", "DonHang", new { id = donHang.value.MaDH })" class="btn btn-primary btn-sm ms-1">
-                                    <i class="bi bi-eye fs-6"></i> Chi tiết
-                                </a>
+                                </p>
+                                <div class="d-flex justify-content-start">
+                                    <a href="@Url.Action("DetailsDonHang", "DonHang", new { id = donHang.value.MaDH })" class="btn btn-primary btn-sm ms-1">
+                                        <i class="bi bi-eye fs-6"></i> Chi tiết
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
-
-            </div>
+                    }
+                </div>
+            }
         </div>
     </div>
 </div>
