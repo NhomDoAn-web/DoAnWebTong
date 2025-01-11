@@ -67,7 +67,7 @@ namespace DoAnWEBDEMO.Controllers
             // Kiểm tra trạng thái đơn hàng
             bool donHang = _context.ChiTietDonHang
                 .Include(ct => ct.DonHang)
-                .Any(ct => ct.MA_SP == maSP && ct.DonHang.MaKH == userId && ct.DonHang.TrangThai == 3);
+                .Any(ct => ct.MA_SP == maSP && ct.DonHang.MaKH == userId && ct.DonHang.TrangThai == 4);
 
             // Lấy ảnh của màu đầu tiên (nếu có) từ bảng MauSac
             var anhDauTien = sanPham.MauSacs.FirstOrDefault()?.HinhAnhSP_MauSac;
