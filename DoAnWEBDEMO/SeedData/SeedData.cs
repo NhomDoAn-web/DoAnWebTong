@@ -491,7 +491,7 @@ namespace DoAnWEBDEMO.SeedData
                     new KhachHang
                     {
                         HoKH = "Trịnh",
-                        TenKH = "Trần Phương Tuấn Bỏ Con",
+                        TenKH = "Tuấn",
                         GioiTinh = "Nam",
                         Email = "ttptuan_bocon@example.com",
                         SDT = "0123456789",
@@ -911,68 +911,7 @@ namespace DoAnWEBDEMO.SeedData
                 _db.NhanVien.AddRange(nhanViens);
                 _db.SaveChanges();
             }
-
-            //Dữ liệu Đơn hàng
-            if (!_db.DonHang.Any())
-            {
-                var donHangs = new List<DonHang>
-                {
-                    new DonHang
-                    {
-                        MaKH = 1,
-                        MaNVXL = 1,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 5000000,
-                        TrangThai = 1,
-                        DiaChiNhanHang = "123 Đường ABC, Quận 1, TP.HCM",
-                        SoDienThoai = "0987654321"
-                    },
-                    new DonHang
-                    {
-                        MaKH = 2,
-                        MaNVXL = 2,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 1500000,
-                        TrangThai = 2,
-                        DiaChiNhanHang = "456 Đường DEF, Quận 3, TP.HCM",
-                        SoDienThoai = "0976543210"
-                    },
-                    new DonHang
-                    {
-                        MaKH = 3,
-                        MaNVXL = 1,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 2000000,
-                        TrangThai = 3,
-                        DiaChiNhanHang = "789 Đường GHI, Quận 7, TP.HCM",
-                        SoDienThoai = "0965432109"
-                    }
-                };
-
-                _db.DonHang.AddRange(donHangs);
-                _db.SaveChanges();
-            }
-
-            //Dữ liệu Chi Tiết Đơn hàng
-            if (!_db.ChiTietDonHang.Any())
-            {
-                var chiTietDonHangs = new List<ChiTietDonHang>
-                 {
-                     new ChiTietDonHang
-                     {
-                         MA_DH = 1, 
-                         MA_SP = 1, 
-                         SOLUONG = 2,
-                         MA_MAU = 2,
-                         TONGTIENTUNGSANPHAM = 2000000 
-                     },
-
-                 };
-
-                _db.ChiTietDonHang.AddRange(chiTietDonHangs);
-                _db.SaveChanges();
-            }
-
+            
             //Dữ liệu Liên Hệ
             if (!_db.LienHe.Any())
             {
@@ -1029,20 +968,6 @@ namespace DoAnWEBDEMO.SeedData
                     new KhuyenMai
                     {
                       SanPhamKhuyenMaiId = 2,
-                      MucGiamGia = 30,
-                      NgayBatDau = new DateTime(2025, 1, 1),
-                      NgayKetThuc = new DateTime(2025, 12, 1),
-                    },
-                    new KhuyenMai
-                    {
-                      SanPhamKhuyenMaiId = 1,
-                      MucGiamGia = 30,
-                      NgayBatDau = new DateTime(2025, 1, 1),
-                      NgayKetThuc = new DateTime(2025, 12, 1),
-                    },
-                    new KhuyenMai
-                    {
-                      SanPhamKhuyenMaiId = 1,
                       MucGiamGia = 30,
                       NgayBatDau = new DateTime(2025, 1, 1),
                       NgayKetThuc = new DateTime(2025, 12, 1),
