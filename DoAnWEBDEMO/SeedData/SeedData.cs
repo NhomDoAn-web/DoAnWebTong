@@ -961,14 +961,14 @@ namespace DoAnWEBDEMO.SeedData
                     new KhuyenMai
                     {
                       SanPhamKhuyenMaiId = 1,
-                      MucGiamGia = 30,
+                      MucGiamGia = 30000,
                       NgayBatDau = new DateTime(2025, 1, 1),
                       NgayKetThuc = DateTime.Now,
                     },
                     new KhuyenMai
                     {
                       SanPhamKhuyenMaiId = 2,
-                      MucGiamGia = 30,
+                      MucGiamGia = 500000,
                       NgayBatDau = new DateTime(2025, 1, 1),
                       NgayKetThuc = new DateTime(2025, 12, 1),
                     }
