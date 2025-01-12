@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Giới thiệu";
+}
+
+@section CSS
+{
+    <link rel="stylesheet" href="~/css/gioithieu.css" asp-append-version="true" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <div class="tieu-de mb-3">
+                <div class="content">
+                    @Html.Raw(ViewBag.GioiThieu.NoiDung)
+                </div>
+            </div>
+
+            <div class="noi-dung-gioi-thieu text-center px-5 fw-lighter fs-5">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="back">
+                <div class="container custom">
+                    <div class="header">
+                        <h2>
+                            Các bài viết khác
+                        </h2>
+                        <div class="tabs">
+                            <div class="tab active">
+                                TechLand
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-container">
+                        @foreach (var ds in ViewBag.DanhSachBaiViet)
+                        {
+                            <div class="news-item">
+                                <a href="/BaiViet/ChiTietBaiViet/@ds.MaBV">
+                                    <img src="/image/baiviet/@ds.HinhAnh" style="width: 300px; height: 200px; object-fit: contain;" />
+                                    <h6 class="news-title">
+                                        @ds.TieuDe
+                                    </h6>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <a class="more-link" asp-controller="BaiViet" asp-action="DanhSachBaiViet">
+                        Xem Thêm bài viết
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+
+

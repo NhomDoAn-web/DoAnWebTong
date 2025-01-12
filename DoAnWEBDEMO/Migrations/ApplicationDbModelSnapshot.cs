@@ -22,6 +22,35 @@ namespace DoAnWEBDEMO.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.BaiViet", b =>
+                {
+                    b.Property<int>("MaBV")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaBV"));
+
+                    b.Property<string>("HinhAnh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayDang")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NoiDung")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TieuDe")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MaBV");
+
+                    b.ToTable("BaiViet");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.ChiTietBinhLuan", b =>
                 {
                     b.Property<int>("MA_KH")
@@ -29,6 +58,12 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Property<int>("MA_SP")
                         .HasColumnType("int");
+
+                    b.Property<int>("Id_BinhLuan")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_BinhLuan"));
 
                     b.Property<DateTime>("NGAY")
                         .HasColumnType("datetime2");
@@ -40,7 +75,7 @@ namespace DoAnWEBDEMO.Migrations
                     b.Property<int>("SO_SAO")
                         .HasColumnType("int");
 
-                    b.HasKey("MA_KH", "MA_SP");
+                    b.HasKey("MA_KH", "MA_SP", "Id_BinhLuan");
 
                     b.HasIndex("MA_SP");
 
@@ -55,13 +90,18 @@ namespace DoAnWEBDEMO.Migrations
                     b.Property<int>("MA_SP")
                         .HasColumnType("int");
 
+                    b.Property<int>("MA_MAU")
+                        .HasColumnType("int");
+
                     b.Property<int>("SOLUONG")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TONGTIENTUNGSANPHAM")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("MA_DH", "MA_SP");
+                    b.HasKey("MA_DH", "MA_SP", "MA_MAU");
+
+                    b.HasIndex("MA_MAU");
 
                     b.HasIndex("MA_SP");
 
@@ -76,10 +116,15 @@ namespace DoAnWEBDEMO.Migrations
                     b.Property<int>("MaSP")
                         .HasColumnType("int");
 
+                    b.Property<int>("MaMau")
+                        .HasColumnType("int");
+
                     b.Property<int?>("Soluong")
                         .HasColumnType("int");
 
-                    b.HasKey("MaKH", "MaSP");
+                    b.HasKey("MaKH", "MaSP", "MaMau");
+
+                    b.HasIndex("MaMau");
 
                     b.HasIndex("MaSP");
 
@@ -123,13 +168,11 @@ namespace DoAnWEBDEMO.Migrations
                     b.Property<int>("MaKH")
                         .HasColumnType("int");
 
-                    b.Property<int>("MaNVXL")
+                    b.Property<int?>("MaNVXL")
                         .HasColumnType("int");
 
-                    b.Property<string>("NgayDatHang")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                    b.Property<DateTime?>("NgayDatHang")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SoDienThoai")
                         .IsRequired()
@@ -249,7 +292,7 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("MA_NVXL")
+                    b.Property<int?>("MA_NVXL")
                         .HasColumnType("int");
 
                     b.Property<string>("NOI_DUNG")
@@ -430,24 +473,30 @@ namespace DoAnWEBDEMO.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("LuotXem")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaDanhMuc")
                         .HasColumnType("int");
 
                     b.Property<int>("MaNCC")
                         .HasColumnType("int");
 
-                    b.Property<string>("MauSP")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("MoTa")
                         .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayRaMat")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Pin")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SlideShow")
+                        .HasMaxLength(2147483647)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
@@ -523,6 +572,12 @@ namespace DoAnWEBDEMO.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DoAnWEBDEMO.Models.MauSac", "MauSac")
+                        .WithMany("ChiTietDonHangs")
+                        .HasForeignKey("MA_MAU")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
                         .WithMany("ChiTietDonHangs")
                         .HasForeignKey("MA_SP")
@@ -531,24 +586,34 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Navigation("DonHang");
 
+                    b.Navigation("MauSac");
+
                     b.Navigation("SanPham");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.ChiTietGioHang", b =>
                 {
                     b.HasOne("DoAnWEBDEMO.Models.KhachHang", "KhachHang")
-                        .WithMany("GioHang")
+                        .WithMany("ChiTietGioHangs")
                         .HasForeignKey("MaKH")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DoAnWEBDEMO.Models.MauSac", "MauSac")
+                        .WithMany("ChiTietGioHangs")
+                        .HasForeignKey("MaMau")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("DoAnWEBDEMO.Models.SanPham", "SanPham")
-                        .WithMany("GioHang")
+                        .WithMany("ChiTietGioHangs")
                         .HasForeignKey("MaSP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("KhachHang");
+
+                    b.Navigation("MauSac");
 
                     b.Navigation("SanPham");
                 });
@@ -564,8 +629,7 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
                         .WithMany("DonHang")
                         .HasForeignKey("MaNVXL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("KhachHang");
 
@@ -588,8 +652,7 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasOne("DoAnWEBDEMO.Models.NhanVien", "NhanVien")
                         .WithMany("LienHe")
                         .HasForeignKey("MA_NVXL")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("NhanVien");
                 });
@@ -657,11 +720,18 @@ namespace DoAnWEBDEMO.Migrations
                 {
                     b.Navigation("ChiTietBinhLuans");
 
+                    b.Navigation("ChiTietGioHangs");
+
                     b.Navigation("DonHang");
 
-                    b.Navigation("GioHang");
-
                     b.Navigation("SanPhamYeuThichs");
+                });
+
+            modelBuilder.Entity("DoAnWEBDEMO.Models.MauSac", b =>
+                {
+                    b.Navigation("ChiTietDonHangs");
+
+                    b.Navigation("ChiTietGioHangs");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.NhaCungCap", b =>
@@ -682,7 +752,7 @@ namespace DoAnWEBDEMO.Migrations
 
                     b.Navigation("ChiTietDonHangs");
 
-                    b.Navigation("GioHang");
+                    b.Navigation("ChiTietGioHangs");
 
                     b.Navigation("KhuyenMais");
 

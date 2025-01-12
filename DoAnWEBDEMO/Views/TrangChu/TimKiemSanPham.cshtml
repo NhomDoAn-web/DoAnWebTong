@@ -1,0 +1,306 @@
+@model X.PagedList.IPagedList<DoAnWEBDEMO.Models.SanPhamKhuyenMai>
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container my-4">
+    <h2 class="text-center mb-4">Kết quả tìm kiếm</h2>
+
+    <div class="search-criteria mb-4">
+        <form method="get" action="@Url.Action("TimKiemSanPham", "TrangChu")" id="searchForm">
+            <div class="row d-flex align-items-center">
+
+                <!-- Lọc theo danh mục -->
+                <div class="col-md-3 mb-3">
+                    <div class="card p-3">
+                        <label class="form-label">Danh mục</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="form-check form-check-inline">
+                                <input type="radio"
+                                       id="DanhMucAll"
+                                       name="DanhMucId"
+                                       value=""
+                                       class="form-check-input"
+                                       onchange="this.form.submit()"
+                                @(ViewBag.CurrentCategory == null ? "checked" : "")>
+                                <label class="form-check-label" for="DanhMucAll">Tất cả</label>
+                            </div>
+
+                            @if (ViewBag.DanhMuc != null)
+                            {
+                                @foreach (var item in ViewBag.DanhMuc)
+                                {
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio"
+                                               id="DanhMuc@item.Ma_DM"
+                                               name="DanhMucId"
+                                               value="@item.Ma_DM"
+                                               class="form-check-input"
+                                               onchange="this.form.submit()"
+                                        @(ViewBag.CurrentCategory == item.Ma_DM ? "checked" : "")>
+                                        <label class="form-check-label" for="DanhMuc@item.Ma_DM">@item.TenDM</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lọc theo khoảng giá -->
+                <div class="col-md-4 mb-3">
+                    <div class="card p-3">
+                        <label class="form-label">Khoảng giá</label>
+                        <div class="input-group">
+                            <!-- Giá thấp nhất -->
+                            <input type="text"
+                                   id="priceMin"
+                                   name="GiaMin"
+                                   class="form-control form-control-sm"
+                                   placeholder="Giá thấp nhất"
+                                   value="@ViewBag.CurrentPriceMin"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                   onchange="this.form.submit()"
+                                   style="max-width: 150px;">
+
+                            <span class="input-group-text">-</span>
+
+                            <!-- Giá cao nhất -->
+                            <input type="text"
+                                   id="priceMax"
+                                   name="GiaMax"
+                                   class="form-control form-control-sm"
+                                   placeholder="Giá cao nhất"
+                                   value="@ViewBag.CurrentPriceMax"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                   onchange="this.form.submit()"
+                                   style="max-width: 150px;">
+                        </div>
+                        <!-- Nút làm mới khoảng giá -->
+                        <div class="mt-2">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="resetPriceFilters()">
+                                Làm mới khoảng giá
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sắp xếp theo giá -->
+                <div class="col-md-3 mb-3">
+                    <div class="card p-3">
+                        <label> </label>
+                        <div class="d-flex flex-wrap gap-2 justify-content-between">
+                            <button type="submit" name="SortOrder" value="desc" class="btn btn-outline-primary btn-SapXep"
+                            @(ViewBag.CurrentSortOrder == "desc" ? "disabled" : "")>
+                                <i class="bi bi-sort-down"></i> Giá cao
+                            </button>
+                            <button type="submit" name="SortOrder" value="asc" class="btn btn-outline-primary btn-SapXep"
+                            @(ViewBag.CurrentSortOrder == "asc" ? "disabled" : "")>
+                                <i class="bi bi-sort-up"></i> Giá thấp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thêm trường ẩn cho tên tìm kiếm -->
+                <input type="hidden" name="TenTimKiem" value="@ViewBag.CurrentSearchTerm" />
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row">
+        @if (!Model.Any())
+        {
+            <div class="col-12">
+                <p class="text-left text-muted">
+                    Rất tiếc, TechLand.com không tìm thấy kết quả nào phù hợp với từ khóa.
+                </p>
+                <div class="d-flex justify-content-center">
+                    <div class="text-left suggestions">
+                        <h2>Để tìm được kết quả chính xác hơn, bạn vui lòng:</h2>
+                        <ul>
+                            <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                            <li>Thử lại bằng từ khóa khác</li>
+                            <li>Thử lại bằng những từ khóa tổng quát hơn</li>
+                            <li>Thử lại bằng những từ khóa ngắn gọn hơn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+        else
+        {
+            foreach (var sp in Model)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card h-100">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })">
+                            <img src="@Url.Content($"~/image/products/{sp.HinhAnhSP}")"
+                                 class="card-img-top p-3"
+                                 style="max-height: 250px; object-fit: contain;" />
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })"
+                                   style="text-decoration: none; color: black;">
+                                    @sp.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(sp.MoTa) && sp.MoTa.Length > 100)
+                                {
+                                    @(@sp.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @sp.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                @if (sp.GiaSauKhiGiam > 0 && sp.GiaSauKhiGiam < sp.Gia)
+                                {
+                                    <span class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        @(sp.GiaSauKhiGiam.ToString("N0")) đ
+                                    </span>
+                                    <span class="text-decoration-line-through fw-bold">
+                                        @sp.Gia.ToString("N0") đ
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        @(sp.Gia.ToString("N0")) đ
+                                    </span>
+                                }
+                            </p>
+
+                            <div class="mt-auto d-flex justify-content-end">
+
+                                <!-- Nút Thêm yêu thích -->
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == sp.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@sp.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        }
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <ul class="pagination">
+            <!-- Nút trang trước -->
+            @if (Model.PageCount > 1)
+            {
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = Model.PageNumber - 1 })" aria-label="Previous">
+                            &laquo;
+                        </a>
+                    </li>
+                }
+
+                <!-- Các trang -->
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = i })">@i</a>
+                    </li>
+                }
+
+                <!-- Nút trang sau -->
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("TimKiemSanPham", new { searchTerm = ViewBag.CurrentSearchTerm, page = Model.PageNumber + 1 })" aria-label="Next">
+                            &raquo;
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+@section Scripts
+{
+
+    <script>
+        function addToWishlist(productId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")',  
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+                }
+            });
+        }
+
+        function resetPriceFilters() {
+            document.getElementById("priceMin").value = '';
+            document.getElementById("priceMax").value = '';
+            document.getElementById("searchForm").submit();
+        }
+
+            function ThemVaoGioHang(maSP) {
+            // Lấy giá trị số lượng từ ô nhập
+            const soLuong = 1;
+            const mau = document.getElementById('mau').value;
+            console.log(mau);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ThemVaoGioHang", "GioHang")',
+                data: { maSP: maSP, soluong: soLuong, mau: mau },
+                success: function (response) {
+                    if (response.success) {
+                        console.log(mau);
+                        alert(response.message);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+                }
+            });
+        }
+
+    </script>
+
+}

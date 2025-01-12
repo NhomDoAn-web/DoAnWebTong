@@ -1,5 +1,6 @@
 ﻿using DoAnWEBDEMO.ApplicationDB;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -17,7 +18,8 @@ namespace DoAnWEBDEMO.Controllers
         //Dữ liệu Danh mục
         public JsonResult getDanhMuc()
         {
-            var categories = _db.DanhMuc.Select(c => c.TenDM).ToList();
+            var categories = _db.DanhMuc.Select(c => new { c.Ma_DM, c.TenDM }).ToList();
+            Debug.WriteLine(categories);
             return Json(categories);
         }
 
@@ -27,3 +29,4 @@ namespace DoAnWEBDEMO.Controllers
         }
     }
 }
+

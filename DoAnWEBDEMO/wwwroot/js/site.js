@@ -13,7 +13,17 @@ const btnIconLogin = document.querySelector(".btn-icon-login");
 const taiKhoanKhachHang = document.getElementById("taiKhoanKhachHang");
 const matKhauKhachHang = document.getElementById("matKhauKhachHang");
 const showPasswordCheckbox = document.getElementById("showPassword");
+var accountButton = document.getElementById("accountButton");
+var logoutButton = document.getElementById("logoutButton");
+const checkDangNhap = document.querySelector('.check-dang-nhap');
 
+if (checkDangNhap)
+{
+    checkDangNhap.addEventListener("click", () =>
+    {
+        alert("Vui lòng đăng nhập để thực hiện thao tác này!");
+    })
+}
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('show');
@@ -62,7 +72,7 @@ $(document).ready(function () {
             dsDanhMuc.empty(); 
 
             data.forEach(function (item) {
-                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="#">' + item + '</a></li>');
+                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="/TrangChu/TimKiemSanPham?DanhMucId=' + item.ma_DM + '">' + item.tenDM + '</a></li>');
             });
         },
         error: function (error) {
@@ -103,7 +113,7 @@ function kiemTraChuoiCaptcha() {
             success: function (response) {
                 if (response.value) {
                     alert('Đăng nhập thành công!');
-                    window.location.href = '/home';
+                    location.reload();
                 } else {
                     alert('Tên người dùng hoặc mật khẩu không chính xác!');
                     hienThiCaptcha();
@@ -160,38 +170,43 @@ hienThiCaptcha();
 
 
 //Box thông tin tài khoản
-document.getElementById("accountButton").addEventListener("click", function (event) {
-    event.stopPropagation();
-    document.getElementById("accountBox").style.display = "block";
-});
+if (accountButton) {
+    accountButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        document.getElementById("accountBox").style.display = "block";
+    });
 
-document.addEventListener("click", function (event) {
-    var accountBox = document.getElementById("accountBox");
+    document.addEventListener("click", function (event) {
+        var accountBox = document.getElementById("accountBox");
+        if (!accountBox.contains(event.target) && event.target !== accountButton) {
+            accountBox.style.display = "none";
+        }
+    });
 
-    if (!accountBox.contains(event.target) && event.target !== document.getElementById("accountButton")) {
-        accountBox.style.display = "none";
-    }
-});
-    
+}
+
+
 //AJAX đăng xuât
-document.getElementById("logoutButton").addEventListener("click", function () {
 
-    var xacNhanDangXuat = confirm("Bạn muốn thoát tài khoản?");
+if (logoutButton) {
+    logoutButton.addEventListener("click", function () {
 
-    if (xacNhanDangXuat) {
-        $.ajax({
-            url: '/KhachHang/khachHangDangXuat',
-            type: 'POST',
-            success: function (response) {
-                if (response.value) {
-                    window.location.href = '/home';
+        var xacNhanDangXuat = confirm("Bạn muốn thoát tài khoản?");
+
+        if (xacNhanDangXuat) {
+            $.ajax({
+                url: '/KhachHang/khachHangDangXuat',
+                type: 'POST',
+                success: function (response) {
+                    if (response.value) {
+                        location.reload();
+                    }
+                },
+                error: function () {
+                    alert('Có lỗi xảy ra khi đăng xuất.');
                 }
-            },
-            error: function () {
-                alert('Có lỗi xảy ra khi đăng xuất.');
-            }
-        });
-    }
-    
+            });
+        }
+    })
+}
 
-})

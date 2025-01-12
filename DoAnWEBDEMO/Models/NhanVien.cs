@@ -1,3 +1,4 @@
+
 ﻿ using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -35,3 +36,4 @@ namespace DoAnWEBDEMO.Models
 
     }
 }
+

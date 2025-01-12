@@ -1,0 +1,458 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+@section CSS
+{
+    <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick-theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/trangchu.css" asp-append-version="true" />
+}
+
+@section Slide
+{
+
+    <div class="slider one-time" style="margin: 0;padding:0;">
+
+        @if (ViewBag.SanPham_SlideShow != null)
+        {
+            foreach (var item in ViewBag.SanPham_SlideShow)
+            {
+                <div>
+                    <div class="slide">
+                        <a href="@Url.Action("Details", "SanPham", new { maSP = item.MaSP })">
+                            <img src="/image/@item.SlideShow" style="width: 100%;height: 750px" />
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div>
+                <div class="slide">
+                    <a href="/SanPham">
+                        <img src="/image/slide_2.jpg" style="width: 100%;height: 750px" />
+                    </a>
+                </div>
+            </div>
+        }
+
+    </div>
+}
+
+
+
+@* Khuyến mãi *@
+<div class="mt-5 mb-5">
+    <h3 class="mb-3 tieu-de-box">Khuyến mãi hôm nay</h3>
+    <div class="row">
+        @if (ViewBag.SanPhamKhuyenMai != null)
+        {
+            foreach (var product in ViewBag.SanPhamKhuyenMai)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                    <span>@(product.GiaSauKhiGiam.ToString("N0")) đ</span>
+                                </span>
+                                <span class="text-decoration-line-through fw-bold">@product.Gia.ToString("N0") đ</span>
+                            </p>
+
+                            <div class="mt-auto d-flex justify-content-end">
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+</div>
+
+@* Chính sách *@
+<div class="container policy shadow rounded-4">
+    <div class="row">
+        <!-- 1 -->
+        <div class="col-3 border-end">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="https://fptshop.com.vn/img/icons/policy3.svg?w=64&q=100" alt="" width="60" height="50">
+                </div>
+                <div class="col-12 text-center">
+                    <p class="fw-bold">Thương hiệu đảm bảo</p>
+                    <p class="p-0">Nhập khẩu, bảo hành chính hãng</p>
+                </div>
+            </div>
+        </div>
+        <!-- end-1 -->
+        <!-- 1 -->
+        <div class="col-3 border-end">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="https://fptshop.com.vn/img/icons/policy1.svg?w=64&q=100" alt="" width="60" height="50">
+                </div>
+                <div class="col-12 text-center">
+                    <p class="fw-bold">Đổi trả dễ dàng</p>
+                    <p class="p-0">Theo chính sách đổi trả tại TechLand</p>
+                </div>
+            </div>
+        </div>
+        <!-- end-1 -->
+        <!-- 1 -->
+        <div class="col-3 border-end">
+            <div class="row">
+                <div class="col-12 text-center ">
+                    <img src="https://fptshop.com.vn/img/icons/policy4.svg?w=64&q=100" alt="" width="60" height="50">
+                </div>
+                <div class="col-12 text-center">
+                    <p class="fw-bold">Sản phẩm chất lượng</p>
+                    <p class="p-0">Đảm bảo tương thích và độ bền cao</p>
+                </div>
+            </div>
+        </div>
+        <!-- end-1 -->
+        <!-- 1 -->
+        <div class="col-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="https://fptshop.com.vn/img/icons/policy2.svg?w=64&q=100" alt="" width="60" height="50">
+                </div>
+                <div class="col-12 text-center">
+                    <p class="fw-bold">Giao hàng tận nơi</p>
+                    <p class="p-0">Giao tới tận tay khách hàng</p>
+                </div>
+            </div>
+        </div>
+        <!-- end-1 -->
+    </div>
+</div>
+
+@* Sản phẩm nổi bật *@
+<div class="mt-5 mb-5">
+    <h3 class="mb-3 tieu-de-box">Các sản phẩm nổi bật</h3>
+    <div class="row">
+        @if (ViewBag.SanPhamNoiBat != null)
+        {
+            foreach (var product in ViewBag.SanPhamNoiBat)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+
+                                @if (product.Gia != product.GiaSauKhiGiam)
+                                {
+                                    <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        <span>@(product.GiaSauKhiGiam.ToString("N0")) đ</span>
+                                    </span>
+
+                                    <span class="text-decoration-line-through fw-bold">@product.Gia.ToString("N0") đ</span>
+                                }
+                                else
+                                {
+                                    <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        <span>@(product.GiaSauKhiGiam.ToString("N0")) đ</span>
+                                    </span>
+                                }
+
+                            </p>
+                            <div class="mt-auto d-flex justify-content-end">
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+</div>
+
+
+<div class="my-5 row">
+    <div class="col-6">
+        <img src="/image/banner_1.jpg" style="border-radius: 0.5rem;" />
+    </div>
+
+    <div class="col-6">
+        <img src="/image//banner_2.jpg" style="border-radius: 0.5rem;" />
+    </div>
+</div>
+
+
+@* Các sản phẩm tại cửa hàng *@
+<div class="mt-5 mb-5">
+    <h3 class="mb-3 tieu-de-box">Khám phá các sản phẩm tại cửa hàng </h3>
+    <div class="row">
+        @if (ViewBag.SanPham != null)
+        {
+            foreach (var product in ViewBag.SanPham)
+            {
+                <div class="col-md-3 my-2">
+                    <div class="card">
+                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                            <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                        </a>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">
+                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                    @product.TEN_SP
+                                </a>
+                            </h5>
+                            <p class="card-text text-muted" style="font-size: 0.9rem;">
+                                @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
+                                {
+                                    @(@product.MoTa.Substring(0, 110) + "...")
+                                    ;
+                                    <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                }
+                                else
+                                {
+                                    @product.MoTa
+                                }
+                            </p>
+                            <p class="card-text">
+                                <strong>Giá: </strong>
+                                @if (product.Gia != product.GiaSauKhiGiam)
+                                {
+                                    <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        <span>@(product.GiaSauKhiGiam.ToString("N0")) đ</span>
+                                    </span>
+
+                                    <span class="text-decoration-line-through fw-bold">@product.Gia.ToString("N0") đ</span>
+                                }
+                                else
+                                {
+                                    <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
+                                        <span>@(product.GiaSauKhiGiam.ToString("N0")) đ</span>
+                                    </span>
+                                }
+                            </p>
+                            <div class="mt-auto d-flex justify-content-end">
+
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <p>Không có sản phẩm nổi bật để hiển thị.</p>
+        }
+    </div>
+
+    <div class="text-center my-5">
+        <a class="" asp-action="TimKiemSanPham" style="font-size: 20px;font-weight: 300;text-decoration: none;color: white;padding: 0.7rem 6rem;background-color: #f36523;">Xem tất cả</a>
+    </div>
+</div>
+
+@* Dịch vụ vận chuyển *@
+<div class="dich-vu-van-chuyen">
+    <h3 class="mb-3 tieu-de-box">Các dịch vụ vận chuyển tại cửa hàng </h3>
+
+    <div class="d-flex justify-content-center" style="flex-direction: column">
+        <div class="slider multiple-items">
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_1.jpg" style="width: 100%;height: 180px;cursor: pointer;" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_2.jpg" style="width: 100%;height: 180px;cursor: pointer;" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_3.jpg" style="width: 100%;height: 180px;cursor: pointer;" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_4.jpg" style="width: 100%;height: 180px;cursor: pointer;" />
+            </div>
+            <div>
+                <img class="rounded-4 px-1" src="/image/dv_vc_5.jpg" style="width: 100%;height: 180px;cursor: pointer;" />
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/lib/slick-1.8.1/slick/slick.min.js" asp-append-version="true"></script>
+
+    <script>
+         $('.one-time').slick({
+              dots: true,
+              infinite: true,
+              speed: 300,
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              autoplay: true
+        });
+
+        $('.multiple-items').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3
+        });
+
+                function ThemVaoGioHang(maSP) {
+            // Lấy giá trị số lượng từ ô nhập
+            const soLuong = document.getElementById('quantity').value;
+            const mau = document.getElementById('mau').value;
+            console.log(mau);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ThemVaoGioHang", "GioHang")',
+                data: { maSP: maSP, soluong: soLuong, mau: mau },
+                success: function (response) {
+                    if (response.success) {
+                        console.log(mau);
+                        alert(response.message);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+                }
+            });
+        }
+
+        function addToWishlist(productId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")',  // Đường dẫn tới action trong controller
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+                }
+            });
+        }
+    </script>
+}

@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -23,15 +23,19 @@ namespace DoAnWEBDEMO.Models
 
         [StringLength(int.MaxValue)]
         public string? HinhAnhSP { get; set; }
+        
+        [StringLength(int.MaxValue)]
+        public string? SlideShow { get; set; }
 
         [StringLength(int.MaxValue)]
         public string? MoTa { get; set; }
 
-        [StringLength(50, ErrorMessage = "Màu sản phẩm không được vượt quá 50 ký tự.")]
-        public string? MauSP { get; set; }
         [Required(ErrorMessage = "Thời gian bảo hành là bắt buộc.")]
         [Range(0, int.MaxValue, ErrorMessage = "Thời gian bảo hành phải lớn hơn hoặc bằng 0.")]
         public int TGianBaoHanh { get; set; }
+
+        [Required]
+        public DateTime? NgayRaMat { get; set; }
 
         [Required(ErrorMessage = "Trạng thái là bắt buộc.")]
         [Range(0, 1, ErrorMessage = "Trạng thái phải là 0 (Không hoạt động) hoặc 1 (Hoạt động).")]
@@ -83,17 +87,19 @@ namespace DoAnWEBDEMO.Models
 
         [Range(0, int.MaxValue, ErrorMessage = "Số lượng tồn kho phải lớn hơn hoặc bằng 0.")]
         public int SoLuongTon { get; set; } // Số lượng tồn kho
-        public virtual DanhMuc? DanhMuc{ get; set; }
-        public virtual NhaCungCap? NhaCungCap{ get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Lượt xem phải lớn hơn hoặc bằng 0.")]
+        public int? LuotXem { get; set; }
+        public virtual DanhMuc? DanhMuc { get; set; }
+        public virtual NhaCungCap? NhaCungCap { get; set; }
 
         public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }
         public ICollection<ChiTietBinhLuan>? ChiTietBinhLuans { get; set; }
         public virtual ICollection<SanPhamYeuThich>? SanPhamYeuThichs { get; set; }
-        
         public virtual ICollection<KhuyenMai>? KhuyenMais { get; set; }
 
         public ICollection<MauSac>? MauSacs { get; set; }
 
-        public ICollection<ChiTietGioHang> GioHang { get; set; }
+        public ICollection<ChiTietGioHang> ChiTietGioHangs { get; set; }
     }
 }

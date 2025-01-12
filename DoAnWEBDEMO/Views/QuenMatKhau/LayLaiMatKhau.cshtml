@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Đổi mật khẩu";
+}
+
+@if (TempData["ThanhCong"] != null)
+{
+    <div class="container d-flex justify-content-center align-items-center" style="">
+        <div class="text-center" style="color: green;font-size:18px">
+            Mã OTP đã được gửi đến email của bạn! Vui lòng kiểm tra hộp thư để nhận mã xác nhận.
+        </div>
+    </div>
+
+    <form method="POST" asp-action="DoiMatKhau">
+        <div class="mb-3">
+            <label for="otp" class="form-label">Mã OTP</label>
+            <input type="text" class="form-control" id="OTP" name="OTP" placeholder="Nhập mã OTP" required>
+        </div>
+        <div class="mb-3">
+            <label for="matKhau" class="form-label">Mật khẩu mới</label>
+            <input type="password" class="form-control" id="matKhauMoi" name="matKhau" placeholder="Nhập mật khẩu mới" 
+               required
+               minlength="8"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@@$!%*?&])[A-Za-z\d@@$!%*?&]{8,}$" 
+               title="Mật khẩu phải chứa ít nhất 8 ký tự, bao gồm chữ thường, chữ hoa, ký số, và ký tự đặc biệt.">
+        </div>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="hienMatKhau">
+            <label class="form-check-label" for="showPassword">
+                Hiển thị mật khẩu
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Đổi mật khẩu</button>
+    </form>
+
+}
+
+@if (TempData["ThatBai"] != null)
+{
+    <div class="container d-flex justify-content-center align-items-center">
+        <div text-center" style="color:#ff0303;font-size:18px">
+            Lỗi! OTP không thể gửi đến email của bạn. Vui lòng kiểm tra lại Email
+        </div>
+    </div>
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="QuenMatKhau">Quay lại</a>
+    </div>
+}
+
+
+
+@section Scripts
+{
+    <script>
+        document.getElementById('hienMatKhau').addEventListener('change', function() {
+            console.log("zzxc");
+            var passwordField = document.getElementById('matKhauMoi');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
+}

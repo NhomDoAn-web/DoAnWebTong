@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Đổi mật khẩu";
+}
+
+@if (TempData["DoiMatKhau"] != null)
+{
+    <div class="container d-flex justify-content-center align-items-center" style="">
+        <div class="alert alert-success text-center" role="alert">
+            Đổi mật khẩu thành công!
+        </div>
+        
+    </div>
+    <div class="text-center">
+       <p>Bạn sẽ được chuyển hướng về trang chủ sau 5 giây...</p>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "/TrangChu/Index";
+        }, 5000);
+    </script>
+}
+else
+{
+    <script>
+        setTimeout(function() {
+            window.location.href = "/TrangChu/Index";
+        }, 10); 
+    </script>
+}
+

@@ -6,9 +6,9 @@ namespace DoAnWEBDEMO.Models
     public class LienHe
     {
         [Key]
-        public int MA_LH { get; set; }  
+        public int MA_LH { get; set; }
 
-        public int MA_NVXL { get; set; }  
+        public int? MA_NVXL { get; set; }
 
         [Required]
         [StringLength(255)]

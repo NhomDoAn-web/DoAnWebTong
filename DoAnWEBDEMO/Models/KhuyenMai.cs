@@ -1,3 +1,4 @@
+
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Models
@@ -14,3 +15,4 @@ namespace DoAnWEBDEMO.Models
         public SanPham SanPham { get; set; }
     }
 }
+
