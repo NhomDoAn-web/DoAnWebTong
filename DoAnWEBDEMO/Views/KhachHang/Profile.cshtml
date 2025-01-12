@@ -41,11 +41,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="Email" class="form-control" value="@Model.Email" />
+                                <input type="email" id="email" name="Email" class="form-control" value="@Model.Email"  pattern="^[a-zA-Z0-9._%+-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Vui lòng nhập địa chỉ email hợp lệ." required />
                             </div>
                             <div class="mb-3">
                                 <label for="sdt" class="form-label">Số Điện Thoại</label>
-                                <input type="text" id="sdt" name="SDT" class="form-control" value="@Model.SDT" />
+                                <input type="text" id="sdt" name="SDT" class="form-control" value="@Model.SDT" pattern="^\d{10}$" title="Số điện thoại phải là 10 chữ số." required  />
                             </div>
                             <div class="mb-3">
                                 <label for="diachi" class="form-label">Địa Chỉ</label>
