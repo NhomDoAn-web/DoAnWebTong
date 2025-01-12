@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoAnWEBDEMO.Migrations
 {
     [DbContext(typeof(ApplicationDb))]
-    [Migration("20250110160143_migrationdb")]
-    partial class migrationdb
+    [Migration("20250111034111_AddAll")]
+    partial class AddAll
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

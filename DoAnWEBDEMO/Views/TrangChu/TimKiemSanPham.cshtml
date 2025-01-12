@@ -181,20 +181,29 @@
                                     </span>
                                 }
                             </p>
-                            <!-- Nút căn giữa -->
-                            <div class="mt-auto d-flex justify-content-between">
-                                <!-- Nút Thêm vào giỏ hàng -->
-                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3"
-                                        onclick="ThemVaoGioHang(@sp.MaSP)">
-                                    <i class="bi bi-cart"></i>
-                                </button>
+
+                            <div class="mt-auto d-flex justify-content-end">
 
                                 <!-- Nút Thêm yêu thích -->
-                                <button class="px-4 py-2 text-danger" style="border: none; outline:none; background-color: white;"
-                                        onclick="addToWishlist(@sp.MaSP)">
-                                    <i class="bi bi-suit-heart fw-bold"> Yêu thích</i>
-                                </button>
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == sp.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@sp.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -247,13 +256,14 @@
         function addToWishlist(productId) {
             $.ajax({
                 type: "POST",
-                url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")',
+                url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")',  
                 data: { productId: productId },
                 success: function (response) {
                     if (response.success) {
-                        alert(response.message); // Thông báo thành công
+                        alert(response.message);
+                        location.reload();
                     } else {
-                        alert(response.message); // Thông báo lỗi
+                        alert(response.message);
                     }
                 },
                 error: function (xhr, status, error) {

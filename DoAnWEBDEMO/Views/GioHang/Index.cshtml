@@ -66,7 +66,7 @@
             <div class="pagination">
                 @for (int i = 1; i <= totalPages; i++)
                 {
-                    <a class="btn btn-outline-dark" href="@Url.Action("Index", new { page = i })" class="@(i == pageNumber ? "current" : "")">@i</a>
+                    <a class="btn btn-outline-dark me-1" href="@Url.Action("Index", new { page = i })" class="@(i == pageNumber ? "current" : "")">@i</a>
                 }
             </div>
         </div>

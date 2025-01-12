@@ -1,6 +1,5 @@
-﻿
 @{
-    ViewData["Title"] = "Trang chủ"; 
+    ViewData["Title"] = "Trang chủ";
 }
 
 @section CSS
@@ -17,7 +16,7 @@
 
         @if (ViewBag.SanPham_SlideShow != null)
         {
-            foreach(var item in ViewBag.SanPham_SlideShow)
+            foreach (var item in ViewBag.SanPham_SlideShow)
             {
                 <div>
                     <div class="slide">
@@ -69,7 +68,7 @@
                                     @(@product.MoTa.Substring(0, 110) + "...")
                                     ;
                                     <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
-                                    style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                       style="color : black; font-weight: 600;">Xem chi tiết</a>
                                 }
                                 else
                                 {
@@ -83,17 +82,26 @@
                                 </span>
                                 <span class="text-decoration-line-through fw-bold">@product.Gia.ToString("N0") đ</span>
                             </p>
-                            <!-- Nút căn giữa -->
-                            <div class="mt-auto d-flex justify-content-between">
-                                <!-- Nút Thêm vào giỏ hàng -->
-                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
-                                    <i class="bi bi-cart"></i>
-                                </button>
 
-                                <!-- Nút Thêm yêu thích -->
-                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
-                                    <i class="bi bi-bag-heart-fill"></i>
-                                </button>
+                            <div class="mt-auto d-flex justify-content-end">
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
                             </div>
 
                         </div>
@@ -218,17 +226,25 @@
                                 }
 
                             </p>
-                            <!-- Nút căn giữa -->
-                            <div class="mt-auto d-flex justify-content-between">
-                                <!-- Nút Thêm vào giỏ hàng -->
-                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
-                                    <i class="bi bi-cart"></i>
-                                </button>
+                            <div class="mt-auto d-flex justify-content-end">
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
 
-                                <!-- Nút Thêm yêu thích -->
-                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
-                                    <i class="bi bi-suit-heart fw-bold"></i>
-                                </button>
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
                             </div>
 
                         </div>
@@ -305,17 +321,27 @@
                                     </span>
                                 }
                             </p>
-                            <!-- Nút căn giữa -->
-                            <div class="mt-auto d-flex justify-content-between">
-                                <!-- Nút Thêm vào giỏ hàng -->
-                                <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
-                                    <i class="bi bi-cart"></i>
-                                </button>
+                            <div class="mt-auto d-flex justify-content-end">
 
-                                <!-- Nút Thêm yêu thích -->
-                                <button class=" px-4 py-2 text-danger" style="border: none;outline:none;background-color: white;">
-                                    <i class="bi bi-suit-heart fw-bold"></i>
-                                </button>
+                                @if (ViewBag.TrangThaiDangNhap)
+                                {
+                                    var sanPhamYeuThich = ViewBag.SanPhamYeuThich as IEnumerable<SanPhamYeuThich>;
+
+                                    bool isYeuThich = sanPhamYeuThich != null && sanPhamYeuThich.Any(item => item.SanPhamId == product.MaSP);
+
+                                    <button class="px-4 py-2 text-danger" style="border: none; outline: none; background-color: white;" onclick="addToWishlist(@product.MaSP)">
+                                        @if (isYeuThich)
+                                        {
+                                            <i class="bi bi-heart-fill text-danger fs-3"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-heart text-danger fs-3"></i>
+                                        }
+                                    </button>
+
+                                }
+
                             </div>
 
                         </div>
@@ -331,7 +357,7 @@
     </div>
 
     <div class="text-center my-5">
-        <a class="" asp-controller="SanPham" asp-action="Index" style="font-size: 20px;font-weight: 300;text-decoration: none;color: white;padding: 0.7rem 6rem;background-color: #f36523;">Xem tất cả</a>
+        <a class="" asp-action="TimKiemSanPham" style="font-size: 20px;font-weight: 300;text-decoration: none;color: white;padding: 0.7rem 6rem;background-color: #f36523;">Xem tất cả</a>
     </div>
 </div>
 
@@ -410,7 +436,23 @@
             });
         }
 
+        function addToWishlist(productId) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ThemSanPhamYeuThich", "TrangChu")',  // Đường dẫn tới action trong controller
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload();
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+                }
+            });
+        }
     </script>
-
-
 }

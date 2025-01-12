@@ -93,6 +93,11 @@ namespace DoAnWEBDEMO.Controllers
             // Lấy số lượt yêu thích
             var soLuotYeuThich = _context.SanPhamYeuThich.Count(sp => sp.SanPhamId == maSP);
 
+            var tienKhuyenMai = _context.KhuyenMai
+                .Where(km => km.SanPhamKhuyenMaiId == maSP && DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc)
+                .Select(km => km.MucGiamGia)
+                .FirstOrDefault();
+
             // Gửi sản phẩm và trung bình sao vào View
             ViewBag.TrungBinhSoSao = trungBinhSoSao;
             ViewBag.SanPhamNoiBat = sanPhamNoiBat;
@@ -101,6 +106,8 @@ namespace DoAnWEBDEMO.Controllers
             ViewBag.IsFavorite = sanPhamYeuThich;
             ViewBag.KiemTraTrangThaiDH = donHang;
 
+
+            ViewBag.tienGiamGia = sanPham.Gia - tienKhuyenMai;
             // Tăng lượt xem sản phẩm
             sanPham.LuotXem += 1;
 
