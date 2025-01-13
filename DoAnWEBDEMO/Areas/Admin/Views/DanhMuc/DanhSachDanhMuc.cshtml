@@ -18,8 +18,9 @@
     }
 
     h1 {
+        font-size: 32px;
         text-align: center;
-        color: #333;
+        color: black;
         margin-bottom: 30px;
     }
 
@@ -79,21 +80,40 @@
     .btn-add {
         margin-left: 10px;
     }
+
+    .alert {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
 </style>
-
+@if (TempData["ThongBaoThanhCong"] != null)
+{
+    <div id="thongBaoThanhCong" class="alert alert-success text-center" style="z-index: 1050;">
+        @TempData["ThongBaoThanhCong"]
+    </div>
+}
+@if (TempData["ThongBaoLoi"] != null)
+{
+    <div id="ThongBaoLoi" class="alert alert-danger text-center">
+        @TempData["ThongBaoLoi"]
+    </div>
+}
+<h1>Danh sách các danh mục</h1>
 <div class="back">
-    <div class="container">
-        <h1>Danh sách các danh mục</h1>
-
+    <div class="container">       
         <!-- Form tìm kiếm và thêm danh mục -->
         <div class="mb-4">
             <form class="form-inline" method="get" action="/Admin/DanhMuc/DanhSachDanhMuc">
-                <input type="text" name="TenDahMucTimKiem" placeholder="Tìm kiếm danh mục..." value="@ViewBag.TenTimKiemHienTai" />
+                <input type="text" name="TenDanhMucTimKiem" placeholder="Tìm kiếm danh mục..." value="@ViewBag.TenTimKiemHienTai" />
                 <button type="submit" class="btn btn-primary btn-custom btn-search">
                     <i class="bi bi-search"></i> Tìm kiếm
                 </button>
                 <button type="button" class="btn btn-success btn-custom btn-add" id="openModalBtn">
                     <i class="bi bi-plus-circle"></i> Thêm danh mục
+                </button>
+                <button type="submit" class="btn btn-info btn-custom btn-export" formaction="/Admin/DanhMuc/XuatExcel">
+                    <i class="bi bi-file-earmark-excel"></i> Xuất Excel
                 </button>
             </form>   
         </div>
@@ -101,22 +121,46 @@
         <!-- Pop-up thêm danh mục modal -->
         <div id="addCategoryModal" class="fixed inset-0 hidden z-50 bg-opacity-75 flex items-center justify-center" style="background-color: rgba(0, 0, 0, 0.5);">
             <div class="bg-white rounded-lg w-96 p-6">
-                <h3 class="text-lg font-medium text-gray-900 mb-4">Thêm danh mục mới</h3>
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Thêm danh mục mới</h3>         
                 <form method="post" action="/admin/danhmuc/ThemDanhMuc">
                     <div class="mb-4">
-                        <label for="categoryName" class="block text-sm font-medium text-gray-700">Tên danh mục</label>
-                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full" id="categoryName" name="TenDM" placeholder="Nhập tên danh mục" required>
+                        <label for="categoryName" class="block text-sm font-medium text-black">Tên danh mục</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full text-black" id="categoryName" name="TenDanhMuc" placeholder="Nhập tên danh mục" required title="Tên danh mục không được để trống!">
                     </div>
                     <div class="mb-4">
-                        <label for="categoryStatus" class="block text-sm font-medium text-gray-700">Trạng thái</label>
-                        <select class="mt-1 p-2 border border-gray-300 rounded w-full" id="categoryStatus" name="TrangThai">
-                            <option value="1">Hoạt động</option>
-                            <option value="0">Không hoạt động</option>
+                        <label for="categoryStatus" class="block text-sm font-medium text-black">Trạng thái</label>
+                        <select class="mt-1 p-2 border border-gray-300 rounded w-full text-black" id="categoryStatus" name="TrangThai">
+                            <option class="text-black" value="1">Hoạt động</option>
+                            <option class="text-black"  value="0">Không hoạt động</option>
                         </select>
                     </div>
                     <div class="flex justify-end">
-                        <button type="button" class="bg-gray-500 text-white p-2 rounded mr-2 hover:bg-gray-700 transition duration-300" id="closeModalBtn">Đóng</button>
+                        <button type="button" class="bg-gray-500 text-black p-2 rounded mr-2 hover:bg-gray-700 transition duration-300" id="closeModalBtn">Đóng</button>
                         <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300">Thêm danh mục</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Pop-up sửa danh mục modal -->
+        <div id="editCategoryModal" class="fixed inset-0 hidden z-50 bg-opacity-75 flex items-center justify-center" style="background-color: rgba(0, 0, 0, 0.5);">
+            <div class="bg-white rounded-lg w-96 p-6">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Sửa danh mục</h3>
+                <form method="post" id="editCategoryForm" action="/admin/danhmuc/SuaDanhMuc">
+                    <input type="hidden" id="categoryId" name="MaDanhMuc" />
+                    <div class="mb-4">
+                        <label for="editCategoryName" class="block text-sm font-medium text-black">Tên danh mục</label>
+                        <input type="text" class="mt-1 p-2 border border-gray-300 rounded w-full text-black" id="editCategoryName" name="TenDanhMuc" placeholder="Nhập tên danh mục" required title="Tên danh mục không được để trống!">
+                    </div>
+                    <div class="mb-4">
+                        <label for="editCategoryStatus" class="block text-sm font-medium text-black">Trạng thái</label>
+                        <select class="mt-1 p-2 border border-gray-300 rounded w-full text-black" id="editCategoryStatus" name="TrangThai">
+                            <option class="text-black" value="1">Hoạt động</option>
+                            <option class="text-black" value="0">Không hoạt động</option>
+                        </select>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="bg-gray-500 text-black p-2 rounded mr-2 hover:bg-gray-700 transition duration-300" id="closeEditModalBtn">Đóng</button>
+                        <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300">Lưu thay đổi</button>
                     </div>
                 </form>
             </div>
@@ -140,20 +184,20 @@
                         <tr>
                             <td>@item.Ma_DM</td>
                             <td>@item.TenDM</td>
-                            <td>
-                                <span class="@(item.Trang_Thai == 1 ? "status-active" : "status-inactive")">
+                           <td>
+                                <span class="@(item.Trang_Thai == 1 ? "status-active" : "status-inactive")" id="status-@item.Ma_DM">
                                     <i class="@(item.Trang_Thai == 1 ? "bi bi-check-circle-fill" : "bi bi-x-circle-fill")"></i>
                                     @(item.Trang_Thai == 1 ? "Hoạt động" : "Không hoạt động")
                                 </span>
                             </td>
                             <td>
                                 <div class="d-flex gap-2">
-                                    <a href="@Url.Action("Sua", "DanhMuc", new { id = item.Ma_DM })" class="btn btn-primary btn-sm btn-custom">
+                                    <button class="btn btn-primary btn-sm btn-custom Sua" id="editCategoryModal" data-id="@item.Ma_DM">
                                         <i class="bi bi-pencil-square"></i> Sửa
-                                    </a>
-                                    <a href="@Url.Action("ThayDoiTrangThai", "DanhMuc", new { id = item.Ma_DM })" class="btn btn-warning btn-sm btn-custom">
+                                    </button>
+                                     <button class="btn btn-warning btn-sm TrangThai" data-id="@item.Ma_DM">
                                         <i class="bi bi-arrow-repeat"></i> Thay đổi trạng thái
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -203,22 +247,128 @@
     </div>
 </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Mở modal
+    //Sửa danh mục modal
+    $(document).ready(function () {
+        // Mở modal sửa danh mục
+    $(".Sua").click(function () {
+        var danhMucId = $(this).data("id"); // Lấy id danh mục
+
+        // Lấy thông tin danh mục từ server (có thể dùng Ajax để lấy dữ liệu nếu cần)
+            $.ajax({
+            url: '/Admin/DanhMuc/ChinhSuaDanhMuc', // Cập nhật route tương ứng
+            type: 'GET',
+            data: { id: danhMucId },
+            success: function (response) {
+                    console.log(response);
+                    console.log(response.ma_DM);
+                    console.log(response.tenDM);
+                    console.log(response.trang_Thai);
+                if (response) {
+                    // Điền dữ liệu vào form
+                    $('#categoryId').val(response.ma_DM);
+                    $('#editCategoryName').val(response.tenDM);
+                    $('#editCategoryStatus').val(response.trang_Thai);
+
+                    // Hiển thị modal
+                    $('#editCategoryModal').removeClass('hidden');
+                }
+            },
+                error: function () {
+                    alert("Có lỗi khi tải thông tin danh mục.");
+                }
+            });
+        });
+
+        // Đóng modal sửa danh mục
+        $('#closeEditModalBtn').click(function () {
+            $('#editCategoryModal').addClass('hidden');
+        });
+
+        // Đóng modal nếu click ngoài modal
+        $('#editCategoryModal').click(function (e) {
+            if (e.target === this) {
+                $(this).addClass('hidden');
+            }
+        });
+    });
+    //Thêm danh mục modal
     document.getElementById("openModalBtn").addEventListener("click", function () {
         document.getElementById("addCategoryModal").classList.remove("hidden");
     });
 
-    // Đóng modal
+
     document.getElementById("closeModalBtn").addEventListener("click", function () {
         document.getElementById("addCategoryModal").classList.add("hidden");
     });
 
-    // Nếu muốn đóng modal khi nhấn bên ngoài modal
     document.getElementById("addCategoryModal").addEventListener("click", function (e) {
         if (e.target === this) {
             this.classList.add("hidden");
         }
     });
+    //Thông báo thêm danh mục thành công
+    setTimeout(() => {
+    const thongBaoThanhCong = document.getElementById("thongBaoThanhCong");
+    const thongBaoLoi = document.getElementById("ThongBaoLoi");
+
+    if (thongBaoThanhCong) {
+        thongBaoThanhCong.style.transition = "opacity 0.5s ease";
+        thongBaoThanhCong.style.opacity = "0";
+        setTimeout(() => thongBaoThanhCong.remove(), 500); 
+    }
+
+
+    if (thongBaoLoi) {
+        thongBaoLoi.style.transition = "opacity 0.5s ease";
+        thongBaoLoi.style.opacity = "0";
+        setTimeout(() => thongBaoLoi.remove(), 500); 
+    }
+    }, 3000);
+    //Thay Doi Trang Thai
+$(document).ready(function () {
+    $(".TrangThai").click(function () {
+        var DanhMucid = $(this).data("id"); // Lấy id của danh mục từ data-id
+
+        // Hiển thị hộp thoại xác nhận
+        var confirmation = confirm("Bạn có chắc chắn muốn thay đổi trạng thái không?");
+        
+        // Nếu người dùng chọn "Có", tiếp tục thực hiện thay đổi trạng thái
+        if (confirmation) {
+            $.ajax({
+                url: '/Admin/DanhMuc/ThayDoiTrangThai',
+                type: 'POST',
+                data: { id: DanhMucid },
+                success: function (response) {
+                    console.log(response);
+
+                    // Cập nhật lại phần tử trạng thái
+                    var statusElement = $("#status-" + DanhMucid);
+                    if (statusElement.length) {
+                        // Tạo nội dung mới cho phần tử
+                        var newStatusHtml = "";
+                        if (response.trangThai == 1) {
+                            newStatusHtml = '<i class="bi bi-check-circle-fill"></i> Hoạt động';
+                        } else {
+                            newStatusHtml = '<i class="bi bi-x-circle-fill"></i> Không hoạt động';
+                        }
+
+                        // Thay thế nội dung của phần tử trạng thái
+                        statusElement.html(newStatusHtml);
+
+                        // Cập nhật lại các class của phần tử trạng thái
+                        statusElement.removeClass("status-active status-inactive")
+                                      .addClass(response.trangThai == 1 ? "status-active" : "status-inactive");
+                    }
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra khi thay đổi trạng thái.");
+                }
+            });
+        }
+    });
+});
+
+
 </script>

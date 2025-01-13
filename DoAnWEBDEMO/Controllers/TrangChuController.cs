@@ -88,7 +88,7 @@ namespace DoAnWEBDEMO.Controllers
             var query = from sp in _context.SanPham
                         join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId into kmGroup
                         from km in kmGroup.DefaultIfEmpty()
-                        where sp.TrangThai == 1
+                        where sp.TrangThai == 1 
                         select new SanPhamKhuyenMai
                         {
                             MaDanhMuc = sp.MaDanhMuc,
@@ -102,7 +102,7 @@ namespace DoAnWEBDEMO.Controllers
                         : sp.Gia
                         };
         
-            var categories = _context.DanhMuc.ToList();
+            var categories = _context.DanhMuc.Where(dm=>dm.Trang_Thai == 1).ToList();
             ViewBag.DanhMuc = categories;
         
             // Lọc theo tên sản phẩm
