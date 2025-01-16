@@ -1,0 +1,200 @@
+﻿@model IEnumerable<DoAnWEBDEMO.Models.SanPham>
+
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+}
+
+@section CSS
+{
+    <link rel="stylesheet" href="~/css/adminmanh.css" asp-append-version="true" />
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4 text-primary">Quản lý sản phẩm</h2>
+
+    <!-- Form Tìm kiếm -->
+    <form method="get" action="@Url.Action("Index", "QuanLySanPham", new { area = "Admin" })" class="mb-4">
+        <div class="row align-items-end">
+            <div class="col-md-4">
+                <label for="searchString" class="form-label fw-bold">Tìm kiếm sản phẩm</label>
+                <input type="text"
+                       name="searchString"
+                       id="searchString"
+                       class="form-control shadow-sm"
+                       placeholder="Nhập tên sản phẩm..."
+                       value="@ViewBag.CurrentSearchTerm" />
+            </div>
+
+            <div class="col-md-4">
+                <label for="categoryId" class="form-label fw-bold">Danh mục sản phẩm</label>
+                <select name="categoryId" id="categoryId" class="form-select shadow-sm">
+                    <option value="">-- Chọn danh mục --</option>
+                    @if (ViewBag.DanhMuc != null)
+                    {
+                        foreach (var category in ViewBag.DanhMuc)
+                        {
+                            <option value="@category.Ma_DM" @(category.Ma_DM == ViewBag.CurrentCategory ? "selected" : "")>
+                                @category.TenDM
+                            </option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <button type="submit" class="btn btn-primary shadow-sm px-5 mt-2">
+                    <i class="bi bi-search"></i> Tìm kiếm
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Bảng Sản phẩm -->
+    <form method="post" action="@Url.Action("CapNhatTrangThaiSanPham", "QuanLySanPham", new { area = "Admin" })">
+        @Html.AntiForgeryToken()
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="text-center">STT</th>
+                        <th class="text-center">
+                            <div class="d-flex align-items-center">
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" id="selectAll" class="form-check-input">
+                                    <label class="form-check-label" for="selectAll">Tất cả</label>
+                                </div>
+                            </div>
+
+
+                        </th>
+                        <th>Mã SP</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th class="text-end">Giá</th>
+                        <th class="text-center">Trạng thái</th>
+                        <th class="text-center">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+                        var product = Model.ElementAt(i);
+                        <tr>
+                            <td class="text-center">@((ViewBag.CurrentPage - 1) * ViewBag.PageSize + i + 1)</td>
+                            <td class="text-center">
+                                <input type="checkbox" class="form-check-input select-product" name="SelectedProducts" value="@product.MaSP">
+                            </td>
+                            <td>@product.MaSP</td>
+                            <td>@product.TEN_SP</td>
+                            <td class="text-truncate" style="max-width: 250px;">@product.MoTa</td>
+                            <td class="text-end text-danger fw-bold">@string.Format("{0:N0} đ", product.Gia)</td>
+                            <td class="text-center">
+                                @if (product.TrangThai == 0)
+                                {
+                                    <span class="badge bg-secondary">Đã ẩn</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success">Đang bán</span>
+                                }
+                            </td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", "QuanLySanPham", new { area = "Admin", id = product.MaSP })" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil"></i> Cập nhật
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" name="action" value="hide" class="btn btn-danger me-2">
+                <i class="bi bi-eye-slash"></i> Ẩn sản phẩm đã chọn
+            </button>
+            <button type="submit" name="action" value="show" class="btn btn-success">
+                <i class="bi bi-eye"></i> Mở lại sản phẩm đã chọn
+            </button>
+        </div>
+    </form>
+
+    <!-- Phân trang -->
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @for (var i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                </li>
+            }
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+@section Scripts
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy các thông báo Success và Error
+            var successMessage = document.querySelector('.alert-success');
+            var errorMessage = document.querySelector('.alert-danger');
+
+            // Hẹn giờ để ẩn thông báo sau 5 giây
+            if (successMessage) {
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            if (errorMessage) {
+                setTimeout(function () {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            // Xử lý việc chọn tất cả checkbox
+            const selectAllCheckbox = document.getElementById("selectAll");
+            const productCheckboxes = document.querySelectorAll(".select-product");
+
+            selectAllCheckbox.addEventListener("change", function () {
+                const isChecked = this.checked;
+                productCheckboxes.forEach(checkbox => {
+                    checkbox.checked = isChecked;
+                });
+            });
+        });
+    </script>
+}

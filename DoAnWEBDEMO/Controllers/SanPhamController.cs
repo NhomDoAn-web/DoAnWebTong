@@ -88,7 +88,10 @@ namespace DoAnWEBDEMO.Controllers
                                   .Any(x => x.KhachHangId == userId && x.SanPhamId == maSP);
 
             // Tính trung bình số sao
-            var trungBinhSoSao = sanPham.ChiTietBinhLuans?.Average(bl => bl.SO_SAO) ?? 0;
+            var trungBinhSoSao = (sanPham.ChiTietBinhLuans != null && sanPham.ChiTietBinhLuans.Any())
+                      ? sanPham.ChiTietBinhLuans.Average(bl => bl.SO_SAO)
+                      : 0;
+
 
             // Lấy số lượt yêu thích
             var soLuotYeuThich = _context.SanPhamYeuThich.Count(sp => sp.SanPhamId == maSP);

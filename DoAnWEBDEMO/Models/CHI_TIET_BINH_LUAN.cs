@@ -22,5 +22,6 @@ namespace DoAnWEBDEMO.Models
 
         public KhachHang? KhachHang { get; set; }
         public SanPham? SanPham { get; set; }
+
     }
 }

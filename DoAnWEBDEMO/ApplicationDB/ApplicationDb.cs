@@ -23,6 +23,8 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<ChiTietBinhLuan> ChiTietBinhLuan { get; set; }
         public DbSet<KhuyenMai> KhuyenMai { get; set; }
         public DbSet<BaiViet> BaiViet { get; set; }
+     
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -167,6 +169,8 @@ namespace DoAnWEBDEMO.ApplicationDB
             .HasOne(c => c.SanPham)
             .WithMany(p => p.MauSacs)
             .HasForeignKey(c => c.MaSP);
+
+      
 
         }
     }

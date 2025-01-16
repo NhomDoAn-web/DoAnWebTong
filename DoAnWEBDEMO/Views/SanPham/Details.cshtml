@@ -18,7 +18,7 @@
                 <div class="carousel-inner">
                     <!-- Phần hiển thị ảnh sản phẩm -->
                     <div class="carousel-item active">
-                        <img id="product-image" src="@Url.Content(ViewBag.AnhDauTien)" class="w-100" alt="Product Image" style="max-height: 400px; object-fit: contain;">
+                        <img id="product-image" src="~/image/products/@Model.HinhAnhSP" class="w-100" alt="Product Image" style="max-height: 400px; object-fit: contain;">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
@@ -33,7 +33,7 @@
             <div class="reviews mt-5">
                 <h3 class="text-center mb-4">ĐÁNH GIÁ SẢN PHẨM</h3>
                 <div class="reviews-container" style="max-height: 450px; overflow-y: auto;">
-                    @foreach (var review in Model.ChiTietBinhLuans)
+                    @foreach (var review in Model.ChiTietBinhLuans.Where(r => r.IsHidden == false)) // Giả sử có trường IsHidden
                     {
                         <div class="review mb-3 p-3 border rounded shadow-sm">
                             <div class="review-header d-flex align-items-center justify-content-between">
@@ -56,6 +56,7 @@
                             <p>@review.NOI_DUNG</p>
                         </div>
                     }
+
                 </div>
                 @if (ViewBag.KiemTraTrangThaiDH)
                 {
@@ -97,6 +98,20 @@
                             warningMessage.style.display = 'none';
                             return true; // Cho phép gửi form
                         }
+                        function hideComment(commentId) {
+                            // Gửi yêu cầu ẩn bình luận đến server
+                            fetch('/path-to-hide-comment', {
+                                method: 'POST',
+                                body: JSON.stringify({ commentId: commentId }),
+                                headers: { 'Content-Type': 'application/json' }
+                            }).then(response => {
+                                if (response.ok) {
+                                    // Ẩn bình luận trong giao diện
+                                    document.getElementById(`comment-${commentId}`).style.display = 'none';
+                                }
+                            });
+                        }
+
                     </script>
                 }
             </div>

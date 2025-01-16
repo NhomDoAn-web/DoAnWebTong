@@ -1,10 +1,12 @@
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.SeedData;
 using DoAnWEBDEMO.Services;
+using Microsoft.AspNetCore.Http.Features; // For file upload size configuration
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddScoped<EmailService>();
 
 // Đăng ký dịch vụ Session
@@ -16,19 +18,25 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+// Configure file upload size
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 100_000_000; // Giới hạn kích thước tệp upload (100MB)
+});
 
-// Add services to the container.
+// Add controllers with views
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
+// Configure DbContext
 builder.Services.AddDbContext<ApplicationDb>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 
+// Enable Session middleware
 app.UseSession();
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -45,6 +53,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Configure area routing
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
@@ -53,14 +62,14 @@ app.UseEndpoints(endpoints =>
     );
 });
 
-
+// Default route
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=TrangChu}/{action=Index}/{id?}");
+    pattern: "{controller=TrangChu}/{action=Index}/{id?}"
+);
 
-
+// Seed the database with initial data
 var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDb>();
 SeedData.SeedingData(context);
-
 
 app.Run();

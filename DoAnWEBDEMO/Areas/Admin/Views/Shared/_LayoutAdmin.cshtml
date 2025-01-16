@@ -60,12 +60,10 @@
                     </a>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-  
-                            <a class="collapse-item" href="#">Quản lý ...</a>
-                            <a class="collapse-item" href="#">Quản lý ...</a>
-                            <a class="collapse-item" href="#">Quản lý ...</a>
-                            <a class="collapse-item" href="#">Quản lý ...</a>
-                            <a class="collapse-item" href="#">Quản lý ...</a>
+
+                        <a class="collapse-item" href=" @Url.Action("Index", "QuanLySanPham", new { area = "Admin" })">Quản lý sản phẩm</a>
+                        <a class="collapse-item" href="@Url.Action("UploadExcel", "QuanLySanPham", new { area = "Admin" })">Thêm sản phẩm</a>
+                        <a class="collapse-item" href="@Url.Action("Index", "ChiTietBinhLuan", new { area = "Admin" })">Quản lý bình luận</a>
                         </div>
                     </div>
                 </li>
