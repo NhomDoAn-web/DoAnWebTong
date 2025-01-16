@@ -37,7 +37,7 @@ namespace DoAnWEBDEMO.Controllers
                 _db.SaveChanges();
 
                 // Lưu thông báo thành công vào TempData
-                TempData["SuccessMessage"] = "Cảm ơn bạn đã liên hệ với chúng tôi!";
+                TempData["GuiLienHeThanhCong"] = "Cảm ơn bạn đã liên hệ với chúng tôi!";
                 return RedirectToAction("Index");
             }
 

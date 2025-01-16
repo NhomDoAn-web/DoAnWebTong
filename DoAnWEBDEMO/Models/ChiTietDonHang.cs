@@ -10,7 +10,7 @@ namespace DoAnWEBDEMO.Models
 
         [Key]
         public int MA_SP { get; set; } // Khóa ngoại tới bảng San_Pham (sẽ thêm sau)
-        [Key ]
+        [Key]
         public int MA_MAU { get; set; } // Khóa ngoại tới bảng MauSac
 
         [Required(ErrorMessage = "Số lượng không được để trống.")]

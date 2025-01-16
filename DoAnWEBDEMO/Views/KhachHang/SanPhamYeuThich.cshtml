@@ -4,13 +4,11 @@
     ViewData["Title"] = "Danh Sách Sản Phẩm Yêu Thích";
 }
 
-
 @section CSS
 {
     <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/yeuthich.css" asp-append-version="true" />
 }
-
-<h2>@ViewData["Title"]</h2>
 
 
 
@@ -23,52 +21,54 @@
 
         <!-- Main content -->
         <div class="col-md-9">
-
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Tên Khách Hàng</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Hành Động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model != null && Model.Any())
+            <div class="row">
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
                     {
-                        int index = 1;
-                        foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@index</td>
-                                <td>@item.KhachHang?.TenKH</td> <!-- Tên khách hàng -->
-                                <td>@item.SanPham?.TEN_SP</td> <!-- Tên sản phẩm -->
-                                <td>
-                                    <!-- Xem chi tiết -->
-                                    <a href="@Url.Action("Details", "SanPham", new { id = item.SanPhamId })" class="btn btn-info btn-sm">Xem Chi Tiết</a>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <img src="~/image/@item.SanPham?.HinhAnhSP" alt="@item.SanPham?.TEN_SP" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.SanPham?.TEN_SP</h5>
+                                    <p class="card-text">
+                                        <strong>Khách hàng:</strong> @item.KhachHang?.TenKH
+                                    </p>
+                                    <div class="action-buttons d-flex align-items-center">
+                                        <a href="@Url.Action("Details", "SanPham", new { maSP = item.SanPhamId })" class="btn btn-info btn-sm me-2">
+                                            <i class="fa fa-eye"></i> Xem Chi Tiết
+                                        </a>
 
-                                    <!-- Xóa -->
-                                    <a href="@Url.Action("Remove", "SanPhamYeuThich", new { khachHangId = item.KhachHangId, sanPhamId = item.SanPhamId })" class="btn btn-danger btn-sm">Xóa</a>
-                                </td>
-                            </tr>
-                            index++;
-                        }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="4" class="text-center">Không có sản phẩm yêu thích nào.</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+                                        <form action="@Url.Action("XoaSanPhamYeuThich", new { sanPhamId = item.SanPhamId })" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa sản phẩm này khỏi danh sách yêu thích?');">
+                                            @Html.AntiForgeryToken()  <!-- Token bảo mật để ngăn chặn tấn công CSRF -->
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i> Xóa
+                                            </button>
+                                        </form>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                else
+                {
+                    <div class="col-12 text-center">
+                        <p class="text-muted">Không có sản phẩm yêu thích nào.</p>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>
 
+@section Scripts
+{
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous">
+        
+    </script>
+   
 
-
-
-
-
+}

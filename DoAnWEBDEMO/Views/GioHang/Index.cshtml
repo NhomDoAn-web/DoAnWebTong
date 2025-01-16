@@ -13,10 +13,17 @@
 
 <div class="container">
     
-    <h2 class="title">Giỏ hàng của bạn</h2>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
     @if (TempData["ErrorMessage"] != null)
     {
-        <div class="alert alert-warning">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
             @TempData["ErrorMessage"]
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -52,7 +59,10 @@
                             </div>
                         </td>
                         <td class="price">@((item.Gia * item.SoLuong).ToString("N0"))</td>
-                        <td class="price"><button class="delete-btn" onclick="XoaKhoiGioHang(@item.MaSP)">×</button></td>
+                            <td class="price"><button class="delete-btn" 
+                                onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')&&XoaKhoiGioHang(@item.MaSP)">
+                                ×
+                                </button></td>
                     </tr>
                 }
             </tbody>
@@ -60,13 +70,14 @@
             <div class="pagination">
                 @for (int i = 1; i <= totalPages; i++)
                 {
-                    <a class="btn btn-outline-dark" href="@Url.Action("Index", new { page = i })" class="@(i == pageNumber ? "current" : "")">@i</a>
+                    <a class="btn btn-outline-dark me-1" href="@Url.Action("Index", new { page = i })"
+                    class="@(i == pageNumber ? "current" : "")">@i</a>
                 }
             </div>
         </div>
-        <div class="action-buttons">
-            <button onclick="XoaToanBoGioHang()" class="action-btn">Làm mới giỏ hàng</button>
-            <a asp-action="Index" asp-controller="SanPham" class="btn btn-dark action-btn">Tiếp tục mua sắm</a>
+        <div class="action-buttons mt-4">
+            <button onclick="XoaToanBoGioHang()" class="action-btn">Xóa tất cả</button>
+           
         </div>
         <div class="row d-flex justify-content-end">
             <div class="col-md-6" style="background:#f9fafe;">
@@ -82,7 +93,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mt-4">
                         <a asp-action="ThanhToan" class="btn btn-dark">Thanh Toán</a>
                     </div>
                 </div>
@@ -92,7 +103,8 @@
     else
     {
         <img style="width:50%;height:50%;" src="/image/emptycart.png" />
-        <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem" asp-controller="SanPham" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>
+        <div class="d-flex m-3"> <h2>Giỏ hàng của bạn đang rỗng</h2><a asp-action="Index" style="padding:0.6rem 1rem"
+            asp-controller="TrangChu" class="btn btn-outline-danger action-btn">Mua sắm ngay</a></div>
         
     }
 </div>

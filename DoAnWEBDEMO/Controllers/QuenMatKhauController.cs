@@ -5,6 +5,7 @@ using DoAnWEBDEMO.Models;
 using System.Diagnostics;
 using Org.BouncyCastle.Crypto.Generators;
 using BCrypt.Net;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -29,7 +30,7 @@ namespace DoAnWEBDEMO.Controllers
                 dem_LayLaiMatKhau++;
                 Debug.WriteLine("email: " + email);
                 var khachHang = _db.KhachHang.FirstOrDefault(kh => kh.Email == email);
-
+                 
                 if (khachHang == null)
                 {
                     TempData["ThatBai"] = "Thất bại";
@@ -61,6 +62,15 @@ namespace DoAnWEBDEMO.Controllers
                 return View();
         }
 
+        public IActionResult DoiMatKhau()
+        {
+            var user = HttpContext.Session.GetString("user");
+            if (user != null)
+                return RedirectToAction("Index", "TrangChu");
+            else
+                return View();
+        }
+
 
         [HttpPost]
         public IActionResult DoiMatKhau(string OTP, string matKhau)
@@ -68,16 +78,13 @@ namespace DoAnWEBDEMO.Controllers
             var email = HttpContext.Session.GetString("email");
             var otp_email = HttpContext.Session.GetString("otp");
 
-            Debug.WriteLine("-----------MAT KHAU: " + matKhau);
-            Debug.WriteLine("-----------: " + email);
-            Debug.WriteLine("===========: " + otp_email);
-
             if(OTP != null && matKhau != null && OTP == otp_email)
             {
                 var khachHang = _db.KhachHang.FirstOrDefault(kh => kh.Email == email);
 
                 if(khachHang != null)
                 {
+
                     string maHoaMatKhau = BCrypt.Net.BCrypt.HashPassword(matKhau);
                     khachHang.MATKHAU = maHoaMatKhau;
                     _db.SaveChanges();

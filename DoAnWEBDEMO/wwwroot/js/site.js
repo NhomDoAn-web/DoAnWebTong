@@ -17,13 +17,13 @@ var accountButton = document.getElementById("accountButton");
 var logoutButton = document.getElementById("logoutButton");
 const checkDangNhap = document.querySelector('.check-dang-nhap');
 
-
-if (checkDangNhap) {
-    checkDangNhap.addEventListener("click", () => {
+if (checkDangNhap)
+{
+    checkDangNhap.addEventListener("click", () =>
+    {
         alert("Vui lòng đăng nhập để thực hiện thao tác này!");
     })
 }
-
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('show');
@@ -72,7 +72,7 @@ $(document).ready(function () {
             dsDanhMuc.empty(); 
 
             data.forEach(function (item) {
-                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="#">' + item + '</a></li>');
+                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="/TrangChu/TimKiemSanPham?DanhMucId=' + item.ma_DM + '">' + item.tenDM + '</a></li>');
             });
         },
         error: function (error) {
@@ -209,3 +209,4 @@ if (logoutButton) {
         }
     })
 }
+

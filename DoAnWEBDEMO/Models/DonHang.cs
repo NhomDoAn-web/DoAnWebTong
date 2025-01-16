@@ -20,7 +20,7 @@ namespace DoAnWEBDEMO.Models
         public decimal TongTienDonHang { get; set; }
 
         [Required(ErrorMessage = "Trạng thái đơn hàng không được để trống.")]
-        [Range(1, 4, ErrorMessage = "Trạng thái phải nằm trong khoảng từ 1 đến 4.")]
+        [Range(1, 7, ErrorMessage = "Trạng thái phải nằm trong khoảng từ 1 đến 7.")]
         public int TrangThai { get; set; }
 
         [Required(ErrorMessage = "Địa chỉ nhận hàng không được để trống.")]
@@ -30,9 +30,9 @@ namespace DoAnWEBDEMO.Models
         [Required(ErrorMessage = "Số điện thoại không được để trống.")]
         [StringLength(15, ErrorMessage = "Số điện thoại không được vượt quá 15 ký tự.")]
         [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Số điện thoại không hợp lệ.")]
-        public string SoDienThoai { get; set; }
+        public string? SoDienThoai { get; set; }
 
-        public virtual NhanVien? NhanVien{ get; set; }
+        public virtual NhanVien? NhanVien { get; set; }
         public virtual KhachHang? KhachHang { get; set; }
 
         public ICollection<ChiTietDonHang>? ChiTietDonHangs { get; set; }

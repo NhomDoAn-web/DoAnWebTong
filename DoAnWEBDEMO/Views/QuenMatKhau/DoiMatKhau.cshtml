@@ -1,4 +1,8 @@
-﻿@if (TempData["DoiMatKhau"] != null)
+﻿@{
+    ViewData["Title"] = "Đổi mật khẩu";
+}
+
+@if (TempData["DoiMatKhau"] != null)
 {
     <div class="container d-flex justify-content-center align-items-center" style="">
         <div class="alert alert-success text-center" role="alert">
@@ -7,6 +11,21 @@
         
     </div>
     <div class="text-center">
-        <a asp-action="Index" asp-controller="Home">Quay về trang chủ!</a>
+       <p>Bạn sẽ được chuyển hướng về trang chủ sau 5 giây...</p>
     </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "/TrangChu/Index";
+        }, 5000);
+    </script>
 }
+else
+{
+    <script>
+        setTimeout(function() {
+            window.location.href = "/TrangChu/Index";
+        }, 10); 
+    </script>
+}
+

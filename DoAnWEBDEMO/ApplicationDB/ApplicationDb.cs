@@ -22,7 +22,8 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<ChiTietDonHang> ChiTietDonHang { get; set; }
         public DbSet<ChiTietBinhLuan> ChiTietBinhLuan { get; set; }
         public DbSet<KhuyenMai> KhuyenMai { get; set; }
-
+        public DbSet<BaiViet> BaiViet { get; set; }
+        public DbSet<PhuongThucThanhToan> PhuongThucThanhToan { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -123,7 +124,7 @@ namespace DoAnWEBDEMO.ApplicationDB
 
             // Cấu hình khóa chính composite cho bảng CHI_TIET_BINH_LUAN
             modelBuilder.Entity<ChiTietBinhLuan>()
-                .HasKey(ctbl => new { ctbl.MA_KH, ctbl.MA_SP });
+                .HasKey(ctbl => new { ctbl.MA_KH, ctbl.MA_SP, ctbl.Id_BinhLuan });
 
             // Thiết lập quan hệ 1-N giữa SanPham và ChiTietBinhLuan
             modelBuilder.Entity<ChiTietBinhLuan>()
@@ -136,6 +137,7 @@ namespace DoAnWEBDEMO.ApplicationDB
                 .HasOne(ctdh => ctdh.KhachHang)
                 .WithMany(sp => sp.ChiTietBinhLuans)
                 .HasForeignKey(ctdh => ctdh.MA_KH);
+
             // Cấu hình khóa chính composite cho bảng ChiTietGioHang
             modelBuilder.Entity<ChiTietGioHang>()
                 .HasKey(ctgh => new { ctgh.MaKH, ctgh.MaSP, ctgh.MaMau }); // Gồm cả MaMau nếu cần thiết
@@ -163,11 +165,10 @@ namespace DoAnWEBDEMO.ApplicationDB
 
             // Thiết lập quan hệ 1-N giữa SanPham và MauSac
             modelBuilder.Entity<MauSac>()
-            .HasOne(c => c.SanPham)              
-            .WithMany(p => p.MauSacs)          
-            .HasForeignKey(c => c.MaSP);  
+            .HasOne(c => c.SanPham)
+            .WithMany(p => p.MauSacs)
+            .HasForeignKey(c => c.MaSP);
 
-            
         }
     }
 }

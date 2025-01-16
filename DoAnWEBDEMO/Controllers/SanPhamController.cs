@@ -64,13 +64,18 @@ namespace DoAnWEBDEMO.Controllers
                 return NotFound();
             }
 
+            // Kiểm tra trạng thái đơn hàng
+            bool donHang = _context.ChiTietDonHang
+                .Include(ct => ct.DonHang)
+                .Any(ct => ct.MA_SP == maSP && ct.DonHang.MaKH == userId && ct.DonHang.TrangThai == 4);
+
             // Lấy ảnh của màu đầu tiên (nếu có) từ bảng MauSac
             var anhDauTien = sanPham.MauSacs.FirstOrDefault()?.HinhAnhSP_MauSac;
 
             // Lấy danh sách sản phẩm nổi bật (giả sử các sản phẩm nổi bật có TrangThai = 1)
             var sanPhamNoiBat = _context.SanPham
-                                        .Where(s => s.TrangThai == 1 && s.MaSP != maSP) // Tránh lặp lại sản phẩm hiện tại
-                                        .OrderByDescending(s => s.Gia) // Sắp xếp theo giá giảm dần
+                                        .Where(s => s.TrangThai == 1 && s.MaSP != maSP)
+                                        .OrderByDescending(s => s.Gia)
                                         .Take(4) // Lấy 4 sản phẩm
                                         .ToList();
 
@@ -88,28 +93,57 @@ namespace DoAnWEBDEMO.Controllers
             // Lấy số lượt yêu thích
             var soLuotYeuThich = _context.SanPhamYeuThich.Count(sp => sp.SanPhamId == maSP);
 
+            var tienKhuyenMai = _context.KhuyenMai
+                .Where(km => km.SanPhamKhuyenMaiId == maSP && DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc)
+                .Select(km => km.MucGiamGia)
+                .FirstOrDefault();
+
             // Gửi sản phẩm và trung bình sao vào View
             ViewBag.TrungBinhSoSao = trungBinhSoSao;
-
             ViewBag.SanPhamNoiBat = sanPhamNoiBat;
-
             ViewBag.AnhDauTien = anhDauTien;
-
             ViewBag.SoLuotYeuThich = soLuotYeuThich;
-
             ViewBag.IsFavorite = sanPhamYeuThich;
+            ViewBag.KiemTraTrangThaiDH = donHang;
 
+
+            ViewBag.tienGiamGia = sanPham.Gia - tienKhuyenMai;
             // Tăng lượt xem sản phẩm
             sanPham.LuotXem += 1;
 
-            // Lưu thay đổi vào cơ sở dữ liệu
             _context.Update(sanPham);
             _context.SaveChanges();
 
             return View(sanPham);
         }
 
+        [HttpPost]
+        public IActionResult BinhLuan(int maSP, string NoiDung, int Rating)
+        {
+            var userId = GetLoggedInKhachHangId();
+            ViewBag.UserID = userId;
 
+            //if (userId == null)
+            //{
+            //    return RedirectToAction("Login", "Account");
+            //}
+
+            // Thêm bình luận mới
+            var binhLuan = new ChiTietBinhLuan
+            {
+                MA_KH = (int)userId,
+                MA_SP = maSP,
+                SO_SAO = Rating,
+                NOI_DUNG = NoiDung,
+                NGAY = DateTime.Now
+            };
+
+            _context.ChiTietBinhLuan.Add(binhLuan);
+            _context.SaveChanges();
+
+            TempData["Success"] = "Bình luận của bạn đã được gửi.";
+            return RedirectToAction("Details", new { MaSP = maSP });
+        }
 
     }
 }
