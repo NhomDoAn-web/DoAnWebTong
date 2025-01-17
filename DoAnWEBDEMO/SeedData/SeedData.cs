@@ -53,7 +53,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 1,
                         TEN_SP = "iPhone 14",
                         HinhAnhSP = "iphone_14.jpg",
-                        SlideShow = "slide_1.jpg",
+                        SlideShow = "iphone 14.jpg",
                         MoTa = "iPhone 14 với thiết kế hiện đại và hiệu năng vượt trội. Sản phẩm được trang bị chip A15 Bionic mạnh mẽ, camera kép 12MP sắc nét, và thời lượng pin ổn định. Với màn hình 6.1 inch Liquid Retina, iPhone 14 mang lại trải nghiệm tuyệt vời cho người dùng yêu thích sự nhỏ gọn nhưng không kém phần sang trọng.",
                         TGianBaoHanh = 12,
                         NgayRaMat = new DateTime(2024, 9, 16),
@@ -78,7 +78,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 2,
                         TEN_SP = "Samsung Galaxy S23",
                         HinhAnhSP = "samsung_s23.jpg",
-                        SlideShow = "slide_2.jpg",
+                        SlideShow = "samsung galaxy.jpg",
                         MoTa = "Samsung Galaxy S23 mang đến một thiết kế hoàn hảo với màn hình Dynamic AMOLED 2X 6.1 inch, đảm bảo độ sắc nét cao. Máy được trang bị chip Snapdragon 8 Gen 2 mạnh mẽ, hệ thống camera ấn tượng 50MP và dung lượng pin tối ưu 3900mAh, cho trải nghiệm lâu dài trong suốt cả ngày.",
                         TGianBaoHanh = 12,
                         NgayRaMat = new DateTime(2024, 1, 26),
@@ -103,7 +103,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 3,
                         TEN_SP = "Xiaomi 13",
                         HinhAnhSP = "xiaomi_13.jpg",
-                        SlideShow = "slide_3.jpg",
+                        SlideShow = "xiaomi 13 s.jpg",
                         MoTa = "Xiaomi 13 là sự kết hợp hoàn hảo giữa thiết kế sang trọng và hiệu năng mạnh mẽ. Với chipset Snapdragon 8 Gen 2, RAM 12GB và bộ nhớ trong 256GB, sản phẩm sẵn sàng đáp ứng mọi nhu cầu từ làm việc đến giải trí. Camera Leica 50MP, màn hình AMOLED 6.36 inch và pin 4500mAh giúp người dùng tận hưởng trải nghiệm tuyệt vời.",
                         TGianBaoHanh = 12,
                         NgayRaMat = new DateTime(2025, 1, 1),
@@ -128,7 +128,7 @@ namespace DoAnWEBDEMO.SeedData
                         MaDanhMuc = 4,
                         TEN_SP = "Oppo Find X6",
                         HinhAnhSP = "oppo_find_x6.jpg",
-                        SlideShow = "slide_4.jpg",
+                        SlideShow = "oppoX6.jpg",
                         MoTa = "Oppo Find X6 sở hữu thiết kế tinh tế với công nghệ camera đỉnh cao. Camera sau 50MP mang lại hình ảnh sống động, chip Dimensity 9200 và RAM 16GB đảm bảo hiệu năng mượt mà. Sản phẩm nổi bật với màn hình AMOLED 6.8 inch và pin 4800mAh, lý tưởng cho cả công việc và giải trí.",
                         TGianBaoHanh = 12,
                         NgayRaMat = new DateTime(2024, 9, 12),
@@ -491,7 +491,7 @@ namespace DoAnWEBDEMO.SeedData
                     new KhachHang
                     {
                         HoKH = "Trịnh",
-                        TenKH = "Trần Phương Tuấn Bỏ Con",
+                        TenKH = "Tuấn",
                         GioiTinh = "Nam",
                         Email = "ttptuan_bocon@example.com",
                         SDT = "0123456789",
@@ -879,6 +879,16 @@ namespace DoAnWEBDEMO.SeedData
                     new NhanVien
                     {
 
+                        TENNV = "Admin",
+                        SDT = "0123456789",
+                        EMAIL = "admin@gmail.com",
+                        TENDANGNHAP = "admin",
+                        MATKHAU = "Admin",
+                        TRANGTHAI = 1
+                    },
+                    new NhanVien
+                    {
+
                         TENNV = "Nguyen Van A",
                         SDT = "0123456789",
                         EMAIL = "nguyenvana@example.com",
@@ -911,68 +921,7 @@ namespace DoAnWEBDEMO.SeedData
                 _db.NhanVien.AddRange(nhanViens);
                 _db.SaveChanges();
             }
-
-            //Dữ liệu Đơn hàng
-            if (!_db.DonHang.Any())
-            {
-                var donHangs = new List<DonHang>
-                {
-                    new DonHang
-                    {
-                        MaKH = 1,
-                        MaNVXL = 1,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 5000000,
-                        TrangThai = 1,
-                        DiaChiNhanHang = "123 Đường ABC, Quận 1, TP.HCM",
-                        SoDienThoai = "0987654321"
-                    },
-                    new DonHang
-                    {
-                        MaKH = 2,
-                        MaNVXL = 2,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 1500000,
-                        TrangThai = 2,
-                        DiaChiNhanHang = "456 Đường DEF, Quận 3, TP.HCM",
-                        SoDienThoai = "0976543210"
-                    },
-                    new DonHang
-                    {
-                        MaKH = 3,
-                        MaNVXL = 1,
-                        NgayDatHang = DateTime.Now.AddDays(-1),
-                        TongTienDonHang = 2000000,
-                        TrangThai = 3,
-                        DiaChiNhanHang = "789 Đường GHI, Quận 7, TP.HCM",
-                        SoDienThoai = "0965432109"
-                    }
-                };
-
-                _db.DonHang.AddRange(donHangs);
-                _db.SaveChanges();
-            }
-
-            //Dữ liệu Chi Tiết Đơn hàng
-            if (!_db.ChiTietDonHang.Any())
-            {
-                var chiTietDonHangs = new List<ChiTietDonHang>
-                 {
-                     new ChiTietDonHang
-                     {
-                         MA_DH = 1, 
-                         MA_SP = 1, 
-                         SOLUONG = 2,
-                         MA_MAU = 2,
-                         TONGTIENTUNGSANPHAM = 2000000 
-                     },
-
-                 };
-
-                _db.ChiTietDonHang.AddRange(chiTietDonHangs);
-                _db.SaveChanges();
-            }
-
+            
             //Dữ liệu Liên Hệ
             if (!_db.LienHe.Any())
             {
@@ -1022,28 +971,14 @@ namespace DoAnWEBDEMO.SeedData
                     new KhuyenMai
                     {
                       SanPhamKhuyenMaiId = 1,
-                      MucGiamGia = 30,
+                      MucGiamGia = 30000,
                       NgayBatDau = new DateTime(2025, 1, 1),
                       NgayKetThuc = DateTime.Now,
                     },
                     new KhuyenMai
                     {
                       SanPhamKhuyenMaiId = 2,
-                      MucGiamGia = 30,
-                      NgayBatDau = new DateTime(2025, 1, 1),
-                      NgayKetThuc = new DateTime(2025, 12, 1),
-                    },
-                    new KhuyenMai
-                    {
-                      SanPhamKhuyenMaiId = 1,
-                      MucGiamGia = 30,
-                      NgayBatDau = new DateTime(2025, 1, 1),
-                      NgayKetThuc = new DateTime(2025, 12, 1),
-                    },
-                    new KhuyenMai
-                    {
-                      SanPhamKhuyenMaiId = 1,
-                      MucGiamGia = 30,
+                      MucGiamGia = 500000,
                       NgayBatDau = new DateTime(2025, 1, 1),
                       NgayKetThuc = new DateTime(2025, 12, 1),
                     }
@@ -1307,6 +1242,135 @@ namespace DoAnWEBDEMO.SeedData
                 };
                 _db.BaiViet.AddRange(BaiViet);
                 _db.SaveChanges();
+
+
+                //SeedData Header
+                if(!_db.Header.Any())
+                {
+                    var headers = new List<Header>
+                    {
+                        new Header
+                        {
+                            TieuDe = "Trang Chủ",
+                            DuongLienKet = "/TrangChu",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Danh Sách Sản Phẩm",
+                            DuongLienKet = "/TrangChu/TimKiemSanPham",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Giới Thiệu",
+                            DuongLienKet = "/GioiThieu",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Liên Hệ",
+                            DuongLienKet = "/LienHe",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            DuongLienKet = "/KhachHang/Profile",
+                            Icon = "<i class=\"bi bi-person-circle\"></i>",
+                            ViTriHienThi = 3
+                        }
+                        ,
+                        new Header
+                        {
+                            DuongLienKet = "/GioHang",
+                            Icon = "<i class=\"bi bi-bag-fill bi-icon-header fs-5\"></i>",
+                            ViTriHienThi = 3
+                        }
+                    };
+
+                    _db.Header.AddRange(headers);
+                    _db.SaveChanges();
+
+                if(!_db.DichVuCongTy.Any())
+                {
+                        var dichvucongtys = new List<DichVuCongTy>
+                    {
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Thương hiệu đảm bảo",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy3.svg?w=64&q=100",
+                            MoTa = "Nhập khẩu, bảo hành chính hãng",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Đổi trả dễ dàng",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy1.svg?w=64&q=100",
+                            MoTa = "Theo chính sách đổi trả tại TechLand",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Sản phẩm chất lượng",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy4.svg?w=64&q=100",
+                            MoTa = "Đảm bảo tương thích và độ bền cao",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Giao hàng tận nơi",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy2.svg?w=64&q=100",
+                            MoTa = "Giao tới tận tay khách hàng",
+                            TrangThai = 1
+                        }
+                    };
+                        _db.DichVuCongTy.AddRange(dichvucongtys);
+                        _db.SaveChanges();
+                }    
+
+                //SeedData Footer
+                if(!_db.Footer.Any())
+                {
+                    var footers = new List<Footer>
+                    {
+                        new Footer
+                        {
+                            TieuDe = "Thông tin Website",
+                            MoTa = "Website của chúng tôi cung cấp các sản phẩm điện tử chất lượng cao và dịch vụ tận tâm.",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            TieuDe = "Mô tả",
+                            MoTa = "Chúng tôi cung cấp những sản phẩm công nghệ mới nhất, chất lượng và giá cả hợp lý.",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            TieuDe = "Địa chỉ",
+                            MoTa = "60 Huỳnh Thúc Kháng, Quận 1,TP.HCM",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            HinhAnh = "/image/logo.png",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            DuongLienKet = "https://www.facebook.com/profile.php?id=100054621452716",
+                            HinhAnh = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png",
+                            TrangThaiHienThi = 1
+                            
+                        }
+
+
+                    };
+                    _db.Footer.AddRange(footers);
+                    _db.SaveChanges();
+                }    
+                }  
+                
             }
 
 
