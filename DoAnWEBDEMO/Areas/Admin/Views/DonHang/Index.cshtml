@@ -2,11 +2,10 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var selectedTrangThai = ViewData["TrangThai"] as int?;
 }
 
-
-<h2>Quản lý đơn hàng</h2>
+<h2 class="text-center my-4 font-weight-bold">QUẢN LÝ ĐƠN HÀNG</h2>
 
 @if (TempData["Success"] != null)
 {
@@ -16,8 +15,25 @@
 {
     <div class="alert alert-danger">@TempData["Error"]</div>
 }
+<div class="d-flex align-items-center justify-content-between mb-3">
+    <form method="get" action="@Url.Action("Index")" class="d-flex align-items-center">
+        <div class="form-group mb-0 mr-3">
+            <select name="trangThai" id="trangThai" class="form-control form-control-sm">
+                <option value="">Tất cả</option>
+                <option value="1" @(selectedTrangThai == 1 ? "selected" : "")>Đang xử lý</option>
+                <option value="2" @(selectedTrangThai == 2 ? "selected" : "")>Đang giao</option>
+                <option value="3" @(selectedTrangThai == 3 ? "selected" : "")>Đã hủy</option>
+                <option value="4" @(selectedTrangThai == 4 ? "selected" : "")>Giao hàng thành công</option>
+                <option value="5" @(selectedTrangThai == 5 ? "selected" : "")>Giao hàng thất bại</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-dark btn-sm ml-3">Lọc</button>
+    </form>
 
-
+    <a href="@Url.Action("DonHangDaXoa", "DonHang", new { area = "Admin" })" class="btn btn-danger btn-sm">
+        <i class="bi bi-clock-history"></i> Lịch sử
+    </a>
+</div>
 
 <table class="table table-hover">
     <thead class="table-dark">
@@ -26,6 +42,7 @@
             <th>Khách hàng</th>
             <th>Ngày đặt</th>
             <th>Trạng thái</th>
+            <th class="text-center">Sản phẩm</th>
             <th>Thao tác</th>
         </tr>
     </thead>
@@ -34,32 +51,139 @@
         {
             <tr>
                 <td>@donHang.MaDH</td>
-                <td>@donHang.KhachHang.HoKH @donHang.KhachHang.TenKH</td>
-                <td>@donHang.NgayDatHang</td>
+                <td>@donHang.KhachHang.HoKH @donHang.KhachHang.TenKH</td>               
+                <td>@donHang.NgayDatHang?.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <select id="status-@donHang.MaDH" class="form-select form-select-sm" aria-label=".form-select-sm example" 
-                    onchange="updateStatus(@donHang.MaDH, this.value)">
+                    <select id="status-@donHang.MaDH" class="form-select form-select-sm"
+                    @(donHang.TrangThai == 3 || donHang.TrangThai == 4 || donHang.TrangThai == 5 || donHang.TrangThai == 6 ? "disabled" : "")
+                            onchange="updateStatus(@donHang.MaDH, this.value)">
                         <option value="1" @(donHang.TrangThai == 1 ? "selected" : "")>Đang xử lý</option>
                         <option value="2" @(donHang.TrangThai == 2 ? "selected" : "")>Đang giao</option>
                         <option value="3" @(donHang.TrangThai == 3 ? "selected" : "")>Hủy đơn hàng</option>
                         <option value="4" @(donHang.TrangThai == 4 ? "selected" : "")>Giao hàng thành công</option>
                         <option value="5" @(donHang.TrangThai == 5 ? "selected" : "")>Giao hàng thất bại</option>
+                        <option value="6" @(donHang.TrangThai == 6 ? "selected" : "")>Đã xóa</option>
                     </select>
                 </td>
+                <td class="text-center" style="width: 300px;">
+                    <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modal-@donHang.MaDH">
+                        Xem chi tiết
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-@donHang.MaDH" tabindex="-1" aria-labelledby="modalLabel-@donHang.MaDH" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-@donHang.MaDH">Chi tiết đơn hàng</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-sm table-bordered table-striped">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th style="width: 150px;">Tên sản phẩm</th>
+                                                <th style="width: 50px; text-align: center;">SL</th>
+                                                <th style="width: 80px; text-align: center;">Đơn giá</th>
+                                                <th style="width: 80px; text-align: center;">Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                decimal totalAmount = 0;
+                                            }
+                                            @foreach (var chiTiet in donHang.ChiTietDonHangs)
+                                            {
+                                                decimal productTotal = chiTiet.SOLUONG * chiTiet.SanPham.Gia;
+                                                totalAmount += productTotal;
+                                                <tr>
+                                                    <td>@chiTiet.SanPham.TEN_SP</td>
+                                                    <td style="text-align: center;">@chiTiet.SOLUONG</td>
+                                                    <td style="text-align: right;">@string.Format("{0:N0}₫", chiTiet.SanPham.Gia)</td>
+                                                    <td style="text-align: right;">@string.Format("{0:N0}₫", productTotal)</td> <!-- Hiển thị tổng tiền của sản phẩm -->
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div class="mt-3 text-end">
+                                        <strong>Tổng tiền: </strong> @string.Format("{0:N0}₫", totalAmount) <!-- Hiển thị tổng tiền của đơn hàng -->
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
                 <td>
-                    <button class="btn btn-outline-dark btn-sm" onclick="capNhatDonHang(@donHang.MaDH, $('#status-@donHang.MaDH').val())">
+                    <button class="btn btn-outline-dark btn-sm"
+                            onclick="capNhatDonHang(@donHang.MaDH, $('#status-@donHang.MaDH').val())"
+                    @(donHang.TrangThai == 3 || donHang.TrangThai == 4 || donHang.TrangThai == 5 || donHang.TrangThai == 6 ? "disabled" : "")>
                         <i class="bi bi-save"></i> Lưu
                     </button>
-                    <button class="btn btn-danger btn-sm" onclick="deleteOrder(@donHang.MaDH)">
-                        <i class="bi bi-trash"></i> Xóa
-                    </button>
+                    @if (donHang.TrangThai == 3) // Chỉ hiển thị nút xóa khi trạng thái là "Hủy đơn hàng"
+                    {
+                        <button class="btn btn-danger btn-sm" onclick="deleteOrder(@donHang.MaDH)">
+                            <i class="bi bi-trash"></i> Xóa
+                        </button>
+                    }
                 </td>
+
             </tr>
         }
     </tbody>
 </table>
+<!-- Phân trang -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <!-- Prev Button -->
+        @if (ViewData["CurrentPage"] != null && (int)ViewData["CurrentPage"] > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = (int)ViewData["CurrentPage"] - 1 })" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&laquo;</span>
+            </li>
+        }
+
+        <!-- Page Numbers -->
+        @for (int i = 1; i <= (int)ViewData["TotalPages"]; i++)
+        {
+            <li class="page-item @(i == (int)ViewData["CurrentPage"] ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+            </li>
+        }
+
+        <!-- Next Button -->
+        @if (ViewData["CurrentPage"] != null && (int)ViewData["CurrentPage"] < (int)ViewData["TotalPages"])
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", new { page = (int)ViewData["CurrentPage"] + 1 })" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <span class="page-link" aria-hidden="true">&raquo;</span>
+            </li>
+        }
+    </ul>
+</nav>
+
+
 <a href="@Url.Action("Index", "DonHang", new { area = "" })" class="btn btn-primary">
     <i class="bi bi-arrow-left"></i> Quay lại trang Đơn hàng
+</a>
+<a href="@Url.Action("SanPhamBanChay", "ThongKe", new { area = "Admin" })" class="btn btn-primary">
+    Thống kê lượt mua
 </a>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -67,6 +191,13 @@
     function capNhatDonHang(maDH) {
         // Lấy giá trị trạng thái từ dropdown
         var trangThai = $("#status-" + maDH).val();
+
+        // Hiển thị hộp thoại xác nhận
+        var confirmUpdate = confirm("Bạn có chắc chắn muốn cập nhật trạng thái đơn hàng này không?");
+        if (!confirmUpdate) {
+            location.reload();
+            return; 
+        }
 
         // Gửi AJAX request
         $.ajax({
@@ -79,7 +210,7 @@
             success: function (response) {
                 if (response.success) {
                     alert("Cập nhật trạng thái thành công!");
-                    location.reload(); // Reload lại trang để cập nhật
+                    location.reload(); 
                 } else {
                     alert("Cập nhật thất bại: " + response.message);
                 }
@@ -89,7 +220,34 @@
             }
         });
     }
+
+
+    function deleteOrder(maDH) {
+        if (confirm("Bạn chắc chắn muốn xóa đơn hàng này?")) {
+            $.ajax({
+                url: '/Admin/DonHang/XoaDonHang',
+                type: 'POST',
+                data: { maDH: maDH },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        // Cập nhật trạng thái của đơn hàng trong giao diện mà không reload lại trang
+                        $('#order-' + maDH).remove(); // Giả sử mỗi đơn hàng có ID 'order-<maDH>'
+                            location.reload();
+                    } else {
+                        alert("Không thể xóa đơn hàng này: " + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert("Có lỗi xảy ra: " + error);
+                }
+            });
+        }
+    }
+
 </script>
+
+
 
 
 

@@ -1,0 +1,174 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ASP.NET CORE\\DoAnWebTong\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\controllers\\sanphamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\views\\sanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\areas\\admin\\views\\thongke\\sanphambanchay.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\areas\\admin\\views\\thongke\\sanphambanchay.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\areas\\admin\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\areas\\admin\\controllers\\thongkecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\viewmodels\\thongkesanphamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\viewmodels\\thongkesanphamviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\areas\\admin\\controllers\\donhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\areas\\admin\\views\\thongke\\thongkeluotmua.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\areas\\admin\\views\\thongke\\thongkeluotmua.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SanPhamController.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAowIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-14T06:14:17.598Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Program.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Program.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Program.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADgAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T17:16:59.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-16T17:15:20.028Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-16T17:15:19.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DonHangController.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Controllers\\DonHangController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-16T16:52:38.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SanPhamBanChay.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\SanPhamBanChay.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\SanPhamBanChay.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\SanPhamBanChay.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\SanPhamBanChay.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwDIAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-15T08:36:53.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ThongKeLuotMua.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\ThongKeLuotMua.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\ThongKeLuotMua.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\ThongKeLuotMua.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Views\\ThongKe\\ThongKeLuotMua.cshtml",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAYwFsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-12T09:03:46.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ThongKeSanPhamViewModel.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\ViewModels\\ThongKeSanPhamViewModel.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\ViewModels\\ThongKeSanPhamViewModel.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\ViewModels\\ThongKeSanPhamViewModel.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\ViewModels\\ThongKeSanPhamViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-15T08:35:35.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ThongKeController.cs",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Controllers\\ThongKeController.cs",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Controllers\\ThongKeController.cs",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Controllers\\ThongKeController.cs",
+              "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Controllers\\ThongKeController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T08:57:27.244Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

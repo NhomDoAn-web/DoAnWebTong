@@ -1,0 +1,94 @@
+﻿@model IEnumerable<DoAnWEBDEMO.Models.DonHang> 
+
+<h2 class="text-center my-4 font-weight-bold">LỊCH SỬ</h2>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Khách hàng</th>
+            <th>Ngày đặt hàng</th>
+            <th>Trạng thái</th>
+            <th>Chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donHang in Model)
+        {
+            <tr>
+                <td>@donHang.MaDH</td>
+                <td>@donHang.KhachHang.HoKH @donHang.KhachHang.TenKH</td>
+                <td>@donHang.NgayDatHang?.ToString("dd/MM/yyyy")</td>
+                <td>Đã xóa</td>
+                <td>
+                    <button class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#modal-@donHang.MaDH">
+                         Xem chi tiết
+                    </button>
+
+                    <!-- Modal hiển thị chi tiết sản phẩm -->
+                    <div class="modal fade" id="modal-@donHang.MaDH" tabindex="-1" aria-labelledby="modalLabel-@donHang.MaDH" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-@donHang.MaDH">Chi tiết đơn hàng</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var chiTiet in donHang.ChiTietDonHangs)
+                                            {
+                                                <tr>
+                                                    <td>@chiTiet.SanPham.TEN_SP</td>
+                                                    <td>@chiTiet.SOLUONG</td>
+                                                    <td>@string.Format("{0:N0}₫", chiTiet.SanPham.Gia)</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pagination-container text-center mt-4">
+    <nav aria-label="Pagination">
+        <ul class="pagination justify-content-center">
+            @if ((int)ViewBag.Page > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("DonHangDaXoa", new { page = (int)ViewBag.Page - 1, pageSize = ViewBag.PageSize })" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Trước</span>
+                    </a>
+                </li>
+            }
+            @for (int i = 1; i <= (int)ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == (int)ViewBag.Page ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("DonHangDaXoa", new { page = i, pageSize = ViewBag.PageSize })">@i</a>
+                </li>
+            }
+            @if ((int)ViewBag.Page < (int)ViewBag.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@Url.Action("DonHangDaXoa", new { page = (int)ViewBag.Page + 1, pageSize = ViewBag.PageSize })" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Tiếp</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+

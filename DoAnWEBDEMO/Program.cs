@@ -23,7 +23,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDb>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
 var app = builder.Build();
 
 app.UseSession();
@@ -51,6 +50,11 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}"
     );
 });
+
+app.MapControllerRoute(
+    name: "Details",
+    pattern: "san-pham/{slug}",
+    defaults: new { controller = "SanPham", action = "Details" });
 
 
 app.MapControllerRoute(

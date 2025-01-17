@@ -3,6 +3,7 @@ using DoAnWEBDEMO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace DoAnWEBDEMO.Controllers
 {
@@ -46,18 +47,20 @@ namespace DoAnWEBDEMO.Controllers
             return null;
         }
 
-        public IActionResult Details(int maSP)
+        [HttpGet("san-pham/{slug}")]
+        public IActionResult Details(string slug)
         {
             var userId = GetLoggedInKhachHangId();
 
+            // Truy vấn sản phẩm theo slug
             var sanPham = _context.SanPham
                 .Include(sp => sp.DanhMuc)
                 .Include(sp => sp.NhaCungCap)
                 .Include(sp => sp.ChiTietBinhLuans)
-                    .ThenInclude(cl => cl.KhachHang) // Bao gồm thông tin khách hàng (giả sử có bảng KhachHang)
-                .Include(sp => sp.MauSacs) // Bao gồm danh sách màu sắc của sản phẩm
+                    .ThenInclude(cl => cl.KhachHang)
+                .Include(sp => sp.MauSacs)
                 .Include(p => p.SanPhamYeuThichs)
-                .FirstOrDefault(sp => sp.MaSP == maSP);
+                .FirstOrDefault(sp => sp.Slug == slug); // Tìm theo slug thay vì maSP
 
             if (sanPham == null)
             {
@@ -67,38 +70,31 @@ namespace DoAnWEBDEMO.Controllers
             // Kiểm tra trạng thái đơn hàng
             bool donHang = _context.ChiTietDonHang
                 .Include(ct => ct.DonHang)
-                .Any(ct => ct.MA_SP == maSP && ct.DonHang.MaKH == userId && ct.DonHang.TrangThai == 3);
+                .Any(ct => ct.MA_SP == sanPham.MaSP && ct.DonHang.MaKH == userId && ct.DonHang.TrangThai == 4);
 
-            // Lấy ảnh của màu đầu tiên (nếu có) từ bảng MauSac
             var anhDauTien = sanPham.MauSacs.FirstOrDefault()?.HinhAnhSP_MauSac;
 
-            // Lấy danh sách sản phẩm nổi bật (giả sử các sản phẩm nổi bật có TrangThai = 1)
-            var sanPhamNoiBat = _context.SanPham
-                                        .Where(s => s.TrangThai == 1 && s.MaSP != maSP)
-                                        .OrderByDescending(s => s.Gia)
-                                        .Take(4) // Lấy 4 sản phẩm
-                                        .ToList();
+            var sanPhamLienQuan = _context.SanPham
+                                          .Where(s => s.TrangThai == 1 && s.MaSP != sanPham.MaSP && s.MaDanhMuc == sanPham.MaDanhMuc)
+                                          .OrderByDescending(s => s.Gia)
+                                          .Take(4)
+                                          .ToList();
+            ViewBag.SanPhamLienQuan = sanPhamLienQuan;
 
-            // Kiểm tra trạng thái đăng nhập
             bool trangThaiDangNhap = userId != null;
-
             ViewBag.TrangThaiDangNhap = trangThaiDangNhap;
 
             var sanPhamYeuThich = _context.SanPhamYeuThich
-                                  .Any(x => x.KhachHangId == userId && x.SanPhamId == maSP);
+                                  .Any(x => x.KhachHangId == userId && x.SanPhamId == sanPham.MaSP);
+            ViewBag.IsFavorite = sanPhamYeuThich;
 
-            // Tính trung bình số sao
             var trungBinhSoSao = sanPham.ChiTietBinhLuans?.Average(bl => bl.SO_SAO) ?? 0;
+            var soLuotYeuThich = _context.SanPhamYeuThich.Count(sp => sp.SanPhamId == sanPham.MaSP);
 
-            // Lấy số lượt yêu thích
-            var soLuotYeuThich = _context.SanPhamYeuThich.Count(sp => sp.SanPhamId == maSP);
-
-            // Gửi sản phẩm và trung bình sao vào View
             ViewBag.TrungBinhSoSao = trungBinhSoSao;
-            ViewBag.SanPhamNoiBat = sanPhamNoiBat;
             ViewBag.AnhDauTien = anhDauTien;
             ViewBag.SoLuotYeuThich = soLuotYeuThich;
-            ViewBag.IsFavorite = sanPhamYeuThich;
+
             ViewBag.KiemTraTrangThaiDH = donHang;
 
             // Tăng lượt xem sản phẩm
@@ -110,17 +106,12 @@ namespace DoAnWEBDEMO.Controllers
             return View(sanPham);
         }
 
+
         [HttpPost]
         public IActionResult BinhLuan(int maSP, string NoiDung, int Rating)
         {
             var userId = GetLoggedInKhachHangId();
             ViewBag.UserID = userId;
-
-            //if (userId == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
-
             // Thêm bình luận mới
             var binhLuan = new ChiTietBinhLuan
             {
@@ -136,6 +127,33 @@ namespace DoAnWEBDEMO.Controllers
 
             TempData["Success"] = "Bình luận của bạn đã được gửi.";
             return RedirectToAction("Details", new { MaSP = maSP });
+        }
+
+        [HttpGet]
+        public JsonResult GetProductStock(int idMauSac)
+        {
+            // Lấy số lượng tồn từ cơ sở dữ liệu dựa trên ID_MauSac
+            var stock = _context.MauSac
+                                .Where(ms => ms.ID_MauSac == idMauSac)
+                                .Select(ms => ms.SoLuongTon_MS)
+                                .FirstOrDefault();
+
+            return Json(new { success = true, stock = stock });
+        }
+
+        public string CreateSlug(string title)
+        {
+            if (string.IsNullOrEmpty(title)) return string.Empty;
+
+            // Chuyển thành chữ thường
+            title = title.ToLower();
+
+            // Thay thế các ký tự đặc biệt và khoảng trắng bằng dấu gạch ngang
+            title = Regex.Replace(title, @"[^a-z0-9\s-]", "");
+            title = Regex.Replace(title, @"\s+", " ").Trim();
+            title = title.Replace(" ", "-");
+
+            return title;
         }
 
     }

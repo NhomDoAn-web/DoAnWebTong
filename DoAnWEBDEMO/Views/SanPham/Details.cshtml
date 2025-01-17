@@ -3,17 +3,15 @@
 @{
     ViewData["Title"] = "Chi tiết sản phẩm";
 }
-
 @section CSS
 {
     <link rel="stylesheet" href="~/css/Details.css" asp-append-version="true" />
 }
-
-
 <div class="container product-detail">
     <div class="row">
         <!-- Phần ảnh sản phẩm -->
         <div class="col-md-6">
+            <!-- Phần ảnh sản phẩm -->
             <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <!-- Phần hiển thị ảnh sản phẩm -->
@@ -28,7 +26,6 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
             </div>
-
             <!-- Phần đánh giá -->
             <div class="reviews mt-5">
                 <h3 class="text-center mb-4">ĐÁNH GIÁ SẢN PHẨM</h3>
@@ -80,7 +77,6 @@
                             <button type="submit" class="btn btn-primary mt-3">Gửi đánh giá</button>
                         </div>
                     </form>
-
                     <script>
                         function validateRating() {
                             // Kiểm tra xem có radio nào được chọn hay chưa
@@ -101,7 +97,6 @@
                 }
             </div>
         </div> 
-
         <!-- Phần thông tin sản phẩm -->
         <div class="col-md-6">
             <h1>@Model.TEN_SP</h1>
@@ -125,7 +120,6 @@
                         }
                     }
                 </span>
-
                 <!-- Hiển thị giá trị trung bình số sao -->
                 <span id="average-rating">
                     @if (ViewBag.TrungBinhSoSao != null)
@@ -135,7 +129,6 @@
                     }
                 </span>
             </div>
-
             <div class="actions mt-4">
                 <!-- Điều chỉnh số lượng -->
                 <div class="d-flex align-items-center mb-3">
@@ -143,12 +136,11 @@
                     <input type="number" id="quantity" name="quantity" value="1" min="1" max=""
                            class="form-control form-control-sm text-center w-auto" style="max-width: 80px;">
                 </div>
-
                 <!-- Chọn màu sản phẩm -->
                 <div class="d-flex align-items-center mb-3">
                     <label for="color" style="font-weight: 600;" class="me-2">Chọn màu:</label>
                     <div id="color-selection" class="d-flex flex-wrap">
-                        @foreach (var color in Model.MauSacs)
+@*                         @foreach (var color in Model.MauSacs)
                         {
                             var isDisabled = color.SoLuongTon_MS == 0; // Kiểm tra số lượng tồn
 
@@ -161,7 +153,35 @@
                                 <!-- Hình ảnh màu -->
                                 <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px; margin-right: 10px;">
                                 <!-- Tên màu và số lượng -->
-                                <span class="color-name" style="white-space: nowrap;">
+                                <span id="productQuantity" class="color-name" style="white-space: nowrap;">
+                                    @color.TenMauSac
+                                    @if (isDisabled)
+                                    {
+                                        <span class="text-danger">(Hết hàng)</span>
+                                    }
+                                    else
+                                    {
+                                        <span>(@color.SoLuongTon_MS)</span>
+                                    }
+                                </span>
+                            </div>
+                        } *@
+
+                        @* Hiển thị số lượng sản phẩm realtime *@
+                        @foreach (var color in Model.MauSacs)
+                        {
+                            var isDisabled = color.SoLuongTon_MS == 0; // Kiểm tra số lượng tồn
+
+                            <div class="color-option d-flex align-items-center "
+                                 data-color="@color.TenMauSac"
+                                 data-image="@color.HinhAnhSP_MauSac"
+                                 data-id="@color.ID_MauSac"
+                                 style="padding: 5px 10px; margin: 0 10px; cursor: pointer; border-radius: 4px;"
+                                 onclick="selectColor(this)">
+                                <!-- Hình ảnh màu -->
+                                <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px; margin-right: 10px;">
+                                <!-- Tên màu và số lượng -->
+                                <span id="productQuantity" class="color-name" style="white-space: nowrap;">
                                     @color.TenMauSac
                                     @if (isDisabled)
                                     {
@@ -174,18 +194,17 @@
                                 </span>
                             </div>
                         }
+
                     </div>
                     <!-- Input ẩn để lưu id_mausac -->
                     <input type="hidden" id="mau" name="mau" value="">
                 </div>
-
                 <!-- Thêm CSS cho disabled trạng thái -->
                 <style>
                     .disabled {
                         opacity: 0.5;
                     }
                 </style>
-
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         // Tự động chọn màu đầu tiên khi trang tải
@@ -218,18 +237,15 @@
                         document.getElementById('mau').value = colorId;
                     }
                 </script>
-
                 <button onclick="ThemVaoGioHang(@Model.MaSP)" class="btn btn-outline-danger btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect">
                     <i class="bi bi-cart-plus"></i>
                 </button>
-
                 @if (ViewBag.TrangThaiDangNhap)
                 {
                     <button class="btn btn-dark btn-lg px-4 py-2 rounded-3 shadow-sm hover-effect" onclick="addToWishlist(@Model.MaSP)">
                         <i class="@(ViewBag.IsFavorite ? "bi bi-heart-fill" : "bi bi-heart") me-2" id="heart-icon-@Model.MaSP"></i>
                     </button>
                 }
-
                 <div class="d-flex align-items-center mt-3" style="font-weight: 600;">
                     <div class="me-4 d-flex align-items-center">
                         <i class="bi bi-eye me-2"></i>
@@ -241,7 +257,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Bảng thông số kỹ thuật -->
             <div class="technical-details mt-5">
                 <h3 class="text-center mb-4">Thông Số Kỹ Thuật</h3>
@@ -306,77 +321,75 @@
                     </table>
                 </div>                
             </div>
-
         </div>
-
-        <!-- Các sản phẩm nổi bật -->
-        <div class="featured-products mt-5 mb-5">
+        <!-- Các sản phẩm liên quan -->
+        <div class="related-products mt-5 mb-5">
             <h3 class="mb-3">SẢN PHẨM LIÊN QUAN</h3>
             <div class="row">
-                @if (ViewBag.SanPhamNoiBat != null)
+                @if (ViewBag.SanPhamLienQuan != null && ViewBag.SanPhamLienQuan.Count > 0)
                 {
-                    foreach (var product in ViewBag.SanPhamNoiBat)
+                    foreach (var product in ViewBag.SanPhamLienQuan)
                     {
                         <div class="col-md-3">
                             <div class="card">
                                 <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
-                                    <img src="@Url.Content("~/image/" + product.HinhAnhSP)" class="card-img-top p-3" style="max-height: 250px; object-fit: contain;" alt="@product.TEN_SP">
+                                    <img src="@Url.Content("~/image/" + product.HinhAnhSP)"
+                                         class="card-img-top p-3"
+                                         style="max-height: 250px; object-fit: contain;"
+                                         alt="@product.TEN_SP">
                                 </a>
                                 <div class="card-body d-flex flex-column justify-content-between">
                                     <h5 class="card-title">
-                                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" style="text-decoration: none; color: black;">
+                                        <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                           style="text-decoration: none; color: black;">
                                             @product.TEN_SP
                                         </a>
                                     </h5>
                                     <p class="card-text text-muted" style="font-size: 0.9rem;">
                                         @if (!string.IsNullOrEmpty(product.MoTa) && product.MoTa.Length > 100)
                                         {
-                                            @(@product.MoTa.Substring(0, 110) + "...");
-                                            <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })" 
-                                            style="color : black; font-weight: 600;">Xem chi tiết</a>
+                                            @(@product.MoTa.Substring(0, 110) + "...")
+                                            <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })"
+                                               style="color: black; font-weight: 600;">Xem chi tiết</a>
                                         }
                                         else
                                         {
                                             @product.MoTa
                                         }
                                     </p>
-                                    <p class="card-text"><strong>Giá: </strong>
+                                    <p class="card-text">
+                                        <strong>Giá: </strong>
                                         <span id="product-price" class="badge bg-danger text-white fs-7 p-2 rounded-3">
                                             @product.Gia.ToString("N0") đ
                                         </span>
-                                    </p>         
+                                    </p>
                                     <!-- Nút căn giữa -->
                                     <div class="text-center mt-auto d-flex justify-content-center">
                                         <!-- Nút Thêm vào giỏ hàng -->
                                         <button class="btn btn-outline-danger px-4 py-2 rounded-3 shadow-sm hover-effect me-3">
                                             <i class="bi bi-cart-plus"></i>
                                         </button>
-
                                         <!-- Nút Thêm yêu thích -->
                                         <button class="btn btn-dark px-4 py-2 rounded-3 shadow-sm hover-effect">
                                             <i class="bi bi-heart"></i>
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
                     }
                 }
                 else
                 {
-                    <p>Không có sản phẩm nổi bật để hiển thị.</p>
+                    <p>Không có sản phẩm liên quan để hiển thị.</p>
                 }
             </div>
         </div>
     </div>
-
 </div>
 
 @section Scripts
 {
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function addToWishlist(productId) {
@@ -410,8 +423,7 @@
             });
         }
 
-
-            function ThemVaoGioHang(maSP) {
+        function ThemVaoGioHang(maSP) {
             // Lấy giá trị số lượng từ ô nhập
             const soLuong = document.getElementById('quantity').value;
             const mau = document.getElementById('mau').value;
@@ -434,6 +446,40 @@
                 }
             });
         }
+
+        // Hiển thị số lượng sản phẩm realtime
+        function updateStockRealTime() {
+            $(".color-option").each(function () {
+                const colorElement = $(this); // Lấy từng phần tử
+                const colorId = colorElement.data("id"); // Lấy ID_MauSac từ data-id
+                $.ajax({
+                    url: `/SanPham/GetProductStock`, 
+                    type: "GET",
+                    data: { idMauSac: colorId }, 
+                    success: function (response) {
+                        if (response.success) {
+                            const newStock = response.stock;
+                            // Cập nhật giao diện số lượng tồn
+                            const quantitySpan = colorElement.find("#productQuantity span");
+                            if (newStock === 0) {
+                                colorElement.addClass("disabled"); 
+                                quantitySpan.html(`<span class="text-danger" style="white-space: nowrap;">Hết hàng</span>`);
+                            } else {
+                                colorElement.removeClass("disabled"); 
+                                quantitySpan.text(newStock);
+                            }
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Không thể lấy số lượng tồn:", error);
+                    }
+                });
+            });
+        }
+        // Gọi hàm này lặp lại mỗi 2 giây để cập nhật số lượng
+        setInterval(updateStockRealTime, 2000);
+
+
     </script>
 
 }

@@ -16,7 +16,7 @@
             <th>Danh mục</th>
             <th>Nhà cung cấp</th>
             <th>Giá</th>
-            <th>Trạng thái</th>
+            <th>Trạng thái</th> 
         </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@
         {
             <tr>
                 <td><img src="@item.HinhAnhSP" alt="@item.TEN_SP" style="width: 100px; height: auto;" /></td>
-            <td><a href="@Url.Action("Details", "SanPham", new { maSP = item.MaSP })">@item.TEN_SP</a></td>
+                <td><a href="@Url.Action("Details", "SanPham", new { slug = item.Slug })">@item.TEN_SP</a></td>
                 <td>@item.DanhMuc?.TenDM</td>
                 <td>@item.NhaCungCap?.TenNCC</td>
                 <td>299.000 VNĐ</td>

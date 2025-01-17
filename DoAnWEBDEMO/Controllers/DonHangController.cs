@@ -59,7 +59,7 @@ namespace DoAnWEBDEMO.Controllers
                 .Include(d => d.NhanVien)
                 .Include(d => d.ChiTietDonHangs) // Bao gồm ChiTietDonHangs
                     .ThenInclude(c => c.SanPham)  // Bao gồm sản phẩm liên quan đến chi tiết đơn hàng
-                .Where(d => d.MaKH == khachHangId.Value)
+                .Where(d => d.MaKH == khachHangId.Value && d.TrangThai != 6)
                 .ToListAsync();
 
             return View(donHangs);

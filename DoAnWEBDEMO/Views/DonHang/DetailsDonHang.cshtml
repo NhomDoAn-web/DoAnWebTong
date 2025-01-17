@@ -26,7 +26,7 @@
                 <div class="card-body">
                     <p>
                         <strong>Ngày Đặt Hàng:</strong>
-                        @if (DateTime.TryParse(Model.NgayDatHang?.ToString(), out DateTime date))
+                        @if (DateTime.TryParse(Model.NgayDatHang.ToString(), out DateTime date))
                         {
                             @date.ToString("dd/MM/yyyy")
                         }

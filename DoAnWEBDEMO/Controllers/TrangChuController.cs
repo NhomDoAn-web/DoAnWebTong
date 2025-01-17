@@ -153,38 +153,28 @@ namespace DoAnWEBDEMO.Controllers
         [HttpPost]
         public IActionResult ThemSanPhamYeuThich(int productId)
         {
-            var userId = GetLoggedInKhachHangId(); // Lấy ID của khách hàng đã đăng nhập
+            var userId = GetLoggedInKhachHangId(); 
 
             if (userId == null)
             {
                 return Json(new { success = false, message = "Bạn cần đăng nhập để thêm vào danh sách yêu thích." });
             }
-
-            // Kiểm tra sự tồn tại của sản phẩm trong danh sách yêu thích
             var existingItem = _context.SanPhamYeuThich 
                 .FirstOrDefault(x => x.KhachHangId == userId && x.SanPhamId == productId);
 
             if (existingItem != null)
             {
-                // Nếu sản phẩm đã có trong danh sách yêu thích, xóa sản phẩm khỏi danh sách yêu thích
                 _context.SanPhamYeuThich.Remove(existingItem);
                 _context.SaveChanges();
-
-                // Trả về số lượt yêu thích mới và trạng thái sản phẩm đã bị xóa
                 return Json(new { success = true, message = "Sản phẩm đã được xóa khỏi danh sách yêu thích.", newLikeCount = GetLikeCount(productId), isAdded = false });
             }
-
-            // Nếu sản phẩm chưa có trong danh sách yêu thích, thêm sản phẩm vào danh sách yêu thích
             var newWishlistItem = new SanPhamYeuThich
             {
                 KhachHangId = userId.Value,
                 SanPhamId = productId
             };
-
             _context.SanPhamYeuThich.Add(newWishlistItem);
             _context.SaveChanges();
-
-            // Trả về số lượt yêu thích mới và trạng thái sản phẩm đã được thêm
             return Json(new { success = true, message = "Sản phẩm đã được thêm vào danh sách yêu thích!", newLikeCount = GetLikeCount(productId), isAdded = true });
         }
 

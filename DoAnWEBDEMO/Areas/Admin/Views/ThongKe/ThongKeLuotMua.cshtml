@@ -1,0 +1,169 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Thống Kê Lượt Mua";
+}
+
+<h2 class="text-center">THỐNG KÊ LƯỢT MUA</h2>
+
+<div class="text-center mb-4">
+    <button onclick="loadThongKe('ngay')" class="btn btn-primary me-2">Theo Ngày</button>
+    <button onclick="loadThongKe('thang')" class="btn btn-primary me-2">Theo Tháng</button>
+    <button onclick="loadThongKe('nam')" class="btn btn-primary">Theo Năm</button>
+</div>
+
+<div class=" mt-4">
+    <div class="row">
+        <!-- Danh sách -->
+        <h3 class="text-center">Danh sách sản phẩm và lượt mua</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 10px auto;" border="1">
+            <thead>
+                <tr style="background-color: #f4f4f4; text-align: left;">
+                    <th style="padding: 8px;">Tên sản phẩm</th>
+                    <th style="padding: 8px;">Màu sắc</th>
+                    <th style="padding: 8px;">Số lượng mua</th>
+                    <th style="padding: 8px;">Số lượt mua</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.DanhSach)
+                {
+                    <tr>
+                        <td style="padding: 8px;">@item.TenSanPham</td>
+                        <td style="padding: 8px;">@item.MauSac</td>
+                        <td style="padding: 8px; text-align: right;">@item.TongSoLuongMua</td>
+                        <td style="padding: 8px; text-align: right;">@item.TongSoDonHang</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <!-- Phân trang -->
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    @if (ViewBag.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage - 1, pageSize = ViewBag.PageSize })">Trang trước</a>
+                        </li>
+                    }
+
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        if (i == ViewBag.CurrentPage)
+                        {
+                            <li class="page-item active">
+                                <span class="page-link">@i</span>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = i, pageSize = ViewBag.PageSize })">@i</a>
+                            </li>
+                        }
+                    }
+
+                    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage + 1, pageSize = ViewBag.PageSize })">Trang sau</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Biểu đồ -->
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            @* <h3 class="text-center">Danh sách sản phẩm và lượt mua</h3> *@
+            <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            var thongKeForChart = @Html.Raw(Json.Serialize(ViewBag.ThongKeForChart));
+
+            var labels = thongKeForChart.map(function (x) { return x.tenSanPham; });
+            var data = thongKeForChart.map(function (x) { return x.tongSoDonHang; });
+
+            var backgroundColors = [
+                'rgba(255, 99, 132, 0.6)', 
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)'
+            ];
+
+            var borderColors = [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ];
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Số Lượng Đơn Hàng',
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: borderColors,
+                        borderWidth: 1,
+                        hoverBackgroundColor: 'rgba(54, 162, 235, 0.8)',  
+                        hoverBorderColor: 'rgba(54, 162, 235, 1)', 
+                    }]
+                },
+                options: {
+                    responsive: true, 
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 10,  
+                            }
+                        }
+                    },
+                    indexAxis: 'x',
+                    elements: {
+                        bar: {
+                            barThickness: 20,  
+                            borderRadius: 5,   
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',  
+                            labels: {
+                                font: {
+                                    size: 14  
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0,0,0,0.7)', 
+                            titleColor: '#fff', 
+                            bodyColor: '#fff',   
+                            borderColor: '#ddd',
+                            borderWidth: 1,     
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' đơn hàng';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+
+    </div>
+</div>
