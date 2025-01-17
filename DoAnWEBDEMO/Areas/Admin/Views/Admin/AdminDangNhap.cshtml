@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f8;
+            height: 100vh;
+        }
+
+        .login-card {
+            width: 500px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: url('https://via.placeholder.com/600x150') no-repeat center center;
+            background-size: cover;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .login-header h2 {
+                color: white;
+                font-weight: bold;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+            }
+
+        .login-body {
+            padding: 30px;
+            height: 300px;
+        }
+
+        .btn-login {
+            background-color: #28a745;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .btn-login:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="login-card">
+            <div class="login-header bg-dark">
+                <h2>SIGN IN</h2>
+            </div>
+            <div class="login-body">
+                <form method="POST" action="/Admin/Admin/AdminDangNhap">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Tên đăng nhập</label>
+                        <input type="text" name="user" id="username" class="form-control" placeholder="Enter username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input type="password" name="pass" id="password" class="form-control" placeholder="Enter password">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn-login">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
