@@ -1,4 +1,4 @@
-﻿
+
 const openModalBtn = document.getElementById('openLoginModal');
 const closeModalBtn = document.getElementById('closeLoginModal');
 const modal = document.getElementById('loginModal');
@@ -27,6 +27,7 @@ if (checkDangNhap)
 if (openModalBtn) {
     openModalBtn.addEventListener('click', () => {
         modal.classList.add('show');
+        hienThiCaptcha();
     });
 }
 
@@ -36,8 +37,6 @@ if (closeModalBtn) {
         taiKhoanKhachHang.value = matKhauKhachHang.value = "";
     });
 }
-
-
 
 
 
@@ -61,22 +60,102 @@ function showAnswer(answerId) {
 
 
 //Danh mục
+//$(document).ready(function () {
+
+//    $.ajax({
+//        url: '/DanhMuc/getDanhMuc', 
+//        type: 'GET',
+//        success: function (data) {
+
+//            var dsDanhMuc = $('#ds-danhmuc');
+//            dsDanhMuc.empty(); 
+
+//            data.forEach(function (item) {
+//                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="/TrangChu/TimKiemSanPham?DanhMucId=' + item.ma_DM + '">' + item.tenDM + '</a></li>');
+//            });
+//        },
+//        error: function (error) {
+//            console.log("Có lỗi xảy ra khi lấy dữ liệu danh mục:", error);
+//        }
+//    });
+//});
+
+
+//Trang chu
+//Header
 $(document).ready(function () {
 
     $.ajax({
-        url: '/DanhMuc/getDanhMuc', 
+        url: '/Layout/getDataHeader',
         type: 'GET',
         success: function (data) {
-            
-            var dsDanhMuc = $('#ds-danhmuc');
-            dsDanhMuc.empty(); 
+
+            var dsHeader = $('#ds-header');
+            var dsAccount = $('#ds-account');
+            var menuFooter = $('#menu-header');
+
+            dsHeader.empty();
+            dsAccount.empty();
+            menuFooter.empty();
 
             data.forEach(function (item) {
-                dsDanhMuc.append('<li><a class="dropdown-item nav-danhmuc" href="/TrangChu/TimKiemSanPham?DanhMucId=' + item.ma_DM + '">' + item.tenDM + '</a></li>');
+                if (item.viTriHienThi == 2)
+                {
+                    dsHeader.append('<li><a href="' + item.duongLienKet + '" style="font-weight: 400;" class="mx-3 nav-header menu-link text-dark nav-link px-2">' + item.tieuDe + '</a></li>');
+                    menuFooter.append('<li class="my-2"><a href="' + item.duongLienKet + '" class="my-4 text-dark text-decoration-none nav-footer">' + item.tieuDe + '</a></li>');
+                }
+                if (item.viTriHienThi == 3)
+                {
+                    dsAccount.append('<a href="' + item.duongLienKet +'" class="me-2 btn-header text-dark text-decoration-none fs-3 mx-1">'+ item.icon+'</a>')
+                }
             });
         },
         error: function (error) {
-            console.log("Có lỗi xảy ra khi lấy dữ liệu danh mục:", error);
+            console.log("Có lỗi xảy ra khi lấy dữ liệu:", error);
+        }
+    });
+});
+
+//Trang chu
+//Footer
+$(document).ready(function () {
+
+    $.ajax({
+        url: '/Layout/getDataFooter',
+        type: 'GET',
+        success: function (data) {
+
+            var dsFooter = $('#ds-footer');
+            dsFooter.empty();
+
+            data.forEach(function (item) {
+
+                var htmlContent = '<div class="col-md-4 mb-3">';
+
+                if (item.tieuDe) {
+                    htmlContent += '<h5 class="fw-bold">' + item.tieuDe + '</h5>';
+                }
+
+                if (item.moTa) {
+                    htmlContent += '<p>' + item.moTa + '</p>';
+                }
+
+                if (item.hinhAnh) {
+                    htmlContent += '<img src="' + item.hinhAnh + '" alt="Hình ảnh" class="" style="width:60px">';
+                }
+
+                if (item.duongLienKet) {
+                    htmlContent += '<a href="' + item.duongLienKet + '" class="text-decoration-none" target="_blank"> Xem thêm</a>';
+                }
+
+                htmlContent += '</div>';
+
+                dsFooter.append(htmlContent);
+
+            });
+        },
+        error: function (error) {
+            console.log("Có lỗi xảy ra khi lấy dữ liệu:", error);
         }
     });
 });
@@ -131,9 +210,7 @@ function kiemTraChuoiCaptcha() {
     }
 }
 
-if (btnIconLogin) {
-    btnIconLogin.addEventListener("click", hienThiCaptcha);
-}
+btnLogin.addEventListener("click", kiemTraChuoiCaptcha);
 
 if (taoCaptcha) {
     taoCaptcha.addEventListener("click", hienThiCaptcha);
@@ -156,7 +233,7 @@ document.querySelectorAll('.input-taikhoan').forEach(item => {
     })
 })
 
-btnLogin.addEventListener("click", kiemTraChuoiCaptcha);
+
 
 
 
