@@ -1,4 +1,359 @@
-﻿
+@section Css
+{
+    <style>
+        td {
+        max-width: 100px; 
+        word-wrap: break-word; 
+        word-break: break-word; 
+        white-space: normal; 
+        }
+
+    </style>
+}
+
+<div class="row">
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Sản phẩm tồn kho
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.tongSoLuongSanPhamTonKho != null ? ViewBag.tongSoLuongSanPhamTonKho : "0")</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-archive-fill fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Số lượng tài khoản khách hàng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.tongSoTaiKhoanKhachHang != null ? ViewBag.tongSoTaiKhoanKhachHang : "0")</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-person-badge-fill fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Số lượng đơn hàng được tạo trong tháng @DateTime.Now.Month
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@(ViewBag.soLuongDonHangDuocTao != null ? ViewBag.soLuongDonHangDuocTao : "0")</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Quản lý thông tin Website *@
 
 
-<h1 class="text-center">Trang ADMIN</h1>
+
+<div class="row">
+    <div class="text-center my-4 fw-bold fs-4">
+        <p class="">Thông tin Website</p>
+    </div>
+    
+    @if (ViewData["CheckAdmin"] != null)
+    {
+        @* Header *@
+        <div class="col-12">
+            <div><p class="fw-bold">Thanh Header</p></div>
+
+            <div class=""></div>
+
+            <div>
+                @if (ViewBag.duLieuHeader != null)
+                {
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tiêu đề</th>
+                                <th scope="col">Đường liên kết</th>
+                                <th scope="col">Icon</th>
+                                <th>Vị trí hiển thị</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.duLieuHeader)
+                            {
+                                <tr class="">
+                                    <td></td>
+                                    <td>@(item.TieuDe != null ? item.TieuDe : "Không có")</td>
+                                    <td>@(item.DuongLienKet != null ? item.DuongLienKet : "Không có")</td>
+                                    <td>@(item.Icon != null ? Html.Raw(item.Icon) : "Không có")</td>
+                                    <td>
+                                        @if (item.ViTriHienThi == 2)
+                                        {
+                                            <p>Ở giữa</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Ở bên phải</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-info" href="@item.DuongLienKet"><i class="bi bi-link"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>Không có dữ liệu</p>
+                }
+
+            </div>
+        </div>
+
+
+        @* End Header *@
+
+        <div class="bg-dark my-4 rounded-3" style="height:5px"></div>
+
+        @* Footer *@
+        <div class="col-12">
+            <div><p class="fw-bold">Thanh Footer</p></div>
+            <div><a href="/Admin/Admin/ThemFooter" class="btn btn-success"><i class="bi bi-plus-lg"></i></a></div>
+            @if (TempData["XoaFooterThanhCong"] != null)
+            {
+                <div class="alert alert-success my-2" role="alert">
+                    @TempData["XoaFooterThanhCong"]
+                </div>
+
+            }
+
+            @if (TempData["XoaFooterThatBai"] != null)
+            {
+                <div class="alert alert-danger my-2" role="alert">
+                    @TempData["XoaFooterThatBai"]
+                </div>
+            }
+            <div>
+                @if (ViewBag.duLieuFooter != null)
+                {
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tiêu đề</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th scope="col">Đường dẫn hình ảnh</th>
+                                <th>Trạng thái hiển thị</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.duLieuFooter)
+                            {
+                                <tr class="">
+                                    <td></td>
+                                    <td>@(item.TieuDe != null ? item.TieuDe : "Không có")</td>
+
+                                    <td>@(item.MoTa != null ? item.MoTa : "Không có")</td>
+                                    <td>
+                                        @if (item.HinhAnh != null)
+                                        {
+                                            <img src="@item.HinhAnh" style="width: 50px;border-radius: 2rem" />
+                                        }
+                                        else
+                                        {
+                                            <p>Không có</p>
+                                        }
+                                    </td>
+
+                                    <td>@(item.DuongLienKet != null ? item.DuongLienKet : "Không có")</td>
+
+                                    <td>
+                                        @if (item.TrangThaiHienThi == 1)
+                                        {
+                                            <p>Hiển thị</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Ẩn</p>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        <a href="/Admin/Admin/SuaFooter/@item.ID" class="btn btn-warning"><i class="bi bi-pen-fill"></i></a>
+                                        <button class="btn btn-danger" onclick="xoaDataFooter(@item.ID)"><i class="bi bi-trash3"></i></button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>Không có dữ liệu</p>
+                }
+
+            </div>
+        </div>
+
+
+        @* End Footer *@
+
+        <div class="bg-dark my-4 rounded-3" style="height:5px"></div>
+
+
+        @* Dịch vụ công ty *@
+        <div class="col-12">
+            <div><p class="fw-bold">Dịch vụ công ty</p></div>
+            <div><a href="/Admin/Admin/ThemDichVu" class="btn btn-success"><i class="bi bi-plus-lg"></i></a></div>
+            <div class=""></div>
+
+            <div>
+                @if (ViewBag.duLieuDichVuCongTy != null)
+                {
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Tiêu đề</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Hình ảnh</th>
+                                <th>Trạng thái hiển thị</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.duLieuDichVuCongTy)
+                            {
+                                <tr class="">
+                                    <td></td>
+                                    <td>@(item.TieuDe != null ? item.TieuDe : "Không có")</td>
+
+                                    <td>@(item.MoTa != null ? item.MoTa : "Không có")</td>
+                                    <td>
+                                        @if (item.HinhAnh != null)
+                                        {
+                                            <img src="@item.HinhAnh" style="width: 50px;border-radius: 2rem" />
+                                        }
+                                        else
+                                        {
+                                            <p>Không có</p>
+                                        }
+                                    </td>
+
+
+                                    <td>
+                                        @if (item.TrangThai == 1)
+                                        {
+                                            <p>Hiển thị</p>
+                                        }
+                                        else
+                                        {
+                                            <p>Ẩn</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/Admin/SuaDichVu/@item.ID" class="btn btn-warning"><i class="bi bi-pen-fill"></i></a>
+                                        <button class="btn btn-danger" onclick="XoaDataDichVu(@item.ID)"><i class="bi bi-trash3"></i></button>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>Không có dữ liệu</p>
+                }
+
+            </div>
+        </div>
+        @* End Dịch vụ công ty *@
+
+    }
+    else
+    {
+        <p class="text-center fw-bold fs-5">Bạn không có đủ quyền để xem dữ liệu này!</p>
+    }
+
+   
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+        
+        function xoaDataFooter(id)
+        {
+            var xacNhan = confirm("Xác nhận xóa");
+
+            if (xacNhan) {
+                $.ajax({
+                    url: '/Admin/Admin/XoaFooter',
+                    type: 'POST',
+                    data: { ID: id },
+                    success: function (response) {
+                        if (response.value) {
+                            location.reload();
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi đăng xuất.');
+                    }
+                });
+            }
+
+        }
+
+        function XoaDataDichVu(id)
+        {
+            var xacNhan = confirm("Xác nhận xóa");
+
+            if (xacNhan) {
+                $.ajax({
+                    url: '/Admin/Admin/XoaDichVu',
+                    type: 'POST',
+                    data: { ID: id },
+                    success: function (response) {
+                        if (response.value) {
+                            location.reload();
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi đăng xuất.');
+                    }
+                });
+            }
+
+        }
+
+    </script>
+}
