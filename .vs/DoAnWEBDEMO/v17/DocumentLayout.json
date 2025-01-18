@@ -61,7 +61,7 @@
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
               "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
               "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAAMgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-18T05:49:07.425Z",
               "EditorCaption": ""
@@ -76,8 +76,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\Details.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-01-18T04:16:37.439Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T04:16:37.439Z"
             },
             {
               "$type": "Document",
@@ -123,7 +122,7 @@
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
               "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-18T03:57:58.713Z",
               "EditorCaption": ""

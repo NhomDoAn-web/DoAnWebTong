@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\ASP.NET CORE\\DoAnWebTong\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\areas\\admin\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\areas\\admin\\views\\donhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\views\\sanpham\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|solutionrelative:doanwebdemo\\wwwroot\\css\\details.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1BF3030-4757-49D8-9DF6-2B38C2685D3A}|DoAnWEBDEMO\\DoAnWEBDEMO.csproj|d:\\asp.net core\\doanwebtong\\doanwebdemo\\controllers\\trangchucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +42,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SanPhamController.cs",
               "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\SanPhamController.cs",
@@ -47,25 +51,37 @@
               "ViewState": "AgIAABIAAAAAAAAAAAA5wEAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-14T06:14:17.598Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "RelativeToolTip": "DoAnWEBDEMO\\Areas\\Admin\\Views\\DonHang\\Index.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-18T05:49:07.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Details.css",
               "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\Details.css",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\wwwroot\\css\\Details.css",
               "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\wwwroot\\css\\Details.css",
               "RelativeToolTip": "DoAnWEBDEMO\\wwwroot\\css\\Details.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-01-18T04:16:37.439Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TrangChuController.cs",
               "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Controllers\\TrangChuController.cs",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Controllers\\TrangChuController.cs",
@@ -73,12 +89,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Controllers\\TrangChuController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAQwB8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T04:10:52.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T04:10:52.922Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
@@ -86,12 +101,11 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\TrangChu\\Index.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-18T03:58:42.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T03:58:42.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
@@ -99,8 +113,7 @@
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-18T03:58:26.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T03:58:26.394Z"
             },
             {
               "$type": "Document",
@@ -110,7 +123,7 @@
               "RelativeDocumentMoniker": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
               "ToolTip": "D:\\ASP.NET CORE\\DoAnWebTong\\DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
               "RelativeToolTip": "DoAnWEBDEMO\\Views\\SanPham\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAIoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-01-18T03:57:58.713Z",
               "EditorCaption": ""
