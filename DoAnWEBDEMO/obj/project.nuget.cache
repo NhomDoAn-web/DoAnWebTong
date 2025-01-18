@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hk4ZFkwUJBmk2S8stVV8XCyeYUDerzUurelyE9GKee/Y07MT9qKSqJY5Tq92HuZbqD9Er8sOXXP3Fydqf/AD0w==",
+  "dgSpecHash": "H5QzPst7abyoGKup0nkdqhT6vN+KO5xvt+3XOBb96oh7y2plP9dCr2C1daGuYmvnjxBDdggZeAP3cSdPGS3zvw==",
   "success": true,
-  "projectFilePath": "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+  "projectFilePath": "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\aspnetcore.mailkitmailer\\2.0.2\\aspnetcore.mailkitmailer.2.0.2.nupkg.sha512",
     "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

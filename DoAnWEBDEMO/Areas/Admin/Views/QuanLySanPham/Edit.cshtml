@@ -5,6 +5,7 @@
     ViewData["Title"] = "Sửa sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @{
     var successMessage = TempData["SuccessMessage"] as string;
     if (!string.IsNullOrEmpty(successMessage))
@@ -14,10 +15,12 @@
         </div>
     }
 }
+
 <h2>Sửa sản phẩm</h2>
+
 <form action="@Url.Action("Edit", "QuanLySanPham", new { area = "Admin", id = Model.MaSP })" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    <input type="type" name="MaSP" value="@Model.MaSP" hidden />
+    <input type="hidden" name="MaSP" value="@Model.MaSP" />
 
     @if (Model != null)
     {
@@ -38,7 +41,6 @@
 
         <div class="form-group">
             <label for="Image">Hình ảnh</label>
-            <!-- Hiển thị ảnh hiện tại nếu có -->
             @if (!string.IsNullOrEmpty(Model.HinhAnhSP))
             {
                 <div>
@@ -115,25 +117,23 @@
 
         <div class="form-group">
             <label for="MaDanhMuc">Danh mục</label>
-            <select id="MaDanhMuc" name="MaDanhMuc" class="form-control">
-                @if (ViewBag.DanhMucs != null)
+            <select class="form-control" id="MaDanhMuc" name="MaDanhMuc">
+                <option value="">Chọn danh mục</option>
+                @foreach (var category in (List<DoAnWEBDEMO.Models.DanhMuc>)ViewData["Categories"])
                 {
-                    foreach (var danhMuc in ViewBag.DanhMucs)
-                    {
-                        <option value="@danhMuc.MaDanhMuc" @(danhMuc.MaDanhMuc == Model.MaDanhMuc ? "selected" : "")>
-                            @danhMuc.TenDanhMuc
-                        </option>
-                    }
-                }
-                else
-                {
-                    <option disabled>Không có danh mục nào</option>
+                    <option value="@category.Ma_DM" @(category.Ma_DM == Model.MaDanhMuc ? "selected" : "")>
+                        @category.TenDM
+                    </option>
                 }
             </select>
+            @if (ViewData.ModelState["MaDanhMuc"] != null && ViewData.ModelState["MaDanhMuc"].Errors.Any())
+            {
+                <span class="text-danger">@ViewData.ModelState["MaDanhMuc"].Errors.FirstOrDefault()?.ErrorMessage</span>
+            }
+
         </div>
 
         <button type="submit" class="btn btn-success">Lưu thay đổi</button>
-
         <a href="@Url.Action("Index", "QuanLySanPham")" class="btn btn-secondary">Quay lại</a>
     }
     else
@@ -146,11 +146,9 @@
 {
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Lấy các thông báo Success và Error
             var successMessage = document.querySelector('.alert-success');
             var errorMessage = document.querySelector('.alert-danger');
 
-            // Hẹn giờ để ẩn thông báo sau 5 giây
             if (successMessage) {
                 setTimeout(function () {
                     successMessage.style.display = 'none';

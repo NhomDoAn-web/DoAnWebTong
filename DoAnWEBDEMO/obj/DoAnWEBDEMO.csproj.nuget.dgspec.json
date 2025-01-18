@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj": {}
+    "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj": {}
   },
   "projects": {
-    "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj": {
+    "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+        "projectUniqueName": "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
         "projectName": "DoAnWEBDEMO",
-        "projectPath": "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
+        "projectPath": "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\DoAnWEBDEMO.csproj",
         "packagesPath": "C:\\Users\\TRAN DUC MANH\\.nuget\\packages\\",
-        "outputPath": "D:\\DOAN\\Cuối cùng\\DoAnWebTong\\DoAnWEBDEMO\\obj\\",
+        "outputPath": "D:\\DOAN\\Master\\DoAnWebTong\\DoAnWEBDEMO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TRAN DUC MANH\\AppData\\Roaming\\NuGet\\NuGet.Config",

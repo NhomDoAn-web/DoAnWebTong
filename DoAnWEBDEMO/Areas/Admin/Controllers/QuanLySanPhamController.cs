@@ -147,7 +147,8 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            
+            // Bạn có thể truyền dữ liệu model state hoặc thông báo lỗi vào view qua ViewData hoặc TempData
+            ViewData["Categories"] = _context.DanhMuc.ToList();
             return View(product);
         }
 
@@ -156,10 +157,11 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(SanPham model, IFormFile? Image, List<int> SelectedColors)
         {
-            ViewBag.Colors = _context.MauSac.ToList(); // Truyền danh sách màu sắc vào ViewBag trước
-          
+            // Truyền danh mục vào ViewData để hiển thị trong dropdown list
+            ViewData["Categories"] = _context.DanhMuc.ToList(); // Danh sách danh mục có sẵn
 
             var product = _context.SanPham.Include(p => p.MauSacs).FirstOrDefault(p => p.MaSP == model.MaSP);
+
             if (product != null)
             {
                 // Cập nhật thông tin sản phẩm
@@ -179,21 +181,9 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                 product.TanSoQuet = model.TanSoQuet;
                 product.TGianBaoHanh = model.TGianBaoHanh;
                 product.SoLuongTon = model.SoLuongTon;
-                product.MaDanhMuc = model.MaDanhMuc; // Cập nhật mã danh mục
 
-                // Cập nhật màu sắc
-                if (SelectedColors != null)
-                {
-                    product.MauSacs.Clear();
-                    foreach (var colorId in SelectedColors)
-                    {
-                        var color = _context.MauSac.FirstOrDefault(m => m.ID_MauSac == colorId);
-                        if (color != null)
-                        {
-                            product.MauSacs.Add(color);
-                        }
-                    }
-                }
+                // Cập nhật mã danh mục
+                product.MaDanhMuc = model.MaDanhMuc;
 
                 // Xử lý ảnh nếu có
                 if (Image != null && Image.Length > 0)
@@ -214,10 +204,10 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                 TempData["SuccessMessage"] = "Cập nhật sản phẩm thành công!";
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.DanhMucs = _context.DanhMuc.ToList(); // Lấy danh mục từ database
+
+            // Nếu không tìm thấy sản phẩm
             return View(model);
         }
-
 
 
         //
