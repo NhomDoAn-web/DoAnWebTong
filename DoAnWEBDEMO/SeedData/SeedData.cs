@@ -987,7 +987,7 @@ namespace DoAnWEBDEMO.SeedData
                 {
                    new BaiViet
                     {
-                        TieuDe = "Giới thiệu về TechLand",
+                        TieuDe = "Giới thiệu về website TechLand",
                         NoiDung = @"
                             <p>TechLand là nền tảng thương mại điện tử chuyên cung cấp các sản phẩm điện thoại di động chính hãng. Với sứ mệnh mang lại trải nghiệm mua sắm an toàn, tiện lợi, chúng tôi tự hào là đối tác của các thương hiệu hàng đầu như <strong>Apple, Samsung, Xiaomi, Oppo</strong>, và nhiều thương hiệu khác. Với hơn 10 năm kinh nghiệm trong ngành, chúng tôi luôn nỗ lực không ngừng để nâng cao chất lượng dịch vụ và sản phẩm nhằm phục vụ khách hàng tốt nhất.</p>
                             <div style=""text-align: center;"">
