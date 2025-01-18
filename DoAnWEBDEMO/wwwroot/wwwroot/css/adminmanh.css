@@ -1,0 +1,78 @@
+﻿
+.table {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+    .table tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+.table tbody td {
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.7em;
+    border-radius: 10px;
+}
+
+.btn {
+    border-radius: 20px;
+    font-size: 0.9rem;
+    padding: 0.4em 1em;
+}
+
+/* Tùy chỉnh ô checkbox */
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+}
+
+    .form-check-input:checked {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+/* Nút phân trang */
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination .page-link {
+    color: #007bff;
+}
+
+    .pagination .page-link:hover {
+        background-color: #e9f5ff;
+    }
+
+
+/* Sắp xếp theo chiều dọc cho checkbox và chữ */
+.d-flex.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-check-input {
+    margin-top: 5px; /* Khoảng cách giữa chữ và checkbox */
+}

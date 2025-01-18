@@ -25,56 +25,87 @@ namespace DoAnWEBDEMO.Controllers
         {
 
             var sanPham_SlideShow = _context.SanPham
-                                     .Where(sp => sp.SlideShow != null)
-                                     .Take(4)
-                                     .ToList();
+                                    .Where(sp => sp.SlideShow != null)
+                                    .Take(4)
+                                    .ToList();
 
-            var sanPhamKhuyenMai = from sp in _context.SanPham
-                                   join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId
-                                   where DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc && sp.TrangThai == 1
-                                   select new
-                                   {
-                                       MaSP = sp.MaSP,
-                                       HinhAnhSP = sp.HinhAnhSP,
-                                       MoTa = sp.MoTa,
-                                       TEN_SP = sp.TEN_SP,
-                                       Gia = sp.Gia,
-                                       GiaSauKhiGiam = sp.Gia - km.MucGiamGia
-                                   };
 
-            var sanPhamNoiBat = from sp in _context.SanPham
-                                join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId into kmGroup
-                                from km in kmGroup.DefaultIfEmpty()
-                                where sp.TrangThai == 1 && (km == null || (DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc))
-                                select new
-                                {
-                                    MaSP = sp.MaSP,
-                                    HinhAnhSP = sp.HinhAnhSP,
-                                    MoTa = sp.MoTa,
-                                    TEN_SP = sp.TEN_SP,
-                                    Gia = sp.Gia,
-                                    GiaSauKhiGiam = km != null ? sp.Gia - km.MucGiamGia : sp.Gia,
-                                    LuotXem = sp.LuotXem
-                                };
+            var SanPhamBanChay = from sp in _context.SanPham
+                                 where sp.TrangThai == 1
+                                 join ctdh in _context.ChiTietDonHang on sp.MaSP equals ctdh.MA_SP
+                                 join dh in _context.DonHang on ctdh.MA_DH equals dh.MaDH
+                                 where dh.TrangThai == 4 && dh.NgayDatHang.HasValue && dh.NgayDatHang.Value.Month == DateTime.Now.Month && dh.NgayDatHang.Value.Year == DateTime.Now.Year
+                                 group new { sp, ctdh } by new
+                                 {
+                                     sp.MaSP,
+                                     sp.HinhAnhSP,
+                                     sp.MoTa,
+                                     sp.TEN_SP,
+                                     sp.Gia,
+                                     sp.Slug
+                                 } into g
+                                 select new
+                                 {
+                                     MaSP = g.Key.MaSP,
+                                     HinhAnhSP = g.Key.HinhAnhSP,
+                                     MoTa = g.Key.MoTa,
+                                     TEN_SP = g.Key.TEN_SP,
+                                     Gia = g.Key.Gia,
+                                     SoLuongBan = g.Sum(x => x.ctdh.SOLUONG),
+                                     Slug = g.Key.Slug
+                                 };
+            ViewBag.SanPhamBanChay = SanPhamBanChay.OrderByDescending(sp => sp.SoLuongBan).Take(4).ToList();
 
-            var sanPhamMoi = _context.SanPham
-                                .Where(s => s.TrangThai == 1)
-                                .OrderByDescending(s => s.Gia)
-                                .Take(4)
-                                .ToList();
+
+            var sanPhamMoi = from sp in _context.SanPham
+                             join km in _context.KhuyenMai on sp.MaSP equals km.SanPhamKhuyenMaiId into kmGroup
+                             from km in kmGroup.DefaultIfEmpty()
+                             where sp.TrangThai == 1 && sp.NgayRaMat.HasValue && (km == null || (DateTime.Now >= km.NgayBatDau && DateTime.Now <= km.NgayKetThuc))
+                             select new
+                             {
+                                 MaSP = sp.MaSP,
+                                 HinhAnhSP = sp.HinhAnhSP,
+                                 MoTa = sp.MoTa,
+                                 TEN_SP = sp.TEN_SP,
+                                 Gia = sp.Gia,
+                                 GiaSauKhiGiam = km != null ? sp.Gia - km.MucGiamGia : sp.Gia,
+                                 LuotXem = sp.LuotXem,
+                                 NgayRaMat = sp.NgayRaMat,
+                                 Slug = sp.Slug
+                             };
+            ViewBag.SanPhamMoi = sanPhamMoi.OrderByDescending(sp => sp.NgayRaMat).Take(4).ToList();
+
+
+            var dataDichVuCongTy = _context.DichVuCongTy
+                       .Where(dv => dv.TrangThai == 1)
+                       .OrderBy(dv => dv.ID)
+                       .ToList();
+
+            ViewBag.DichVuCongTy = dataDichVuCongTy;
+
 
             var sanPhamYeuThich = _context.SanPhamYeuThich.ToList();
             // Kiểm tra trạng thái đăng nhập
             var userId = GetLoggedInKhachHangId();
             bool trangThaiDangNhap = userId != null;
 
+            var danhMuc = _context.DanhMuc.Where(dm => dm.Trang_Thai == 1).Take(7).ToList();
+
+            ViewBag.DanhMuc = danhMuc;
+
+
             ViewBag.TrangThaiDangNhap = trangThaiDangNhap;
 
-            ViewBag.SanPhamKhuyenMai = sanPhamKhuyenMai;
-            ViewBag.SanPhamNoiBat = sanPhamNoiBat.OrderByDescending(sp => sp.LuotXem).Take(4).ToList();
-            ViewBag.SanPham = sanPhamNoiBat.Take(8).ToList();
+
+
+
+            ViewBag.SanPham = sanPhamMoi.Take(8).ToList();
+
             ViewBag.SanPham_SlideShow = sanPham_SlideShow;
+
+
             ViewBag.SanPhamYeuThich = sanPhamYeuThich;
+
 
             return View();
         }
@@ -97,10 +128,9 @@ namespace DoAnWEBDEMO.Controllers
                             MaSP = sp.MaSP,
                             TEN_SP = sp.TEN_SP,
                             Gia = sp.Gia,
+                            Slug = sp.Slug,
                             HinhAnhSP = sp.HinhAnhSP,
-                            GiaSauKhiGiam = km != null && km.NgayBatDau <= DateTime.Now && km.NgayKetThuc >= DateTime.Now
-                        ? sp.Gia - km.MucGiamGia
-                        : sp.Gia
+                            GiaSauKhiGiam = km != null && km.NgayBatDau <= DateTime.Now && km.NgayKetThuc >= DateTime.Now ? sp.Gia - km.MucGiamGia : sp.Gia
                         };
         
             var categories = _context.DanhMuc.ToList();

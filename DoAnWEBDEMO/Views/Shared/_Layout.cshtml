@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DoAnWEBDEMO</title>
+
+    <title>@ViewData["Title"] - TechLand</title>
+
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DoAnWEBDEMO.styles.css" asp-append-version="true" />
@@ -47,27 +49,11 @@
                                      </form>
                                 </div>
 
-                                
-
-
                                 @* end search *@
 
                                 @* menu *@
-                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                                    <li><a asp-controller="TrangChu" asp-action="Index" style="font-weight: 400;" class="mx-3 nav-header menu-link text-dark nav-link px-2">Trang chủ</a></li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle mx-3 text-dark " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 400;">
-                                            Danh sách sản phẩm
-                                        </a>
-                                        <ul class="dropdown-menu danhmuc" aria-labelledby="navbarDropdown" id="ds-danhmuc">
-                                
-                                        </ul>
-                                    </li>
-
-                                    <li><a asp-controller="GioiThieu" asp-action="Index" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Giới thiệu</a></li>
-                                    <li><a asp-controller="LienHe" asp-action="Index" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Liên hệ</a></li>
-                                    <li><a asp-controller="BaiViet" asp-action="DanhSachBaiViet" style="font-weight: 400;" class=" mx-3 nav-header text-dark nav-link px-2  menu-link">Blog</a></li>
+                                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" id="ds-header">
+                                    
                                 </ul>
                             </div>
 
@@ -81,30 +67,19 @@
 
                             <!-- Button popup Đăng Nhập-->
                     
+                            
                             @if(Context.Session.GetString("user") != null)
                             {
-                                <a class="me-2 btn-header text-dark text-decoration-none @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/TrangChu/Index")><i class="bi bi-bag-fill bi-icon-header fs-5"></i>(@ViewData["soLuong"])</a>
-                                <p>@(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", ViewData["tongTien"]))</p>
-                                <div class="d-flex align-items-center text-center">
-                                    
-                                    <button type="button" class="btn-header" id="accountButton">
-                                        <i class="bi bi-person-circle fs-3 bi-icon-header"></i>
-                                    </button>
-                                    <div class="d-flex align-items-center text-start">
-                                        <p class="d-flex align-items-center mt-3"> @ViewData["TenKhachHang"] </p>
-                                    </div>
-                                </div>
+                                <ul class="list-unstyled" style="margin: 0;padding: 0" id="ds-account">
 
-                                <div class="account-box dropdown-menu " id="accountBox" style="padding: 0;border:none;">
-                                    <ul class="list-unstyled" style="margin: 0;padding: 0">
-                                        <li class="border-bottom border-dark"><a class="text-dark text-decoration-none btn-taikhoan" style="outline: none;" href="@Url.Action("Profile", "KhachHang")">Thông tin tài khoản</a></li>
-                                        <li class="border-bottom"><button class="text-dark text-start" id="logoutButton"> Đăng xuất</button></li>
-                                    </ul>
+                                </ul>
+                                <div class="border-start border-2 border-dark ps-1" style="text-align: start;display: flex;flex-direction: column;"> 
+                                    <span><b>Số lượng: </b>@ViewData["soLuong"]</span>
+                                    <span><b>Tổng tiền: </b>@(string.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VNĐ", ViewData["tongTien"]))</span>
                                 </div>
                             }
                             else
                             {
-                                <a class="me-2 btn-header text-dark text-decoration-none @(Context.Session.GetString("user") != null ? "" : "check-dang-nhap")" href=@(Context.Session.GetString("user") != null ? "/GioHang/Index" : "/TrangChu/Index")><i class="bi bi-bag-fill bi-icon-header fs-5"></i></a>
 
                                 <button type="button" class="btn-header btn-icon-login" id="openLoginModal">    
                                     Đăng nhập
@@ -116,7 +91,9 @@
                                 <div class="modal-content" style="background-color: white;">
                                     <div class="modal-header">
                                         <h5>Đăng nhập</h5>
+
                                         <button type="button" class="close" id="closeLoginModal"><i class="bi bi-x-circle"></i></button>
+
                                     </div>
                                     <div class="modal-body">
                                         <form>
@@ -136,7 +113,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             
 
                                            <div>
@@ -264,63 +240,20 @@
     <!-- Footer -->
     <footer class="bg-white text-dark pt-5 pb-3 shadow-top" style="">
         <div class="container">
-            <div class="row">
-                <!-- Thông tin Website -->
-                <div class="col-md-3 mb-3">
-                    <h5 class="fw-bold">Thông tin Website</h5>
-                    <p>Website của chúng tôi cung cấp các sản phẩm điện tử chất lượng cao và dịch vụ tận tâm.</p>
-                </div>
-
-                <!-- Menu dọc -->
-                <div class="col-md-3 mb-3 text-center">
-                    <h5 class="fw-bold">Menu</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/TrangChu/Index" class="my-4 text-dark text-decoration-none nav-footer">Trang chủ</a></li>
-                        <li><a href="/SanPham" class="my-4 text-dark text-decoration-none nav-footer">Sản phẩm</a></li>
-                        <li><a href="/GioiThieu" class="my-4 text-dark text-decoration-none nav-footer">Giới thiệu</a></li>
-                        <li><a href="/LienHe" class="my-4 text-dark text-decoration-none nav-footer">Liên hệ</a></li>
-                        <li><a href="/" class="my-4 text-dark text-decoration-none nav-footer">Blog</a></li>
-                    </ul>
-                </div>
-
-                <!-- Mô tả -->
-                <div class="col-md-3 mb-3">
-                    <h5 class="fw-bold">Mô tả</h5>
-                    <p>Chúng tôi cung cấp những sản phẩm công nghệ mới nhất, chất lượng và giá cả hợp lý, phục vụ mọi nhu cầu của bạn.</p>
-                </div>
-
-                <div class="col-md-3 mb-3">
-                    <h5 class="fw-bold">Địa chỉ</h5>
-                    <p>60 Huỳnh Thúc Kháng, Quận 1,TP.HCM</p>
-                </div>
-
+            <div class="row" id="ds-footer">
+              
+            </div>
+             <div class="col-md-3 mb-3">
+                <h5 class="fw-bold">Menu</h5>
+                <ul class="list-unstyled" id="menu-header">
+                                    
+                </ul>
             </div>
 
-            <div class="row text-center">
-                <!-- Logo -->
-                <div class="col-md-12 mb-3">
-                    <a href="/">
-                        <img src="/image/logo.png" alt="Logo" class="img-fluid" style="max-width: 200px;">
-                    </a>
-                </div>
-            </div>
 
             <!-- Chân Footer -->
             <div class="text-center mt-4">
                 <p>&copy; 2025 Website của chúng tôi. Tất cả quyền được bảo vệ.</p>
-            
-                <div class="social-network fs-3">
-		            <a href="https://www.facebook.com/profile.php?id=100054621452716" class="text-decoration-none text-dark">
-			            <i class="bi bi-facebook"></i>
-		            </a>
-		            <a href="https://www.instagram.com/tekland123/" class="text-decoration-none text-dark mx-4">
-			            <i class="bi bi-twitter"></i>
-		            </a>
-		            <a href="https://x.com/home" class="text-decoration-none text-dark">
-			            <i class="bi bi-instagram"></i>
-		            </a>
-
-	            </div>
             </div>
         </div>
     </footer>

@@ -879,6 +879,16 @@ namespace DoAnWEBDEMO.SeedData
                     new NhanVien
                     {
 
+                        TENNV = "Admin",
+                        SDT = "0123456789",
+                        EMAIL = "admin@gmail.com",
+                        TENDANGNHAP = "admin",
+                        MATKHAU = "Admin",
+                        TRANGTHAI = 1
+                    },
+                    new NhanVien
+                    {
+
                         TENNV = "Nguyen Van A",
                         SDT = "0123456789",
                         EMAIL = "nguyenvana@example.com",
@@ -985,67 +995,47 @@ namespace DoAnWEBDEMO.SeedData
             {
                 var BaiViet = new List<BaiViet>
                 {
-                    new BaiViet
-                    {
-                        TieuDe = "Giới thiệu về TechLand",
-                        NoiDung = @"
-                            <p>TechLand là nền tảng thương mại điện tử chuyên cung cấp các sản phẩm điện thoại di động chính hãng. Với sứ mệnh mang lại trải nghiệm mua sắm an toàn, tiện lợi, chúng tôi tự hào là đối tác của các thương hiệu hàng đầu như <strong>Apple, Samsung, Xiaomi, Oppo</strong>, và nhiều thương hiệu khác. Với hơn 10 năm kinh nghiệm trong ngành, chúng tôi luôn nỗ lực không ngừng để nâng cao chất lượng dịch vụ và sản phẩm nhằm phục vụ khách hàng tốt nhất.</p>
-                            <div style=""text-align: center;"">
-                            <img src='/image/baiviet/gioi-thieu-techland.jpg' alt='Giới thiệu về TechLand' style='max-width: 500px; height: auto;'>
-                            </div>
 
-                            <p>Tại TechLand, khách hàng không chỉ được tiếp cận với các sản phẩm chất lượng cao mà còn được hỗ trợ bởi các dịch vụ vượt trội. Mỗi sản phẩm của chúng tôi đều được kiểm tra kỹ lưỡng, đảm bảo chất lượng tốt nhất khi đến tay người tiêu dùng. Chúng tôi hiểu rằng sự hài lòng của khách hàng chính là yếu tố quan trọng nhất để duy trì sự phát triển lâu dài của công ty.</p>
-                            <p>Với phương châm <strong>'Chất lượng là hàng đầu'</strong>, TechLand luôn cam kết cung cấp những sản phẩm chính hãng và mới nhất. Ngoài ra, chúng tôi còn cung cấp các dịch vụ sau bán hàng như bảo hành và hỗ trợ kỹ thuật nhằm đảm bảo quyền lợi cho khách hàng.</p>
-                             <h3>Địa chỉ và lĩnh vực kinh doanh</h3>
-                            <p>Phạm vi thương mại, TechLand hiện có duy nhất một chi nhánh tại 60 Huỳnh Thúc Kháng, Quận 1, TP.HCM. Là nơi tập trung vào việc cung cấp các sản phẩm công nghệ, từ điện thoại, đến các phụ kiện đi kèm. Hình thức kinh doanh của TechLand là kết hợp giữa thương mại điện tử và bán hàng trực tiếp tại cửa hàng...</p>
-                            <ul>
-                                <li>Địa chỉ: 60 Huỳnh Thúc Kháng, Quận 1, TP.HCM.</li>
-                                <li>Lĩnh vực: Cung cấp điện thoại.</li>
-                                <li>Hình thức kinh doanh: Thương mại điện tử kết hợp bán hàng trực tiếp tại cửa hàng.</li>
-                            </ul>
-                            <h3>Dịch vụ vượt trội tại TechLand</h3>
-                            <ul>
-                                <li>Giao hàng nhanh toàn quốc, chỉ từ 1-3 ngày làm việc.</li>
-                                <li>Chính sách đổi trả linh hoạt trong vòng 30 ngày nếu sản phẩm có lỗi từ nhà sản xuất.</li>
-                                <li>Dịch vụ bảo hành chính hãng tại các trung tâm ủy quyền trên toàn quốc.</li>
-                                <li>Chính sách hỗ trợ kỹ thuật miễn phí cho tất cả khách hàng mua sản phẩm tại TechLand.</li>
-                            </ul>
-                            <h3>Ưu đãi đặc biệt cho khách hàng</h3>
-                            <p>Nhằm tri ân khách hàng, chúng tôi thường xuyên có các chương trình khuyến mãi hấp dẫn, giảm giá lên đến 50% cho một số sản phẩm, đặc biệt là vào các dịp lễ, tết. Các khách hàng mua hàng tại TechLand sẽ được hưởng các chính sách ưu đãi như:</p>
-                            <ul>
-                                <li>Giảm giá trực tiếp khi thanh toán qua các phương thức thanh toán điện tử.</li>
-                                <li>Chương trình quà tặng hấp dẫn cho những khách hàng mua sản phẩm cao cấp.</li>
-                                <li>Chương trình tích điểm thưởng cho mỗi lần mua hàng, điểm thưởng có thể sử dụng để giảm giá cho các lần mua sau.</li>
-                            </ul>
-                            <p>Với những nỗ lực không ngừng, TechLand cam kết sẽ tiếp tục mang đến những sản phẩm công nghệ đỉnh cao và dịch vụ tốt nhất cho khách hàng. Chúng tôi luôn luôn cải tiến để mang đến những trải nghiệm mua sắm tuyệt vời nhất.</p>",
-                        NgayDang = new DateTime(2025, 1, 1),
-                        HinhAnh = "gioi-thieu-techland.jpg"
-                    },
-                    new BaiViet
-                    {
-                        TieuDe = "Chính sách bảo hành và đổi trả tại TechLand",
-                        NoiDung = @"
-                            <p>Tại TechLand, chúng tôi luôn đặt lợi ích của khách hàng lên hàng đầu thông qua các chính sách bảo hành và đổi trả minh bạch, linh hoạt:</p>
-                            <h3>1. Chính sách bảo hành:</h3>
-                            <ul>
-                                <li>Tất cả sản phẩm điện thoại mua tại TechLand đều được bảo hành chính hãng từ 12-24 tháng (tuỳ từng sản phẩm cụ thể).</li>
-                                <li>TechLand hỗ trợ gửi sản phẩm đến các trung tâm bảo hành ủy quyền nếu khách hàng không có thời gian đến trực tiếp.</li>
-                            </ul>
-                            <h3>2. Chính sách đổi trả:</h3>
-                            <ul>
-                                <li>Khách hàng có thể đổi trả sản phẩm trong vòng 30 ngày nếu phát hiện lỗi từ nhà sản xuất.</li>
-                                <li>Sản phẩm phải còn nguyên vẹn, đầy đủ phụ kiện, và không bị hư hỏng do người sử dụng.</li>
-                            </ul>
-                            <h3>3. Quy trình bảo hành và đổi trả:</h3>
-                            <ul>
-                                <li>Bước 1: Liên hệ đội ngũ hỗ trợ của TechLand qua hotline hoặc email để thông báo vấn đề.</li>
-                                <li>Bước 2: Gửi sản phẩm kèm hóa đơn mua hàng tới chi nhánh gần nhất hoặc qua đường bưu điện.</li>
-                                <li>Bước 3: TechLand xử lý và thông báo kết quả bảo hành/đổi trả trong vòng 7 ngày làm việc.</li>
-                            </ul>
-                            <p>Chúng tôi luôn cố gắng mang lại trải nghiệm mua sắm và hậu mãi tốt nhất cho khách hàng. Đừng ngần ngại liên hệ với TechLand nếu bạn có bất kỳ thắc mắc nào!</p>",
-                        NgayDang = new DateTime(2025, 1, 1),
-                        HinhAnh = "chinh-sach-bao-hanh.jpg"
-                    },
+                     new BaiViet
+    {
+        TieuDe = "Giới thiệu về TechLand",
+        NoiDung = @"
+            <p>TechLand là nền tảng thương mại điện tử chuyên cung cấp các sản phẩm điện thoại di động chính hãng. Với sứ mệnh mang lại trải nghiệm mua sắm an toàn, tiện lợi, chúng tôi tự hào là đối tác của các thương hiệu hàng đầu như <strong>Apple, Samsung, Xiaomi, Oppo</strong>, và nhiều thương hiệu khác. Với hơn 10 năm kinh nghiệm trong ngành, chúng tôi luôn nỗ lực không ngừng để nâng cao chất lượng dịch vụ và sản phẩm nhằm phục vụ khách hàng tốt nhất.</p>
+            <div style=""text-align: center;"">
+            <img src='/image/baiviet/gioi-thieu-techland.jpg' alt='Giới thiệu về TechLand' style='max-width: 500px; height: auto;'>
+            </div>
+
+            <p>Tại TechLand, khách hàng không chỉ được tiếp cận với các sản phẩm chất lượng cao mà còn được hỗ trợ bởi các dịch vụ vượt trội. Mỗi sản phẩm của chúng tôi đều được kiểm tra kỹ lưỡng, đảm bảo chất lượng tốt nhất khi đến tay người tiêu dùng. Chúng tôi hiểu rằng sự hài lòng của khách hàng chính là yếu tố quan trọng nhất để duy trì sự phát triển lâu dài của công ty.</p>
+            <p>Với phương châm <strong>'Chất lượng là hàng đầu'</strong>, TechLand luôn cam kết cung cấp những sản phẩm chính hãng và mới nhất. Ngoài ra, chúng tôi còn cung cấp các dịch vụ sau bán hàng như bảo hành và hỗ trợ kỹ thuật nhằm đảm bảo quyền lợi cho khách hàng.</p>
+            <h3>Địa chỉ và lĩnh vực kinh doanh</h3>
+            <p>Phạm vi thương mại, TechLand hiện có duy nhất một chi nhánh tại 60 Huỳnh Thúc Kháng, Quận 1, TP.HCM. Là nơi tập trung vào việc cung cấp các sản phẩm công nghệ, từ điện thoại, đến các phụ kiện đi kèm. Hình thức kinh doanh của TechLand là kết hợp giữa thương mại điện tử và bán hàng trực tiếp tại cửa hàng...</p>
+            <ul>
+                <li>Địa chỉ: 60 Huỳnh Thúc Kháng, Quận 1, TP.HCM.</li>
+                <li>Lĩnh vực: Cung cấp điện thoại.</li>
+                <li>Hình thức kinh doanh: Thương mại điện tử kết hợp bán hàng trực tiếp tại cửa hàng.</li>
+            </ul>
+            <h3>Dịch vụ vượt trội tại TechLand</h3>
+            <ul>
+                <li>Giao hàng nhanh toàn quốc, chỉ từ 1-3 ngày làm việc.</li>
+                <li>Chính sách đổi trả linh hoạt trong vòng 30 ngày nếu sản phẩm có lỗi từ nhà sản xuất.</li>
+                <li>Dịch vụ bảo hành chính hãng tại các trung tâm ủy quyền trên toàn quốc.</li>
+                <li>Chính sách hỗ trợ kỹ thuật miễn phí cho tất cả khách hàng mua sản phẩm tại TechLand.</li>
+            </ul>
+            <h3>Ưu đãi đặc biệt cho khách hàng</h3>
+            <p>Nhằm tri ân khách hàng, chúng tôi thường xuyên có các chương trình khuyến mãi hấp dẫn, giảm giá lên đến 50% cho một số sản phẩm, đặc biệt là vào các dịp lễ, tết. Các khách hàng mua hàng tại TechLand sẽ được hưởng các chính sách ưu đãi như:</p>
+            <ul>
+                <li>Giảm giá trực tiếp khi thanh toán qua các phương thức thanh toán điện tử.</li>
+                <li>Chương trình quà tặng hấp dẫn cho những khách hàng mua sản phẩm cao cấp.</li>
+                <li>Chương trình tích điểm thưởng cho mỗi lần mua hàng, điểm thưởng có thể sử dụng để giảm giá cho các lần mua sau.</li>
+            </ul>
+            <h3>Chính sách bảo mật thông tin</h3>
+            <p>TechLand cam kết bảo mật thông tin cá nhân của khách hàng. Thông tin của bạn sẽ được sử dụng để xử lý đơn hàng, cung cấp dịch vụ và hỗ trợ bạn tốt nhất. Chúng tôi sẽ không chia sẻ thông tin cá nhân của bạn với bất kỳ bên thứ ba nào mà không có sự đồng ý trước đó từ bạn.</p>
+            <h3>Chính sách hoàn tiền</h3>
+            <p>Trong trường hợp sản phẩm không đáp ứng yêu cầu hoặc có lỗi từ nhà sản xuất, khách hàng có thể yêu cầu hoàn tiền trong vòng 30 ngày kể từ ngày mua hàng. Chúng tôi cam kết xử lý nhanh chóng và minh bạch các yêu cầu hoàn tiền để đảm bảo quyền lợi của khách hàng.</p>
+            <p>Với những nỗ lực không ngừng, TechLand cam kết sẽ tiếp tục mang đến những sản phẩm công nghệ đỉnh cao và dịch vụ tốt nhất cho khách hàng. Chúng tôi luôn luôn cải tiến để mang đến những trải nghiệm mua sắm tuyệt vời nhất.</p>",
+        NgayDang = new DateTime(2025, 1, 1),
+        HinhAnh = "gioi-thieu-techland.jpg"
+    },
                       new BaiViet
                     {
                         TieuDe = "Khám phá iPhone 15 Pro Max",
@@ -1232,6 +1222,156 @@ namespace DoAnWEBDEMO.SeedData
                 };
                 _db.BaiViet.AddRange(BaiViet);
                 _db.SaveChanges();
+
+                if (!_db.PhuongThucThanhToan.Any()) // Kiểm tra nếu bảng PTTT chưa có dữ liệu
+                {
+                    var paymentMethods = new List<PhuongThucThanhToan>
+                    {
+                        new PhuongThucThanhToan
+                        {
+
+                            TenPT = "Ví Momo",
+                            HinhPT = "momo_image.jpg"
+                        },
+                        new PhuongThucThanhToan
+                        {
+
+                            TenPT = "Ngân Hàng",
+                            HinhPT = "bank_image.jpg"
+                        }
+                    };
+
+                    _db.PhuongThucThanhToan.AddRange(paymentMethods); 
+                    _db.SaveChanges(); 
+                }
+
+                //SeedData Header
+                if (!_db.Header.Any())
+                {
+                    var headers = new List<Header>
+                    {
+                        new Header
+                        {
+                            TieuDe = "Trang Chủ",
+                            DuongLienKet = "/TrangChu",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Danh Sách Sản Phẩm",
+                            DuongLienKet = "/TrangChu/TimKiemSanPham",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Giới Thiệu",
+                            DuongLienKet = "/GioiThieu",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            TieuDe = "Liên Hệ",
+                            DuongLienKet = "/LienHe",
+                            ViTriHienThi = 2
+                        },
+                        new Header
+                        {
+                            DuongLienKet = "/KhachHang/Profile",
+                            Icon = "<i class=\"bi bi-person-circle\"></i>",
+                            ViTriHienThi = 3
+                        }
+                        ,
+                        new Header
+                        {
+                            DuongLienKet = "/GioHang",
+                            Icon = "<i class=\"bi bi-bag-fill bi-icon-header fs-5\"></i>",
+                            ViTriHienThi = 3
+                        }
+                    };
+
+                    _db.Header.AddRange(headers);
+                    _db.SaveChanges();
+
+                if(!_db.DichVuCongTy.Any())
+                {
+                        var dichvucongtys = new List<DichVuCongTy>
+                    {
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Thương hiệu đảm bảo",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy3.svg?w=64&q=100",
+                            MoTa = "Nhập khẩu, bảo hành chính hãng",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Đổi trả dễ dàng",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy1.svg?w=64&q=100",
+                            MoTa = "Theo chính sách đổi trả tại TechLand",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Sản phẩm chất lượng",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy4.svg?w=64&q=100",
+                            MoTa = "Đảm bảo tương thích và độ bền cao",
+                            TrangThai = 1
+                        },
+                        new DichVuCongTy
+                        {
+                            TieuDe = "Giao hàng tận nơi",
+                            HinhAnh = "https://fptshop.com.vn/img/icons/policy2.svg?w=64&q=100",
+                            MoTa = "Giao tới tận tay khách hàng",
+                            TrangThai = 1
+                        }
+                    };
+                        _db.DichVuCongTy.AddRange(dichvucongtys);
+                        _db.SaveChanges();
+                }    
+
+                //SeedData Footer
+                if(!_db.Footer.Any())
+                {
+                    var footers = new List<Footer>
+                    {
+                        new Footer
+                        {
+                            TieuDe = "Thông tin Website",
+                            MoTa = "Website của chúng tôi cung cấp các sản phẩm điện tử chất lượng cao và dịch vụ tận tâm.",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            TieuDe = "Mô tả",
+                            MoTa = "Chúng tôi cung cấp những sản phẩm công nghệ mới nhất, chất lượng và giá cả hợp lý.",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            TieuDe = "Địa chỉ",
+                            MoTa = "60 Huỳnh Thúc Kháng, Quận 1,TP.HCM",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            HinhAnh = "/image/logo.png",
+                            TrangThaiHienThi = 1
+                        },
+                        new Footer
+                        {
+                            DuongLienKet = "https://www.facebook.com/profile.php?id=100054621452716",
+                            HinhAnh = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png",
+                            TrangThaiHienThi = 1
+                            
+                        }
+
+
+                    };
+                    _db.Footer.AddRange(footers);
+                    _db.SaveChanges();
+                }    
+                }  
+                
             }
 
 

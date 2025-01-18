@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Upload Excel";
+}
+
+<h1>Upload Excel</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+
+<form asp-action="UploadExcel" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="file">Chọn file Excel</label>
+        <input type="file" name="file" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Tải lên</button>
+</form>

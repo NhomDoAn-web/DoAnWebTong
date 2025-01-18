@@ -17,7 +17,7 @@ namespace DoAnWEBDEMO.Models
 
         [Required(ErrorMessage = "Tổng tiền không được để trống.")]
         [Range(1, double.MaxValue, ErrorMessage = "Tổng tiền phải là số dương.")]
-        public decimal TongTienDonHang { get; set; }
+        public decimal ? TongTienDonHang { get; set; }
 
         [Required(ErrorMessage = "Trạng thái đơn hàng không được để trống.")]
         [Range(1, 7, ErrorMessage = "Trạng thái phải nằm trong khoảng từ 1 đến 7.")]

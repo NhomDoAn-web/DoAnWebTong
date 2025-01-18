@@ -1,0 +1,167 @@
+﻿@model DoAnWEBDEMO.Models.SanPham
+@using DoAnWEBDEMO.Models
+
+@{
+    ViewData["Title"] = "Sửa sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var successMessage = TempData["SuccessMessage"] as string;
+    if (!string.IsNullOrEmpty(successMessage))
+    {
+        <div class="alert alert-success">
+            @successMessage
+        </div>
+    }
+}
+<h2>Sửa sản phẩm</h2>
+<form action="@Url.Action("Edit", "QuanLySanPham", new { area = "Admin", id = Model.MaSP })" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="type" name="MaSP" value="@Model.MaSP" hidden />
+
+    @if (Model != null)
+    {
+        <div class="form-group">
+            <label for="Name">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="Name" name="TEN_SP" value="@Model.TEN_SP" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Price">Giá sản phẩm</label>
+            <input type="number" class="form-control" id="Price" name="Gia" value="@Model.Gia" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Mô tả sản phẩm</label>
+            <textarea class="form-control" id="Description" name="MoTa" rows="4">@Model.MoTa</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Image">Hình ảnh</label>
+            <!-- Hiển thị ảnh hiện tại nếu có -->
+            @if (!string.IsNullOrEmpty(Model.HinhAnhSP))
+            {
+                <div>
+                    <p><strong>Ảnh hiện tại:</strong></p>
+                    <img src="~/image/products/@Model.HinhAnhSP" width="100" height="100" />
+                </div>
+            }
+            else
+            {
+                <p>Không có ảnh hiện tại.</p>
+            }
+            <input type="file" class="form-control" id="Image" name="Image" />
+        </div>
+
+        <div class="form-group">
+            <label for="ScreenSize">Kích thước màn hình</label>
+            <input type="text" class="form-control" id="ScreenSize" name="KichThuoc_ManHinh" value="@Model.KichThuoc_ManHinh" required />
+        </div>
+
+        <div class="form-group">
+            <label for="RearCamera">Camera sau</label>
+            <input type="text" class="form-control" id="RearCamera" name="CameraSau" value="@Model.CameraSau" required />
+        </div>
+
+        <div class="form-group">
+            <label for="FrontCamera">Camera trước</label>
+            <input type="text" class="form-control" id="FrontCamera" name="Camera_Truoc" value="@Model.Camera_Truoc" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Chipset">Chipset</label>
+            <input type="text" class="form-control" id="Chipset" name="Chipset" value="@Model.Chipset" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Gpu">GPU</label>
+            <input type="text" class="form-control" id="Gpu" name="Gpu" value="@Model.Gpu" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Ram">Dung lượng RAM</label>
+            <input type="text" class="form-control" id="Ram" name="Dung_Luong_Ram" value="@Model.Dung_Luong_Ram" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Storage">Bộ nhớ trong</label>
+            <input type="text" class="form-control" id="Storage" name="Bo_Nho_Trong" value="@Model.Bo_Nho_Trong" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Battery">Pin</label>
+            <input type="text" class="form-control" id="Battery" name="Pin" value="@Model.Pin" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Os">Hệ điều hành</label>
+            <input type="text" class="form-control" id="Os" name="HeDieuHanh" value="@Model.HeDieuHanh" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Frequency">Tần số quét</label>
+            <input type="text" class="form-control" id="Frequency" name="TanSoQuet" value="@Model.TanSoQuet" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Warranty">Thời gian bảo hành</label>
+            <input type="text" class="form-control" id="Warranty" name="TGianBaoHanh" value="@Model.TGianBaoHanh" required />
+        </div>
+
+        <div class="form-group">
+            <label for="Quantity">Số lượng tồn</label>
+            <input type="number" class="form-control" id="Quantity" name="SoLuongTon" value="@Model.SoLuongTon" required />
+        </div>
+
+        <div class="form-group">
+            <label for="MaDanhMuc">Danh mục</label>
+            <select id="MaDanhMuc" name="MaDanhMuc" class="form-control">
+                @if (ViewBag.DanhMucs != null)
+                {
+                    foreach (var danhMuc in ViewBag.DanhMucs)
+                    {
+                        <option value="@danhMuc.MaDanhMuc" @(danhMuc.MaDanhMuc == Model.MaDanhMuc ? "selected" : "")>
+                            @danhMuc.TenDanhMuc
+                        </option>
+                    }
+                }
+                else
+                {
+                    <option disabled>Không có danh mục nào</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Lưu thay đổi</button>
+
+        <a href="@Url.Action("Index", "QuanLySanPham")" class="btn btn-secondary">Quay lại</a>
+    }
+    else
+    {
+        <p>Model không hợp lệ hoặc không tồn tại.</p>
+    }
+</form>
+
+@section Scripts
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy các thông báo Success và Error
+            var successMessage = document.querySelector('.alert-success');
+            var errorMessage = document.querySelector('.alert-danger');
+
+            // Hẹn giờ để ẩn thông báo sau 5 giây
+            if (successMessage) {
+                setTimeout(function () {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            if (errorMessage) {
+                setTimeout(function () {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+}

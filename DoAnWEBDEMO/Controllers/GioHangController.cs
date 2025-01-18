@@ -1,4 +1,3 @@
-
 using DoAnWEBDEMO.ApplicationDB;
 using DoAnWEBDEMO.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +17,13 @@ namespace DoAnWEBDEMO.Controllers
         {
             _db = db;
         }
-        public IActionResult Index(string? name, int? page)
+        public IActionResult Index(int? page)
         {
             int pageSize = 5; // Số lượng sản phẩm mỗi trang
             int pageNumber = (page ?? 1); // Mặc định trang đầu tiên nếu không có tham số trang
 
             var KH_JSON = HttpContext.Session.GetString("user");
+            
             if (!string.IsNullOrEmpty(KH_JSON))
             {
                 var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(KH_JSON);
@@ -63,6 +63,9 @@ namespace DoAnWEBDEMO.Controllers
         public IActionResult ThanhToan()
         {
             var KH_JSON = HttpContext.Session.GetString("user");
+
+   
+
             if (!string.IsNullOrEmpty(KH_JSON))
             {
                 var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(KH_JSON);
@@ -81,6 +84,8 @@ namespace DoAnWEBDEMO.Controllers
                                  Mau = m.TenMauSac,
                                  TongTien = sp.Gia * ctgh.Soluong
                              };
+                var phuongthucthanhtoan = _db.PhuongThucThanhToan.ToList();
+                ViewBag.PTTT = phuongthucthanhtoan;
                 ViewBag.Total = result.Sum(e => e.TongTien);
                 ViewBag.ThanhToan = result;
             }
@@ -126,9 +131,9 @@ namespace DoAnWEBDEMO.Controllers
             if (sanpham != null)
             {
                 sanpham.Soluong -= 1;
-                if (sanpham.Soluong <= 0)
+                if (sanpham.Soluong < 1)
                 {
-                    _db.ChiTietGioHang.Remove(sanpham);
+                    return Json(new { success = false });
                 }
                 else
                 {
@@ -175,27 +180,42 @@ namespace DoAnWEBDEMO.Controllers
 
             // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng với cùng mã sản phẩm và mã màu
             var existingItem = _db.ChiTietGioHang.FirstOrDefault(x => x.MaKH == thongTinkhachHang.MaKH && x.MaSP == maSP && x.MaMau == mau);
-
-            if (existingItem != null)
+            var tonkho = _db.MauSac.FirstOrDefault(x => x.MaSP == maSP && x.ID_MauSac == mau);
+            if (soluong > tonkho.SoLuongTon_MS)
             {
-                return Json(new { success = false, message = "Sản phẩm đã có trong giỏ hàng!" });
+                if (tonkho.SoLuongTon_MS == 0)
+                {
+                    return Json(new { succes = false, message = "Sản phẩm đã hết hàng" });
+                }
+                else
+                {
+                    return Json(new { succes = false, message = "Vui lòng nhập bé hơn hoặc bằng số lượng hiển thị trên sản phẩm!" });
+                }
+
             }
             else
             {
-                // Nếu sản phẩm chưa tồn tại với màu này, thêm sản phẩm mới
-                var newWishlistItem = new ChiTietGioHang
+                if (existingItem != null)
                 {
-                    MaKH = thongTinkhachHang.MaKH,
-                    MaSP = maSP,
-                    MaMau = mau,
-                    Soluong = soluong
-                };
+                    return Json(new { success = false, message = "Sản phẩm đã có trong giỏ hàng!" });
+                }
+                else
+                {
+                    // Nếu sản phẩm chưa tồn tại với màu này, thêm sản phẩm mới
+                    var newWishlistItem = new ChiTietGioHang
+                    {
+                        MaKH = thongTinkhachHang.MaKH,
+                        MaSP = maSP,
+                        MaMau = mau,
+                        Soluong = soluong
+                    };
 
-                _db.ChiTietGioHang.Add(newWishlistItem);
-                _db.SaveChanges();
-                getThongTinGioHang();
+                    _db.ChiTietGioHang.Add(newWishlistItem);
+                    _db.SaveChanges();
+                    getThongTinGioHang();
 
-                return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng!" });
+                    return Json(new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng!" });
+                }
             }
         }
         [HttpPost]
@@ -217,8 +237,9 @@ namespace DoAnWEBDEMO.Controllers
             return Json(new { success = false, message = "Không thể xóa giỏ hàng." });
         }
         [HttpPost]
-        public IActionResult XacNhanTT()
+        public IActionResult XacNhanTT(string paymentMethod)
         {
+
             var KH_JSON = HttpContext.Session.GetString("user");
             var thongTinkhachHang = JsonSerializer.Deserialize<KhachHang>(KH_JSON);
 
@@ -233,6 +254,7 @@ namespace DoAnWEBDEMO.Controllers
                     TempData["ErrorMessage"] = errorMessage;
                     return RedirectToAction("Index");
                 }
+
 
                 // Tạo hóa đơn
                 TaoHoaDon(thongTinkhachHang, ctgh);
@@ -264,15 +286,28 @@ namespace DoAnWEBDEMO.Controllers
 
         private string KiemTraSoLuongTon(List<ChiTietGioHang> ctgh)
         {
+            var errorMessages = new List<string>(); // Danh sách thông báo lỗi
+
             foreach (var item in ctgh)
             {
                 if (item.Soluong > item.MauSac.SoLuongTon_MS)
                 {
-                    return $"Sản phẩm {item.SanPham.TEN_SP} {item.MauSac.TenMauSac} không đủ số lượng tồn.";
+                    errorMessages.Add(
+                        $"Sản phẩm {item.SanPham.TEN_SP} ({item.MauSac.TenMauSac}) không đủ số lượng. " +
+                        $"Còn lại: {item.MauSac.SoLuongTon_MS}"
+                    );
                 }
             }
+
+            if (errorMessages.Any())
+            {
+                TempData["ErrorMessage"] = string.Join("<br>", errorMessages);
+                return TempData["ErrorMessage"].ToString();
+            }
+
             return null;
         }
+
 
         private DonHang TaoHoaDon(KhachHang thongTinkhachHang, List<ChiTietGioHang> ctgh)
         {

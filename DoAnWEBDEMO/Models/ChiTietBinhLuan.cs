@@ -5,26 +5,31 @@ namespace DoAnWEBDEMO.Models
 {
     public class ChiTietBinhLuan
     {
-
-        [Key] // Khóa chính tự tăng
+        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id_BinhLuan { get; set; }
-        [Key] // Đảm bảo trường này không được để trống
-        public int MA_SP { get; set; } // Khóa ngoại tới bảng Sản phẩm
 
-        [Key] // Đảm bảo trường này không được để trống
-        public int MA_KH { get; set; } // Khóa ngoại tới bảng Khách hàng
+        [Required]
+        public int MA_SP { get; set; }
 
-        [Range(1, 5)] // Hạn chế giá trị từ 1 đến 5 cho số sao
-        public int SO_SAO { get; set; } // Số sao đánh giá
+        [Required]
+        public int MA_KH { get; set; }
 
-        [StringLength(255)] // Giới hạn độ dài của nội dung đánh giá
-        public string? NOI_DUNG { get; set; } // Nội dung đánh giá
+        [Range(1, 5)]
+        public int SO_SAO { get; set; }
 
-        [Required] // Trường này không được để trống
-        public DateTime NGAY { get; set; } // Ngày đánh giá
+        [StringLength(255)]
+        public string? NOI_DUNG { get; set; }
+
+        [Required]
+        public DateTime NGAY { get; set; }
 
         public KhachHang? KhachHang { get; set; }
         public SanPham? SanPham { get; set; }
+
+        // Thuộc tính trạng thái hiển thị
+        [Required]
+        public bool IsHidden { get; set; } = false; // Mặc định bình luận sẽ hiển thị
     }
+
 }

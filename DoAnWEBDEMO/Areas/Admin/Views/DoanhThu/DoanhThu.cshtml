@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewData["Title"] = "DoanhThu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<style>
+    #doanhThuChart {
+        width: 100%; /* Chiều rộng của biểu đồ sẽ chiếm toàn bộ chiều rộng của div chứa */
+        height: 100% !important; /* Đảm bảo chiều cao chiếm hết không gian của div */
+    }
+</style>
+<div class="font-nunito bg-black-100">
+    <div class="container mx-auto p-4 text-black">
+        <h1 class="text-3xl font-bold mb-6 text-center">
+            Thống Kê Doanh Thu
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Phần Bán Hàng Hôm Nay -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-4">
+                    Bán Hàng Hôm Nay
+                </h2>
+                <div class="flex items-center mb-4">
+                    <label class="mr-2 text-lg" for="date">
+                        Chọn Ngày:
+                    </label>
+                    <input class="border rounded p-2 text-lg"
+                           id="date"
+                           type="date"
+                           value="@ViewBag.NgayChon"
+                           onchange="handleDateChange(this)" />
+                </div>
+                <p class="text-xl">
+                    Số Sản Phẩm Bán Hôm Nay:
+                    <span class="font-bold text-2xl" id="san-pham-ban">
+                        @ViewBag.TongSanPhamBanHomNay
+                    </span>
+                </p>
+                <p class="text-xl mt-4">
+                    Doanh Thu Bán Được:
+                    <span class="font-bold text-2xl" id="doanh-thu-ngay">
+                        @string.Format("{0:N0} đ", ViewBag.TongDoanhThuHomNay)
+                    </span>
+                </p>
+            </div>
+            <!-- Phần Đơn Hàng Hôm Nay -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-4">
+                    Đơn Hàng Hôm Nay
+                </h2>
+                <div class="flex justify-between mb-4">
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">
+                            Đơn Hàng Thành Công
+                        </h3>
+                        <p class="text-3xl font-bold text-green-500" id="don-hang-thanh-cong">
+                            @ViewBag.DonHangThanhCong
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold mb-2">
+                            Đơn Hàng Đã Hủy
+                        </h3>
+                        <p class="text-3xl font-bold text-red-500" id="don-hang-huy">
+                            @ViewBag.DonHangDaHuy
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Phần Biểu Đồ Doanh Thu -->
+        <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+            <h2 class="text-2xl font-semibold mb-4">
+                Tổng Quan Doanh Thu
+            </h2>
+            <div class="flex justify-center space-x-4 mb-6">
+                <label class="mr-2 text-lg" for="year-select">
+                    Chọn Năm:
+                </label>
+                <input class="border rounded p-2 text-lg"
+                       id="year-select"
+                       type="text"
+                       placeholder="Chọn Năm"
+                       value="@ViewBag.NamHienTai"
+                       onchange="checkYear(this)" />
+            </div>
+
+            <div class="w-full h-72">
+                <canvas id="doanhThuChart"></canvas> <!-- Biểu đồ cột -->
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    function handleDateChange(input) {
+        const today = new Date().toISOString().split("T")[0]; // Lấy ngày hiện tại (yyyy-MM-dd)
+        if (input.value > today) {
+            alert("Bạn không được chọn ngày lớn hơn ngày hiện tại!");
+            input.value = today; // Reset về ngày hiện tại
+        } else {
+            const selectedYear = document.getElementById('year-select').value; // Lấy giá trị năm từ input chọn năm
+            location.href = '?Ngay=' + input.value + '&NamDoanhThu=' + selectedYear;
+        }
+    }
+    function checkYear(input) {
+        const currentYear = new Date().getFullYear(); // Lấy năm hiện tại
+
+        // Kiểm tra nếu giá trị nhập vào không phải là một số hoặc lớn hơn năm hiện tại
+        const enteredYear = parseInt(input.value);
+
+        if (isNaN(enteredYear) || enteredYear > currentYear || enteredYear < 2000) {
+            alert("Bạn không được chọn năm lớn hơn năm hiện tại và phải lớn hơn hoặc bằng 2000 và nhập chữ!");
+            input.value = currentYear; // Reset về năm hiện tại nếu giá trị không hợp lệ
+        }
+
+        const selectedDate = "@ViewBag.NgayChon"; // Ngày chọn từ ViewBag
+        const selectedYear = input.value;
+        const formattedDate = new Date(selectedDate).toISOString().split('T')[0]; // Chuyển đổi ngày thành định dạng yyyy-MM-dd
+        const url = `/Admin/DoanhThu/DoanhThu?Ngay=${formattedDate}&NamDoanhThu=${selectedYear}`;
+        window.location.href = url;
+    }
+
+    // Dữ liệu doanh thu theo tháng từ ViewBag
+    var doanhThuTheoThang = @Html.Raw(Json.Serialize(ViewBag.DoanhThuTheoThang));
+
+    // Tạo biểu đồ cột sử dụng Chart.js
+    var ctx = document.getElementById('doanhThuChart').getContext('2d');
+    var doanhThuChart = new Chart(ctx, {
+        type: 'bar', // Loại biểu đồ là cột (bar)
+        data: {
+            labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'], // Tháng
+            datasets: [{
+                label: 'Doanh Thu',
+                data: doanhThuTheoThang, // Dữ liệu doanh thu theo từng tháng
+                backgroundColor: 'rgba(54, 162, 235, 0.2)', // Màu nền của các cột
+                borderColor: 'rgba(54, 162, 235, 1)', // Màu viền của các cột
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true, // Đảm bảo trục y bắt đầu từ 0
+                    ticks: {
+                        stepSize: 20000000, // Bước nhảy của trục y
+                        callback: function (value) { return value.toLocaleString(); } // Định dạng số với dấu phân cách nghìn
+                    }
+                }
+            }
+        }
+    });
+</script>

@@ -23,6 +23,13 @@ namespace DoAnWEBDEMO.ApplicationDB
         public DbSet<ChiTietBinhLuan> ChiTietBinhLuan { get; set; }
         public DbSet<KhuyenMai> KhuyenMai { get; set; }
         public DbSet<BaiViet> BaiViet { get; set; }
+        
+        //Giao diện
+        public DbSet<Header> Header { get; set; }
+        public DbSet<Footer> Footer { get; set; }
+        public DbSet<DichVuCongTy> DichVuCongTy { get; set; }
+
+        public DbSet<PhuongThucThanhToan> PhuongThucThanhToan { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -138,14 +138,16 @@
             {
                 <div class="col-md-3 my-2">
                     <div class="card h-100">
-                        <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })">
+                        <a href="@Url.Action("Details", "SanPham", new { slug = sp.Slug })">
                             <img src="@Url.Content($"~/image/products/{sp.HinhAnhSP}")"
                                  class="card-img-top p-3"
                                  style="max-height: 250px; object-fit: contain;" />
+                                
+
                         </a>
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title">
-                                <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })"
+                                <a href="@Url.Action("Details", "SanPham", new { slug = sp.Slug })"
                                    style="text-decoration: none; color: black;">
                                     @sp.TEN_SP
                                 </a>
@@ -155,7 +157,7 @@
                                 {
                                     @(@sp.MoTa.Substring(0, 110) + "...")
                                     ;
-                                    <a href="@Url.Action("Details", "SanPham", new { masp = sp.MaSP })"
+                                    <a href="@Url.Action("Details", "SanPham", new { slug = sp.Slug })"
                                        style="color : black; font-weight: 600;">Xem chi tiết</a>
                                 }
                                 else

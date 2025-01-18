@@ -1,0 +1,57 @@
+﻿@model DoAnWEBDEMO.Models.DichVuCongTy 
+
+<div class="col-12">
+
+    <div><p class="fw-bold">Sửa thông tin Dịch vụ công ty</p></div>
+
+    @if (TempData["ThanhCong"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["ThanhCong"]
+        </div>
+
+        <script>
+            setTimeout(function() {
+                window.location.href = '/Admin';
+            }, 1500);
+        </script>
+    }
+
+    @if (TempData["ThatBai"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ThatBai"]
+        </div>
+    }
+
+    <div class="mt-4">
+        <form class="form-center" method="POST" action="/Admin/Admin/SuaDichVu" onsubmit="return confirm('Bạn xác nhận muốn chỉnh sửa dữ liệu này!')">
+            <div class="d-none">
+                <input type="text" name="ID" value="@Model.ID" readonly />
+            </div>
+
+            <div class="mb-3">
+                <input type="text" value="@Model.TieuDe" name="TieuDe" class="form-control" placeholder="Tiêu đề" required/>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" name="MoTa" placeholder="Mô tả" required>@Model.MoTa</textarea>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="HinhAnh" value="@Model.HinhAnh" class="form-control" placeholder="Đường dẫn hình ảnh" required/>
+                <p class="my-1" style="font-size: 13px"><i class="bi bi-info-circle-fill"></i> Chỉ nhận đường liên kết hình ảnh</p>
+            </div>
+
+            <div class="mb-3">
+                <select class="form-select" name="TrangThai" required>
+                    <option value="1" @(Model.TrangThai == 1 ? "selected" : "")>Hiển thị</option>
+                    <option value="2" @(Model.TrangThai == 2 ? "selected" : "")>Ẩn</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Xác nhận</button>
+            <a href="/Admin" class="btn btn-danger">Quay lại</a>
+        </form>
+    </div>
+</div>

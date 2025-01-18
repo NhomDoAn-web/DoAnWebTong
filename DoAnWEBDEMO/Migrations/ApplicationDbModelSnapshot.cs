@@ -65,6 +65,9 @@ namespace DoAnWEBDEMO.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_BinhLuan"));
 
+                    b.Property<bool>("IsHidden")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("NGAY")
                         .HasColumnType("datetime2");
 
@@ -152,6 +155,34 @@ namespace DoAnWEBDEMO.Migrations
                     b.ToTable("DanhMuc");
                 });
 
+            modelBuilder.Entity("DoAnWEBDEMO.Models.DichVuCongTy", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("HinhAnh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MoTa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TieuDe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("DichVuCongTy");
+                });
+
             modelBuilder.Entity("DoAnWEBDEMO.Models.DonHang", b =>
                 {
                     b.Property<int>("MaDH")
@@ -192,6 +223,59 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasIndex("MaNVXL");
 
                     b.ToTable("DonHang");
+                });
+
+            modelBuilder.Entity("DoAnWEBDEMO.Models.Footer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("DuongLienKet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HinhAnh")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MoTa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TieuDe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TrangThaiHienThi")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Footer");
+                });
+
+            modelBuilder.Entity("DoAnWEBDEMO.Models.Header", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("DuongLienKet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TieuDe")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ViTriHienThi")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Header");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.KhachHang", b =>
@@ -416,6 +500,27 @@ namespace DoAnWEBDEMO.Migrations
                     b.HasKey("MA_NV");
 
                     b.ToTable("NhanVien");
+                });
+
+            modelBuilder.Entity("DoAnWEBDEMO.Models.PhuongThucThanhToan", b =>
+                {
+                    b.Property<int>("MaPT")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPT"));
+
+                    b.Property<string>("HinhPT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenPT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MaPT");
+
+                    b.ToTable("PhuongThucThanhToan");
                 });
 
             modelBuilder.Entity("DoAnWEBDEMO.Models.SanPham", b =>

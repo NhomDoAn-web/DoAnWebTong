@@ -1,0 +1,115 @@
+﻿
+@using X.PagedList
+@using X.PagedList.Mvc.Core;
+@using DoAnWEBDEMO.Models;
+@{
+    var pagedList = ViewBag.PagedList as IPagedList<LienHe>;
+    Layout = "_LayoutAdmin";
+}
+<div>
+
+    <div class="d-flex justify-content-center" style="padding:0 30px 0 30px" id="statusMessage">
+        <table class="table table-striped" style="width:100%;" id="statusTable">
+            <thead class="table table-dark">
+                <tr>
+                    <th>STT</th>
+                    <th>HỌ VÀ TÊN</th>
+                    <th>EMAIL</th>
+                    <th>SDT</th>
+                    <th>THỜI GIAN GỬI</th>
+                    <th>TRẠNG THÁI</th>
+                    <th>NHÂN VIÊN XỬ LÝ</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.PagedList)
+                {
+                    <tr class="status-row" data-status="@item.TRANG_THAI">
+                        <td>@item.MA_LH</td>
+                        <td>@item.HO_TEN</td>
+                        <td>@item.EMAIL</td>
+                        <td>@item.SDT</td>
+                        <td class="col-3">@item.THOI_GIAN_GUI.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td class="col-2">@(item.TRANG_THAI == 1 ? "Chưa xử lý" : "Đã xử lý")</td>
+                        <td class="col-3">@(item.NhanVien?.TENNV ?? "Chưa có người xử lý")</td>
+                        <td class="align-content-center">
+                            @if (item.TRANG_THAI == 1)
+                            {
+                                <button class="btn btn-success" 
+                                onclick="return confirm('Bạn có chắc chắn muốn cập nhật trạng thái?') && capNhatTrangThai(@item.MA_LH)"
+                                >Cập nhật</button>
+                            }
+                        </td>
+                        <td class="align-content-center">
+                            <button type="button" class="btn btn-danger" 
+                            onclick="return confirm('Bạn có chắc chắn muốn xóa liên hệ này?') && xoaLienHe(@item.MA_LH)"
+                            >Xóa</button>
+                        </td>
+                        <td class="align-content-center">
+                            <button class="btn btn-info btn-detail" onclick="toggleDetails(@item.MA_LH)"><i class="bi bi-info-square"></i></button>
+                        </td>
+                    </tr>
+                    <tr class="detail-row" id="detail-@item.MA_LH" style="display: none;">
+                        <td colspan="8">
+                            <p class="text-black">@item.NOI_DUNG</p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function toggleDetails(id) {
+        // Tìm dòng chi tiết dựa trên ID và chuyển đổi hiển thị
+        const detailRow = document.getElementById(`detail-${id}`);
+        if (detailRow.style.display === 'none') {
+            detailRow.style.display = 'table-row';
+        } else {
+            detailRow.style.display = 'none';
+        }
+    }
+
+    function xoaLienHe(id) {
+        $.ajax({
+            url: '@Url.Action("XoaLienHe", "LienHe")',
+            type: 'POST',
+            data: { MaLH: id },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.message);
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra!');
+            }
+        });
+    }
+
+    function capNhatTrangThai(id) {
+        $.ajax({
+            url: '@Url.Action("CapNhatTrangThai", "LienHe")',
+            type: 'POST',
+            data: { MaLH: id },
+            success: function (response) {
+                if (response.success) {
+                    alert(response.message);
+                    location.reload();
+                } else {
+                    alert('Lỗi: ' + response.message);
+                }
+            },
+            error: function () {
+                alert('Có lỗi xảy ra!');
+            }
+        });
+    }
+</script>

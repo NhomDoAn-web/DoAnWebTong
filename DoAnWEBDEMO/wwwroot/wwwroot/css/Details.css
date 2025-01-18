@@ -1,0 +1,24 @@
+﻿﻿.rating1 {
+    direction: rtl; /* Đảo ngược để thứ tự sao là từ phải sang trái */
+    display: inline-flex;
+}
+
+.star1 {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+input[type="radio"] {
+    display: none; /* Ẩn nút radio */
+}
+
+    input[type="radio"]:checked ~ label {
+        color: gold; /* Đổi màu khi được chọn */
+    }
+
+.star1:hover,
+.star1:hover ~ .star1 {
+    color: gold; /* Hiệu ứng hover */
+}

@@ -9,5 +9,7 @@
         public decimal Gia { get; set; }
         public string HinhAnhSP { get; set; }
         public decimal GiaSauKhiGiam { get; set; }
+
+        public string Slug { get; set; }
     }
 }

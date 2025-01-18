@@ -53,6 +53,10 @@ app.UseEndpoints(endpoints =>
     );
 });
 
+app.MapControllerRoute(
+    name: "Details",
+    pattern: "san-pham/{slug}",
+    defaults: new { controller = "SanPham", action = "Details" });
 
 app.MapControllerRoute(
     name: "default",

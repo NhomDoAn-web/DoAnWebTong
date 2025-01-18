@@ -1,0 +1,49 @@
+﻿
+
+
+
+
+<div class="col-12">
+
+    <div><p class="fw-bold">Thêm thông tin cho Dịch vụ công ty</p></div>
+
+    @if (TempData["ThanhCong"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["ThanhCong"]
+        </div>
+
+        <script>
+            setTimeout(function() {
+                window.location.href = '/Admin';
+            }, 1500);
+        </script>
+    }
+
+    @if (TempData["ThatBai"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ThatBai"]
+        </div>
+    }
+
+    <div class="mt-4">
+        <form class="form-center" method="POST" action="/Admin/Admin/ThemDichVu" onsubmit="return confirm('Bạn xác nhận muốn thêm dữ liệu này!')">
+            <div class="mb-3">
+                <input type="text" name="TieuDe" class="form-control" placeholder="Tiêu đề" required/>
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" name="MoTa" placeholder="Mô tả" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <input type="text" name="HinhAnh" class="form-control" placeholder="Đường dẫn hình ảnh" required />
+                <p class="my-1" style="font-size: 13px"><i class="bi bi-info-circle-fill"></i> Chỉ nhận đường liên kết hình ảnh</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Xác nhận</button>
+            <a href="/Admin" class="btn btn-danger">Quay lại</a>
+        </form>
+    </div>
+</div>
