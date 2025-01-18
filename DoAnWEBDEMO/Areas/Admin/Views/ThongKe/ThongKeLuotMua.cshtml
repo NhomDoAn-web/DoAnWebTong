@@ -1,169 +1,126 @@
-﻿@model IEnumerable<dynamic>
-
+﻿@model List<DoAnWEBDEMO.ViewModels.ThongKeSanPhamViewModel>
 @{
-    ViewData["Title"] = "Thống Kê Lượt Mua";
+    ViewData["Title"] = "Thống kê lượt mua";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2 class="text-center">THỐNG KÊ LƯỢT MUA</h2>
-
-<div class="text-center mb-4">
-    <button onclick="loadThongKe('ngay')" class="btn btn-primary me-2">Theo Ngày</button>
-    <button onclick="loadThongKe('thang')" class="btn btn-primary me-2">Theo Tháng</button>
-    <button onclick="loadThongKe('nam')" class="btn btn-primary">Theo Năm</button>
-</div>
-
-<div class=" mt-4">
-    <div class="row">
-        <!-- Danh sách -->
-        <h3 class="text-center">Danh sách sản phẩm và lượt mua</h3>
-        <table style="width: 100%; border-collapse: collapse; margin: 10px auto;" border="1">
-            <thead>
-                <tr style="background-color: #f4f4f4; text-align: left;">
-                    <th style="padding: 8px;">Tên sản phẩm</th>
-                    <th style="padding: 8px;">Màu sắc</th>
-                    <th style="padding: 8px;">Số lượng mua</th>
-                    <th style="padding: 8px;">Số lượt mua</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in ViewBag.DanhSach)
-                {
+<h2 class="text-center my-4 font-weight-bold">THỐNG KÊ LƯỢT MUA</h2>
+<div class="container-fluid">
+    <div class="row pt-3">
+        <div class="col-md-12 mb-4">
+            <form method="get" class="form-inline">
+                <div class="form-group mr-3">
+                    <label for="categoryId" class="mr-2">Chọn danh mục:</label>
+                    <select id="categoryId" name="categoryId" class="form-control form-control-sm" onchange="this.form.submit()">
+                        <option value="">Tất cả</option>
+                        @foreach (var category in ViewBag.Categories as List<DoAnWEBDEMO.Models.DanhMuc>)
+                        {
+                            <option value="@category.Ma_DM" @(category.Ma_DM == ViewBag.SelectedCategory ? "selected" : "")>@category.TenDM</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="month" class="mr-2">Chọn tháng</label>
+                    <select id="month" name="month" class="form-control form-control-sm" onchange="this.form.submit()">
+                        <option value="">Tất cả</option>
+                        @for (int i = 1; i <= 12; i++)
+                        {
+                            <option value="@i" @(i == ViewBag.SelectedMonth ? "selected" : "")>Tháng @i</option>
+                        }
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 pt-3">
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="table-dark">
                     <tr>
-                        <td style="padding: 8px;">@item.TenSanPham</td>
-                        <td style="padding: 8px;">@item.MauSac</td>
-                        <td style="padding: 8px; text-align: right;">@item.TongSoLuongMua</td>
-                        <td style="padding: 8px; text-align: right;">@item.TongSoDonHang</td>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số Lượt Mua</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-
-        <!-- Phân trang -->
-        <div class="d-flex justify-content-center mt-4">
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.TenSanPham</td>
+                            <td>@item.LuotMua</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
             <nav aria-label="Page navigation">
-                <ul class="pagination">
+                <ul class="pagination justify-content-center">
                     @if (ViewBag.CurrentPage > 1)
                     {
                         <li class="page-item">
-                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage - 1, pageSize = ViewBag.PageSize })">Trang trước</a>
+                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage - 1 })">« Trước</a>
                         </li>
                     }
-
                     @for (int i = 1; i <= ViewBag.TotalPages; i++)
                     {
-                        if (i == ViewBag.CurrentPage)
-                        {
-                            <li class="page-item active">
-                                <span class="page-link">@i</span>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="page-item">
-                                <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = i, pageSize = ViewBag.PageSize })">@i</a>
-                            </li>
-                        }
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = i })">@i</a>
+                        </li>
                     }
-
                     @if (ViewBag.CurrentPage < ViewBag.TotalPages)
                     {
                         <li class="page-item">
-                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage + 1, pageSize = ViewBag.PageSize })">Trang sau</a>
+                            <a class="page-link" href="@Url.Action("ThongKeLuotMua", new { page = ViewBag.CurrentPage + 1 })">Sau »</a>
                         </li>
                     }
                 </ul>
             </nav>
         </div>
-
-        <!-- Biểu đồ -->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            @* <h3 class="text-center">Danh sách sản phẩm và lượt mua</h3> *@
-            <canvas id="myChart" width="400" height="200"></canvas>
+        <div class="col-md-6">
+            <canvas id="chartThongKeLuotMua" style="width: 100%; height: 100%;"></canvas>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script>
-            var thongKeForChart = @Html.Raw(Json.Serialize(ViewBag.ThongKeForChart));
-
-            var labels = thongKeForChart.map(function (x) { return x.tenSanPham; });
-            var data = thongKeForChart.map(function (x) { return x.tongSoDonHang; });
-
-            var backgroundColors = [
-                'rgba(255, 99, 132, 0.6)', 
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 206, 86, 0.6)',
-                'rgba(75, 192, 192, 0.6)',
-                'rgba(153, 102, 255, 0.6)',
-                'rgba(255, 159, 64, 0.6)'
-            ];
-
-            var borderColors = [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ];
-
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Số Lượng Đơn Hàng',
-                        data: data,
-                        backgroundColor: backgroundColors,
-                        borderColor: borderColors,
-                        borderWidth: 1,
-                        hoverBackgroundColor: 'rgba(54, 162, 235, 0.8)',  
-                        hoverBorderColor: 'rgba(54, 162, 235, 1)', 
-                    }]
-                },
-                options: {
-                    responsive: true, 
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                stepSize: 10,  
-                            }
-                        }
-                    },
-                    indexAxis: 'x',
-                    elements: {
-                        bar: {
-                            barThickness: 20,  
-                            borderRadius: 5,   
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',  
-                            labels: {
-                                font: {
-                                    size: 14  
-                                }
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(0,0,0,0.7)', 
-                            titleColor: '#fff', 
-                            bodyColor: '#fff',   
-                            borderColor: '#ddd',
-                            borderWidth: 1,     
-                            callbacks: {
-                                label: function (tooltipItem) {
-                                    return tooltipItem.label + ': ' + tooltipItem.raw + ' đơn hàng';
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        </script>
-
-
     </div>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var labels = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(m => m.TenSanPham)));
+    var data = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Select(m => m.LuotMua)));
+
+    var backgroundColors = [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+    ];
+
+    var borderColors = [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+    ];
+
+    var ctx = document.getElementById('chartThongKeLuotMua').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Số lượt mua',
+                data: data,
+                backgroundColor: backgroundColors.slice(0, labels.length),
+                borderColor: borderColors.slice(0, labels.length),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true // Bắt đầu từ 0
+                }
+            }
+        }
+    });
+</script>

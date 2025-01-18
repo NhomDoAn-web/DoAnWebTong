@@ -40,6 +40,7 @@ namespace DoAnWEBDEMO.Controllers
                                        TEN_SP = sp.TEN_SP,
                                        Gia = sp.Gia,
                                        GiaSauKhiGiam = sp.Gia - km.MucGiamGia
+
                                    };
 
             var sanPhamNoiBat = from sp in _context.SanPham

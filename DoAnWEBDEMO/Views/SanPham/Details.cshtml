@@ -140,33 +140,6 @@
                 <div class="d-flex align-items-center mb-3">
                     <label for="color" style="font-weight: 600;" class="me-2">Chọn màu:</label>
                     <div id="color-selection" class="d-flex flex-wrap">
-@*                         @foreach (var color in Model.MauSacs)
-                        {
-                            var isDisabled = color.SoLuongTon_MS == 0; // Kiểm tra số lượng tồn
-
-                            <div class="color-option d-flex align-items-center @(isDisabled ? "disabled" : "")"
-                                 data-color="@color.TenMauSac"
-                                 data-image="@color.HinhAnhSP_MauSac"
-                                 data-id="@color.ID_MauSac"
-                                 style="padding: 5px 10px; margin: 0 10px; cursor: pointer; border-radius: 4px;"
-                                 onclick="selectColor(this)">
-                                <!-- Hình ảnh màu -->
-                                <img src="@color.HinhAnhSP_MauSac" alt="Màu @color.TenMauSac" style="width: 30px; height: 30px; margin-right: 10px;">
-                                <!-- Tên màu và số lượng -->
-                                <span id="productQuantity" class="color-name" style="white-space: nowrap;">
-                                    @color.TenMauSac
-                                    @if (isDisabled)
-                                    {
-                                        <span class="text-danger">(Hết hàng)</span>
-                                    }
-                                    else
-                                    {
-                                        <span>(@color.SoLuongTon_MS)</span>
-                                    }
-                                </span>
-                            </div>
-                        } *@
-
                         @* Hiển thị số lượng sản phẩm realtime *@
                         @foreach (var color in Model.MauSacs)
                         {
@@ -332,7 +305,7 @@
                     {
                         <div class="col-md-3">
                             <div class="card">
-                                <a href="@Url.Action("Details", "SanPham", new { masp = product.MaSP })">
+                                <a href="@Url.Action("Details", "SanPham", new { slug = product.Slug })">
                                     <img src="@Url.Content("~/image/" + product.HinhAnhSP)"
                                          class="card-img-top p-3"
                                          style="max-height: 250px; object-fit: contain;"

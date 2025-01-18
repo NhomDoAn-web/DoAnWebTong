@@ -42,10 +42,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASP.NET CORE/DoAnWebTong/DoAnWEBDEMO/Areas/Admin/Views/ThongKe/SanPhamBanChay.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhvbmdLZVxTYW5QaGFtQmFuQ2hheS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/ASP.NET CORE/DoAnWebTong/DoAnWEBDEMO/Areas/Admin/Views/ThongKe/ThongKeLuotMua.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGhvbmdLZVxUaG9uZ0tlTHVvdE11YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
