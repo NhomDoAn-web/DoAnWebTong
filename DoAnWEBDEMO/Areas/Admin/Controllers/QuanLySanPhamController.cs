@@ -132,10 +132,10 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
             return View(product);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(SanPham model, IFormFile? Image)
+        public IActionResult Edit(SanPham model, IFormFile? Image, string? newColor) // Thêm tham số mới để nhận màu sắc
         {
             var product = _context.SanPham.FirstOrDefault(p => p.MaSP == model.MaSP);
             if (product != null)
@@ -178,6 +178,51 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                 // Cập nhật slug (giả sử bạn có hàm GenerateSlug)
                 product.Slug = GenerateSlug(model.TEN_SP);
 
+                // Cập nhật màu sắc nếu có thay đổi
+                if (!string.IsNullOrEmpty(newColor))
+                {
+                    // Kiểm tra xem màu sắc đã tồn tại chưa
+                    var existingColor = _context.MauSac.FirstOrDefault(ms => ms.TenMauSac == newColor && ms.MaSP == product.MaSP);
+
+                    if (existingColor != null)
+                    {
+                        // Nếu màu sắc đã tồn tại
+                        if (existingColor.TrangThai == 0)
+                        {
+                           
+                            existingColor.TrangThai = 1;
+
+                            // Lưu lại thay đổi trạng thái màu sắc
+                            _context.Update(existingColor);
+                            _context.SaveChanges();
+                        }
+                    }
+                    else
+                    {
+                        // Nếu màu sắc chưa tồn tại, tạo mới màu sắc
+                        var newColorEntity = new MauSac
+                        {
+                            TenMauSac = newColor,
+                            MaSP = product.MaSP, // Liên kết màu sắc với sản phẩm hiện tại
+                            SoLuongTon_MS = 0, // Gán số lượng tồn mặc định nếu cần
+                            TrangThai = 1 // Mặc định trạng thái là "Hoạt động"
+                        };
+
+                        // Thêm màu sắc mới vào cơ sở dữ liệu
+                        _context.MauSac.Add(newColorEntity);
+
+                        // Thêm màu sắc mới vào danh sách màu sắc của sản phẩm
+                        if (product.MauSacs == null)
+                        {
+                            product.MauSacs = new List<MauSac>(); // Nếu danh sách MauSacs chưa được khởi tạo
+                        }
+                        product.MauSacs.Add(newColorEntity);
+                    }
+                }
+
+               
+
+
                 // Lưu lại sản phẩm đã cập nhật
                 _context.Update(product);
                 _context.SaveChanges();
@@ -191,6 +236,7 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
             // Nếu có lỗi hoặc không thành công, quay lại trang Edit
             return View(model);
         }
+
 
         //
         public string GenerateSlug(string input)
@@ -256,71 +302,6 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                                 SoLuongTon = int.TryParse(worksheet.Cells[row, 22].Text, out int soLuongTon) ? soLuongTon : 0,
                             };
 
-                            // Xử lý ảnh
-                            if (!string.IsNullOrEmpty(sanPham.HinhAnhSP))
-                            {
-                                string productUploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "image", "products");
-
-                                if (Uri.IsWellFormedUriString(sanPham.HinhAnhSP, UriKind.Absolute))
-                                {
-                                    // Nếu là URL, tải ảnh về
-                                    string fileName = $"{Guid.NewGuid()}{Path.GetExtension(sanPham.HinhAnhSP)}";
-                                    string filePath = Path.Combine(productUploadsFolder, fileName);
-
-                                    try
-                                    {
-                                        using (HttpClient client = new HttpClient())
-                                        {
-                                            byte[] imageBytes = await client.GetByteArrayAsync(sanPham.HinhAnhSP);
-                                            await System.IO.File.WriteAllBytesAsync(filePath, imageBytes);
-                                        }
-
-                                        // Lưu tên ảnh vào cơ sở dữ liệu (không cần lưu đường dẫn gốc)
-                                        sanPham.HinhAnhSP = fileName;
-                                    }
-                                    catch (Exception ex)
-                                    {
-                                        TempData["ErrorMessage"] = $"Không thể tải ảnh từ URL: {sanPham.HinhAnhSP}. Lỗi: {ex.Message}";
-                                        continue; // Bỏ qua sản phẩm nếu không thể tải ảnh
-                                    }
-                                }
-                                else
-                                {
-                                    // Nếu là tên file, kiểm tra và xử lý
-                                    string sourcePath = Path.Combine(_hostingEnvironment.WebRootPath, "image", "products", sanPham.HinhAnhSP);
-                                    if (System.IO.File.Exists(sourcePath))
-                                    {
-                                        // Đổi tên và di chuyển ảnh nếu cần thiết
-                                        string fileName = $"{Guid.NewGuid()}{Path.GetExtension(sanPham.HinhAnhSP)}";
-                                        string destPath = Path.Combine(productUploadsFolder, fileName);
-
-                                        try
-                                        {
-                                            // Copy ảnh đến thư mục mới với tên mới
-                                            System.IO.File.Copy(sourcePath, destPath, overwrite: true);
-                                            sanPham.HinhAnhSP = fileName; // Lưu tên ảnh
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            TempData["ErrorMessage"] = $"Không thể xử lý ảnh {sanPham.HinhAnhSP}. Lỗi: {ex.Message}";
-                                            continue; // Bỏ qua sản phẩm nếu không thể di chuyển ảnh
-                                        }
-                                    }
-                                    else
-                                    {
-                                        TempData["ErrorMessage"] = $"Ảnh {sanPham.HinhAnhSP} không tồn tại!";
-                                        continue; // Bỏ qua sản phẩm nếu ảnh không tồn tại
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                sanPham.HinhAnhSP = "loi-404.jpg"; // Gán ảnh mặc định nếu không có ảnh
-                            }
-
-
-
-
                             // Kiểm tra xem sản phẩm đã tồn tại trong cơ sở dữ liệu chưa
                             var existingProduct = _context.SanPham
                                 .FirstOrDefault(sp => sp.TEN_SP == sanPham.TEN_SP && sp.Slug == sanPham.Slug);
@@ -328,6 +309,30 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                             if (existingProduct == null)  // Nếu sản phẩm chưa tồn tại
                             {
                                 _context.SanPham.Add(sanPham);  // Thêm sản phẩm mới
+                                await _context.SaveChangesAsync();  // Lưu sản phẩm vào cơ sở dữ liệu
+
+                                // Sau khi lưu sản phẩm, lấy MaSP vừa được tạo tự động
+                                int maSP = sanPham.MaSP;
+
+                                // Xử lý màu sắc    
+                                string tenMauSac = worksheet.Cells[row, 23].Text; // Cột màu sắc trong Excel
+                                if (!string.IsNullOrEmpty(tenMauSac))
+                                {
+                                    var mauSac = _context.MauSac.FirstOrDefault(ms => ms.TenMauSac == tenMauSac);
+
+                                    if (mauSac != null)
+                                    {
+                                        // Liên kết sản phẩm với màu sắc
+                                        mauSac.MaSP = maSP;  // Gán MaSP từ sản phẩm vừa được thêm
+                                        _context.MauSac.Update(mauSac);
+                                    }
+                                    else
+                                    {
+                                        TempData["ErrorMessage"] = $"Màu sắc '{tenMauSac}' không tồn tại trong hệ thống!";
+                                        continue; // Bỏ qua sản phẩm nếu màu sắc không hợp lệ
+                                    }
+                                }
+
                                 TempData["SuccessMessage"] = "Tải dữ liệu từ Excel thành công!";
                             }
                             else
@@ -336,8 +341,7 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
                             }
                         }
 
-                        await _context.SaveChangesAsync();  // Lưu tất cả sản phẩm vào DB
-                      
+                        await _context.SaveChangesAsync();  // Lưu tất cả thay đổi vào DB
                     }
                 }
 
@@ -347,7 +351,6 @@ namespace DoAnWEBDEMO.Areas.Admin.Controllers
             TempData["ErrorMessage"] = "File không hợp lệ!";
             return View();
         }
-
 
 
     }

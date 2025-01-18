@@ -110,6 +110,16 @@
         <label for="Quantity">Số lượng tồn</label>
         <input type="number" class="form-control" id="Quantity" name="SoLuongTon" value="@Model.SoLuongTon" required />
     </div>
+    <select class="form-control" id="Color" name="MaMauSac">
+        <option value="">Chọn màu sắc</option>
+        @foreach (var color in ViewBag.MauSacList as List<DoAnWEBDEMO.Models.MauSac>)
+        {
+            <option value="@color.ID_MauSac" @(color.ID_MauSac == Model.MaSP ? "selected" : "")>@color.TenMauSac</option>
+        }
+    </select>
+
+
+
 
     <button type="submit" class="btn btn-success">Lưu thay đổi</button>
 
